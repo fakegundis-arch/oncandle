@@ -90,7 +90,7 @@ def main():
         port = []
         all_tr = []
         for sym, df in uni.items():
-            cost = D.DEFAULT_COST_PRICE.get(sym, 0.0)
+            cost = D.DEFAULT_COST_PRICE.get(sym, D.cost_pips(sym) * D.pip_size(sym))
             res = tr.backtest(df, p, cost, risk=a.risk)
             t = res.trades.assign(symbol=sym)
             all_tr.append(t)
