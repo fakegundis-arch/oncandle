@@ -11,7 +11,8 @@ The strategies that held up in testing are kept here for later comparison. Unles
 
 | # | Strategy | Market / TF | Win rate | PF 2025 | PF 2026 | $1,000 in 2026 (risk/trade, max drawdown) | Robustness | EA |
 |---|---|---|---|---|---|---|---|---|
-| 0 | **Gold Asian Breakout** (10% risk deep search) | Gold M15, Asian session | 53% | 1.96 | 1.38 | **$3,853 (10%, -74%)** | ★★★ family 100%/83% of variants profitable in 2025/2026; Q4 2024 +13% (with a -79% dip) | `GoldAsianBreakout.mq5` |
+| 0 | **Gold Asian Breakout - combined** (Donchian10/100h + prev-day break; deep search on 11 markets) | Gold M15, Asian session | 53% | 1.74 | 1.46 | **$15,953 (10%, -78%)** | ★★★ only robust family out of 11 markets; 95-100% of combined variants profitable in 2026; Q4 2024 dipped -87% | `GoldAsianBreakout.mq5` |
+| 0b | Gold Asian Breakout - single signal (Donchian20/50h) | Gold M15, Asian session | 53% | 1.96 | 1.38 | $3,853 (10%, -74%) | ★★★ | `GoldAsianBreakout.mq5` with UsePrevDay=false, Donchian 20, EMA 200 |
 | 1 | **Trend Rider v2, Asian session only** | Nasdaq (USTEC) M1 | ~55% | 1.26 | 1.39 | **$3,862 (2%, -33%)** / $6,613 (3%, -46%) / $14,969 (5%, -66%) | ★★★ all 36 neighbouring settings profitable in both years; OK up to 3-pt spread; Q4 2024 only break-even | `TrendRiderV2.mq5` |
 | 2 | **Gold H4 MACD + EMA100** (trend following) | Gold H4 | ~50% | strong (2025 boom year) | +0.24R avg | $2,881 (10%, -33%) / $5,883 (20%, -57%) | ★★☆ 8/8 MACD variants profitable in 2026; few trades (54/yr) | `OnCandleTrend.mq5` |
 | 3 | **Run Fade** (mean reversion, high win rate) | BTC H1 | **93%** | 1.82 | 1.77 | $1,440 (10%, -19%) / $1,927 (20%, -36%) | ★★★ 3 periods incl. Q4 2024 (94%/93%/92% wins); OK to $60 spread; exits verified on M1 | `RunFade.mq5` |

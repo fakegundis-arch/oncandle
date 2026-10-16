@@ -83,14 +83,16 @@ def job(sym):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=str(ROOT / "results" / "deep"))
+    ap.add_argument("--markets", nargs="+", default=["XAUUSD", "NAS100", "US30", "BTCUSD"])
+    ap.add_argument("--name", default="deep_all.csv")
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     rows = []
     with ProcessPoolExecutor(4) as ex:
-        for r in ex.map(job, ["XAUUSD", "NAS100", "US30", "BTCUSD"]):
+        for r in ex.map(job, a.markets):
             rows += r
-    pd.DataFrame(rows).to_csv(out / "deep_all.csv", index=False)
+    pd.DataFrame(rows).to_csv(out / a.name, index=False)
     print(len(rows), "backtests")
 
 

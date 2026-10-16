@@ -29,3 +29,29 @@ Re-verified minute by minute on M1:
 Jul $1,481, **Aug $4,074**, Sep $4,940, Oct $3,853. Longest losing streak: 6. Median stop $8.78/oz, median hold 1.3 h.
 
 EA: `mt5/Experts/GoldAsianBreakout.mq5` on XAUUSD M15 (defaults = these rules, 10% risk, session 0-6 server time).
+
+---
+# Round 3: all 11 markets (`deep_all_markets.csv`, 16,170 backtests)
+Markets: Dow, Nasdaq, S&P 500, gold, silver, WTI oil, BTC, EURUSD, GBPUSD, USDJPY, USDCAD. Same 46 session entries
+x 3 stops x 10 exits at 10% risk, chosen on 2025 and judged on 2026.
+
+* The best single configs by 2025 failed again: the top pick went to $10 in 2026, and only 38% of the top 50 made money.
+* By family robustness, **only gold in the Asian session survived**: Donchian + trend (100% / 83% of variants
+  profitable in 2025 / 2026) and the previous-day high/low break (90% / 85%). The best family of every other market
+  dropped to 0-7% profitable in 2026, including all FX pairs, S&P 500, silver, oil and BTC.
+
+## Combining the two gold Asian signals (`gold_asian_combined.csv`)
+Either signal opens a trade (one at a time). The combined family was profitable in 95-100% of its stop/exit variants in 2026.
+Final pick by 2025: **Donchian10 + 100h trend OR previous-day break, stop 1.5 ATR, target 3R, stop to +0.1R at +1R**.
+Verified minute by minute on M1:
+
+| Period | Trades | Win | PF | $1,000 at 10% risk | Max drawdown |
+|---|---|---|---|---|---|
+| Q4 2024 (unseen) | 88 | 52% | 1.21 | $1,074 | **-87%** |
+| 2025 (used to choose) | 309 | 60% | 1.74 | $375,054 (in-sample, overstated) | -69% |
+| **2026 (unseen)** | 260 | 53% | 1.46 | **$15,953** | **-78%** |
+
+2026 month-end balances: Jan $5,558, Feb $3,855, Mar $5,747, Apr $3,696, May $7,544, Jun $7,865, Jul $6,110, Aug $8,825,
+Sep $11,001, Oct $15,953. Longest losing streak in 2026: 8 trades (about -57% at 10% risk).
+
+EA: `mt5/Experts/GoldAsianBreakout.mq5` (defaults updated: Donchian 10, EMA 400, previous-day break on).

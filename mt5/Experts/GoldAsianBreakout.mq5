@@ -1,12 +1,15 @@
 //+------------------------------------------------------------------+
 //|                                           GoldAsianBreakout.mq5  |
-//|  Winner of the 10%-risk deep search (results/deep/REPORT.md).     |
+//|  Winner of the 10%-risk deep search on 11 markets                 |
+//|  (results/deep/REPORT.md): TWO gold Asian-session signals.        |
 //|  Attach to XAUUSD M15. Only opens trades in the Asian session     |
 //|  (Tokyo 09:00-15:00 = 00:00-06:00 on a GMT+0 server).             |
-//|   Entry : close breaks above the highest high of the previous     |
-//|           20 bars (below the lowest low for shorts) while the     |
-//|           ~50-hour trend agrees: price above EMA(200 x M15) and   |
+//|   Entry A: close breaks above the highest high of the previous    |
+//|           10 bars (below the lowest low for shorts) while the     |
+//|           ~100-hour trend agrees: price above EMA(400 x M15) and  |
 //|           that EMA higher than 1 hour ago.                        |
+//|   Entry B: first close of the session beyond the PREVIOUS DAY's   |
+//|           high (buy) or low (sell). Either signal opens a trade.  |
 //|   Stop  : 1.5 x ATR(14)   Target: 3R                              |
 //|   At +1R the stop moves to entry + 0.1R.                          |
 //+------------------------------------------------------------------+
@@ -15,8 +18,9 @@
 
 #include <Trade/Trade.mqh>
 
-input int    InpDonchian     = 20;    // Breakout lookback (bars)
-input int    InpTrendEMA     = 200;   // Trend EMA (200 x M15 = 50 hours)
+input int    InpDonchian     = 10;    // Breakout lookback (bars)
+input int    InpTrendEMA     = 400;   // Trend EMA (400 x M15 = 100 hours)
+input bool   InpUsePrevDay   = true;  // Also trade the first break of the previous day's high/low
 input int    InpSlopeBars    = 4;     // EMA must be rising/falling vs this many bars ago
 input double InpStopATR      = 1.5;   // Stop = this x ATR(14)
 input double InpMinStop      = 2.0;   // Minimum stop distance in price ($)
@@ -32,6 +36,7 @@ input ulong  InpMagic        = 20261022;
 CTrade   trade;
 int      hEma = INVALID_HANDLE, hAtr = INVALID_HANDLE;
 datetime lastBar = 0;
+int      pdDoneDay = -1;              // day-of-year the previous-day break already fired
 
 double Buf(int h, int s)
   {
@@ -104,12 +109,25 @@ void OnTick()
    datetime t0 = iTime(_Symbol, _Period, 0);
    if(t0 == lastBar) return;
    lastBar = t0;
-   if(inPos || Bars(_Symbol, _Period) < InpTrendEMA + InpDonchian + 10) return;
+   if(Bars(_Symbol, _Period) < InpTrendEMA + InpDonchian + 10) return;
 
    MqlDateTime bt; TimeToStruct(iTime(_Symbol, _Period, 1), bt);       // signal bar's start hour
    bool inSession = InpSessionStart < InpSessionEnd ? (bt.hour >= InpSessionStart && bt.hour < InpSessionEnd)
                                                     : (bt.hour >= InpSessionStart || bt.hour < InpSessionEnd);
    if(!inSession) return;
+
+   // Entry B bookkeeping runs even while a trade is open: only the FIRST
+   // previous-day break of each session counts (as in the backtest).
+   int pdDir = 0;
+   if(InpUsePrevDay && pdDoneDay != bt.day_of_year)
+     {
+      double c1b = iClose(_Symbol, _Period, 1);
+      double pdh = iHigh(_Symbol, PERIOD_D1, 1), pdl = iLow(_Symbol, PERIOD_D1, 1);
+      if(pdh > 0 && c1b > pdh)      pdDir = 1;
+      else if(pdl > 0 && c1b < pdl) pdDir = -1;
+      if(pdDir != 0) pdDoneDay = bt.day_of_year;
+     }
+   if(inPos) return;
    if(InpMaxSpreadPts > 0 && SymbolInfoInteger(_Symbol, SYMBOL_SPREAD) > InpMaxSpreadPts) return;
 
    double c1 = iClose(_Symbol, _Period, 1), c2 = iClose(_Symbol, _Period, 2);
@@ -123,6 +141,7 @@ void OnTick()
    int dir = 0;
    if(c1 > up1 && c2 <= up2 && c1 > e1 && e1 > eS) dir = 1;
    else if(c1 < dn1 && c2 >= dn2 && c1 < e1 && e1 < eS) dir = -1;
+   if(dir == 0) dir = pdDir;                     // entry B
    if(dir == 0) return;
 
    double dist = MathMax(InpStopATR * atr, InpMinStop);
