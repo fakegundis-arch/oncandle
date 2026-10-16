@@ -122,8 +122,9 @@ def backtest_m1(m1: pd.DataFrame, days, p: Params, spread: float, slip: float) -
     """Same rules on 1-minute BID bars.  Reference quote = close of the 09:29
     bar (the straddle is placed at 09:29:50).  A buy stop fills at its level
     + `slip` (+ spread, as longs buy the ask); if both stops trigger inside
-    the same minute the bar's colour decides which came first and exits are
-    then checked from that same bar, stop before target (pessimistic)."""
+    the same minute the side AGAINST the bar's colour is assumed to have filled
+    first, and exits are checked from that same bar, stop before target
+    (pessimistic - use the tick backtest to resolve these minutes exactly)."""
     o, h, l, c = (m1[x].to_numpy() for x in ("open", "high", "low", "close"))
     idx = m1.index
     rows = []
@@ -139,7 +140,11 @@ def backtest_m1(m1: pd.DataFrame, days, p: Params, spread: float, slip: float) -
         for i in range(i0, min(i0 + n_exp, len(o))):
             tu, td = h[i] >= up_lvl, l[i] <= dn_lvl
             if tu and td:
-                d_ = 1 if c[i] >= o[i] else -1
+                # Both stops inside one minute: the order of events is unknown
+                # from M1 data.  Using the bar's colour would leak where the
+                # minute ended, so assume the WORST case - the side against the
+                # minute's final direction filled first (a whipsaw).
+                d_ = -1 if c[i] >= o[i] else 1
             elif tu:
                 d_ = 1
             elif td:

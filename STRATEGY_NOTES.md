@@ -51,6 +51,8 @@ The strategies that held up in testing are kept here for later comparison. Unles
 * **Other tested presets:** US30 H4 (4 candles, 1.5 ATR, TP 0.3, SL 3, 10 bars); XAUUSD H1 (4, 3.0, 0.5, 4, 10).
 
 ## Tested and rejected (for reference)
+* **NY-open straddle (Nasdaq and Dow, 09:29:50 OCO stops):** Nasdaq loses in every robust test (tick PF ~0.8). Dow is about
+  break-even and fragile; the best-by-2025 config gave $1,000 -> $434 in 2026 at 10% risk. See `results/straddle/REPORT.md`.
 * **Trend Rider v1 on M1, all 4 markets:** -0.2R/trade after spread; the M1 ADX/chop filter switched off at every pullback.
 * **Candle Run (strategy 3, BTC M1, follow the run):** negative even with zero cost; on BTC M1, runs revert rather than continue.
 * **Confluence Rider over the full 2 years:** -89% (only 2026 was good).
