@@ -100,6 +100,16 @@ The stop, the 1:3 target and breakeven at 1R are the same as Trend Rider.
 python scripts/run_confluence.py      # -> results/confluence/REPORT.md
 ```
 
+## Candle Run (strategy 3, BTC M1)
+
+This strategy lives in `backtester/candle_run.py` and `mt5/Experts/BtcCandleRun.mq5`. When 4 one-minute candles in a row
+close the same colour and together move at least 1.5×ATR, it joins the move at the next open.
+The stop goes beyond the start of the run, the target is 1:3, and the stop moves to breakeven at 1R.
+
+```bash
+python scripts/run_candle_run.py      # -> results/candle_run/REPORT.md
+```
+
 ## Limitations (please read)
 
 * Swaps/rollover are not modelled. Over multi-week D1 holds they can matter.
