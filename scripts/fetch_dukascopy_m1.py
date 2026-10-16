@@ -21,6 +21,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 import requests
 
@@ -32,6 +33,13 @@ SYMBOLS = {
     "XAUUSD": ("XAUUSD", 1e3),
     "USATECHIDXUSD": ("NAS100", 1e3),
     "USA30IDXUSD": ("US30", 1e3),
+    "USA500IDXUSD": ("US500", 1e3),
+    "XAGUSD": ("XAGUSD", 1e3),
+    "LIGHTCMDUSD": ("USOIL", 1e3),
+    "EURUSD": ("EURUSD", 1e5),
+    "GBPUSD": ("GBPUSD", 1e5),
+    "USDJPY": ("USDJPY", 1e3),
+    "USDCAD": ("USDCAD", 1e5),
 }
 
 
@@ -63,6 +71,7 @@ def main():
     ap.add_argument("--end", default=str(date.today() - timedelta(days=1)))
     ap.add_argument("--out", default=str(ROOT / "data"))
     ap.add_argument("--threads", type=int, default=12)
+    ap.add_argument("--bid-only", action="store_true", help="skip ASK candles (spread column = NaN)")
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -75,7 +84,7 @@ def main():
     for sym in a.symbols:
         name, scale = SYMBOLS[sym]
         frames = {}
-        for side in ("BID", "ASK"):
+        for side in (("BID",) if a.bid_only else ("BID", "ASK")):
             with ThreadPoolExecutor(a.threads) as ex:
                 parts = list(ex.map(lambda d: fetch_day(sym, scale, d, side, s), days))
             failed = sum(p is None for p in parts)
@@ -84,10 +93,13 @@ def main():
             df["time"] = pd.to_datetime(df["time"], unit="s")
             frames[side] = df.set_index("time")
             print(f"{name} {side}: {len(df):,} rows, {failed} days failed")
-        bid, ask = frames["BID"], frames["ASK"]
-        bid = bid[bid.volume > 0]
-        bid["spread"] = (ask["close"] - bid["close"]).reindex(bid.index)
-        bid["spread"] = bid["spread"].clip(lower=0).fillna(bid["spread"].median())
+        bid = frames["BID"]
+        bid = bid[bid.volume > 0].copy()
+        if "ASK" in frames:
+            bid["spread"] = (frames["ASK"]["close"] - bid["close"]).reindex(bid.index)
+            bid["spread"] = bid["spread"].clip(lower=0).fillna(bid["spread"].median())
+        else:
+            bid["spread"] = np.nan
         path = out / f"{name}_M1.csv"
         bid[["open", "high", "low", "close", "spread"]].to_csv(path)
         print(f"{name}: {len(bid):,} bars {bid.index[0]} -> {bid.index[-1]}, "

@@ -118,7 +118,8 @@ def backtest(market: str, days, p: Params) -> pd.DataFrame:
 
 # ---------------------------------------------------------------------------
 # M1 approximation, for the full history (ticks are only cached for part of it)
-def backtest_m1(m1: pd.DataFrame, days, p: Params, spread: float, slip: float) -> pd.DataFrame:
+def backtest_m1(m1: pd.DataFrame, days, p: Params, spread: float, slip: float,
+                units: dict | None = None) -> pd.DataFrame:
     """Same rules on 1-minute BID bars.  Reference quote = close of the 09:29
     bar (the straddle is placed at 09:29:50).  A buy stop fills at its level
     + `slip` (+ spread, as longs buy the ask); if both stops trigger inside
@@ -134,7 +135,13 @@ def backtest_m1(m1: pd.DataFrame, days, p: Params, spread: float, slip: float) -
         if i0 == 0 or i0 >= len(idx) or idx[i0] != t0 or idx[i0 - 1] < t0 - pd.Timedelta("3min"):
             continue
         ref = c[i0 - 1]
-        up_lvl, dn_lvl = ref + p.dist, ref - p.dist
+        k = 1.0
+        if units is not None:
+            if d not in units:
+                continue
+            k = units[d]                     # dist and sl are multiples of the day's unit
+        dist, sl = p.dist * k, p.sl * k
+        up_lvl, dn_lvl = ref + dist, ref - dist
         n_exp = max(1, p.expiry_s // 60)
         fill_i = d_ = None
         for i in range(i0, min(i0 + n_exp, len(o))):
@@ -158,7 +165,7 @@ def backtest_m1(m1: pd.DataFrame, days, p: Params, spread: float, slip: float) -
             fill = max(up_lvl, o[fill_i]) + slip + spread        # ask
         else:
             fill = min(dn_lvl, o[fill_i]) - slip                 # bid
-        sl_px, tp_px = fill - d_ * p.sl, fill + d_ * p.rr * p.sl
+        sl_px, tp_px = fill - d_ * sl, fill + d_ * p.rr * sl
         end = idx.searchsorted(t0 + pd.Timedelta(minutes=p.max_hold_min))
         exit_px, j = None, fill_i
         for j in range(fill_i, min(end, len(o))):
@@ -174,6 +181,20 @@ def backtest_m1(m1: pd.DataFrame, days, p: Params, spread: float, slip: float) -
                     exit_px = tp_px; break
         if exit_px is None:
             exit_px = c[j] if d_ == 1 else c[j] + spread
-        rows.append({"date": pd.Timestamp(d), "dir": d_, "r": d_ * (exit_px - fill) / p.sl,
+        rows.append({"date": pd.Timestamp(d), "dir": d_, "r": d_ * (exit_px - fill) / sl,
                      "hold_min": j - fill_i})
     return pd.DataFrame(rows)
+
+
+def opening_units(m1: pd.DataFrame, days, minutes: int = 15, lookback: int = 20) -> dict:
+    """Per-day scale = median high-low of the first `minutes` after the NY open
+    over the previous `lookback` opens (known before the day starts), so one
+    grid of multiples fits markets of any price level."""
+    ranges = {}
+    for d in days:
+        t0 = ny_open_utc(d)
+        w = m1.loc[t0:t0 + pd.Timedelta(minutes=minutes - 1)]
+        if len(w) >= minutes // 2:
+            ranges[d] = w.high.max() - w.low.min()
+    s = pd.Series(ranges).sort_index()
+    return s.shift().rolling(lookback, min_periods=10).median().dropna().to_dict()

@@ -44,7 +44,7 @@ def load_csv(path: str | Path) -> pd.DataFrame:
         tcol = next((c for c in df.columns if c in ("time", "date", "datetime", "timestamp", "gmt time")),
                     df.columns[0])
         df.index = pd.to_datetime(df[tcol], dayfirst=("." in str(df[tcol].iloc[0])[:3]))
-        if "spread" in df.columns:
+        if "spread" in df.columns and df["spread"].notna().any():
             keep = OHLC + ["spread"]
     df.index.name = "time"
     df = df[keep].astype(float)
@@ -113,6 +113,13 @@ EXNESS_STANDARD_SPREAD = {
     "XAUUSD": 0.20,
     "NAS100": 1.2,
     "US30": 2.0,
+    "US500": 0.5,
+    "XAGUSD": 0.03,
+    "USOIL": 0.03,
+    "EURUSD": 0.00010,
+    "GBPUSD": 0.00012,
+    "USDJPY": 0.011,
+    "USDCAD": 0.00018,
 }
 SYMBOL_ALIASES = {
     "BTCUSD": "BTCUSD", "BTCUSDT": "BTCUSD", "BITCOIN": "BTCUSD",
