@@ -52,7 +52,9 @@ The strategies that held up in testing are kept here for later comparison. Unles
 
 ## Tested and rejected (for reference)
 * **NY-open straddle (Nasdaq and Dow, 09:29:50 OCO stops):** Nasdaq loses in every robust test (tick PF ~0.8). Dow is about
-  break-even and fragile; the best-by-2025 config gave $1,000 -> $434 in 2026 at 10% risk. See `results/straddle/REPORT.md`.
+  break-even and fragile; the best-by-2025 config gave $1,000 -> $434 in 2026 at 10% risk. Also tested on S&P 500, gold,
+  silver, oil, BTC, EURUSD, GBPUSD, USDJPY and USDCAD: none beat the Dow and none is profitable in both years.
+  See `results/straddle/REPORT.md`.
 * **Trend Rider v1 on M1, all 4 markets:** -0.2R/trade after spread; the M1 ADX/chop filter switched off at every pullback.
 * **Candle Run (strategy 3, BTC M1, follow the run):** negative even with zero cost; on BTC M1, runs revert rather than continue.
 * **Confluence Rider over the full 2 years:** -89% (only 2026 was good).

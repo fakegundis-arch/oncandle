@@ -32,3 +32,23 @@ stop and hold time. **No R:R makes it work.** Nasdaq's best tick-level median PF
 history no R:R was profitable in both years in more than 19% of settings. The Dow's best tick-level median PF is 1.11
 (1:1.5); in M1 at most 28% of settings were profitable in both years (1:3). Wider targets lift PF slightly but cut
 the win rate to about 20-30%.
+
+## Other markets (`markets_grid.csv`)
+The same straddle was tested on 11 markets: Dow, Nasdaq, S&P 500, gold, silver, WTI oil, BTC, EURUSD, GBPUSD, USDJPY
+and USDCAD (Oct 2024 - Oct 2026, ~500 opens each). Distances and stops are multiples of each market's median
+15-minute opening range over the previous 20 opens. Realistic run: Exness spread + 1.5x spread slippage.
+Generous run: zero slippage and stops up to 1.5x the opening range.
+
+| Market | Settings profitable in both years (realistic / generous) | Median PF 2026 (generous) | Best-by-2025 config, $1,000 at 10% in 2026 (generous) |
+|---|---|---|---|
+| US30 (Dow) | 18% / 33% | 0.90 | $487 |
+| Gold | 0% / 12% | 0.92 | $231 |
+| BTC | 0% / 10% | 0.97 | $367 |
+| Nasdaq | 3% / - | 0.70 (realistic) | $151 (realistic) |
+| S&P 500 | 0% / 0% | 0.78 | $142 |
+| Silver | 0% / 0% | 0.91 | $1,050 |
+| WTI oil | 0% / 0% | 1.07 | $637 |
+| EURUSD / GBPUSD / USDJPY / USDCAD | 0% / 0% | 0.53 - 0.67 | $6 - $76 |
+
+**No market does better than the Dow, and the Dow itself has no reliable edge.** The FX pairs move too little at
+the NY open relative to their spread. Indices and metals whipsaw.
