@@ -73,12 +73,17 @@ def main():
     ap.add_argument("--pattern", default="*_M1.csv")
     ap.add_argument("--risk", type=float, default=0.005, help="fraction of equity risked per trade")
     ap.add_argument("--holdout", type=float, default=0.3)
+    ap.add_argument("--costs", choices=["data", "typical"], default="data",
+                    help="data: charge max(per-bar spread in the file, typical cost); "
+                         "typical: ignore the file's spread, use backtester/data.py defaults")
     ap.add_argument("--out", default=str(ROOT / "results" / "trend_rider"))
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
 
     uni = load(Path(a.data), a.pattern)
+    if a.costs == "typical":
+        uni = {k: v.drop(columns="spread", errors="ignore") for k, v in uni.items()}
     if not uni:
         sys.exit(f"no {a.pattern} files in {a.data} - export M1 bars from MT5 first (see docstring)")
     for s, d in uni.items():

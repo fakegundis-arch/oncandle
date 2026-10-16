@@ -44,6 +44,8 @@ def load_csv(path: str | Path) -> pd.DataFrame:
         tcol = next((c for c in df.columns if c in ("time", "date", "datetime", "timestamp", "gmt time")),
                     df.columns[0])
         df.index = pd.to_datetime(df[tcol], dayfirst=("." in str(df[tcol].iloc[0])[:3]))
+        if "spread" in df.columns:
+            keep = OHLC + ["spread"]
     df.index.name = "time"
     df = df[keep].astype(float)
     return clean(df)
