@@ -87,6 +87,19 @@ The report shows the rules as specified and a hold-out period. It also includes 
 (no breakeven, breakeven at 1.5R, 1:2, no consolidation filter, stricter filter, US session only)
 so you can see whether each rule actually helps.
 
+## Confluence Rider (strategy 2, M1, multi-market confirmation)
+
+This strategy lives in `backtester/confluence.py` and `mt5/Experts/ConfluenceRider.mq5`. Every minute, each
+market (BTC, gold, Nasdaq, Dow) is classified as trending up, trending down, or consolidating, using
+Trend Rider's definition. A market is only traded when it is trending **and at least
+`MinAgree` markets (2 by default, counting itself) trend the same way**. One market trending
+alone is ignored. Entry is either the EMA20 pullback (the default) or the minute the group lines up.
+The stop, the 1:3 target and breakeven at 1R are the same as Trend Rider.
+
+```bash
+python scripts/run_confluence.py      # -> results/confluence/REPORT.md
+```
+
 ## Limitations (please read)
 
 * Swaps/rollover are not modelled. Over multi-week D1 holds they can matter.

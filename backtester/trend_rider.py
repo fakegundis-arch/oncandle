@@ -79,27 +79,38 @@ def signals(df: pd.DataFrame, p: Params) -> pd.DataFrame:
     up = (e_m > e_s) & (c > e_m) & (e_m > e_m.shift(p.slope_bars))
     dn = (e_m < e_s) & (c < e_m) & (e_m < e_m.shift(p.slope_bars))
 
-    long_setup = up & trending & (l.shift() <= e_f.shift()) & (c > e_f) & (c > h.shift())
-    short_setup = dn & trending & (h.shift() >= e_f.shift()) & (c < e_f) & (c < l.shift())
+    trend = pd.Series(np.where(up & trending, 1, np.where(dn & trending, -1, 0)), df.index)
+    pb_long = (l.shift() <= e_f.shift()) & (c > e_f) & (c > h.shift())
+    pb_short = (h.shift() >= e_f.shift()) & (c < e_f) & (c < l.shift())
+    long_setup = (trend == 1) & pb_long
+    short_setup = (trend == -1) & pb_short
 
     # Stop distance measured from the signal close; the engine re-anchors it
     # to the actual fill price.
     long_dist = (c - l.rolling(p.swing_bars).min()).clip(lower=p.min_stop_atr * a)
     short_dist = (h.rolling(p.swing_bars).max() - c).clip(lower=p.min_stop_atr * a)
-    long_setup &= long_dist <= p.max_stop_atr * a
-    short_setup &= short_dist <= p.max_stop_atr * a
+    long_ok = long_dist <= p.max_stop_atr * a
+    short_ok = short_dist <= p.max_stop_atr * a
 
     if p.session_utc is not None:
         hr = df.index.hour
         lo, hi = p.session_utc
         ok = (hr >= lo) & (hr < hi) if lo < hi else (hr >= lo) | (hr < hi)
-        long_setup &= ok
-        short_setup &= ok
+        long_ok &= ok
+        short_ok &= ok
+    long_setup &= long_ok
+    short_setup &= short_ok
 
     sig = np.where(long_setup, 1, np.where(short_setup, -1, 0))
     dist = np.where(sig == 1, long_dist, np.where(sig == -1, short_dist, 0.0))
-    out = pd.DataFrame({"signal": sig, "dist": dist}, index=df.index)
-    out.loc[a.isna() | e_s.isna() | adx.isna() | chop.isna(), ["signal", "dist"]] = 0
+    out = pd.DataFrame({"signal": sig, "dist": dist,
+                        # building blocks reused by the multi-market strategy
+                        "trend": trend, "pb_long": pb_long & long_ok, "pb_short": pb_short & short_ok,
+                        "long_dist": long_dist, "short_dist": short_dist,
+                        "long_ok": long_ok, "short_ok": short_ok}, index=df.index)
+    warm = a.isna() | e_s.isna() | adx.isna() | chop.isna()
+    out.loc[warm, ["signal", "dist", "trend"]] = 0
+    out.loc[warm, ["pb_long", "pb_short", "long_ok", "short_ok"]] = False
     return out
 
 
