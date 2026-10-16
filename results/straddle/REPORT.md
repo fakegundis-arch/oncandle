@@ -25,3 +25,10 @@ worse side filled first, and tick data resolves those minutes exactly.
 **Verdict:** no reliable edge. Nasdaq clearly loses: the opening spike usually whipsaws and stops out the triggered
 side. The Dow is around break-even, highly sensitive to settings, and at 10% risk the drawdowns are 85-90%.
 Fills came a median 4.9 s after the open (ticks).
+
+## R:R sweep (`rr_sweep.csv`)
+Targets of 1:0.5, 1:1, 1:1.5, 1:2, 1:3, 1:4, 1:5 and none (time exit only) were tested across every distance,
+stop and hold time. **No R:R makes it work.** Nasdaq's best tick-level median PF is 1.04 (no target); in the M1
+history no R:R was profitable in both years in more than 19% of settings. The Dow's best tick-level median PF is 1.11
+(1:1.5); in M1 at most 28% of settings were profitable in both years (1:3). Wider targets lift PF slightly but cut
+the win rate to about 20-30%.
