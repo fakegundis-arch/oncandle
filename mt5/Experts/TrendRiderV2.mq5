@@ -4,6 +4,8 @@
 //|  Trend is judged on COMPLETED M5 candles and held through         |
 //|  pullbacks; entries are timed on M1 pullbacks to EMA20.           |
 //|  Mirrors backtester/trend_rider_v2.py.                            |
+//|  Nasdaq Asian-session preset (backtester/sessions.py):           |
+//|    USTEC M1, MinStopPrice 40, RR 3, BETrigger 1, Session 0..6    |
 //+------------------------------------------------------------------+
 #property copyright "oncandle"
 #property version   "2.00"
@@ -35,6 +37,10 @@ input double InpMaxStopATR  = 6.0;
 input int    InpSwingBars   = 15;
 input int    InpAtrPeriod   = 14;
 input int    InpMaxSpreadPts = 0;
+
+input group "Session (server time; Exness = GMT+0)"
+input int    InpSessionStart = 0;   // Only open trades from this hour...
+input int    InpSessionEnd   = 24;  // ...until this hour (0/24 = all day). Asian/Tokyo = 0..6 on GMT+0
 input ulong  InpMagic = 20261020;
 
 CTrade   trade;
@@ -154,6 +160,11 @@ void OnTick()
    lastBar = t0;
    if(inPos || Bars(_Symbol, PERIOD_M1) < 400) return;
    if(InpMaxSpreadPts > 0 && SymbolInfoInteger(_Symbol, SYMBOL_SPREAD) > InpMaxSpreadPts) return;
+
+   MqlDateTime bt; TimeToStruct(iTime(_Symbol, PERIOD_M1, 1), bt);   // signal candle's hour
+   bool inSession = InpSessionStart < InpSessionEnd ? (bt.hour >= InpSessionStart && bt.hour < InpSessionEnd)
+                                                    : (bt.hour >= InpSessionStart || bt.hour < InpSessionEnd);
+   if(!inSession) return;                            // no new trades outside the session
 
    int reg = Regime();
    if(reg == 0) return;
