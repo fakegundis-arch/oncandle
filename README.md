@@ -1,5 +1,7 @@
 # OnCandle - trend-following bots for MT5, with an honest backtester
 
+> **Best strategies so far: see [STRATEGY_NOTES.md](STRATEGY_NOTES.md).**
+
 Twelve trend-following strategies, a fast Python backtester that ranks them by
 **walk-forward out-of-sample** performance, and a single MT5 Expert Advisor
 that trades any of them with the same rules.
