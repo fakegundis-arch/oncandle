@@ -11,6 +11,7 @@ The strategies that held up in testing are kept here for later comparison. Unles
 
 | # | Strategy | Market / TF | Win rate | PF 2025 | PF 2026 | $1,000 in 2026 (risk/trade, max drawdown) | Robustness | EA |
 |---|---|---|---|---|---|---|---|---|
+| 0 | **Gold Asian Breakout** (10% risk deep search) | Gold M15, Asian session | 53% | 1.96 | 1.38 | **$3,853 (10%, -74%)** | ★★★ family 100%/83% of variants profitable in 2025/2026; Q4 2024 +13% (with a -79% dip) | `GoldAsianBreakout.mq5` |
 | 1 | **Trend Rider v2, Asian session only** | Nasdaq (USTEC) M1 | ~55% | 1.26 | 1.39 | **$3,862 (2%, -33%)** / $6,613 (3%, -46%) / $14,969 (5%, -66%) | ★★★ all 36 neighbouring settings profitable in both years; OK up to 3-pt spread; Q4 2024 only break-even | `TrendRiderV2.mq5` |
 | 2 | **Gold H4 MACD + EMA100** (trend following) | Gold H4 | ~50% | strong (2025 boom year) | +0.24R avg | $2,881 (10%, -33%) / $5,883 (20%, -57%) | ★★☆ 8/8 MACD variants profitable in 2026; few trades (54/yr) | `OnCandleTrend.mq5` |
 | 3 | **Run Fade** (mean reversion, high win rate) | BTC H1 | **93%** | 1.82 | 1.77 | $1,440 (10%, -19%) / $1,927 (20%, -36%) | ★★★ 3 periods incl. Q4 2024 (94%/93%/92% wins); OK to $60 spread; exits verified on M1 | `RunFade.mq5` |
@@ -19,6 +20,12 @@ The strategies that held up in testing are kept here for later comparison. Unles
 | 6 | **Confluence Rider** (2+ markets must agree), $10 gold stop | Gold M1 | ~50% | - | - | +12.5% over 2 yrs (0.5%), +19% in 2026 | ★☆☆ best stop size varied by year | `ConfluenceRider.mq5` |
 
 ## Details
+
+### 0. Gold Asian Breakout (`results/deep/REPORT.md`)
+* XAUUSD M15, entries only 00:00-06:00 UTC. Close breaks the prior 20-bar high (low) with price above (below) a rising (falling)
+  EMA200 on M15 (~50 h). Stop 1.5x ATR(14), target 3R, stop to +0.1R at +1R. Built for 10% risk per trade.
+* 2026 at 10% risk: $1,000 -> $3,853 (dipped to $1,438 in April). Exits verified on M1.
+* Warning: the top single pick by 2025 in the same search went $1,000 -> $10 in 2026. Choose by robustness, not the best year.
 
 ### 1. Nasdaq: Trend Rider v2, Asian session (`results/sessions/REPORT.md`)
 * **Rules:** trend from completed M5 bars (EMA20 > EMA50 and rising, ADX > 20, efficiency ratio > 0.3,
