@@ -1,0 +1,7 @@
+numpy
+pandas
+numba
+matplotlib
+tabulate
+requests
+pytest
