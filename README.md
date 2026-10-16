@@ -100,6 +100,18 @@ The stop, the 1:3 target and breakeven at 1R are the same as Trend Rider.
 python scripts/run_confluence.py      # -> results/confluence/REPORT.md
 ```
 
+## Trend Rider v2 (gold M1, trend judged on M5)
+
+This version lives in `backtester/trend_rider_v2.py` and `mt5/Experts/TrendRiderV2.mq5`. v1's M1 ADX/Choppiness filter switched
+itself off at every pullback inside a clean trend; see `results/chart_review/*_v1.png`. v2 judges the trend on
+**completed 5-minute candles**: EMA20/50 alignment, EMA20 slope, ADX > 20 and an efficiency ratio > 0.3 (a clean move).
+It holds the trend through pullbacks until a 5-minute candle closes through the 5-minute EMA50. Entries are 1-minute
+pullbacks to EMA20 while the 1-minute EMAs are stacked (20 > 50 > 200). The stop is at least $10 on gold, with 1:3 and breakeven at 1R.
+
+```bash
+python scripts/plot_window.py XAUUSD "2026-09-03 00:03" "2026-09-03 05:03" out.png   # inspect any window
+```
+
 ## Candle Run (strategy 3, BTC M1)
 
 This strategy lives in `backtester/candle_run.py` and `mt5/Experts/BtcCandleRun.mq5`. When 4 one-minute candles in a row
