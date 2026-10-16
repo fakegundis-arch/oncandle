@@ -55,3 +55,15 @@ Verified minute by minute on M1:
 Sep $11,001, Oct $15,953. Longest losing streak in 2026: 8 trades (about -57% at 10% risk).
 
 EA: `mt5/Experts/GoldAsianBreakout.mq5` (defaults updated: Donchian 10, EMA 400, previous-day break on).
+
+## Break-even on vs off (combined gold Asian strategy, M1-verified, 10% risk)
+| Version | 2026 trades | Win | PF 2026 | $1,000 in 2026 | Max DD 2026 | Longest losing streak 2026 | Q4 2024 |
+|---|---|---|---|---|---|---|---|
+| **1:3 with break-even (default)** | 260 | 53% | 1.46 | **$15,953** | -78% | 8 | $1,074 (DD -87%) |
+| 1:3 no break-even | 240 | 32% | 1.42 | $20,662 | -85% | 11 | $641 (DD -96%, 28 losses in a row) |
+| 1:2 no break-even | 271 | 38% | 1.23 | $2,940 | -84% | 12 | $985 |
+| 1:4 no break-even | 226 | 26% | 1.41 | $9,551 | -91% | 17 | $257 |
+| 1:2 with break-even | 280 | 54% | 1.26 | $3,458 | -86% | 8 | $882 |
+
+Without break-even, 1:3 ended higher in 2026, mostly thanks to July (peak $27,423), but with deeper drawdowns,
+longer losing streaks and a near wipe-out in Q4 2024. Break-even stays the default; set `InpBETrigger = 0` in the EA to disable it.
