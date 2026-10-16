@@ -23,9 +23,16 @@ def load_csv(path: str | Path) -> pd.DataFrame:
     with open(path) as fh:
         first = fh.readline()
 
+    keep = OHLC
     if first.startswith("<DATE>"):  # MT5 export
-        df = pd.read_csv(path, sep="\t")
+        df = pd.read_csv(path, sep="\t", dtype={"<CLOSE>": str})
         df.columns = [c.strip("<>").lower() for c in df.columns]
+        if "spread" in df.columns:
+            # MT5 reports the bar's spread in points; infer the point size
+            # from the number of decimals the broker quotes.
+            digits = int(df["close"].head(5000).str.split(".").str[1].str.len().max() or 0)
+            df["spread"] = df["spread"].astype(float) * 10.0 ** -digits
+            keep = OHLC + ["spread"]
         if "time" in df.columns:
             ts = pd.to_datetime(df["date"] + " " + df["time"], format="%Y.%m.%d %H:%M:%S")
         else:
@@ -38,7 +45,7 @@ def load_csv(path: str | Path) -> pd.DataFrame:
                     df.columns[0])
         df.index = pd.to_datetime(df[tcol], dayfirst=("." in str(df[tcol].iloc[0])[:3]))
     df.index.name = "time"
-    df = df[OHLC].astype(float)
+    df = df[keep].astype(float)
     return clean(df)
 
 
@@ -87,6 +94,30 @@ DEFAULT_COST_PIPS = {
     "USDCAD": 1.5, "NZDUSD": 1.6, "EURJPY": 1.6, "GBPJPY": 2.4, "EURGBP": 1.4,
     "AUDJPY": 1.8, "EURCHF": 1.8, "XAUUSD": 3.5,
 }
+
+# Typical all-in round-trip cost in PRICE units for CFDs / crypto, used when
+# the data has no per-bar spread column.  Keys are normalised symbol names.
+DEFAULT_COST_PRICE = {
+    "BTCUSD": 20.0,    # $20 per BTC
+    "XAUUSD": 0.30,    # 30 cents (spread + commission)
+    "NAS100": 1.5,     # index points
+    "US30": 3.0,
+}
+SYMBOL_ALIASES = {
+    "BTCUSD": "BTCUSD", "BTCUSDT": "BTCUSD", "BITCOIN": "BTCUSD",
+    "XAUUSD": "XAUUSD", "GOLD": "XAUUSD",
+    "NAS100": "NAS100", "US100": "NAS100", "USTEC": "NAS100", "NDX100": "NAS100", "USTECH": "NAS100",
+    "USATECHIDXUSD": "NAS100",
+    "US30": "US30", "DJ30": "US30", "DOW": "US30", "WS30": "US30", "USA30IDXUSD": "US30",
+}
+
+
+def normalise_symbol(sym: str) -> str:
+    s = sym.upper().replace(".", "").replace("_", "").rstrip("M")  # strip broker suffixes like .m
+    for k, v in SYMBOL_ALIASES.items():
+        if s.startswith(k):
+            return v
+    return sym.upper()
 
 
 def cost_pips(symbol: str) -> float:
