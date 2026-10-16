@@ -73,16 +73,18 @@ def main():
     ap.add_argument("--pattern", default="*_M1.csv")
     ap.add_argument("--risk", type=float, default=0.005, help="fraction of equity risked per trade")
     ap.add_argument("--holdout", type=float, default=0.3)
-    ap.add_argument("--costs", choices=["data", "typical"], default="data",
+    ap.add_argument("--costs", choices=["data", "typical", "none", "exness"], default="data",
                     help="data: charge max(per-bar spread in the file, typical cost); "
-                         "typical: ignore the file's spread, use backtester/data.py defaults")
+                         "typical: ignore the file's spread, use backtester/data.py defaults; "
+                         "exness: estimated Exness Standard spreads, no commission; "
+                         "none: zero cost (best case, not achievable live)")
     ap.add_argument("--out", default=str(ROOT / "results" / "trend_rider"))
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
 
     uni = load(Path(a.data), a.pattern)
-    if a.costs == "typical":
+    if a.costs != "data":
         uni = {k: v.drop(columns="spread", errors="ignore") for k, v in uni.items()}
     if not uni:
         sys.exit(f"no {a.pattern} files in {a.data} - export M1 bars from MT5 first (see docstring)")
@@ -95,7 +97,8 @@ def main():
         port = []
         all_tr = []
         for sym, df in uni.items():
-            cost = D.DEFAULT_COST_PRICE.get(sym, D.cost_pips(sym) * D.pip_size(sym))
+            cost = {"none": 0.0, "exness": D.EXNESS_STANDARD_SPREAD.get(sym, 0.0)}.get(
+                a.costs, D.DEFAULT_COST_PRICE.get(sym, D.cost_pips(sym) * D.pip_size(sym)))
             res = tr.backtest(df, p, cost, risk=a.risk)
             t = res.trades.assign(symbol=sym)
             all_tr.append(t)

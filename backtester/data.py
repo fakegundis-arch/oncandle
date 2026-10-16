@@ -105,6 +105,15 @@ DEFAULT_COST_PRICE = {
     "NAS100": 1.5,     # index points
     "US30": 3.0,
 }
+# Rough Exness Standard-account spreads (no commission), price units.  These
+# vary by time of day and over time - check the live spread in your terminal
+# or export bars from Exness MT5 (the export includes the real spread).
+EXNESS_STANDARD_SPREAD = {
+    "BTCUSD": 20.0,
+    "XAUUSD": 0.20,
+    "NAS100": 1.2,
+    "US30": 2.0,
+}
 SYMBOL_ALIASES = {
     "BTCUSD": "BTCUSD", "BTCUSDT": "BTCUSD", "BITCOIN": "BTCUSD",
     "XAUUSD": "XAUUSD", "GOLD": "XAUUSD",
