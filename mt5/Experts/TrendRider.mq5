@@ -21,7 +21,8 @@ input double InpRR          = 3.0;   // Reward : risk (target = RR x risk)
 input double InpBETrigger   = 1.0;   // Move SL to break-even at this many R (0 = off)
 input double InpBEBuffer    = 0.1;   // ...placed this many R beyond entry
 input double InpMinStopATR  = 1.0;   // Stop never tighter than this x ATR
-input double InpMaxStopATR  = 4.0;   // Skip setup if swing stop wider than this x ATR
+input double InpMaxStopATR  = 4.0;
+input string InpMinStopPrice = "XAU=10";  // Per-symbol minimum stop in price, e.g. "XAU=10,BTC=150" (symbol prefix=value)   // Skip setup if swing stop wider than this x ATR
 input int    InpSwingBars   = 10;    // Swing high/low lookback for the stop
 input int    InpMaxSpreadPts = 0;    // Skip entries when spread above this (points, 0 = off)
 
@@ -100,6 +101,24 @@ void OnDeinit(const int reason)
       IndicatorRelease(mk[i].hFast); IndicatorRelease(mk[i].hMid); IndicatorRelease(mk[i].hSlow);
       IndicatorRelease(mk[i].hAdx);  IndicatorRelease(mk[i].hAtr);
      }
+  }
+
+
+//+------------------------------------------------------------------+
+//| Minimum stop distance for a symbol from InpMinStopPrice           |
+//+------------------------------------------------------------------+
+double MinStopFor(string s)
+  {
+   string items[];
+   int n = StringSplit(InpMinStopPrice, ',', items);
+   for(int i = 0; i < n; i++)
+     {
+      string kv[];
+      if(StringSplit(items[i], '=', kv) != 2) continue;
+      string k = kv[0]; StringTrimLeft(k); StringTrimRight(k);
+      if(k != "" && StringFind(s, k) == 0) return StringToDouble(kv[1]);
+     }
+   return 0.0;
   }
 
 //+------------------------------------------------------------------+
@@ -200,14 +219,14 @@ int Signal(Market &m, double &dist)
    if(up && l2 <= f2 && c1 > f1 && c1 > h2)
      {
       double swing = iLow(s, InpTF, iLowest(s, InpTF, MODE_LOW, InpSwingBars, 1));
-      dist = MathMax(c1 - swing, InpMinStopATR * atr);
-      return dist <= InpMaxStopATR * atr ? 1 : 0;
+      dist = MathMax(c1 - swing, MathMax(InpMinStopATR * atr, MinStopFor(s)));
+      return dist <= MathMax(InpMaxStopATR * atr, MinStopFor(s)) ? 1 : 0;
      }
    if(dn && h2 >= f2 && c1 < f1 && c1 < l2)
      {
       double swing = iHigh(s, InpTF, iHighest(s, InpTF, MODE_HIGH, InpSwingBars, 1));
-      dist = MathMax(swing - c1, InpMinStopATR * atr);
-      return dist <= InpMaxStopATR * atr ? -1 : 0;
+      dist = MathMax(swing - c1, MathMax(InpMinStopATR * atr, MinStopFor(s)));
+      return dist <= MathMax(InpMaxStopATR * atr, MinStopFor(s)) ? -1 : 0;
      }
    return 0;
   }

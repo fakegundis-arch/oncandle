@@ -31,6 +31,7 @@ input double InpBETrigger   = 1.0;   // Move SL to break-even at this many R (0 
 input double InpBEBuffer    = 0.1;
 input double InpMinStopATR  = 1.0;
 input double InpMaxStopATR  = 4.0;
+input string InpMinStopPrice = "XAU=10";  // Per-symbol minimum stop in price, e.g. "XAU=10,BTC=150" (symbol prefix=value)
 input int    InpSwingBars   = 10;
 input int    InpMaxSpreadPts = 0;
 
@@ -107,6 +108,24 @@ void OnDeinit(const int reason)
      }
   }
 
+
+//+------------------------------------------------------------------+
+//| Minimum stop distance for a symbol from InpMinStopPrice           |
+//+------------------------------------------------------------------+
+double MinStopFor(string s)
+  {
+   string items[];
+   int n = StringSplit(InpMinStopPrice, ',', items);
+   for(int i = 0; i < n; i++)
+     {
+      string kv[];
+      if(StringSplit(items[i], '=', kv) != 2) continue;
+      string k = kv[0]; StringTrimLeft(k); StringTrimRight(k);
+      if(k != "" && StringFind(s, k) == 0) return StringToDouble(kv[1]);
+     }
+   return 0.0;
+  }
+
 //+------------------------------------------------------------------+
 double Choppiness(string s, int shift)
   {
@@ -143,8 +162,9 @@ double StopDist(Market &m, int sh, int dir)
    if(atr == EMPTY_VALUE || atr <= 0) return 0;
    double d = dir == 1 ? c - iLow(s, InpTF, iLowest(s, InpTF, MODE_LOW, InpSwingBars, sh))
                        : iHigh(s, InpTF, iHighest(s, InpTF, MODE_HIGH, InpSwingBars, sh)) - c;
-   d = MathMax(d, InpMinStopATR * atr);
-   return d <= InpMaxStopATR * atr ? d : 0;
+   double minStop = MinStopFor(s);
+   d = MathMax(d, MathMax(InpMinStopATR * atr, minStop));
+   return d <= MathMax(InpMaxStopATR * atr, minStop) ? d : 0;
   }
 
 bool Pullback(Market &m, int sh, int dir)

@@ -17,7 +17,8 @@ Enter at the next bar's open.
 Bracket:
     * stop  = below the lowest low of the last `swing_bars` bars,
               never tighter than `min_stop_atr` x ATR; the setup is skipped
-              if the swing stop is wider than `max_stop_atr` x ATR
+              if the swing stop is wider than `max_stop_atr` x ATR;
+              optionally never tighter than `min_stop_price` (e.g. $10 on gold)
     * target = entry + rr x risk          (default 1:3)
     * once price reaches entry + be_trigger x risk (default 1R) the stop is
       moved to entry + be_buffer x risk  -> a "free" trade
@@ -55,6 +56,7 @@ class Params:
     swing_bars: int = 10
     min_stop_atr: float = 1.0
     max_stop_atr: float = 4.0
+    min_stop_price: float = 0.0   # floor in price units, e.g. 10.0 = $10 on gold (0 = off)
     rr: float = 3.0
     be_trigger: float = 1.0     # in R; <= 0 disables break-even
     be_buffer: float = 0.1      # in R, how far past entry the stop goes
@@ -87,10 +89,12 @@ def signals(df: pd.DataFrame, p: Params) -> pd.DataFrame:
 
     # Stop distance measured from the signal close; the engine re-anchors it
     # to the actual fill price.
-    long_dist = (c - l.rolling(p.swing_bars).min()).clip(lower=p.min_stop_atr * a)
-    short_dist = (h.rolling(p.swing_bars).max() - c).clip(lower=p.min_stop_atr * a)
-    long_ok = long_dist <= p.max_stop_atr * a
-    short_ok = short_dist <= p.max_stop_atr * a
+    floor = np.maximum(p.min_stop_atr * a, p.min_stop_price)
+    cap = np.maximum(p.max_stop_atr * a, p.min_stop_price)   # a price floor is never "too wide"
+    long_dist = (c - l.rolling(p.swing_bars).min()).clip(lower=floor)
+    short_dist = (h.rolling(p.swing_bars).max() - c).clip(lower=floor)
+    long_ok = long_dist <= cap
+    short_ok = short_dist <= cap
 
     if p.session_utc is not None:
         hr = df.index.hour
