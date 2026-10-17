@@ -26,7 +26,7 @@ def speech_events(cal: pd.DataFrame) -> pd.DataFrame:
 
 
 @njit(cache=True)
-def _after_fill(o, h, l, c, f, d, entry, risk, rr, be, hold, cost):
+def _after_fill(o, h, l, c, f, d, entry, risk, rr, be, hold, cost, pess=True):
     """R of a position filled inside bar f at `entry` (long d=1 / short d=-1)."""
     stop = entry - d * risk
     tgt = entry + d * rr * risk
@@ -36,6 +36,8 @@ def _after_fill(o, h, l, c, f, d, entry, risk, rr, be, hold, cost):
         bo = o[j] if d == 1 else o[j] + cost
         bh = h[j] if d == 1 else h[j] + cost
         bl = l[j] if d == 1 else l[j] + cost
+        if j == f and not pess:
+            continue
         if d == 1:
             if bl <= stop:
                 return (min(bo, stop) - entry) / risk if j > f else (stop - entry) / risk
@@ -56,7 +58,7 @@ def _after_fill(o, h, l, c, f, d, entry, risk, rr, be, hold, cost):
 
 
 @njit(cache=True)
-def straddle(o, h, l, c, i0, a, k, s, rr, be, expiry, hold, cost):
+def straddle(o, h, l, c, i0, a, k, s, rr, be, expiry, hold, cost, pess=True):
     n = len(i0)
     R = np.full(n, np.nan)
     side = np.zeros(n, np.int64)
@@ -71,8 +73,8 @@ def straddle(o, h, l, c, i0, a, k, s, rr, be, expiry, hold, cost):
             hit_dn = l[j] <= dn                    # sell stop triggers on the bid
             if not (hit_up or hit_dn):
                 continue
-            rl = _after_fill(o, h, l, c, j, 1, max(up, o[j] + cost), risk, rr, be, hold, cost) if hit_up else 1e9
-            rs = _after_fill(o, h, l, c, j, -1, min(dn, o[j]), risk, rr, be, hold, cost) if hit_dn else 1e9
+            rl = _after_fill(o, h, l, c, j, 1, max(up, o[j] + cost), risk, rr, be, hold, cost, pess) if hit_up else 1e9
+            rs = _after_fill(o, h, l, c, j, -1, min(dn, o[j]), risk, rr, be, hold, cost, pess) if hit_dn else 1e9
             if rl <= rs:
                 R[q] = rl
                 side[q] = 1
