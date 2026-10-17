@@ -85,15 +85,16 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--start", default="2024-10")
     ap.add_argument("--end", default="2026-10")
+    ap.add_argument("--out", default="ff_calendar.csv")
     a = ap.parse_args()
     months = [f"{MONTHS[p.month - 1]}.{p.year}" for p in pd.period_range(a.start, a.end, freq="M")]
     rows = asyncio.run(scrape(months))
     df = pd.DataFrame(rows).drop_duplicates("id").sort_values("time_utc")
     out = ROOT / "data" / "calendar"
     out.mkdir(parents=True, exist_ok=True)
-    df.to_csv(out / "ff_calendar.csv", index=False)
+    df.to_csv(out / a.out, index=False)
     hi = df[df.impact.str.lower() == "high"]
-    print(f"{len(df)} events, {len(hi)} high impact, {len(hi[hi.currency == 'USD'])} high-impact USD -> {out / 'ff_calendar.csv'}")
+    print(f"{len(df)} events, {len(hi)} high impact, {len(hi[hi.currency == 'USD'])} high-impact USD -> {out / a.out}")
 
 
 if __name__ == "__main__":
