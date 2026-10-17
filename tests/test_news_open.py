@@ -31,3 +31,17 @@ def test_no_news_day_has_zero_score():
 def test_direction_map_covers_all_markets():
     assert set(NO.USD_BULL_DIRECTION.values()) == {-1, 1}
     assert NO.USD_BULL_DIRECTION["XAUUSD"] == -1 and NO.USD_BULL_DIRECTION["USDJPY"] == 1
+
+
+def test_m1_candidates_follow_news_and_use_m1_atr():
+    t = pd.date_range("2025-03-07 13:00", periods=180, freq="1min")
+    px = np.r_[np.full(30, 100.0), 100 - 0.05 * np.arange(150)]        # falls after the 13:30 UTC open
+    m1 = pd.DataFrame({"open": px, "high": px + 0.03, "low": px - 0.03, "close": px - 0.01}, index=t)
+    sc = pd.DataFrame({"t0": [pd.Timestamp("2025-03-07 14:30")], "score": [2], "events": ["NFP (+)"]},
+                      index=[pd.Timestamp("2025-03-07")])
+    sc.loc[:, "t0"] = pd.Timestamp("2025-03-07 13:30")
+    p = NO.ParamsM1(observe_min=3, entry="momentum", stop="atr", stop_atr=2.0)
+    cd = NO.candidates_m1(m1, "XAUUSD", sc, p)                          # USD bullish -> gold short
+    assert len(cd) == 1 and cd.iloc[0].dir == -1
+    assert m1.index[int(cd.iloc[0].entry_i)] == pd.Timestamp("2025-03-07 13:33")
+    assert NO.candidates_m1(m1, "USDJPY", sc, p).empty                 # USDJPY should rise: no trade

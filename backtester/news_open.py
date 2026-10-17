@@ -149,3 +149,71 @@ def session_end_flags(m1: pd.DataFrame) -> np.ndarray:
     loc = m1.index.tz_localize("UTC").tz_convert("America/New_York")
     mod = loc.hour * 60 + loc.minute
     return np.asarray(mod >= 16 * 60) | np.asarray(mod < 9 * 60 + 30)
+
+
+@dataclass
+class ParamsM1:
+    """All-M1 version: short observation, M1 entries, stops sized from M1 ATR."""
+    min_score: int = 2
+    observe_min: int = 5           # minutes after 09:30 ET that must move with the news
+    entry: str = "pullback"        # "momentum" | "pullback" | "breakout" | "candle"
+    stop: str = "atr"              # "atr" | "swing"
+    stop_atr: float = 2.0
+    wait_min: int = 30             # how long to wait for a pullback / breakout entry
+    mode: str = "news"
+
+
+def candidates_m1(m1: pd.DataFrame, market: str, scores: pd.DataFrame, p: ParamsM1, atr=None, ema=None) -> pd.DataFrame:
+    """M1 only.  The first `observe_min` M1 candles after the open must close in the news direction, then:
+    momentum = next M1 open; pullback = M1 touch of EMA9 that resumes (close beyond the prior candle);
+    breakout = M1 close beyond the observation range; candle = first M1 candle that closes in the
+    news direction and beyond the prior candle's extreme.  Stop = `stop_atr` x M1 ATR(14), or the
+    last 5 M1 candles' extreme (at least 1 ATR)."""
+    idx = m1.index
+    o, h, l, c = (m1[x].to_numpy() for x in ("open", "high", "low", "close"))
+    atr = ind.atr(m1, 14).to_numpy() if atr is None else atr
+    ema = ind.ema(m1.close, 9).to_numpy() if ema is None else ema
+    beta = USD_BULL_DIRECTION[market]
+    out = []
+    for day, row in scores.iterrows():
+        bias = int(np.sign(row.score)) if abs(row.score) >= p.min_score else 0
+        if p.mode != "ignore_news" and bias == 0:
+            continue
+        i0 = idx.searchsorted(row.t0)
+        iN = idx.searchsorted(row.t0 + pd.Timedelta(minutes=p.observe_min))
+        if i0 >= len(idx) or idx[i0] > row.t0 + pd.Timedelta("2min") or iN >= len(idx) or iN <= i0:
+            continue
+        move = c[iN - 1] - o[i0]
+        seen = int(np.sign(move))
+        want = bias * beta if p.mode == "news" else -bias * beta if p.mode == "against_news" else seen
+        if want == 0 or seen != want:
+            continue
+        a = atr[iN - 1]
+        if not np.isfinite(a) or a <= 0:
+            continue
+        wl, wh = l[i0:iN].min(), h[i0:iN].max()
+        e = iN if p.entry == "momentum" else None
+        end_t = row.t0 + pd.Timedelta(minutes=p.observe_min + p.wait_min)
+        j = iN
+        while e is None and j < len(idx) and idx[j] < end_t:
+            if p.entry == "breakout":
+                ok = c[j] > wh if want == 1 else c[j] < wl
+            elif p.entry == "pullback":
+                ok = j > iN and ((l[j - 1] <= ema[j - 1] and c[j] > h[j - 1]) if want == 1
+                                 else (h[j - 1] >= ema[j - 1] and c[j] < l[j - 1]))
+            else:  # candle
+                ok = (c[j] > o[j] and c[j] > h[j - 1]) if want == 1 else (c[j] < o[j] and c[j] < l[j - 1])
+            if ok:
+                e = j + 1
+            j += 1
+        if e is None or e >= len(idx):
+            continue
+        if p.stop == "swing":
+            k = max(e - 5, 0)
+            dist = (o[e] - l[k:e].min()) if want == 1 else (h[k:e].max() - o[e])
+            dist = max(dist, a)
+        else:
+            dist = p.stop_atr * a
+        out.append({"day": day, "market": market, "entry_i": e, "dir": want, "sl": dist,
+                    "strength": abs(move) / a, "score": row.score, "events": row.events})
+    return pd.DataFrame(out)
