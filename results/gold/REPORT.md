@@ -77,11 +77,11 @@ Monthly R correlation with gold v3: Trump-tariff Dow -0.03, BTC H1 Run Fade -0.1
 |---|---|---|---|
 | v2 at 10% | $2,380 / DD -82% | $612,758 / -58% | $28,138 / **-82%** |
 | **v3 portfolio** | $5,746 / DD -31% | $176,034 / -34% | **$38,694 / DD -33%** |
-| v3 portfolio without the Truth Social leg | $6,404 / -26% | $94,737 / -37% | $27,690 / -35% |
+| v3 portfolio without the Truth Social leg | $6,404 / -26% | $94,737 / -37% | $25,720 / -35% |
 | gold v3 alone at 7% | $5,339 / -25% | $40,452 / -31% | $15,649 / -50% |
 
-2026 month-end balance (full v3 portfolio): Jan $4,678, Feb $4,086, Mar $4,734, Apr $4,065, May $7,260, Jun $7,796,
-Jul $8,957, Aug $34,843, Sep $41,254, Oct $41,622 (before the same-minute fix; after the fix the year ends at $38,694).
+2026 month-end balance (full v3 portfolio): Jan $4,678, Feb $4,086, Mar $4,735, Apr $4,061, May $6,745, Jun $7,244,
+Jul $8,316, Aug $32,392, Sep $38,351, Oct $38,694.
 Lowest balance $1,120. Up to ~21% of equity can be at risk at once when all four strategies hold trades.
-Note: a simulator bug (a trade opened and stopped in the same minute was not counted) was found and fixed; numbers above
-are after the fix except the month-end path line.
+Note: a simulator bug (a trade opened and stopped in the same minute was not counted) was found and fixed; all numbers
+above are after the fix.
