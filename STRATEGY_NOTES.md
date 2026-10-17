@@ -52,6 +52,9 @@ The strategies that held up in testing are kept here for later comparison. Unles
 * **Other tested presets:** US30 H4 (4 candles, 1.5 ATR, TP 0.3, SL 3, 10 bars); XAUUSD H1 (4, 3.0, 0.5, 4, 10).
 
 ## Tested and rejected (for reference)
+* **News bias -> trade the NY open** (Forex Factory better/worse verdicts on USD medium+high news, observe the open, join
+  markets moving with the news; 11 markets, 1,728 settings): only 1% of settings profitable in both years; it does no
+  better than ignoring the news. See `results/news_open/REPORT.md`.
 * **High-impact news trading** (Forex Factory calendar, 316 USD releases, tick-level, gold/Nasdaq/Dow/EURUSD): an OCO straddle
   at 1:3 and a buy+sell 5 s before at 1:4 are both unprofitable; no setting is profitable in both 2025 and 2026. Spreads jump
   about 4-7x at the release and the worst fills slip a lot. See `results/news/REPORT.md`.
