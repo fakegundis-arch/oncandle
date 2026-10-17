@@ -36,6 +36,8 @@ class P:
     vol_min: float = 0.0          # skip if ATR(14) / its 100-bar median < vol_min
     vol_max: float = 99.0
     strong_close: float = 0.0     # >0: signal bar must close in the top (bottom) fraction of its range
+    regime_max: float = 99.0      # skip if ATR averaged over 5 days / over 60 days > regime_max
+    regime_min: float = 0.0
     # exits
     stop_atr: float = 1.5
     min_stop: float = 2.0
@@ -116,6 +118,12 @@ def signals(m15: pd.DataFrame, p: P) -> pd.DataFrame:
     if p.vol_min > 0 or p.vol_max < 99:
         rel = (atr / atr.rolling(100).median()).to_numpy()
         ok = (rel >= p.vol_min) & (rel <= p.vol_max)
+        L &= ok
+        S &= ok
+    if p.regime_max < 99 or p.regime_min > 0:
+        tr_ = ind.true_range(m15)
+        reg = (tr_.rolling(96 * 5).mean() / tr_.rolling(96 * 60).mean()).shift().to_numpy()
+        ok = (reg <= p.regime_max) & (reg >= p.regime_min)
         L &= ok
         S &= ok
     if p.strong_close > 0:

@@ -39,3 +39,49 @@ Monte Carlo (2026 trades resampled, 10%): median $25,557; 26% chance of >= $100,
 * Weekday / hour filters: no stable pattern.
 
 EA: `mt5/Experts/GoldAsianBreakout.mq5` v2.00 (defaults now = v2).
+
+---
+# v3: drawdown control + diversification
+
+## Why v2 suffered
+Feb-Apr 2026 gold turned extremely volatile (median stop $19-23 vs ~$12 normally) and breakouts kept failing; Dec 2024
+looked the same. v2 at 10%: $1,000 -> $4,778 (Jan) -> $967 (Apr) -> $28,138 (Oct), max DD -82%.
+
+## Step 1 - drawdown filters on the gold strategy (`scripts/gold_v3.py`, 2,016 variants, chosen on Q4 2024 + 2025)
+Added to v2:
+1. **Daily trend:** buy only if yesterday closed above the D1 EMA(20); sell only if below.
+2. **Volatility cap:** skip if ATR(14) > 2 x its 100-bar median.
+3. **Equity-curve filter:** every signal is traded on paper; a real trade is placed only if the last 10 paper trades
+   sum to >= -2R (the strategy "sits out" its own losing streaks and comes back when the paper trades recover).
+4. **Weekly stop:** after this week's real trades lose 2R, no new trades until next week.
+
+| Gold alone, 10% risk | Q4 2024 | 2025 | 2026 (check) |
+|---|---|---|---|
+| v2 | $2,380, DD -82% | $612,758, DD -58% | $28,138, DD -82% |
+| **v3** | **$9,450, DD -34%** | $125,692, **DD -42%** | **$30,750, DD -64%** (PF 2.18, 100 trades) |
+The 144 neighbouring variants (d1 trend 20, equity filter 5-10 trades, any threshold / weekly cap) are all profitable in
+all three periods; their median 2026 result is $9,929 (DD -66%), so v3's 2026 is at the good end.
+Lower drawdowns, but one strategy alone still had -64% in 2026 at 10% risk.
+
+## Step 2 - portfolio (`scripts/gold_v3_portfolio.py`; weights chosen on 2025 + Q4 2024 with a 35% drawdown budget)
+Monthly R correlation with gold v3: Trump-tariff Dow -0.03, BTC H1 Run Fade -0.14, gold H4 MACD +0.35.
+
+| v3 portfolio | Risk per trade |
+|---|---|
+| Gold Asian breakout v3 (`GoldAsianBreakoutV3.mq5`) | 7% |
+| Truth Social tariff posts -> Dow (`results/truth/REPORT.md`, no EA yet) | 4% |
+| BTC H1 Run Fade (`RunFade.mq5`) | 5% |
+| Gold H4 MACD + EMA100 (`OnCandleTrend.mq5`, MACD strategy) | 4% |
+
+| $1,000 | Q4 2024 | 2025 | **2026 (check)** |
+|---|---|---|---|
+| v2 at 10% | $2,380 / DD -82% | $612,758 / -58% | $28,138 / **-82%** |
+| **v3 portfolio** | $5,746 / DD -31% | $176,034 / -34% | **$38,694 / DD -33%** |
+| v3 portfolio without the Truth Social leg | $6,404 / -26% | $94,737 / -37% | $27,690 / -35% |
+| gold v3 alone at 7% | $5,339 / -25% | $40,452 / -31% | $15,649 / -50% |
+
+2026 month-end balance (full v3 portfolio): Jan $4,678, Feb $4,086, Mar $4,734, Apr $4,065, May $7,260, Jun $7,796,
+Jul $8,957, Aug $34,843, Sep $41,254, Oct $41,622 (before the same-minute fix; after the fix the year ends at $38,694).
+Lowest balance $1,120. Up to ~21% of equity can be at risk at once when all four strategies hold trades.
+Note: a simulator bug (a trade opened and stopped in the same minute was not counted) was found and fixed; numbers above
+are after the fix except the month-end path line.
