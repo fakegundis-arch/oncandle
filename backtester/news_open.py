@@ -13,7 +13,9 @@
    the expected direction by at least `min_move` x its opening unit
    (median 15-minute opening range of the previous 20 days).
 4. ENTER.  "momentum": at the next bar's open; "pullback": wait (up to 90
-   min) for an M1 pullback to EMA20 that resumes in the bias direction.
+   min) for an M1 pullback to EMA20 that resumes in the bias direction;
+   "breakout": wait (up to 120 min) for a close beyond the observation
+   range in the bias direction.
    Stop beyond the observation window's opposite extreme (at least 0.3
    units) or `stop_units` x unit; target `rr` x stop, or hold to 16:00 ET.
 5. PICK.  "best": only the qualifying market with the strongest move;
@@ -40,8 +42,8 @@ class Params:
     min_score: int = 2
     observe_min: int = 15
     min_move: float = 0.25
-    entry: str = "momentum"        # or "pullback"
-    stop: str = "window"           # or "units"
+    entry: str = "momentum"        # "momentum" | "pullback" | "breakout"
+    stop: str = "window"           # "window" | "half_window" | "units"
     stop_units: float = 0.5
     rr: float = 2.0                # 0 = no target, hold to 16:00 ET
     be: float = 0.0
@@ -104,6 +106,18 @@ def candidates(m1: pd.DataFrame, market: str, scores: pd.DataFrame, unit: pd.Ser
             continue
         wl, wh = l[i0:iN].min(), h[i0:iN].max()
         e = iN                                       # entry at this bar's open
+        if p.entry == "breakout":
+            # patient entry: wait for a close beyond the observation range in the bias direction
+            e = None
+            stop_t = row.t0 + pd.Timedelta(minutes=p.observe_min + 120)
+            j = iN
+            while j < len(idx) and idx[j] < stop_t:
+                if (want == 1 and c[j] > wh) or (want == -1 and c[j] < wl):
+                    e = j + 1
+                    break
+                j += 1
+            if e is None or e >= len(idx):
+                continue
         if p.entry == "pullback":
             e = None
             stop_t = row.t0 + pd.Timedelta(minutes=p.observe_min + 90)
@@ -122,6 +136,8 @@ def candidates(m1: pd.DataFrame, market: str, scores: pd.DataFrame, unit: pd.Ser
         if p.stop == "window":
             dist = (ref - wl) if want == 1 else (wh - ref)
             dist = max(dist, 0.3 * u)
+        elif p.stop == "half_window":
+            dist = max(abs(ref - (wl + wh) / 2), 0.3 * u)
         else:
             dist = p.stop_units * u
         out.append({"day": day, "market": market, "entry_i": e, "dir": want, "sl": dist,
