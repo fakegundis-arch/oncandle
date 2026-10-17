@@ -40,6 +40,7 @@ class P:
     be_buf: float = 0.0
     trail: float = 0.0            # x ATR, after break-even
     max_per_day: int = 99
+    follow: bool = False          # trade WITH the run instead of against it
     cost: float = 20.0
 
 
@@ -101,6 +102,8 @@ def signals(df: pd.DataFrame, p: P) -> pd.DataFrame:
         sig = sig[sig.t.dt.hour.isin(p.hours)]
     if p.skip_weekend:
         sig = sig[sig.t.dt.weekday < 5]
+    if p.follow:
+        sig["dir"] = -sig["dir"]
     if p.side:
         sig = sig[sig.dir == p.side]
     return sig[np.isfinite(sig.atr)]

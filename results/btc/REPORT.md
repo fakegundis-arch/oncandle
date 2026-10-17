@@ -36,3 +36,25 @@ with counter-trend runs, hour and weekend filters, volatility filters, break-eve
 target), shorts only (great in 2025-26, weak in Q4 2024).
 
 EA: `mt5/Experts/RunFadeV2.mq5` (BTCUSD H1; defaults = v2, risk 5%).
+
+---
+# Risk-reward test ("v3" candidate: 1:1 to 1:4 instead of a small target)
+
+`scripts/btc_fade_rr.py` -> `rr_grid.csv` (672 variants: stop 0.5-3 ATR x RR 0.17-4 x break-even x hold x trend filter x
+min move) and a follow-the-run version (trade WITH the run, RR 1-4, 1,344 variants -> `follow_grid.csv`).
+
+| Fade, risk:reward | Median PF Q4 2024 / 2025 / 2026 | Median 2026 win rate | Profitable in all 3 periods |
+|---|---|---|---|
+| **1:0.17 (v2 style)** | 1.51 / 1.12 / 1.67 | 91% | **58%** |
+| 1:0.5 | 1.07 / 1.19 / 1.21 | 70% | 56% |
+| 1:1 | 0.85 / 1.10 / 1.05 | 52% | 25% |
+| 1:1.5 | 0.80 / 1.15 / 0.99 | 47% | 12% |
+| 1:2 | 0.74 / 1.15 / 1.02 | 45% | 20% |
+| **1:3** | 0.67 / 1.09 / 1.02 | 44% | **7%** |
+| 1:4 | 0.64 / 1.15 / 0.88 | 44% | 4% |
+Example, v2 signals with a 1-ATR stop and 3-ATR target: PF 0.55 / 1.10 / 0.98.
+Follow the run instead (RR 1-4): 5% of variants profitable in all periods, median 2026 PF 0.82; the best by 2025 lost
+in 2026 (PF 0.65).
+
+**Conclusion:** the edge is a small, fast snap-back after a stretched run; bigger targets are rarely reached and the
+win rate collapses faster than the payoff grows. No v3 adopted; v2 (small target, wide stop) stays.
