@@ -11,6 +11,7 @@ The strategies that held up in testing are kept here for later comparison. Unles
 
 | # | Strategy | Market / TF | Win rate | PF 2025 | PF 2026 | $1,000 in 2026 (risk/trade, max drawdown) | Robustness | EA |
 |---|---|---|---|---|---|---|---|---|
+| 0+ | **Gold Asian Breakout v2** (Donchian 20, slope 4 h, 4R, BE +0.3R; `results/gold/REPORT.md`) | Gold M15 (M1-exact), Asian session | 56% | 2.04 | 1.67 | **$28,138 (10%, -82%)** / $20,221 (8%, -74%) | ★★★ all 2,304 neighbours profitable in 2025 and 2026; Q4 2024 PF 1.54 | `GoldAsianBreakout.mq5` v2 |
 | 0 | **Gold Asian Breakout - combined** (Donchian10/100h + prev-day break; deep search on 11 markets) | Gold M15, Asian session | 53% | 1.74 | 1.46 | **$15,953 (10%, -78%)** | ★★★ only robust family out of 11 markets; 95-100% of combined variants profitable in 2026; Q4 2024 dipped -87% | `GoldAsianBreakout.mq5` |
 | 0b | Gold Asian Breakout - single signal (Donchian20/50h) | Gold M15, Asian session | 53% | 1.96 | 1.38 | $3,853 (10%, -74%) | ★★★ | `GoldAsianBreakout.mq5` with UsePrevDay=false, Donchian 20, EMA 200 |
 | 7 | **News bias -> NY open v2** (FF verdicts on USD medium+high news; wait 60 min, pullback, 1:3, >=2 markets confirm) | 11 markets M1 | ~48% | 1.38 | 1.47 | $1,706 (10%, -57%) | ★★☆ news beats both controls inside the cluster; fragile to the observe time | not built yet |

@@ -5,28 +5,30 @@
 //|  Attach to XAUUSD M15. Only opens trades in the Asian session     |
 //|  (Tokyo 09:00-15:00 = 00:00-06:00 on a GMT+0 server).             |
 //|   Entry A: close breaks above the highest high of the previous    |
-//|           10 bars (below the lowest low for shorts) while the     |
+//|           20 bars (below the lowest low for shorts) while the     |
 //|           ~100-hour trend agrees: price above EMA(400 x M15) and  |
-//|           that EMA higher than 1 hour ago.                        |
+//|           that EMA higher than 4 hours ago (v2).                  |
 //|   Entry B: first close of the session beyond the PREVIOUS DAY's   |
 //|           high (buy) or low (sell). Either signal opens a trade.  |
-//|   Stop  : 1.5 x ATR(14)   Target: 3R                              |
-//|   At +1R the stop moves to entry + 0.1R.                          |
+//|   Stop  : 1.5 x ATR(14)   Target: 4R (v2)                         |
+//|   At +1R the stop moves to entry + 0.3R (v2).                     |
+//|   v2 = results/gold/REPORT.md; v1 = Donchian 10, slope 4, RR 3,   |
+//|        BE buffer 0.1.                                             |
 //+------------------------------------------------------------------+
 #property copyright "oncandle"
-#property version   "1.00"
+#property version   "2.00"
 
 #include <Trade/Trade.mqh>
 
-input int    InpDonchian     = 10;    // Breakout lookback (bars)
+input int    InpDonchian     = 20;    // Breakout lookback (bars)
 input int    InpTrendEMA     = 400;   // Trend EMA (400 x M15 = 100 hours)
 input bool   InpUsePrevDay   = true;  // Also trade the first break of the previous day's high/low
-input int    InpSlopeBars    = 4;     // EMA must be rising/falling vs this many bars ago
+input int    InpSlopeBars    = 16;    // EMA must be rising/falling vs this many bars ago
 input double InpStopATR      = 1.5;   // Stop = this x ATR(14)
 input double InpMinStop      = 2.0;   // Minimum stop distance in price ($)
-input double InpRR           = 3.0;   // Target = RR x stop
+input double InpRR           = 4.0;   // Target = RR x stop
 input double InpBETrigger    = 1.0;   // Move stop to break-even at this many R (0 = off)
-input double InpBEBuffer     = 0.1;   // ...this many R past entry
+input double InpBEBuffer     = 0.3;   // ...this many R past entry
 input double InpRiskPercent  = 10.0;  // Risk per trade, % of equity
 input int    InpSessionStart = 0;     // Server hour: first hour to open trades
 input int    InpSessionEnd   = 6;     // Server hour: stop opening trades from this hour
