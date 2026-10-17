@@ -6,7 +6,8 @@ Chromium and save every event with its exact UTC timestamp.
     python scripts/fetch_ff_calendar.py --start 2024-10 --end 2026-10
 
 Output: data/calendar/ff_calendar.csv
-columns: time_utc, currency, impact, name, actual, forecast, previous, time_label
+columns: time_utc, currency, impact, name, actual, forecast, previous, time_label,
+         id, ebase_id, better_worse (FF: 1 better / 2 worse for the currency), revision
 Forex Factory embeds each event's Unix timestamp ("dateline"), so no
 time-zone guessing is needed.  Events marked "All Day"/"Tentative" are kept
 but flagged by time_label.
@@ -47,6 +48,11 @@ def parse(html: str) -> list[dict]:
                     "previous": e.get("previous"),
                     "time_label": e.get("timeLabel"),
                     "id": e.get("id"),
+                    "ebase_id": e.get("ebaseId"),
+                    # Forex Factory's own verdict: 1 = actual better than forecast for
+                    # the currency (green), 2 = worse (red), 0 = in line / n.a.
+                    "better_worse": e.get("actualBetterWorse"),
+                    "revision": e.get("revision"),
                 })
     return rows
 
