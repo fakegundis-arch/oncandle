@@ -15,6 +15,7 @@ The strategies that held up in testing are kept here for later comparison. Unles
 | 0b | Gold Asian Breakout - single signal (Donchian20/50h) | Gold M15, Asian session | 53% | 1.96 | 1.38 | $3,853 (10%, -74%) | ★★★ | `GoldAsianBreakout.mq5` with UsePrevDay=false, Donchian 20, EMA 200 |
 | 7 | **News bias -> NY open v2** (FF verdicts on USD medium+high news; wait 60 min, pullback, 1:3, >=2 markets confirm) | 11 markets M1 | ~48% | 1.38 | 1.47 | $1,706 (10%, -57%) | ★★☆ news beats both controls inside the cluster; fragile to the observe time | not built yet |
 | 7b | News bias -> NY open v2, **one market is enough** (no 2-market rule) | 11 markets M1 | ~47% | 1.27 | 1.31 | $1,281 (10%, -61%) | ★★☆ the extra single-market days lost in both years | not built yet |
+| 8 | **Truth Social tariff posts -> Dow** (tone: threat = sell, deal/pause = buy; 2-min reaction, 60-min hold) | US30 M1 | 54-56% | 1.66 | 2.58 | $2,648 (10%, -15%) / $5,456 (20%, -30%) | ★★☆ beats random-post and other-topic controls; not seen on Nasdaq/S&P | not built yet |
 | 1 | **Trend Rider v2, Asian session only** | Nasdaq (USTEC) M1 | ~55% | 1.26 | 1.39 | **$3,862 (2%, -33%)** / $6,613 (3%, -46%) / $14,969 (5%, -66%) | ★★★ all 36 neighbouring settings profitable in both years; OK up to 3-pt spread; Q4 2024 only break-even | `TrendRiderV2.mq5` |
 | 2 | **Gold H4 MACD + EMA100** (trend following) | Gold H4 | ~50% | strong (2025 boom year) | +0.24R avg | $2,881 (10%, -33%) / $5,883 (20%, -57%) | ★★☆ 8/8 MACD variants profitable in 2026; few trades (54/yr) | `OnCandleTrend.mq5` |
 | 3 | **Run Fade** (mean reversion, high win rate) | BTC H1 | **93%** | 1.82 | 1.77 | $1,440 (10%, -19%) / $1,927 (20%, -36%) | ★★★ 3 periods incl. Q4 2024 (94%/93%/92% wins); OK to $60 spread; exits verified on M1 | `RunFade.mq5` |
@@ -57,6 +58,8 @@ The strategies that held up in testing are kept here for later comparison. Unles
 * **News bias -> trade the NY open** (Forex Factory better/worse verdicts on USD medium+high news, observe the open, join
   markets moving with the news; 11 markets, 1,728 settings): only 1% of settings profitable in both years; it does no
   better than ignoring the news. See `results/news_open/REPORT.md`.
+* **Truth Social post bot, other variants** (straddle / follow / fade at the post, all topics, 11 markets; 508k settings): 1-4%
+  profitable in both years; best 2026 with hindsight $51,959. See `results/truth/REPORT.md`.
 * **Trump / Fed-chair speech straddle** (114 Trump speeches, 45 Powell/Warsh events, OCO stops at the start, 2,400 settings x
   11 markets): 1.4% profitable in both years, Trump-only 0%; median PF < 1 even with optimistic fills. See `results/speech/REPORT.md`.
 * **Non-trend families, 100x target** (pairs mean reversion, RSI(2) snap-back, gap fade, hour seasonality; ~5,800 settings):
