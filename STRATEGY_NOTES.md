@@ -52,6 +52,9 @@ The strategies that held up in testing are kept here for later comparison. Unles
 * **Other tested presets:** US30 H4 (4 candles, 1.5 ATR, TP 0.3, SL 3, 10 bars); XAUUSD H1 (4, 3.0, 0.5, 4, 10).
 
 ## Tested and rejected (for reference)
+* **High-impact news trading** (Forex Factory calendar, 316 USD releases, tick-level, gold/Nasdaq/Dow/EURUSD): an OCO straddle
+  at 1:3 and a buy+sell 5 s before at 1:4 are both unprofitable; no setting is profitable in both 2025 and 2026. Spreads jump
+  about 4-7x at the release and the worst fills slip a lot. See `results/news/REPORT.md`.
 * **NY-open straddle (Nasdaq and Dow, 09:29:50 OCO stops):** Nasdaq loses in every robust test (tick PF ~0.8). Dow is about
   break-even and fragile; the best-by-2025 config gave $1,000 -> $434 in 2026 at 10% risk. Also tested on S&P 500, gold,
   silver, oil, BTC, EURUSD, GBPUSD, USDJPY and USDCAD: none beat the Dow and none is profitable in both years.

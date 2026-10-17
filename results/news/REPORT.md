@@ -1,4 +1,22 @@
-# High-impact news trading (tick-level), INTERIM: ~75 USD releases per market, mostly 2026
+# High-impact news trading (tick-level)
+
+## FINAL: all ~310 high-impact USD releases per market (Oct 2024 - Oct 2026)
+
+| | Gold | Nasdaq | Dow | EURUSD |
+|---|---|---|---|---|
+| A) Straddle: settings PF>1 in 2025 / 2026 / both | 0% / 0% / 0% | 21% / 24% / **5%** | 17% / 0% / 0% | 18% / 2% / 1% |
+| A) Best-by-2025 setting, $1,000 in 2026 at 10% | $80 | $16 | $19 | $289 |
+| A) at 1:3 only: settings PF>1 in both years | 0% | 3% | 0% | 0% |
+| B) Buy+sell 5 s before: settings PF>1 in 2025 / 2026 / both | 0% / 0% / 0% | 0% / 42% / **0%** | 0% / 0% / 0% | 0% / 8% / 0% |
+| B) Best-by-2025 setting, $1,000 in 2026 (5% per leg) | $346 | $277 | $73 | $750 |
+
+**Verdict: neither setup is profitable.** No setting on any market made money in both 2025 and 2026, apart from a
+handful of Nasdaq straddle settings (5%) that are indistinguishable from luck. The settings that looked best on 2025 lost
+70-98% of the account in 2026. The interim result (Nasdaq looked promising on 2026 alone) did not hold up on 2025.
+
+---
+
+# INTERIM (kept for reference): ~75 USD releases per market, mostly 2026
 
 Calendar: Forex Factory (10,583 events Oct 2024 - Oct 2026, exact UTC timestamps) -> 316 high-impact USD data
 releases (speeches and press conferences excluded). Prices: Dukascopy ticks with real bid/ask, including the spread
