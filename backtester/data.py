@@ -120,6 +120,13 @@ EXNESS_STANDARD_SPREAD = {
     "GBPUSD": 0.00012,
     "USDJPY": 0.011,
     "USDCAD": 0.00018,
+    # typical Exness Standard spreads for the extra pairs (conservative)
+    "EURCHF": 0.00020,
+    "AUDNZD": 0.00030,
+    "EURGBP": 0.00015,
+    "AUDUSD": 0.00012,
+    "NZDUSD": 0.00018,
+    "GBPJPY": 0.025,
 }
 SYMBOL_ALIASES = {
     "BTCUSD": "BTCUSD", "BTCUSDT": "BTCUSD", "BITCOIN": "BTCUSD",

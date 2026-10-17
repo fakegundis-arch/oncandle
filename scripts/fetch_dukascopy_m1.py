@@ -40,6 +40,12 @@ SYMBOLS = {
     "GBPUSD": ("GBPUSD", 1e5),
     "USDJPY": ("USDJPY", 1e3),
     "USDCAD": ("USDCAD", 1e5),
+    "EURCHF": ("EURCHF", 1e5),
+    "AUDNZD": ("AUDNZD", 1e5),
+    "EURGBP": ("EURGBP", 1e5),
+    "AUDUSD": ("AUDUSD", 1e5),
+    "NZDUSD": ("NZDUSD", 1e5),
+    "GBPJPY": ("GBPJPY", 1e3),
 }
 
 
