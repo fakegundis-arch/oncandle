@@ -2,7 +2,7 @@
 
 **How it reads the news:** every USD medium/high release from the previous NY close (16:00 ET) to the NY open (09:30 ET)
 gets Forex Factory's own verdict (`actualBetterWorse`: better / worse than forecast for USD). High impact counts x2.
-The sum is the day's USD score; |score| >= threshold sets the USD bias. 2,050 days were checked (Nov 2024 - Oct 2026);
+The sum is the day's USD score; |score| >= threshold sets the USD bias. 489 trading days were checked (Nov 2024 - Oct 2026);
 130 days had |score| >= 2.
 
 **How it trades:** no trade at the release. At the NY open it watches 11 markets (gold, silver, EURUSD, GBPUSD, USDJPY,
