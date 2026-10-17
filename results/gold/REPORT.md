@@ -85,3 +85,13 @@ Jul $8,316, Aug $32,392, Sep $38,351, Oct $38,694.
 Lowest balance $1,120. Up to ~21% of equity can be at risk at once when all four strategies hold trades.
 Note: a simulator bug (a trade opened and stopped in the same minute was not counted) was found and fixed; all numbers
 above are after the fix.
+
+## Portfolio rerun with the upgraded parts (same 7 / 4 / 5 / 4% weights, chosen earlier on 2025)
+Gold Asian breakout v3 (7%) + Truth tariff Dow (4%) + **BTC Run Fade v2** (5%) + **Gold MACD v3, H2** (4%):
+
+| $1,000 | Q4 2024 | 2025 | **2026** |
+|---|---|---|---|
+| Portfolio with upgraded parts | $7,835 / DD -33% | $382,457 / -40% | **$98,632 / DD -32%** |
+| ... without the Truth Social leg | $8,749 / -28% | $208,175 / -42% | $66,744 / -32% |
+Each part's improvement was chosen on Q4 2024 + 2025, but every chosen setting sits at the good end of its
+neighbourhood, so treat these as optimistic; 2025 figures are in-sample.
