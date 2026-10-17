@@ -46,7 +46,7 @@ def trading_days(a: date, b: date):
         d += timedelta(days=1)
 
 
-def fetch(sess, sym, d, h, out: Path):
+def fetch(sess, sym, d, h, out: Path, scale: float = SCALE):
     if out.exists():
         return "cached"
     url = URL.format(sym=sym, y=d.year, m=d.month - 1, d=d.day, h=h)
@@ -61,7 +61,7 @@ def fetch(sess, sym, d, h, out: Path):
                 return "missing"
             r.raise_for_status()
             raw = lzma.decompress(r.content) if r.content else b""
-            arr = np.array([(t, a / SCALE, b / SCALE) for t, a, b, _, _ in struct.iter_unpack(">IIIff", raw)])
+            arr = np.array([(t, a / scale, b / scale) for t, a, b, _, _ in struct.iter_unpack(">IIIff", raw)])
             np.save(out, arr.reshape(-1, 3))
             time.sleep(0.3)
             return "ok"
