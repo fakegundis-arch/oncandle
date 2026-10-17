@@ -50,3 +50,22 @@ markets confirming (>= 2 must confirm). Stop = 1 unit, target 3R, stop to +0.1R 
 Most traded: oil, USDJPY, GBPUSD, EURUSD, S&P 500, BTC. Trade list: `final_v2_trades.csv`.
 **Verdict: a small, real-looking edge (news beats both controls), but returns at 10% risk are modest and the
 swings are severe.** It is a candidate for forward/demo testing, not a money-maker on its own.
+
+## v2 without the 2-market rule (trade even if only one market confirms)
+
+Same rules (score >= 2, observe 60 min, pullback to EMA20, 1-unit stop, 1:3, 24 h max hold); the strongest
+qualifying market is traded even when it is the only one. `scripts/news_open_v2_trades.py --pick best`.
+
+| Setting | Year | Trades | Win | PF | $1,000 -> (10% risk) | Max DD |
+|---|---|---|---|---|---|---|
+| 1 market OK, BE at 1R | 2025 | 70 | 44% | 1.27 | $1,307 | -82% |
+| 1 market OK, BE at 1R | 2026 | 50 | 50% | 1.31 | $1,281 | -61% |
+| 1 market OK, no BE | 2025 | 70 | 33% | 1.37 | $1,967 | -71% |
+| 1 market OK, no BE | 2026 | 50 | 32% | 1.30 | $1,344 | -65% |
+| 2+ markets (v2), BE at 1R | 2025 | 67 | 46% | 1.38 | $1,793 | -77% |
+| 2+ markets (v2), BE at 1R | 2026 | 44 | 50% | 1.47 | $1,706 | -57% |
+
+The rule only blocks 3 days in 2025 and 6 in 2026 (most news days move several markets together). Those
+single-market days were net losers (-3.0R in 2025 and -2.7R in 2026 with BE): no win, only stops and breakevens.
+Across the 96 neighbouring settings (observe 60, pullback), 28% are profitable in both years with one market
+allowed vs 33% with the 2-market rule. Keeping the rule is slightly better; dropping it still leaves the strategy profitable.
