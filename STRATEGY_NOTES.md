@@ -64,6 +64,9 @@ The strategies that held up in testing are kept here for later comparison. Unles
 * **News bias -> trade the NY open** (Forex Factory better/worse verdicts on USD medium+high news, observe the open, join
   markets moving with the news; 11 markets, 1,728 settings): only 1% of settings profitable in both years; it does no
   better than ignoring the news. See `results/news_open/REPORT.md`.
+* **Gold Asian breakout v3 method on Nasdaq / Dow / S&P** (8 sessions x 6,912 settings x 2 overlays per market, 55k runs):
+  17.6% / 4.4% / 4.2% of settings profitable in all three periods (gold: 91%); 2025 picks fail in 2026.
+  See `results/index_breakout/REPORT.md`.
 * **Gap tests** (range-pair mean reversion with news filter, cointegration-gated pairs, GBPJPY/USDJPY H1-D1 trend, London ORB;
   6 new FX pairs, ~18,500 settings): 0.3-5% profitable in both years. EURCHF Asian fade has a real gross edge but needs a
   raw-spread account (0.5x Standard: $1,000 -> $1,749 in 2026, 20 trades). See `results/gaps/REPORT.md`.
