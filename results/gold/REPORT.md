@@ -95,3 +95,32 @@ Gold Asian breakout v3 (7%) + Truth tariff Dow (4%) + **BTC Run Fade v2** (5%) +
 | ... without the Truth Social leg | $8,749 / -28% | $208,175 / -42% | $66,744 / -32% |
 Each part's improvement was chosen on Q4 2024 + 2025, but every chosen setting sits at the good end of its
 neighbourhood, so treat these as optimistic; 2025 figures are in-sample.
+
+---
+# v4 (`scripts/gold_v4.py`, `scripts/gold_v4_search.py` -> `v4_grid.csv`, `v4_search.parquet`)
+
+Goal: more than v3 (and $50k+ in 2026) without big drawdowns.
+
+1. **Quality-tiered sizing** (keep every v2 trade, risk by flags: long side, daily trend, volatility, regime,
+   equity-curve health, week not down 2R): 1,415 rules. Under a 45% drawdown budget (Q4 2024 + 2025) the best made
+   $17k-27k in 2026: not better than v3. Only "long" and "week not down" were better in every period.
+2. **Broad search** (864 engine variants x 15 overlay settings x risk 8-20% x short size 1 / 0.5 / 0): 194,400
+   combinations. Picked on Q4 2024 + 2025 under 35-45% drawdown budgets, the top 100 made a median $6k-12k in 2026
+   and none reached $50k (they fit 2025). Only 194 combinations reach $50k in 2026 with DD under 50%; they need a
+   volatility-regime filter that cannot be judged in Q4 2024 and were mediocre in 2025, so they are hindsight picks.
+
+## v4 = v3 + side-dependent size (shorts were weaker in Q4 2024, 2025 and 2026)
+Longs 12%, shorts 6% (`GoldAsianBreakoutV4.mq5`, `v4_trades.csv`).
+
+| $1,000 | Q4 2024 | 2025 | **2026** |
+|---|---|---|---|
+| v3 (10%) | $9,450 / DD -34% | $125,692 / -42% | $30,750 / -64% |
+| **v4 (12% / 6%)** | **$12,046 / -22%** | **$181,427 / -47%** | **$38,290 / -63%** |
+| v4 at 10% / 5% | $8,540 / -19% | $96,534 / -41% | $24,724 / -56% |
+
+2026 month-end (v4): Jan $7,260, Feb $4,355, Mar $4,093, Apr $3,386, May $4,502, Jun $4,609, Jul $4,990,
+Aug $34,216, Sep $37,489, Oct $38,290.
+Neighbours (288 variants of d1 trend / equity filter / weekly stop, same sizing): all profitable in every period;
+median 2026 $11,036 vs $9,706 for the same neighbours at v3 sizing; Q4 2024 median DD -39% vs -52%.
+**$50k+ in 2026 with low drawdowns is not reachable on gold alone with any rule chosen in advance**; it needs
+15%+ risk (DD -72%) or the multi-strategy portfolio ($98,632 in 2026, DD -32%).
