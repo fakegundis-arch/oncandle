@@ -1,0 +1,160 @@
+time_utc,name,impact,who
+2024-11-07 19:30:00,FOMC Press Conference,high,fed
+2024-11-14 20:00:00,FOMC Member Powell Speaks,high,fed
+2024-12-04 18:45:00,FOMC Member Powell Speaks,high,fed
+2024-12-18 19:30:00,FOMC Press Conference,high,fed
+2025-01-20 17:00:00,President Trump Speaks,high,trump
+2025-01-23 16:00:00,President Trump Speaks,high,trump
+2025-01-29 19:30:00,FOMC Press Conference,high,fed
+2025-02-04 22:10:00,President Trump Speaks,high,trump
+2025-02-10 21:30:00,President Trump Speaks,high,trump
+2025-02-11 15:00:00,Fed Chairman Powell Testifies,high,fed
+2025-02-11 20:40:00,President Trump Speaks,high,trump
+2025-02-12 15:00:00,Fed Chairman Powell Testifies,high,fed
+2025-02-12 20:48:00,President Trump Speaks,high,trump
+2025-02-13 18:36:00,President Trump Speaks,high,trump
+2025-02-14 19:08:00,President Trump Speaks,high,trump
+2025-02-18 21:13:00,President Trump Speaks,high,trump
+2025-02-19 02:00:00,President Trump Speaks,high,trump
+2025-02-19 22:00:00,President Trump Speaks,high,trump
+2025-02-21 00:20:00,President Trump Speaks,high,trump
+2025-02-21 20:56:00,President Trump Speaks,high,trump
+2025-02-24 19:49:00,President Trump Speaks,high,trump
+2025-02-25 20:59:00,President Trump Speaks,high,trump
+2025-02-27 20:30:00,President Trump Speaks,medium,trump
+2025-02-28 17:15:00,President Trump Speaks,high,trump
+2025-03-03 19:39:00,President Trump Speaks,medium,trump
+2025-03-05 02:10:00,President Trump Speaks,high,trump
+2025-03-06 19:39:00,President Trump Speaks,medium,trump
+2025-03-07 16:00:00,President Trump Speaks,medium,trump
+2025-03-07 17:30:00,FOMC Member Powell Speaks,high,fed
+2025-03-07 20:00:00,President Trump Speaks,medium,trump
+2025-03-11 21:00:00,President Trump Speaks,medium,trump
+2025-03-14 19:00:00,President Trump Speaks,medium,trump
+2025-03-19 18:30:00,FOMC Press Conference,high,fed
+2025-03-20 14:40:00,President Trump Speaks,medium,trump
+2025-03-24 18:30:00,President Trump Speaks,medium,trump
+2025-03-26 20:00:00,President Trump Speaks,high,trump
+2025-03-27 01:00:00,President Trump Speaks,medium,trump
+2025-04-02 20:00:00,President Trump Speaks,high,trump
+2025-04-04 15:25:00,FOMC Member Powell Speaks,high,fed
+2025-04-08 22:45:00,President Trump Speaks,medium,trump
+2025-04-16 17:30:00,FOMC Member Powell Speaks,high,fed
+2025-04-29 22:00:00,President Trump Speaks,medium,trump
+2025-05-01 00:00:00,President Trump Speaks,medium,trump
+2025-05-07 18:30:00,FOMC Press Conference,high,fed
+2025-05-08 14:00:00,President Trump Speaks,high,trump
+2025-05-12 13:30:00,President Trump Speaks,medium,trump
+2025-05-13 15:34:00,President Trump Speaks,medium,trump
+2025-05-15 12:40:00,FOMC Member Powell Speaks,high,fed
+2025-05-20 19:00:00,President Trump Speaks,medium,trump
+2025-05-25 18:40:00,FOMC Member Powell Speaks,medium,fed
+2025-06-02 17:00:00,FOMC Member Powell Speaks,high,fed
+2025-06-10 20:00:00,President Trump Speaks,medium,trump
+2025-06-18 18:30:00,FOMC Press Conference,high,fed
+2025-06-22 02:00:00,President Trump Speaks,high,trump
+2025-06-24 14:00:00,Fed Chairman Powell Testifies,high,fed
+2025-06-25 14:00:00,Fed Chairman Powell Testifies,high,fed
+2025-07-01 13:30:00,FOMC Member Powell Speaks,high,fed
+2025-07-22 12:30:00,FOMC Member Powell Speaks,medium,fed
+2025-07-23 21:00:00,President Trump Speaks,medium,trump
+2025-07-30 18:30:00,FOMC Press Conference,high,fed
+2025-07-30 20:00:00,President Trump Speaks,medium,trump
+2025-08-05 12:00:00,President Trump Speaks,medium,trump
+2025-08-07 20:00:00,President Trump Speaks,medium,trump
+2025-08-11 14:00:00,President Trump Speaks,medium,trump
+2025-08-13 15:15:00,President Trump Speaks,medium,trump
+2025-08-14 17:00:00,President Trump Speaks,medium,trump
+2025-08-15 22:55:00,President Trump Speaks,high,trump
+2025-08-19 12:00:00,President Trump Speaks,medium,trump
+2025-08-22 14:00:00,FOMC Member Powell Speaks,high,fed
+2025-08-22 17:05:00,President Trump Speaks,high,trump
+2025-09-02 18:00:00,President Trump Speaks,medium,trump
+2025-09-05 20:00:00,President Trump Speaks,medium,trump
+2025-09-17 18:30:00,FOMC Press Conference,high,fed
+2025-09-23 13:50:00,President Trump Speaks,medium,trump
+2025-09-23 16:35:00,FOMC Member Powell Speaks,high,fed
+2025-09-23 23:20:00,President Trump Speaks,medium,trump
+2025-09-29 17:15:00,President Trump Speaks,medium,trump
+2025-09-30 15:00:00,President Trump Speaks,medium,trump
+2025-10-09 12:30:00,FOMC Member Powell Speaks,medium,fed
+2025-10-14 16:20:00,FOMC Member Powell Speaks,high,fed
+2025-10-23 19:00:00,President Trump Speaks,medium,trump
+2025-10-29 18:30:00,FOMC Press Conference,high,fed
+2025-11-05 18:00:00,President Trump Speaks,medium,trump
+2025-11-06 16:00:00,President Trump Speaks,medium,trump
+2025-11-17 23:00:00,President Trump Speaks,medium,trump
+2025-11-19 17:00:00,President Trump Speaks,medium,trump
+2025-12-02 01:00:00,FOMC Member Powell Speaks,medium,fed
+2025-12-02 19:00:00,President Trump Speaks,medium,trump
+2025-12-03 19:30:00,President Trump Speaks,medium,trump
+2025-12-09 23:10:00,President Trump Speaks,medium,trump
+2025-12-10 19:30:00,FOMC Press Conference,high,fed
+2025-12-12 01:15:00,President Trump Speaks,medium,trump
+2025-12-18 02:00:00,President Trump Speaks,medium,trump
+2025-12-20 02:00:00,President Trump Speaks,medium,trump
+2026-01-06 19:00:00,President Trump Speaks,medium,trump
+2026-01-13 19:00:00,President Trump Speaks,medium,trump
+2026-01-20 18:00:00,President Trump Speaks,medium,trump
+2026-01-21 13:30:00,President Trump Speaks,high,trump
+2026-01-21 18:00:00,President Trump Speaks,medium,trump
+2026-01-27 21:00:00,President Trump Speaks,medium,trump
+2026-01-28 19:30:00,FOMC Press Conference,high,fed
+2026-01-29 21:30:00,President Trump Speaks,medium,trump
+2026-02-06 00:00:00,President Trump Speaks,medium,trump
+2026-02-19 21:00:00,President Trump Speaks,medium,trump
+2026-02-20 17:45:00,President Trump Speaks,high,trump
+2026-02-25 02:00:00,President Trump Speaks,high,trump
+2026-03-02 16:00:00,President Trump Speaks,medium,trump
+2026-03-09 21:30:00,President Trump Speaks,medium,trump
+2026-03-11 20:25:00,President Trump Speaks,medium,trump
+2026-03-16 15:30:00,President Trump Speaks,medium,trump
+2026-03-18 18:30:00,FOMC Press Conference,high,fed
+2026-03-21 17:30:00,FOMC Member Powell Speaks,medium,fed
+2026-03-25 23:20:00,President Trump Speaks,medium,trump
+2026-03-26 20:00:00,President Trump Speaks,medium,trump
+2026-03-27 21:30:00,President Trump Speaks,medium,trump
+2026-03-30 14:30:00,FOMC Member Powell Speaks,high,fed
+2026-04-02 01:00:00,President Trump Speaks,high,trump
+2026-04-06 17:00:00,President Trump Speaks,high,trump
+2026-04-15 10:00:00,President Trump Speaks,medium,trump
+2026-04-16 23:00:00,President Trump Speaks,medium,trump
+2026-04-17 21:00:00,President Trump Speaks,medium,trump
+2026-04-21 12:30:00,President Trump Speaks,medium,trump
+2026-04-21 14:00:00,Fed Chairman Warsh Testifies,high,fed
+2026-04-25 16:00:00,President Trump Speaks,medium,trump
+2026-04-26 02:45:00,President Trump Speaks,medium,trump
+2026-04-26 23:00:00,President Trump Speaks,medium,trump
+2026-04-29 18:30:00,FOMC Press Conference,high,fed
+2026-05-01 19:00:00,President Trump Speaks,medium,trump
+2026-05-08 16:00:00,President Trump Speaks,medium,trump
+2026-06-01 00:30:00,FOMC Member Powell Speaks,medium,fed
+2026-06-04 19:00:00,President Trump Speaks,medium,trump
+2026-06-17 14:45:00,President Trump Speaks,medium,trump
+2026-06-17 18:30:00,FOMC Press Conference,high,fed
+2026-06-23 18:05:00,President Trump Speaks,medium,trump
+2026-06-25 00:30:00,President Trump Speaks,medium,trump
+2026-06-26 17:30:00,President Trump Speaks,medium,trump
+2026-07-01 13:00:00,Fed Chairman Warsh Speaks,high,fed
+2026-07-01 19:15:00,President Trump Speaks,medium,trump
+2026-07-14 14:00:00,Fed Chairman Warsh Testifies,high,fed
+2026-07-15 14:00:00,Fed Chairman Warsh Testifies,high,fed
+2026-07-17 01:00:00,President Trump Speaks,medium,trump
+2026-07-22 19:00:00,President Trump Speaks,medium,trump
+2026-07-25 00:55:00,President Trump Speaks,medium,trump
+2026-07-27 18:50:00,President Trump Speaks,medium,trump
+2026-07-29 18:30:00,FOMC Press Conference,high,fed
+2026-08-05 20:30:00,President Trump Speaks,medium,trump
+2026-08-14 19:00:00,President Trump Speaks,medium,trump
+2026-08-19 18:30:00,President Trump Speaks,medium,trump
+2026-08-21 23:00:00,President Trump Speaks,medium,trump
+2026-08-28 14:00:00,Fed Chairman Warsh Speaks,high,fed
+2026-09-10 01:15:00,President Trump Speaks,medium,trump
+2026-09-16 18:30:00,FOMC Press Conference,high,fed
+2026-09-22 13:55:00,President Trump Speaks,medium,trump
+2026-09-24 14:15:00,President Trump Speaks,medium,trump
+2026-09-24 23:55:00,President Trump Speaks,medium,trump
+2026-09-30 19:30:00,President Trump Speaks,medium,trump
+2026-10-07 17:00:00,President Trump Speaks,medium,trump
+2026-10-16 03:30:00,Fed Chairman Warsh Speaks,high,fed
+2026-10-28 18:30:00,FOMC Press Conference,high,fed
