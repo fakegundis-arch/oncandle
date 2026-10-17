@@ -35,14 +35,31 @@ FGRID = np.array([0.02, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5])
 YEARS = {"y24": ("2024-11-01", "2025-01-01"), "y25": ("2025-01-01", "2026-01-01"), "y26": ("2026-01-01", "2027-01-01")}
 PICKS = ["all", "best"] + MARKETS
 
+SURPRISE_GRID = dict(family=tuple(FAMILIES), w=(1, 3, 5, 15, 30, 60), k=(0.0, 3.0), filt=("agree", "disagree"),
+                     scope=("all", "usd"), zmin=(1.0, 2.0, 3.0))
+
 _M = {}
+
+
+def calendar():
+    """Main calendar plus older history (only used to size surprises from past releases)."""
+    cd = ROOT / "data" / "calendar"
+    cal = pd.read_csv(cd / "ff_calendar.csv", parse_dates=["time_utc"])
+    old = cd / "ff_calendar_2022_2024.csv"
+    if old.exists():
+        o = pd.read_csv(old, parse_dates=["time_utc"])
+        both = pd.concat([o[o.time_utc < cal.time_utc.min()], cal], ignore_index=True)
+        both["z"] = L.surprises(both)
+        cal = both[both.time_utc >= cal.time_utc.min()].reset_index(drop=True)
+    else:
+        cal["z"] = L.surprises(cal)
+    return cal
 
 
 def load():
     if _M:
         return _M
-    cal = pd.read_csv(ROOT / "data" / "calendar" / "ff_calendar.csv", parse_dates=["time_utc"])
-    ev = L.events(cal)
+    ev = L.events(calendar())
     ev["eid"] = np.arange(len(ev))
     for m in MARKETS:
         m1 = D.load_csv(ROOT / "data" / f"{m}_M1.csv").drop(columns="spread", errors="ignore")
@@ -102,7 +119,7 @@ def year_stats(t_ev, r, pre):
 def job(ekw):
     M = load()
     fam, filt = FAMILIES[ekw["family"]], FILTS[ekw["filt"]]
-    if fam == 2 and filt != 0:
+    if fam == 2 and filt != (1 if ekw.get("zmin") else 0):
         return pd.DataFrame()
     per_m = []
     for m in MARKETS:
@@ -115,9 +132,17 @@ def job(ekw):
             p = p[p.tier1 == 1]
         if p.empty:
             continue
+        nd = p.news_dir.to_numpy(np.int64)
+        if ekw.get("zmin"):
+            z = p.zdir.to_numpy()
+            nd = np.where(np.abs(np.nan_to_num(z)) >= ekw["zmin"], np.sign(np.nan_to_num(z)), 0).astype(np.int64)
+            keep = nd != 0
+            p, nd = p[keep], nd[keep]
+            if p.empty:
+                continue
         rel = p.i.to_numpy(np.int64)
         a = p.a.to_numpy()
-        ent, dr, spk = L.signals(o, h, l, c, rel, a, p.news_dir.to_numpy(np.int64), fam, ekw["w"], ekw["k"], filt, 30)
+        ent, dr, spk = L.signals(o, h, l, c, rel, a, nd, fam, ekw["w"], ekw["k"], filt, 30)
         ok = ent >= 0
         if not ok.any():
             continue
@@ -169,7 +194,9 @@ def job(ekw):
 
 
 def main():
-    jobs = [dict(zip(ENTRY_GRID, v)) for v in itertools.product(*ENTRY_GRID.values())]
+    surprise = "--surprise" in sys.argv
+    grid = SURPRISE_GRID if surprise else ENTRY_GRID
+    jobs = [dict(zip(grid, v)) for v in itertools.product(*grid.values())]
     out = ROOT / "results" / "news_lab"
     out.mkdir(parents=True, exist_ok=True)
     parts, n = [], 0
@@ -183,8 +210,9 @@ def main():
     df = pd.concat(parts, ignore_index=True)
     for col in ("family", "filt", "scope", "pick"):
         df[col] = df[col].astype("category")
-    df.to_parquet(out / "grid.parquet", index=False)
-    print(len(df), "rows ->", out / "grid.parquet")
+    f = out / ("grid_surprise.parquet" if surprise else "grid.parquet")
+    df.to_parquet(f, index=False)
+    print(len(df), "rows ->", f)
 
 
 if __name__ == "__main__":

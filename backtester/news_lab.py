@@ -41,9 +41,15 @@ def events(cal: pd.DataFrame) -> pd.DataFrame:
     c["s"] = np.where(bw == 1, 1, np.where(bw == 2, -1, 0)) * np.where(c.impact == "high", 2, 1)
     c["hi"] = (c.impact == "high").astype(int)
     c["t1"] = c.name.str.contains("|".join(TIER1), regex=True).astype(int)
+    if "z" not in c:
+        c["z"] = np.nan
+    c["wz"] = c.z.clip(-5, 5) * np.where(c.impact == "high", 2, 1)
+    c["wn"] = np.where(c.z.notna(), np.where(c.impact == "high", 2, 1), 0)
     g = c.groupby(["time_utc", "currency"])
-    ev = g.agg(score=("s", "sum"), high=("hi", "max"), tier1=("t1", "max"),
+    ev = g.agg(score=("s", "sum"), high=("hi", "max"), tier1=("t1", "max"), wz=("wz", "sum"), wn=("wn", "sum"),
                names=("name", lambda x: "; ".join(x))).reset_index()
+    ev["z"] = np.where(ev.wn > 0, ev.wz / ev.wn.where(ev.wn > 0, 1), np.nan)
+    ev = ev.drop(columns=["wz", "wn"])
     return ev.sort_values("time_utc").reset_index(drop=True)
 
 
@@ -61,8 +67,10 @@ def pairs(ev: pd.DataFrame, market: str, m1: pd.DataFrame, tr_mean: np.ndarray) 
         a = tr_mean[i]
         if not np.isfinite(a) or a <= 0:
             continue
-        rows.append((e.time_utc, e.currency, market, i, a, int(np.sign(e.score)) * beta, e.score, e.high, e.tier1, e.names))
-    return pd.DataFrame(rows, columns=["time", "currency", "market", "i", "a", "news_dir", "score", "high", "tier1", "names"])
+        rows.append((e.time_utc, e.currency, market, i, a, int(np.sign(e.score)) * beta, e.score, e.high, e.tier1,
+                     e.z * beta, e.names))
+    return pd.DataFrame(rows, columns=["time", "currency", "market", "i", "a", "news_dir", "score", "high", "tier1",
+                                       "zdir", "names"])
 
 
 @njit(cache=True)
