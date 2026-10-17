@@ -57,6 +57,9 @@ The strategies that held up in testing are kept here for later comparison. Unles
 * **News bias -> trade the NY open** (Forex Factory better/worse verdicts on USD medium+high news, observe the open, join
   markets moving with the news; 11 markets, 1,728 settings): only 1% of settings profitable in both years; it does no
   better than ignoring the news. See `results/news_open/REPORT.md`.
+* **News lab, 100x target** (continuation / fade / verdict / retest / surprise-size families on every USD, EUR, GBP, JPY,
+  CAD release, 2.4M settings): ~4% profitable in both years (luck level); 2025 picks fail in 2026; not one setting reaches
+  $100,000 in 2026 even with hindsight (best $52,983, which lost 99% in 2025). See `results/news_lab/REPORT.md`.
 * **News bias -> NY open, all on M1** (observe 1-15 M1 candles, M1 entries, M1 ATR stops, 1:3, 2 markets; 4,320 settings):
   0.7% profitable in both years, worse than the against-news control. Keep v2 (60-min wait, opening-range stop).
 * **High-impact news trading** (Forex Factory calendar, 316 USD releases, tick-level, gold/Nasdaq/Dow/EURUSD): an OCO straddle
