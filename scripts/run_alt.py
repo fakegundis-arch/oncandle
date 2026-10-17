@@ -87,11 +87,16 @@ def main():
         "gap": (gap_job, grid(dict(market=MARKETS, g=(0.25, 0.5, 1.0, 2.0), stop_atr=(1.0, 2.0, 3.0),
                                    max_bars=(4, 16, 64)))),
     }
+    only = [a for a in sys.argv[1:] if not a.startswith("-")]
     with ProcessPoolExecutor(4) as ex:
         for name, (fn, js) in jobs.items():
+            if only and name not in only:
+                continue
             rows = list(ex.map(fn, js, chunksize=8))
             pd.DataFrame(rows).to_csv(OUT / f"{name}.csv", index=False)
             print(name, len(rows), flush=True)
+    if only and "seasonality" not in only:
+        return
     s, t = seasonality()
     s.to_csv(OUT / "seasonality.csv", index=False)
     if len(t):

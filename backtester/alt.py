@@ -38,30 +38,35 @@ def _trades(df, market, ent, R, X):
 
 # ---------------------------------------------------------------- pairs
 @njit(cache=True)
-def _pairs(s, mu, sd, zin, zstop, zexit, max_bars, cost):
+def _pairs(la, lb, beta, s, mu, sd, zin, zstop, zexit, max_bars, cost):
+    """The hedge ratio is frozen at the signal bar: the position is +1 A / -beta B (in log-return terms), so P&L and
+    exits use that fixed-beta spread."""
     n = len(s)
     ent = np.full(n, -1, np.int64)
     ex = np.full(n, -1, np.int64)
     R = np.full(n, np.nan)
     i = 0
     while i < n - 2:
-        if not (sd[i] > 0):
+        if not (sd[i] > 0) or not np.isfinite(beta[i]):
             i += 1
             continue
         z = (s[i] - mu[i]) / sd[i]
         if abs(z) < zin or abs(z) >= zstop:
             i += 1
             continue
-        d = -1.0 if z > 0 else 1.0                       # trade the spread back toward its mean
+        d = -1.0 if z > 0 else 1.0
+        b0, s0 = beta[i], sd[i]
+        m0 = (la[i] - b0 * lb[i]) - z * s0                  # mean level expressed in the frozen-beta spread
         e = i + 1
-        se, m0, s0 = s[e], mu[i], sd[i]
+        se = la[e] - b0 * lb[e]
         risk = (zstop - zin) * s0
         stop = se - d * risk
         j = e + 1
         out = -1
         while j < n and j - e <= max_bars:
-            zz = (s[j] - m0) / s0
-            if (d > 0 and s[j] <= stop) or (d < 0 and s[j] >= stop) or abs(zz) <= zexit or d * zz > 0:
+            sj = la[j] - b0 * lb[j]
+            zz = (sj - m0) / s0
+            if (d > 0 and sj <= stop) or (d < 0 and sj >= stop) or abs(zz) <= zexit or d * zz > 0:
                 out = j
                 break
             j += 1
@@ -69,7 +74,7 @@ def _pairs(s, mu, sd, zin, zstop, zexit, max_bars, cost):
             out = min(j, n - 1)
         ent[i] = e
         ex[i] = out
-        R[i] = (d * (s[out] - se) - cost) / risk
+        R[i] = (d * ((la[out] - b0 * lb[out]) - se) - cost) / risk
         i = out + 1
     return ent, ex, R
 
@@ -78,14 +83,17 @@ def pairs_trades(a: str, b: str, rule="15min", L=96 * 5, zin=2.0, zstop=4.0, zex
     A, B = bars(a, rule).close, bars(b, rule).close
     j = pd.concat([A.rename("a"), B.rename("b")], axis=1, join="inner").dropna()
     la, lb = np.log(j.a), np.log(j.b)
-    cov = la.rolling(L).cov(lb)
-    beta = (cov / lb.rolling(L).var()).shift()
+    # rolling OLS la = alpha + beta lb over the previous L bars (shifted: no look-ahead)
+    ma, mb = la.rolling(L).mean().shift(), lb.rolling(L).mean().shift()
+    va, vb = la.rolling(L).var().shift(), lb.rolling(L).var().shift()
+    cov = la.rolling(L).cov(lb).shift()
+    beta = cov / vb
     s = la - beta * lb
-    # mean/std of the spread built with the same (lagged) beta over the last L bars
-    mu = s.rolling(L).mean().shift()
-    sd = s.rolling(L).std().shift()
+    mu = ma - beta * mb
+    sd = np.sqrt((va - beta * cov).clip(lower=0))
     cost = slip * (D.EXNESS_STANDARD_SPREAD[a] / j.a.median() + abs(beta.median()) * D.EXNESS_STANDARD_SPREAD[b] / j.b.median())
-    ent, ex, R = _pairs(s.to_numpy(), mu.to_numpy(), sd.to_numpy(), zin, zstop, zexit, max_bars, cost)
+    ent, ex, R = _pairs(la.to_numpy(), lb.to_numpy(), beta.to_numpy(), s.to_numpy(), mu.to_numpy(), sd.to_numpy(),
+                        zin, zstop, zexit, max_bars, cost)
     ok = ent >= 0
     return pd.DataFrame({"entry_time": j.index[ent[ok]], "exit_time": j.index[ex[ok]], "market": f"{a}/{b}", "r": R[ok]})
 
@@ -174,7 +182,7 @@ def rsi2_trades(market, rule="1h", lo=10.0, stop_atr=3.0, filt=True, max_bars=10
 
 
 # ---------------------------------------------------------------- gap fade
-def gap_trades(market, rule="15min", min_gap_min=30, g=1.0, stop_atr=2.0, max_bars=16):
+def gap_trades(market, rule="15min", min_gap_min=30, g=1.0, stop_atr=2.0, max_bars=16, delay=0, cost_mult=2.0):
     """After a trading break of >= min_gap_min minutes, fade an opening gap of >= g x ATR back to the prior close."""
     df = bars(market, rule)
     atr = ind.atr(df, 14).shift().to_numpy()
@@ -188,9 +196,15 @@ def gap_trades(market, rule="15min", min_gap_min=30, g=1.0, stop_atr=2.0, max_ba
     if len(idx) == 0:
         return pd.DataFrame(columns=["entry_time", "exit_time", "market", "r"])
     dr = -np.sign(gap[idx]).astype(np.int64)
+    prev_c = c[idx - 1]
     sl = stop_atr * atr[idx]
-    tgt_r = np.abs(gap[idx]) / sl                           # target = full gap fill, in R
-    cost = np.full(len(idx), 2 * D.EXNESS_STANDARD_SPREAD[market])
+    idx = idx + delay                                       # optional: enter `delay` bars after the open
+    keep = idx < len(o) - 1
+    idx, dr, sl, prev_c = idx[keep], dr[keep], sl[keep], prev_c[keep]
+    tgt_r = (prev_c - o[idx]) * dr / sl                     # target = full gap fill (prior close), in R
+    ok = tgt_r > 0.05                                       # gap already filled before the delayed entry: skip
+    idx, dr, sl, tgt_r = idx[ok], dr[ok], sl[ok], tgt_r[ok]
+    cost = np.full(len(idx), cost_mult * D.EXNESS_STANDARD_SPREAD[market])
     R = np.empty(len(idx)); X = np.empty(len(idx), np.int64)
     for q in range(len(idx)):                                # per-trade target ratio
         rq, xq = simulate(o, h, l, c, idx[q:q + 1], dr[q:q + 1], sl[q:q + 1], float(tgt_r[q]), np.zeros(1), 0.0,
