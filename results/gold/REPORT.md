@@ -124,3 +124,39 @@ Neighbours (288 variants of d1 trend / equity filter / weekly stop, same sizing)
 median 2026 $11,036 vs $9,706 for the same neighbours at v3 sizing; Q4 2024 median DD -39% vs -52%.
 **$50k+ in 2026 with low drawdowns is not reachable on gold alone with any rule chosen in advance**; it needs
 15%+ risk (DD -72%) or the multi-strategy portfolio ($98,632 in 2026, DD -32%).
+
+---
+# v5: settings chosen on 2026 (`scripts/gold_v5_search.py` -> `v5_search.parquet`, 691,200 combinations)
+
+Reverse test: pick on 2026 (in-sample, so 2026 is overstated), check on 2025 and Q4 2024 (out-of-sample).
+* Picking only on 2026 favours a volatility-regime filter that needs 60 days of history: those settings barely trade
+  in Q4 2024 (end slightly down) and carry 2025 drawdowns of -61% to -85%.
+* With the extra condition that 2025 and Q4 2024 are profitable and every drawdown stays within 60%, the best 2026
+  result is the v5 below. **$400k in 2026 with 2025 and Q4 2024 profitable needs drawdowns of about -64% or worse**
+  (same rules at 12% on both sides: 2026 $387,960 DD -64%, 2025 $389,261 DD -68%, Q4 2024 $1,480 DD -73%).
+
+## v5 rules (`GoldAsianBreakoutV5.mq5`, `v5_trades.csv`)
+v2 entries with Donchian 10 (EMA400 trend rising vs 16 bars ago, or the previous-day high/low break), 00:00-06:00
+UTC, stop 1.5 ATR, target 4R, stop to +0.3R at +1R, **max 2 trades a day, weekly stop -2R**, no daily-trend /
+volatility / equity-curve filter. **Longs 12%, shorts 6%.**
+
+| $1,000 | Trades | Win | PF | Result | Max DD | Longest losing streak |
+|---|---|---|---|---|---|---|
+| **2026 (chosen on)** | 207 | 58% | 1.94 | **$126,210** | -57% | 7 |
+| 2025 (test) | 254 | 62% | 1.86 | **$425,687** | -58% | 6 |
+| Q4 2024 (test) | 55 | 51% | 1.41 | $2,550 | -56% | 8 |
+
+2026 month-end: Jan $7,891, Feb $5,714, Mar $6,923, Apr $5,723, May $18,634, Jun $18,252, Jul $18,087, Aug $86,124,
+Sep $69,940, Oct $126,210. 2025 month-end: Mar $11,957, Jun $37,891, Sep $137,358, Dec $425,687.
+
+| Same rules, risk longs / shorts | 2026 | 2025 | Q4 2024 |
+|---|---|---|---|
+| 10% / 5% | $75,855 (-49%) | $225,348 (-51%) | $2,370 (-49%) |
+| **12% / 6%** | **$126,210 (-57%)** | **$425,687 (-58%)** | **$2,550 (-56%)** |
+| 12% / 12% | $387,960 (-64%) | $389,261 (-68%) | $1,480 (-73%) |
+| 15% / 15% | $649,359 (-72%) | $630,141 (-77%) | $1,287 (-81%) |
+| 20% / 20% | $763,750 (-83%) | $677,523 (-88%) | $855 (-90%, a loss) |
+
+Neighbours (216 variants: Donchian 10-15, RR 3-5, stop 1.25-2, BE buffer 0.1-0.5, max/day 2 or none, weekly stop
+-2/-3): all profitable in 2026 and 2025, 94% in Q4 2024; median 2026 $23,851 (25-75%: $14.8k-$35.9k), median DD -73%.
+The pick is at the lucky end of its family, as expected for a setting chosen on the year it is scored on.
