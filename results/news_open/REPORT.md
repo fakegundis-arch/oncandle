@@ -25,3 +25,28 @@ market or all of them. 10% risk per day. Exness spread + equal slippage. 1,728 s
 
 **Verdict: no edge.** The news verdict carries no usable information by the NY open. If anything, the open tends to
 reverse the pre-open news move (the "against" control does least badly), but that is not robust either.
+
+---
+# v2 rebuild: fixed 1:3, medium + high USD news, patient entries (`grid_v2_rr3.csv`, 7,776 settings)
+New options: breakout entry (close beyond the observation range), half-window stops, holding up to 24 h, and a
+"confluence" pick (only trade when >= 2 markets confirm the news direction).
+
+* Overall, news mode was still weak: 3% of settings profitable in both years (controls: 0-3%).
+* **One coherent cluster works and beats both controls with identical settings in both years:**
+  USD score >= 2, **observe the first 60 min**, **pullback entry**, stop = 1 opening unit, 1:3, held up to 24 h,
+  best market or confluence. News PF 1.2-1.5 vs "ignore news" 0.85-1.0 vs "against news" 0.45-0.8.
+* Fragile in one direction: observing only 15 or 30 min fails (PF 0.6-0.8); momentum/breakout entries fail.
+
+## Chosen version (centre of the cluster)
+Score >= 2 from USD medium/high releases (prev NY close -> 09:30 ET), wait 60 min after the open, then take the
+first M1 pullback to EMA20 that resumes in the news direction (~10:30-11:00 NY), on the strongest of the
+markets confirming (>= 2 must confirm). Stop = 1 unit, target 3R, stop to +0.1R at +1R, max hold 24 h. 10% risk.
+
+| Year | Trades | Win (TP / BE) | PF | $1,000 -> | Max DD |
+|---|---|---|---|---|---|
+| 2025 | 67 | 46% (22% / 19%) | 1.38 | $1,793 (peaked $7,126 in May) | -77% |
+| 2026 | 44 | 50% (23% / 25%) | 1.47 | $1,706 (fell to $596 in Jan) | -57% |
+
+Most traded: oil, USDJPY, GBPUSD, EURUSD, S&P 500, BTC. Trade list: `final_v2_trades.csv`.
+**Verdict: a small, real-looking edge (news beats both controls), but returns at 10% risk are modest and the
+swings are severe.** It is a candidate for forward/demo testing, not a money-maker on its own.
