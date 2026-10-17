@@ -33,3 +33,29 @@ Risks: longest losing streak 12 trades (vs 6 for v1); 2025 drawdown -49% at 10%.
 ## Tested and not adopted
 H1 / H6 / D1, other MACD lengths, EMA 50/200/400, zero-line filter, ADX filter (fewer trades; lower drawdown but less
 profit), trailing stops, break-even, exit on EMA cross, no reversal.
+
+---
+# v3: shorter losing streaks (`scripts/macd_v3.py` -> `v3_grid.csv`, `v3_neighbourhood.csv`)
+
+2,880 variants of v2 + ADX / daily-trend / volatility / hour filters, break-even, partial profit, and two overlays
+(cool-down after k losses in a row until a paper trade wins; equity-curve filter). Chosen on Q4 2024 + 2025.
+
+## v3 rules (v2 plus)
+1. **Break-even:** at +1.5R the stop moves to entry + 0.3R.
+2. **Cool-down:** after 5 real losses in a row, stop placing real trades; keep trading on paper; the first winning
+   paper trade ends the pause.
+
+| $1,000 at 10% risk | Q4 2024 | 2025 | **2026 (check)** | Longest losing streak (all) |
+|---|---|---|---|---|
+| v2 | $1,879 (streak 4) | $19,215, DD -49% (streak 12) | $15,968, DD -33% (streak 5) | **12** |
+| **v3** | $2,195, DD -16% (4) | **$26,401, DD -34%** (6) | **$17,179**, DD -33%, PF 2.26 (4) | **6** |
+At 5% risk: 2025 $6,343 (DD -18%), 2026 $4,991 (DD -18%). 2026 month-end at 10%: Jan $2,081, Mar $5,003,
+Jun $11,415, Jul $10,196, Sep $16,216, Oct $17,179.
+
+Neighbours: break-even 1.25-2R with cool-down 5-6 all cap the streak at 6; 2025 $19.5k-26.4k, 2026 $12.2k-17.2k.
+What each rule does: the cool-down paused 9 trades (all in 2025, the year with the 12-loss run) and is what caps the
+streak; break-even turns some losers into small wins (+$1.2k in 2026). The cool-down cannot stop the first 5 losses
+of a run, so a 5-6 loss streak is still possible. ADX / daily-trend / volatility / hour filters and partial profit
+lowered profit and did not shorten streaks.
+
+EA: `mt5/Experts/GoldMacdV3.mq5` (XAUUSD H2, risk 4% default; keeps a paper copy of every trade for the cool-down).

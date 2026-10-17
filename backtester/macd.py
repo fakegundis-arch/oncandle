@@ -30,7 +30,12 @@ class P:
     d1_trend: int = 0           # >0: require yesterday's close vs EMA(n days) agreement
     stop_atr: float = 3.0
     rr: float = 0.0             # >0: fixed target at rr x stop
-    be: float = 0.0             # move stop to +0.1R at +be R
+    be: float = 0.0             # move stop to +be_buf R at +be R
+    be_buf: float = 0.1
+    partial: float = 0.0        # fraction closed at +partial_r R
+    partial_r: float = 1.0
+    hours: tuple = ()           # allowed UTC hours of the signal bar's close (empty = all)
+    vol_max: float = 99.0       # skip if ATR / median(ATR, 100 bars) > vol_max
     trail_atr: float = 0.0      # chandelier trail at this x ATR from the best price
     exit_mode: str = "macd"     # "macd" (opposite cross) | "ema" (close through trend EMA) | "none"
     reverse: bool = True
@@ -76,6 +81,15 @@ def signals(df: pd.DataFrame, p: P):
         dnd = pd.Series(day).map(dc.shift() < de.shift()).fillna(False).to_numpy(bool)
         le &= upd
         se &= dnd
+    if p.hours:
+        ok = pd.Series((df.index + pd.Timedelta(p.tf)).hour, index=df.index).isin(p.hours)
+        le &= ok
+        se &= ok
+    if p.vol_max < 99:
+        a = ind.atr(df, 14)
+        ok = (a / a.rolling(100).median()) <= p.vol_max
+        le &= ok
+        se &= ok
     if p.exit_mode == "macd":
         lx, sx = dn, up
     elif p.exit_mode == "ema":
@@ -87,7 +101,7 @@ def signals(df: pd.DataFrame, p: P):
 
 
 @njit(cache=True)
-def _run(o, h, l, c, act, a_le, a_se, a_lx, a_sx, a_atr, stop_atr, rr, be, trail, reverse, cost):
+def _run(o, h, l, c, act, a_le, a_se, a_lx, a_sx, a_atr, stop_atr, rr, be, trail, reverse, cost, be_buf, partial, partial_r):
     """act: M1 indices where a new `tf` bar opens (decisions from the previous bar apply there)."""
     n_t = len(act)
     t_in = np.zeros(n_t + 1, np.int64)
@@ -99,6 +113,9 @@ def _run(o, h, l, c, act, a_le, a_se, a_lx, a_sx, a_atr, stop_atr, rr, be, trail
     entry = R = stop = tgt = best = 0.0
     moved = False
     ent_i = 0
+    size = 1.0
+    realized = 0.0
+    pdone = False
     for q in range(1, n_t):
         j0 = act[q]
         j1 = act[q + 1] if q + 1 < n_t else len(o)
@@ -122,7 +139,7 @@ def _run(o, h, l, c, act, a_le, a_se, a_lx, a_sx, a_atr, stop_atr, rr, be, trail
         if want != 2 and want != pos:
             if pos != 0:
                 px = o[j0] if pos == 1 else o[j0] + cost
-                t_in[nt] = ent_i; t_out[nt] = j0; t_dir[nt] = pos; t_r[nt] = pos * (px - entry) / R; nt += 1
+                t_in[nt] = ent_i; t_out[nt] = j0; t_dir[nt] = pos; t_r[nt] = realized + size * pos * (px - entry) / R; nt += 1
                 pos = 0
             if want != 0 and a_atr[q - 1] > 0:
                 pos = want
@@ -133,6 +150,9 @@ def _run(o, h, l, c, act, a_le, a_se, a_lx, a_sx, a_atr, stop_atr, rr, be, trail
                 best = entry
                 moved = False
                 ent_i = j0
+                size = 1.0
+                realized = 0.0
+                pdone = False
         # minute-by-minute inside bar q
         if pos != 0:
             for j in range(j0, j1):
@@ -156,11 +176,15 @@ def _run(o, h, l, c, act, a_le, a_se, a_lx, a_sx, a_atr, stop_atr, rr, be, trail
                     else:
                         best = min(best, bl)
                 if done:
-                    t_in[nt] = ent_i; t_out[nt] = j; t_dir[nt] = pos; t_r[nt] = pos * (px - entry) / R; nt += 1
+                    t_in[nt] = ent_i; t_out[nt] = j; t_dir[nt] = pos; t_r[nt] = realized + size * pos * (px - entry) / R; nt += 1
                     pos = 0
                     break
+                if partial > 0 and not pdone and pos * (best - entry) >= partial_r * R:
+                    realized += partial * partial_r
+                    size -= partial
+                    pdone = True
                 if be > 0 and not moved and pos * (best - entry) >= be * R:
-                    stop = entry + pos * 0.1 * R
+                    stop = entry + pos * be_buf * R
                     moved = True
                 if trail > 0:
                     ts = best - pos * trail * a_atr[q - 1]
@@ -168,7 +192,7 @@ def _run(o, h, l, c, act, a_le, a_se, a_lx, a_sx, a_atr, stop_atr, rr, be, trail
                         stop = ts
     if pos != 0:
         px = c[len(c) - 1] if pos == 1 else c[len(c) - 1] + cost
-        t_in[nt] = ent_i; t_out[nt] = len(c) - 1; t_dir[nt] = pos; t_r[nt] = pos * (px - entry) / R; nt += 1
+        t_in[nt] = ent_i; t_out[nt] = len(c) - 1; t_dir[nt] = pos; t_r[nt] = realized + size * pos * (px - entry) / R; nt += 1
     return t_in[:nt], t_out[:nt], t_dir[:nt], t_r[:nt]
 
 
@@ -179,5 +203,5 @@ def backtest(m1: pd.DataFrame, p: P) -> pd.DataFrame:
     act = mi.searchsorted(df.index)
     o, h, l, c = (m1[x].to_numpy(np.float64) for x in ("open", "high", "low", "close"))
     ti, tx, td, tr = _run(o, h, l, c, act.astype(np.int64), le, se, lx, sx, np.nan_to_num(atr), p.stop_atr, p.rr, p.be,
-                          p.trail_atr, p.reverse, p.cost)
+                          p.trail_atr, p.reverse, p.cost, p.be_buf, p.partial, p.partial_r)
     return pd.DataFrame({"entry_time": mi[ti], "exit_time": mi[tx], "dir": td, "r": tr})
