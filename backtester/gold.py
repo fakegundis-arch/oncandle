@@ -59,13 +59,14 @@ class P:
 _CACHE: dict = {}
 
 
-def data(root):
-    if "m1" not in _CACHE:
+def data(root, symbol: str = "XAUUSD"):
+    """M1 and M15 bars of `symbol` (default gold), cached per symbol."""
+    if symbol not in _CACHE:
         from . import data as D
-        m1 = D.load_csv(root / "data" / "XAUUSD_M1.csv").drop(columns="spread", errors="ignore")
+        m1 = D.load_csv(root / "data" / f"{symbol}_M1.csv").drop(columns="spread", errors="ignore")
         m15 = m1.resample("15min").agg({"open": "first", "high": "max", "low": "min", "close": "last"}).dropna()
-        _CACHE["m1"], _CACHE["m15"] = m1, m15
-    return _CACHE["m1"], _CACHE["m15"]
+        _CACHE[symbol] = (m1, m15)
+    return _CACHE[symbol]
 
 
 def signals(m15: pd.DataFrame, p: P) -> pd.DataFrame:

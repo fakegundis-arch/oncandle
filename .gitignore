@@ -4,3 +4,4 @@ __pycache__/
 data/
 results/news_lab/*.parquet
 results/truth/*.parquet
+results/index_breakout/*.parquet
