@@ -69,3 +69,21 @@ The rule only blocks 3 days in 2025 and 6 in 2026 (most news days move several m
 single-market days were net losers (-3.0R in 2025 and -2.7R in 2026 with BE): no win, only stops and breakevens.
 Across the 96 neighbouring settings (observe 60, pullback), 28% are profitable in both years with one market
 allowed vs 33% with the 2-market rule. Keeping the rule is slightly better; dropping it still leaves the strategy profitable.
+
+## All-M1 version (watch the first 1-15 M1 candles, M1 entries, M1 ATR stops)
+
+`scripts/run_news_open_m1.py` -> `grid_m1.csv`. Same news reading, 1:3, 2+ markets must agree. Grid: min score 1/2/3,
+observe 1/3/5/10/15 M1 candles, entry momentum / EMA9 pullback / breakout of the observed range / first strong M1
+candle, stop 1/2/3x M1 ATR(14) or 5-candle swing, BE 0/1R, hold to 16:00 ET / 120 min / 24 h (4,320 settings).
+
+| Mode | Settings | Profitable in both years | Median PF 2025 | Median PF 2026 |
+|---|---|---|---|---|
+| news | 1,440 | 0.7% (10) | 0.56 | 0.60 |
+| ignore news | 1,440 | 0.0% | 0.73 | 0.57 |
+| against news | 1,440 | 1.0% | 0.65 | 0.43 |
+
+**Rejected.** Fewer news settings survive than the against-news control; the median setting turns $1,000 into $92
+(2025) / $200 (2026). The 10 survivors are scattered (no cluster) and weak: best is score >= 3, observe 3 min,
+EMA9 pullback, 3 ATR stop, BE 1R: PF 1.20 / 1.31, $1,000 -> $1,008 (2025) / $1,149 (2026), only 24-32 trades a year.
+The best-by-2025 setting lost in 2026. Right after the open the M1 noise and the spread swamp the M1-sized stops;
+the 60-minute wait with a stop sized to the opening range (v2) remains the only version that works.
