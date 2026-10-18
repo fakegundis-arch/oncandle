@@ -241,3 +241,39 @@ the full 60-day warm-up v10 takes 1 trade there. Live, the EA has the full histo
 * Selecting for those five 2026 months is mostly luck in general: of the 631 settings that made all five profitable,
   only half were profitable in 2025 (median $1,007). v10 passed, but the selection itself is weak evidence.
 * v10 trades much less profit for much smaller drawdowns: 2025 -42% vs v5's -58%, 2026 -33% vs -57%.
+
+## v11: v10 plus a New York-session engine, same rules every month (`GoldAsianBreakoutV11.mq5`)
+Goal: more profit than v10 with one rule set for every month; chosen on 2026 only, tested on 2025 and Q4 2024.
+
+**Attempt 1 (rejected): bigger winners and more entries.** `scripts/gold_v11_search.py`, 207,360 combinations of
+v10 plus RR 3-6, ATR trailing stop, adding a second position at +1R / +2R, session to 08:00, Donchian 15, daily
+trend EMA 10/20/50, regime 1.4/1.6/2.0, Asian-range entries, equity-curve filter and risk (`scripts/gold_v11.py`).
+Rule: >= 9/10 months up in 2026, 2026 drawdown >= -45%, 2026 total above v10, half the neighbours passing (none
+did; relaxed to 35%, the best group available). Pick: v10 + a second position at +2R, equity filter 5 / -1R, 10%:
+2026 $724,445 (-39%), 10/10 up, **but 2025 $12,031 (-84%), May 2025 -66%.** Adding at +2R turns a trade that falls back
+to the break-even stop into a -1.4R loss; it paid in trending 2026 only. Same engine, all 60 overlay/risk variants:
+median 2025 $21,114, against $74,486 for the v10 engine.
+
+**Attempt 2 (v11): a second v10-style engine on another session**, trading alongside v10 with its own position
+(`scripts/gold_v11_sessions.py`, 90 setups: London 06-09 / 07-10 / 08-11 or New York 12-15 / 13-16, Donchian 10/15/20,
+seven risk splits). Same rule (>= 9/10 months up, drawdown >= -45%, above v10), then the highest 2026 total:
+**Asia engine (v10) 10% + New York engine 12:00-15:00, Donchian 15, 5%.**
+
+| $1,000 | Q4 2024 (test) | 2025 (test) | 2026 (chosen on) |
+|---|---|---|---|
+| v5 (12% / 6%) | $2,550 (-56%) | $425,687 (-58%), 9/12 up | $126,210 (-57%), 5/10 up |
+| v10 (8%) | $1,607 (-29%) | $38,178 (-42%), 9/12 up | $72,607 (-33%), 10/10 up |
+| v10 at 10% | $1,735 (-35%) | $68,795 (-52%), 9/12 up | $149,382 (-39%), 9/10 up |
+| **v11** | $1,440 (-57%), 1/3 up | **$97,956 (-53%), 10/12 up** | **$244,454 (-35%), 9/10 up** |
+
+v11 2026: Jan +534%, Feb +0%, Mar +81%, Apr +30%, May +190%, Jun +64%, Jul -1%, Aug +171%, Sep +17%, Oct +9%
+(196 trades: Asia 131, NY 65). 2025: Jan +125%, Feb +198%, Mar +96%, Apr +46%, May +22%, Jun -15%, Jul +30%, Aug -17%,
+Sep +192%, Oct +21%, Nov +26%, Dec +3% (260 trades: Asia 145, NY 115). Q4 2024: Oct -4%, Nov +120%, Dec -32%.
+
+**Honest reading**
+* The New York window was the best second session in 2026 **and** in 2025 (median 2025 of all its setups $51,434,
+  other sessions $11,581-$30,523). All 18 New York setups were profitable in 2025 and Q4 2024; 13 of 18 beat v10
+  alone in 2025.
+* The New York engine's edge is small: +0.13R per trade in 2025 (115 trades), -0.11R in Q4 2024 (23 trades). v11's
+  Q4 2024 is worse than v10's ($1,440 vs $1,607, drawdown -57% vs -29%).
+* Against v10 at the same Asian risk (10%), v11 adds about 42% to 2025 profit with a similar drawdown.
