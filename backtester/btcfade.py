@@ -121,5 +121,5 @@ def backtest(m1: pd.DataFrame, p: P) -> pd.DataFrame:
     sl = p.sl * s.atr.to_numpy()
     ti, tx, td, tr = _run(o, h, l, c, mod, dayk, e_i.astype(np.int64), s.dir.to_numpy(np.int64), sl, s.atr.to_numpy(),
                           p.tp / p.sl, p.be, p.be_buf, p.trail, 0.0, 0.0, -1, p.max_bars * TF_MIN[p.tf], p.max_per_day,
-                          False, p.cost)
+                          False, np.full(len(e_i), p.cost), np.full(len(e_i), np.nan))
     return pd.DataFrame({"entry_time": mi[ti], "exit_time": mi[tx], "dir": td, "r": tr})

@@ -41,6 +41,8 @@ class P:
     regime_warmup: int = 60       # days of history the 60-day regime average needs before it is used
     bar_min: int = 15             # signal bar length in minutes (the `m15` frame passed in must have this bar size)
     pd_range_min: float = 0.0     # skip if yesterday's range / daily ATR(14) (as of yesterday) < pd_range_min
+    w1_trend: int = 0             # >0: buy only if last completed week closed above EMA(n weeks), sell only if below
+    atr_pct_min: float = 0.0      # >0: skip signals when ATR(14) of the signal bar is below this % of price (quiet gold)
     skip_weekdays: tuple = ()     # skip signals on these weekdays (0 = Monday)
     # exits
     stop_atr: float = 1.5
@@ -58,6 +60,11 @@ class P:
     add_r: float = 0.0           # >0: add `add_size` units when the trade reaches +add_r R (after break-even)
     add_size: float = 0.0
     cost: float = 0.20
+    cost_mode: str = "fixed"      # "fixed": `cost` on every trade; "data": recorded spread at the entry minute x cost_scale
+    cost_scale: float = 1.0
+    limit_atr: float = 0.0        # >0: enter with a limit order this x ATR better than the signal close (pullback entry)
+    limit_bars: int = 4           # ...valid for this many signal bars, else the signal is skipped
+    limit_keep_stop: bool = False # True: stop stays at the market-entry stop level (risk per unit shrinks); False: same R
 
 
 _CACHE: dict = {}
@@ -67,10 +74,19 @@ def data(root, symbol: str = "XAUUSD"):
     """M1 and M15 bars of `symbol` (default gold), cached per symbol."""
     if symbol not in _CACHE:
         from . import data as D
-        m1 = D.load_csv(root / "data" / f"{symbol}_M1.csv").drop(columns="spread", errors="ignore")
+        m1 = D.load_csv(root / "data" / f"{symbol}_M1.csv")
         m15 = m1.resample("15min").agg({"open": "first", "high": "max", "low": "min", "close": "last"}).dropna()
         _CACHE[symbol] = (m1, m15)
     return _CACHE[symbol]
+
+
+def weekly_trend(m15: pd.DataFrame, n: int) -> np.ndarray:
+    """Per bar: +1 if the last COMPLETED week (Mon-Fri) closed above EMA(n) of weekly closes, -1 if below, 0 unknown."""
+    wc = m15.close.resample("W-FRI").last().dropna()
+    sign = np.sign(wc - ind.ema(wc, n)).where(np.arange(len(wc)) >= n, 0).shift().fillna(0)   # usable in the next week
+    pos = np.searchsorted(wc.index.to_numpy(), m15.index.normalize().to_numpy(), side="left")
+    pos = np.minimum(pos, len(wc) - 1)
+    return sign.to_numpy()[pos].astype(int)
 
 
 def signals(m15: pd.DataFrame, p: P) -> pd.DataFrame:
@@ -132,6 +148,14 @@ def signals(m15: pd.DataFrame, p: P) -> pd.DataFrame:
         ok = (reg <= p.regime_max) & (reg >= p.regime_min)
         L &= ok
         S &= ok
+    if p.atr_pct_min > 0:
+        ok = (atr / c * 100).to_numpy() >= p.atr_pct_min
+        L &= ok
+        S &= ok
+    if p.w1_trend > 0:
+        up_w = weekly_trend(m15, p.w1_trend)
+        L &= up_w == 1
+        S &= up_w == -1
     if p.pd_range_min > 0:
         wk = m15[idx.weekday != 6]                                    # Sunday-evening bars are not a trading day
         d1 = wk.groupby(wk.index.normalize()).agg(open=("open", "first"), high=("high", "max"), low=("low", "min"),
@@ -159,8 +183,28 @@ def signals(m15: pd.DataFrame, p: P) -> pd.DataFrame:
 
 
 @njit(cache=True)
+def _limit_fill(o, h, l, start, stop_k, d, lvl, cost):
+    """First M1 bar in [start, stop_k) where a limit order at `lvl` fills. Longs buy at the ask (bid + cost), shorts
+    sell at the bid. Returns (index, fill price) or (-1, nan)."""
+    for k in range(start, min(stop_k, len(o))):
+        if d == 1:
+            if o[k] + cost <= lvl:
+                return k, o[k] + cost
+            if l[k] + cost <= lvl:
+                return k, lvl
+        else:
+            if o[k] >= lvl:
+                return k, o[k]
+            if h[k] >= lvl:
+                return k, lvl
+    return -1, np.nan
+
+
+@njit(cache=True)
 def _run(o, h, l, c, mod, dayk, e_i, e_d, e_sl, e_atr, rr, be, be_buf, trail, partial, partial_r, exit_min,
-         max_hold, max_per_day, stop_after_loss, cost, add_r=0.0, add_size=0.0):
+         max_hold, max_per_day, stop_after_loss, costs, e_px, add_r=0.0, add_size=0.0):
+    """costs: round-trip cost (spread) per signal, in price units. e_px: entry price per signal (nan = market at the
+    open of bar e_i, on the opening side)."""
     n_sig = len(e_i)
     out_in = np.zeros(n_sig, np.int64)
     out_ex = np.zeros(n_sig, np.int64)
@@ -183,7 +227,11 @@ def _run(o, h, l, c, mod, dayk, e_i, e_d, e_sl, e_atr, rr, be, be_buf, trail, pa
             continue
         d = e_d[q]
         R = e_sl[q]
-        entry = o[j] + cost if d == 1 else o[j]
+        cost = costs[q]
+        if np.isnan(e_px[q]):
+            entry = o[j] + cost if d == 1 else o[j]
+        else:
+            entry = e_px[q]
         stop = entry - d * R
         tgt = entry + d * rr * R
         ptgt = entry + d * partial_r * R
@@ -272,12 +320,35 @@ def backtest(m1: pd.DataFrame, m15: pd.DataFrame, p: P) -> pd.DataFrame:
     o, h, l, c = (m1[x].to_numpy(np.float64) for x in ("open", "high", "low", "close"))
     mod = (mi.hour * 60 + mi.minute).to_numpy(np.int64)
     dayk = (mi.year * 10000 + mi.month * 100 + mi.day).to_numpy(np.int64)
-    ti, tx, td, tr = _run(o, h, l, c, mod, dayk, e_i.astype(np.int64), s.dir.to_numpy(np.int64), s.sl.to_numpy(),
+    if p.cost_mode == "data" and "spread" in m1:
+        costs = m1["spread"].to_numpy(np.float64)[e_i] * p.cost_scale
+    else:
+        costs = np.full(len(e_i), p.cost)
+    sl = s.sl.to_numpy().copy()
+    e_px = np.full(len(e_i), np.nan)
+    if p.limit_atr > 0:
+        dirs, atrs = s.dir.to_numpy(), s.atr.to_numpy()
+        sig_close = m15.close.reindex(s.index).to_numpy()
+        new_i = e_i.copy()
+        keep = np.zeros(len(e_i), bool)
+        for q in range(len(e_i)):
+            d = int(dirs[q])
+            mkt = sig_close[q] + costs[q] if d == 1 else sig_close[q]          # what a market entry would pay
+            lvl = mkt - d * p.limit_atr * atrs[q]
+            k, px = _limit_fill(o, h, l, int(e_i[q]), int(e_i[q]) + p.limit_bars * p.bar_min, d, lvl, costs[q])
+            if k >= 0:
+                new_i[q], e_px[q], keep[q] = k, px, True
+                if p.limit_keep_stop:                                          # stop at the market-entry level
+                    sl[q] = max(sl[q] - d * (mkt - px), p.min_stop)
+        s, e_i, e_px, sl, costs = s[keep], new_i[keep], e_px[keep], sl[keep], costs[keep]
+        order = np.argsort(e_i, kind="mergesort")
+        s, e_i, e_px, sl, costs = s.iloc[order], e_i[order], e_px[order], sl[order], costs[order]
+    ti, tx, td, tr = _run(o, h, l, c, mod, dayk, e_i.astype(np.int64), s.dir.to_numpy(np.int64), sl,
                           s.atr.to_numpy(), p.rr, p.be, p.be_buf, p.trail_atr, p.partial, p.partial_r,
                           p.exit_hour * 60 if p.exit_hour >= 0 else -1, int(p.max_hold_h * 60), p.max_per_day,
-                          p.stop_after_loss, p.cost, p.add_r, p.add_size)
+                          p.stop_after_loss, costs, e_px, p.add_r, p.add_size)
     return pd.DataFrame({"entry_time": mi[ti], "exit_time": mi[tx], "dir": td, "r": tr,
-                         "stop": s.sl.to_numpy()[np.searchsorted(e_i, ti)] if len(ti) else []})
+                         "stop": sl[np.searchsorted(e_i, ti)] if len(ti) else []})
 
 
 PERIODS = {"q4_24": ("2024-10-01", "2025-01-01"), "y25": ("2025-01-01", "2026-01-01"), "y26": ("2026-01-01", "2027-01-01")}
