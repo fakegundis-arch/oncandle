@@ -328,7 +328,7 @@ $414,516, half the neighbours passing), 2025 and Q4 2024 looked at once per atte
 
 Profit and drawdown both rise with risk in every period; v13 is the largest risk inside the -45% 2026 drawdown cap.
 
-## v14 and the 2023 - 2024 exam (`GoldAsianBreakoutV14.mq5`)
+## Costs and the 2023 - 2024 check (after v13)
 ### 1. Costs: Dukascopy's recorded spread is about 3x the $0.20 used so far
 The M1 files carry the bid/ask spread of every minute. Median gold spread by UTC hour: $0.64-0.67 in 00:00-06:00,
 $0.57-0.59 in 12:00-15:00; it rose with price (Asian session median $0.42 in late 2024, $0.61 in 2025, $0.74 in 2026).
@@ -365,55 +365,3 @@ against 0.123% in 2025 and 0.184% in 2026; median stop $2.00 / $2.74 against $6.
 volatility (ATR below 0.064% of price: -0.10R per trade; 0.14-0.20%: +0.63R), but even the quietest trades of
 Q4 2024 / 2025 were profitable while those of 2023 / 2024 were not: part of the edge belongs to the post-2024 market.
 **Every version up to v13 was chosen on (and only works in) the volatile 2025-2026 market.**
-
-### 3. v14
-* **Attempt 1 (rejected), chosen on 2026 only at Dukascopy's spread** (`scripts/gold_v14_search.py`, 3,240: stop,
-  target, break-even, weekly-trend filter, pullback limit entries, risk). Pick: break-even at +1.5R -> +0.5R, Asia 8% +
-  New York 2%: 2026 $62,269, but Feb-Dec 2023 $197 (-90%), Jan-Sep 2024 $117 (-89%), 2025 $6,438. Pullback entries
-  made every engine worse (the best breakouts never come back); the weekly-trend filter did not help.
-* **v14, chosen on Feb-Dec 2023 (quiet) and 2026 (volatile) together, at Dukascopy's spread**
-  (`scripts/gold_v14_regime.py`, 2,880: minimum volatility 0-0.12% of price, equity-curve pause 10-50 trades,
-  break-even, target, risk; both engines). No setup made money in 2023 (best $989); rule 1 was relaxed to "2023 loses
-  at most 10%" (selection periods only). 18 passed, 4 with half the neighbours; pick = **Asian engine only, minimum
-  volatility 0.10%, break-even at +1.5R -> +0.5R, 4R, 4% risk** (the New York engine lowered 2023 in every setup).
-
-| $1,000, Dukascopy spread | Feb-Dec 2023 (chosen on) | Jan-Sep 2024 (never used) | Q4 2024 (test) | 2025 (test) | 2026 (chosen on) |
-|---|---|---|---|---|---|
-| **v14 (4%)** | $944 (-17%), 12 trades | **$1,000, no trades** | $951 (-23%) | $1,943 (-34%), 7/12 up | $12,406 (-22%), 9/10 up |
-| v14 at $0.20 | $944 | $960 | $1,123 | $2,380 (-32%) | $12,148 (-32%) |
-
-v14 2026: Jan +135%, Feb -13%, Mar +27%, Apr +5%, May +22%, Jun +36%, Jul +50%, Aug +41%, Sep +3%, Oct +26% (134
-trades). 2025: Jan +0%, Feb +24%, Mar -18%, Apr +21%, May -15%, Jun +22%, Jul +5%, Aug +9%, Sep +50%, Oct +3%, Nov -12%,
-Dec -1% (98 trades). v14 sat out 18 of the 44 months.
-
-**One account from Feb 2023 to Oct 2026** (`results/gold/full_run_2023_2026.csv`, Dukascopy spread):
-
-| | End | Lowest point | Max drawdown |
-|---|---|---|---|
-| v5 | $18 | $0.01 | -100% |
-| v9 | $173 | $0.38 | -100% |
-| v10 | $35,413 | $97 | -90% |
-| v11 | $26,493 | $20 | -98% |
-| v12 | $24,811 | $11 | -99% |
-| v13 | $14,568 | $4.56 | -100% |
-| **v14** | **$21,618** | **$897** | **-34%** |
-
-Recoveries from a few dollars (v11-v13) are not possible in practice (minimum lot). v14 at higher risk:
-6% $62,510 (-46%), 8% $136,911 (-57%), 10% $232,163 (-67%).
-
-**10,000 simulated years** (`scripts/gold_v14_montecarlo.py`: 12 months drawn at random from Feb 2023 - Sep 2026,
-replaying v14's real trades at Dukascopy's spread):
-
-| Risk | 1-in-10 bad year | Typical year | 1-in-10 good year | Chance of a losing year | Chance of a -50% drawdown |
-|---|---|---|---|---|---|
-| **4%** | $1,010 | **$2,036** | $4,961 | 10% | 1% |
-| 6% | $941 | $2,580 | $9,261 | 12% | 14% |
-| 8% | $835 | $3,042 | $15,641 | 14% | 38% |
-| 10% | $713 | $3,358 | $24,037 | 16% | 65% |
-
-**Honest reading**
-* v14 survives quiet gold by not trading (minimum volatility); its 2023 result is in-sample, its Jan-Sep 2024 result
-  (no trades) and Q4 2024 / 2025 results are tests. It is far less profitable than v5-v13 looked in 2025 / 2026,
-  because it charges realistic spreads and does not rely on the volatile market lasting.
-* 2025 has been looked at for every version since v5 and Q4 2024 almost as often; Jan-Sep 2024 is the only period no
-  choice has used. Forward testing on demo is the next real test.

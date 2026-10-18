@@ -62,6 +62,7 @@ class P:
     cost: float = 0.20
     cost_mode: str = "fixed"      # "fixed": `cost` on every trade; "data": recorded spread at the entry minute x cost_scale
     cost_scale: float = 1.0
+    min_stop_spread: float = 0.0  # >0: skip a signal when its stop distance is below this x the spread at the entry minute
     limit_atr: float = 0.0        # >0: enter with a limit order this x ATR better than the signal close (pullback entry)
     limit_bars: int = 4           # ...valid for this many signal bars, else the signal is skipped
     limit_keep_stop: bool = False # True: stop stays at the market-entry stop level (risk per unit shrinks); False: same R
@@ -324,6 +325,9 @@ def backtest(m1: pd.DataFrame, m15: pd.DataFrame, p: P) -> pd.DataFrame:
         costs = m1["spread"].to_numpy(np.float64)[e_i] * p.cost_scale
     else:
         costs = np.full(len(e_i), p.cost)
+    if p.min_stop_spread > 0:                                          # spread guard (live spread known at the order)
+        keep = s.sl.to_numpy() >= p.min_stop_spread * costs
+        s, e_i, costs = s[keep], e_i[keep], costs[keep]
     sl = s.sl.to_numpy().copy()
     e_px = np.full(len(e_i), np.nan)
     if p.limit_atr > 0:

@@ -76,6 +76,3 @@ def book(t, a, b):
         v = prev if v < 0 else v
         rets.append(v / prev - 1 if prev > 0 else 0.0); prev = v
     return eq, dd, pd.Series(rets, index=months), len(x)
-
-V14 = replace(V10, atr_pct_min=0.10, be=1.5, be_buf=0.5, rr=4.0)
-VERSIONS["v14"] = [(V14, OV10, 0.04, 0.04)]
