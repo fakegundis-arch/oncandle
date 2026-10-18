@@ -69,9 +69,12 @@ def account(r, d, month, week, risk, short_mult, week_cap, m_stop, m_lock, lock_
         w_r += r[i]
         peak = max(peak, eq)
         mdd = min(mdd, eq / peak - 1)
+        if eq <= 0:                                  # account blown: stop
+            mdd = -1.0
+            break
         if m_stop < 0 and eq / m_start - 1 <= m_stop:
             m_halt = True
-    if cur_m >= 0:
+    if cur_m >= 0 and m_start > 0:
         ret = eq / m_start - 1
         n_m += 1
         if ret > 0:
