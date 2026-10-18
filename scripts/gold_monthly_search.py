@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Gold Asian breakout: search for settings that make April, July and September 2026 profitable.
-
-Every engine setting x overlay x risk is stored with its month-by-month returns for Q4 2024, 2025 and 2026
-(month of the trade's entry), so the weak-month targets can be checked against all other months.
-    python scripts/gold_weakmonths_search.py  -> results/gold/weakmonths_search.parquet
+"""Gold Asian breakout: one set of rules for every month. Each engine setting x overlay x risk is run all year and
+stored with its month-by-month returns for Q4 2024, 2025 and 2026 (month of the trade's entry). Settings are chosen
+on 2026 only (scripts/gold_single.py); 2025 and Q4 2024 are the test.
+    python scripts/gold_monthly_search.py  -> results/gold/monthly_search.parquet
 """
 from __future__ import annotations
 
@@ -96,7 +95,7 @@ def main():
             if i % 2000 == 0:
                 print(i, "/", len(jobs), flush=True)
     out = pd.concat(parts, ignore_index=True)
-    out.to_parquet(ROOT / "results" / "gold" / "weakmonths_search.parquet", index=False)
+    out.to_parquet(ROOT / "results" / "gold" / "monthly_search.parquet", index=False)
     print(len(out), "combinations")
 
 
