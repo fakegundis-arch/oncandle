@@ -5,7 +5,8 @@ v11's two engines (Asia 00-06 Donchian 10, New York 12-15 Donchian 15, v10 filte
 minimum volatility (ATR % of price), a longer equity-curve pause, break-even and target; several risk splits.
 Chosen on Feb-Dec 2023 (calm gold) AND 2026 (volatile gold); tested on Jan-Sep 2024 (never used for any choice),
 Q4 2024 and 2025.  Rule (fixed before the test periods were looked at):
-  1. profitable in both selection periods,  2. drawdown >= -45% in both,
+  1. 2026 profitable and Feb-Dec 2023 losing at most 10% (first fixed as "profitable in both": no setup managed it),
+  2. drawdown >= -45% in both,
   3. at least half of the one-step neighbours also pass 1-2,  4. highest combined growth (product of both multiples).
     python scripts/gold_v14_regime.py            -> results/gold/v14_regime.parquet + selection view
     python scripts/gold_v14_regime.py --reveal   -> the pick on the test periods
@@ -75,7 +76,9 @@ def search():
 def select(d):
     keys = list(GRID) + list(RISK)
     allv = {**GRID, **RISK}
-    d["pass"] = (d.s23_usd > 1000) & (d.s26_usd > 1000) & (d.s23_dd >= -0.45) & (d.s26_dd >= -0.45)
+    # rule 1 as first fixed ("profitable in both") had no candidates: no setup makes money in calm 2023 at real
+    # spreads (best $989). Relaxed, still on the selection periods only, to "2023 loses at most 10%".
+    d["pass"] = (d.s23_usd >= 900) & (d.s26_usd > 1000) & (d.s23_dd >= -0.45) & (d.s26_dd >= -0.45)
     d["growth"] = (d.s23_usd / 1000) * (d.s26_usd / 1000)
     look = d.set_index(keys)["pass"].to_dict()
     share = []
