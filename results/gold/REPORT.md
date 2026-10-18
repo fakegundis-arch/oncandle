@@ -160,3 +160,35 @@ Sep $69,940, Oct $126,210. 2025 month-end: Mar $11,957, Jun $37,891, Sep $137,35
 Neighbours (216 variants: Donchian 10-15, RR 3-5, stop 1.25-2, BE buffer 0.1-0.5, max/day 2 or none, weekly stop
 -2/-3): all profitable in 2026 and 2025, 94% in Q4 2024; median 2026 $23,851 (25-75%: $14.8k-$35.9k), median DD -73%.
 The pick is at the lucky end of its family, as expected for a setting chosen on the year it is scored on.
+
+---
+# v6: monthly consistency (`scripts/gold_v6_search.py` -> `v6_search.parquet`, 1,350,000 combinations)
+
+300 best v5-family engines (profitable in Q4 2024, 2025 and 2026) x account rules: risk 10-25%, short size, weekly
+stop, **monthly loss stop**, **monthly profit lock**, **drawdown brake**. Chosen on 2026 like v5.
+
+What is possible:
+* $300k+ in 2026 with 8/10 positive months exists, but those picks barely break even in 2025 ($1.4k, DD -78%,
+  5/12 positive months): a 2026 curve-fit.
+* Requiring 2025 >= $100k and every drawdown within 55%: best 2026 with >= 70% of all 25 months positive is ~$94k;
+  >= 80% positive months caps 2026 at ~$75k. 9-10 positive months out of 10 caps 2026 at ~$50k.
+
+## v6 "balanced" (`GoldAsianBreakoutV6.mq5` defaults, `v6_balanced_trades.csv`)
+v5 entries (Donchian 10, slope 16, stop 1.5 ATR, 4R, BE +1R -> +0.3R) + volatility cap 2x, weekly stop -2R,
+10% risk both sides, no trade-count limit, **drawdown brake: half size while equity is > 30% below its peak**.
+
+| $1,000 | Result | Max DD | Positive months | Worst month |
+|---|---|---|---|---|
+| 2026 (chosen on) | **$94,029** | -49% | **8 / 10** | -14% |
+| 2025 (test) | **$140,390** | -49% | 8 / 12 | -23% |
+| Q4 2024 (test) | $1,604 | -53% | 2 / 3 | -27% |
+
+2026 by month: Jan +426%, Feb -11%, Mar +43%, Apr -14%, May +237%, Jun +5%, Jul +9%, Aug +202%, Sep +8%, Oct +29%.
+2025 by month: Jan +105%, Feb +264%, Mar +46%, Apr +226%, May -12%, Jun +35%, Jul +41%, Aug -13%, Sep +79%, Oct -9%,
+Nov +120%, Dec -23%. (v5 in 2026 had 5 losing months, worst -28%.)
+
+## v6 "low drawdown" preset (same EA, change inputs)
+Donchian 10, RR 3, slope 8, D1 trend EMA 20, equity filter 10 trades / -2R, weekly stop -2R, longs 20% / shorts 10%,
+monthly loss stop 20%, profit lock at +30% -> risk x 0.25, drawdown brake 45%.
+2026 $46,175 (DD -31%, 8/10 months up, worst -20%); 2025 $110,561 (DD -34%, 8/12 up); Q4 2024 $1,041 (DD -42%).
+2026 by month: Jan +263%, Feb -20%, Mar +59%, Apr +30%, May +72%, Jun -20%, Jul +34%, Aug +106%, Sep +41%, Oct +45%.
