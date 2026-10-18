@@ -300,3 +300,30 @@ setups made less in 2025 than v11 alone ($65,633-$94,330 vs $97,956), and the pi
 risk without London. Silver engines also lowered 2025 (median $75,498 Asian session, $34,283 New York). The only
 change that raised 2025 profit is more risk on the Asian engine (12% instead of 10%), with deeper drawdowns. No v12
 robot was built.
+
+## v13: improving v12 (Asia 12% + New York 4%) (`GoldAsianBreakoutV13.mq5`)
+Same method: one rule set every month, chosen on 2026 only (>= 9/10 months up, drawdown >= -45%, above v12's
+$414,516, half the neighbours passing), 2025 and Q4 2024 looked at once per attempt.
+
+1. **Exits and entry confirmation, shared by both engines** (`scripts/gold_v13_search.py`, 14,580: stop 1.25/1.5/2 ATR,
+   RR 3/4/5, break-even at 0.75/1/1.5/2R or none, buffer 0/0.3/0.6R, half profit at 1R or 2R, strong-close entry,
+   exit at 16:00 / 20:00, four risk splits): 2 pass, none robust. v12's exits sit on a sharp 2026 peak: one step away,
+   2026 falls to $9k-$335k (stop 1.25 ATR $32,408, BE buffer 0.6R $34,513). Rejected.
+2. **Drawdown throttle** (`scripts/gold_v13_risk.py`, 150: base risk Asia 10-18% / NY 4-6%, cut to 25% / 50% when the
+   account is 10-30% below its peak): cutting risk in a drawdown misses the large winners that end the drawdowns;
+   at Asia 12% a 50% cut at -10% turns 2026 $414,516 into $112,000. Rejected.
+3. **A third engine on 30-minute / 1-hour bars** (`scripts/gold_v13_tf.py`, 128; the lab now takes `bar_min`): a broad
+   2026 cluster (1-hour New York, 3R, 3%) passed, but the pick made less on the test years than v12 (2025 $142,236 vs
+   $152,918, Q4 2024 $1,496 vs $1,603), and only 17 of 32 1-hour New York setups beat v12 in 2025. Rejected.
+4. **Risk on the Asian engine** (same table as 2): the only setup passing rules 1-3, Asia 14% / New York 4%, also beats
+   v12 on both test periods. It is a bigger bet on the same rules, not a better rule.
+
+| $1,000 (v11 engines) | Q4 2024 (test) | 2025 (test) | 2026 (chosen on) |
+|---|---|---|---|
+| v11 (Asia 10%, NY 5%) | $1,440 (-57%) | $97,956 (-53%), 10/12 up | $244,454 (-35%), 9/10 up |
+| v12 (Asia 12%, NY 4%) | $1,603 (-58%) | $152,918 (-58%), 10/12 up | $414,516 (-40%), 9/10 up |
+| **v13 (Asia 14%, NY 4%)** | **$1,684 (-62%)** | **$221,532 (-64%), 9/12 up** | **$678,871 (-45%), 9/10 up** |
+| Asia 16%, NY 4% | $1,746 (-65%) | $292,044 (-70%) | $1,004,896 (-50%) |
+| Asia 18%, NY 4% | $1,788 (-69%) | $351,928 (-76%) | $1,351,685 (-57%) |
+
+Profit and drawdown both rise with risk in every period; v13 is the largest risk inside the -45% 2026 drawdown cap.
