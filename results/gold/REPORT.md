@@ -208,3 +208,36 @@ Sep +49%, Oct -23%, Nov +108%, Dec +4% (683 trades, 61% won). Q4 2024: Oct +47%,
 * v9 makes less than v5 in 2025 and Q4 2024, with a deeper 2025 drawdown (-66% vs -58%), but more 2025 months up.
 * Q4 2024 understates engine B: its regime filter needs 60 days of history and the data starts in October 2024
   (2 trades).
+
+## v10: v5 with three general filters, same rules every month (`GoldAsianBreakoutV10.mq5`)
+Goal: fix v5's losing 2026 months (Feb -28%, Apr -17%, Jun -2%, Jul -1%, Sep -19%) with rules that apply to every
+month. Search: `scripts/gold_v10_search.py` (196,608 combinations of v5 plus previous-day-range filter, Monday skip,
+daily trend, regime filter, stop after a daily loss, partial profit, break-even trigger, Donchian, slope, stop, RR,
+trades/day, equity-curve filter, weekly stop, risk). Selection on **2026 only** (`scripts/gold_v10.py`): all five
+months profitable, at least a quarter of one-step neighbours also passing, then the highest 2026 total. (The first
+rule, "2026 total >= v5" with half the neighbours passing, had no candidates: the best all-five-up setting makes
+$87,152 in 2026 and no setting has more than 42% of neighbours passing.)
+
+**v10 rules:** v5 entries and exits (Donchian 10, EMA400 rising vs 16 bars, previous-day break, 00:00-06:00, stop
+1.5 ATR, 4R, BE +1R -> +0.3R, weekly stop -2R) plus **daily trend** (D1 EMA20), **regime filter** (5-day / 60-day mean
+true range <= 1.6) and **equity-curve filter** (last 10 paper trades >= -2R); no daily limit; **8% risk both sides**.
+
+| $1,000 | Q4 2024 (test) | 2025 (test) | 2026 (chosen on) |
+|---|---|---|---|
+| v5 (12% / 6%) | $2,550 (-56%), 2/3 up | **$425,687 (-58%)**, 9/12 up, worst month -22% | $126,210 (-57%), 5/10 up |
+| **v10 (8%)** | $1,607 (-29%), 2/3 up | $38,178 (-42%), 9/12 up, worst month -8% | $72,607 (-33%), **10/10 up** |
+| v10 at 10% | $1,735 (-35%) | $68,795 (-52%), 9/12 up | $149,382 (-39%), 9/10 up |
+| v10 at 12% | $1,846 (-41%) | $111,284 (-61%), 9/12 up | $273,620 (-45%), 8/10 up |
+
+v10 2026: Jan +418%, Feb +2%, Mar +29%, Apr +13%, May +202%, Jun +2%, Jul +9%, Aug +131%, Sep +14%, Oct +6%
+(131 trades, 60% won). 2025: Jan +114%, Feb +106%, Mar +99%, Apr +49%, May +20%, Jun -0%, Jul -7%, Aug -8%,
+Sep +81%, Oct +20%, Nov +18%, Dec +11% (145 trades, 62% won).
+Q4 2024 is measured with the regime filter starting after 20 days of history (the data begins in October 2024); with
+the full 60-day warm-up v10 takes 1 trade there. Live, the EA has the full history.
+
+**Honest reading**
+* One rule set for every month; v5's bad 2026 months are now all positive, but only just (+2% to +14%).
+* The same v10 engine is profitable in 2025 under all 24 overlay / risk variants (median $68,983).
+* Selecting for those five 2026 months is mostly luck in general: of the 631 settings that made all five profitable,
+  only half were profitable in 2025 (median $1,007). v10 passed, but the selection itself is weak evidence.
+* v10 trades much less profit for much smaller drawdowns: 2025 -42% vs v5's -58%, 2026 -33% vs -57%.

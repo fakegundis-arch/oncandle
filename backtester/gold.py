@@ -38,6 +38,7 @@ class P:
     strong_close: float = 0.0     # >0: signal bar must close in the top (bottom) fraction of its range
     regime_max: float = 99.0      # skip if ATR averaged over 5 days / over 60 days > regime_max
     regime_min: float = 0.0
+    regime_warmup: int = 60       # days of history the 60-day regime average needs before it is used
     pd_range_min: float = 0.0     # skip if yesterday's range / daily ATR(14) (as of yesterday) < pd_range_min
     skip_weekdays: tuple = ()     # skip signals on these weekdays (0 = Monday)
     # exits
@@ -125,7 +126,7 @@ def signals(m15: pd.DataFrame, p: P) -> pd.DataFrame:
         S &= ok
     if p.regime_max < 99 or p.regime_min > 0:
         tr_ = ind.true_range(m15)
-        reg = (tr_.rolling(96 * 5).mean() / tr_.rolling(96 * 60).mean()).shift().to_numpy()
+        reg = (tr_.rolling(96 * 5).mean() / tr_.rolling(96 * 60, min_periods=96 * p.regime_warmup).mean()).shift().to_numpy()
         ok = (reg <= p.regime_max) & (reg >= p.regime_min)
         L &= ok
         S &= ok
