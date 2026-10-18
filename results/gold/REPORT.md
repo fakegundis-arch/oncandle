@@ -200,3 +200,40 @@ Nov +269%, Dec +3%.
   $4,354 in Feb-Jul 2025**. B is the luckiest member of its family; a typical neighbour is no better than v5.
 * Conclusion: v7 is a reasonable alternative to v5 if smooth Feb-Jul months matter more than the highest total, but
   the evidence that it beats v5 out of sample is weak. Demo-test before using real money.
+
+## v8: mode C for April, July and September (`GoldAsianBreakoutV8.mq5`, `scripts/gold_v8.py`)
+Request: make April, July and September 2026 profitable (v7: +0%, +9%, -19%).
+Search (`scripts/gold_weakmonths_search.py`, 497,664 combinations, month-by-month returns stored for every one).
+Only 1.5% of all combinations make all three 2026 months > +10%. Among those, mode C was ranked by the same three
+months of **2025**, so **both years were used to choose it**; there is no untouched test period for mode C.
+
+**Mode C** (Apr, Jul, Sep): Donchian 15, EMA200 rising vs 8 bars ago, **no previous-day break**, **00:00-08:00**,
+stop 1.5 ATR, 4R, BE +1R -> +0.3R, max 2 trades/day, equity-curve filter 10 / -2R, weekly stop -2R, 10% both sides.
+Mode B now runs Feb, Mar, May, Jun; v5 runs Aug and Oct-Jan.
+
+| $1,000 | Q4 2024 | 2025 | 2026 |
+|---|---|---|---|
+| v5 | $2,550 (-56%) | $425,687 (-58%), 9/12 up | $126,210 (-57%), 5/10 up |
+| v7 | $2,550 (-56%) | $263,864 (-58%), 9/12 up | $821,795 (-55%), 9/10 up |
+| **v8** | $2,550 (-56%) | **$663,535 (-58%), 10/12 up** | **$2,444,405 (-45%), 10/10 up** |
+| mode C alone, all year | $2,381 (-47%) | $35,763 (-63%), 8/12 up | $89,673 (-48%), 8/10 up |
+
+| | Apr 2026 | Jul 2026 | Sep 2026 | Apr 2025 | Jul 2025 | Sep 2025 |
+|---|---|---|---|---|---|---|
+| v7 | +0% (8 trades) | +9% (14) | -19% (15) | +50% | -2% | +186% |
+| **v8** | **+15% (8)** | **+33% (15)** | **+73% (18)** | +299% | +35% | +98% |
+
+v8 2026 months: Jan +689%, Feb +82%, Mar +68%, Apr +15%, May +177%, Jun +61%, Jul +33%, Aug +376%, Sep +73%,
+Oct +80% (170 trades).
+
+**Honest reading**
+* All three target months are in the period used to choose mode C. v8's numbers are **in-sample**.
+* Mode C is fragile. Of 864 neighbours (session 00-06/00-08/01-06, Donchian 10/15/20, slope, stop 1.5/2, RR 3/4,
+  BE buffer, trades/day, weekly stop), only **4% keep April, July and September 2026 all positive**. The median
+  neighbour makes April 2026 -25%, July +6%, September +14%. One-step changes to the session, Donchian, stop, RR or
+  BE buffer each turn at least one target month negative.
+* In its favour: as a stand-alone all-year bot mode C is profitable in Q4 2024, 2025 and 2026, so it is a working
+  variant of the breakout rather than a pure fit to three months.
+* Switching between three rule sets by calendar month has no market reason behind it. Expect future April/July/
+  September results to look like the neighbour medians, not like the table above.
+* At these account sizes, 10% risk on gold needs over 100 lots per trade; real fills would be worse than the backtest.
