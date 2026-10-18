@@ -181,3 +181,30 @@ with month-by-month returns). Each selection rule was fixed before its 2025 resu
   October 2024.
 * Conclusion: **no single rule set found beats v5 out of sample.** v5 remains the recommended version. Trying more
   rules until 2025 looks good would turn 2025 into a selection year, so the search stops here.
+
+## v9: three breakout engines together, same rules every month (`GoldAsianBreakoutV9.mq5`, `scripts/gold_v9.py`)
+Engines v5, B and C all run **all year**, each with its own signals, filters, position and risk (no calendar
+switching). Up to three trades can be open at once. 454 ways of combining were tested (`v9_combos.csv`): engines
+trading together at 3-8% each, one trade at a time from the first engine to signal, or a trade only when 2-3 engines
+agree on the same day. Picked on **2026 only** (most months up, no month below -20%, drawdown no worse than -55%,
+then the highest 2026 total): **together, v5 3% / B 6% / C 3%, shorts at full size.**
+
+| $1,000 | Q4 2024 (test) | 2025 (test) | 2026 (chosen on) |
+|---|---|---|---|
+| v5 | $2,550 (-56%), 2/3 up | **$425,687** (-58%), 9/12 up | $126,210 (-57%), 5/10 up |
+| **v9** | $1,552 (-42%), 2/3 up | **$104,212 (-66%), 10/12 up** | **$603,341 (-53%), 10/10 up** |
+| v9 without C (v5 3% / B 6%) | $1,145 (-31%) | $50,607 (-62%), 9/12 up | $213,880 (-62%), 10/10 up |
+
+v9 2026: Jan +575%, Feb +35%, Mar +75%, Apr +6%, May +337%, Jun +53%, Jul +12%, Aug +257%, Sep +22%, Oct +10%
+(529 trades, 58% won). 2025: Jan +82%, Feb +136%, Mar +25%, Apr +175%, May +25%, Jun +118%, Jul +17%, Aug -11%,
+Sep +49%, Oct -23%, Nov +108%, Dec +4% (683 trades, 61% won). Q4 2024: Oct +47%, Nov +68%, Dec -37%.
+
+**Honest reading**
+* One rule set every month: the month-by-month results come from the same three engines all year.
+* All 234 combinations that passed the 2026 rule were profitable in 2025 (median $95,177).
+* 2026 is in-sample: v5 was chosen on 2026, engine B on Feb-Jul 2026, engine C on Apr/Jul/Sep 2026.
+* 2025 is not fully clean: engine C's search also ranked Apr/Jul/Sep 2025. The fully clean check is v9 without C:
+  2025 $50,607, 9/12 months up.
+* v9 makes less than v5 in 2025 and Q4 2024, with a deeper 2025 drawdown (-66% vs -58%), but more 2025 months up.
+* Q4 2024 understates engine B: its regime filter needs 60 days of history and the data starts in October 2024
+  (2 trades).
