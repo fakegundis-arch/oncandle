@@ -277,3 +277,26 @@ Sep +192%, Oct +21%, Nov +26%, Dec +3% (260 trades: Asia 145, NY 115). Q4 2024: 
 * The New York engine's edge is small: +0.13R per trade in 2025 (115 trades), -0.11R in Q4 2024 (23 trades). v11's
   Q4 2024 is worse than v10's ($1,440 vs $1,607, drawdown -57% vs -29%).
 * Against v10 at the same Asian risk (10%), v11 adds about 42% to 2025 profit with a similar drawdown.
+
+## v12 attempt: improving v11 (`scripts/gold_v12.py`, `v12_stageA/B/C.csv`)
+Same method: one rule set every month, each stage chosen on 2026 only (>= 9/10 months up, drawdown >= -45%, above the
+previous stage, half the neighbours passing), 2025 and Q4 2024 looked at once at the end.
+
+* **Stage A, New York engine settings** (360: session 11-15 / 12-15 / 12-16 / 13-15 / 13-16, Donchian 10/15/20, RR 3/4/5,
+  stop 1.5/2, daily trend on/off, regime on/off): only 2 beat v11's own New York engine in 2026, neither with half its
+  neighbours passing. v11's New York engine kept.
+* **Stage B, a third engine** (64: London 06-08 / 06-09 / 07-09 / 07-10 on gold, or v10 rules on silver in the Asian
+  or New York session, 3% / 5%): London 07-09 passed in a broad cluster in 2026 (all Donchian / RR / risk variants).
+* **Stage C, risk per engine** (48): pick Asia 12%, New York 4%, London 07-09 (Donchian 20, 4R) 3%.
+
+| $1,000 | Q4 2024 (test) | 2025 (test) | 2026 (chosen on) |
+|---|---|---|---|
+| v11 (Asia 10%, NY 5%) | $1,440 (-57%) | $97,956 (-53%), 10/12 up | $244,454 (-35%), 9/10 up |
+| v12 pick (Asia 12%, NY 4%, London 3%) | $1,390 (-58%) | $128,944 (-60%), 10/12 up | $597,794 (-44%), 9/10 up |
+| same risk without London (Asia 12%, NY 4%) | $1,603 (-58%) | $152,918 (-58%), 10/12 up | $414,516 (-40%), 9/10 up |
+
+**Verdict: no structural improvement.** The London engine helped in 2026 only: with v11's risk, all 12 London 07-09
+setups made less in 2025 than v11 alone ($65,633-$94,330 vs $97,956), and the pick makes less in 2025 than the same
+risk without London. Silver engines also lowered 2025 (median $75,498 Asian session, $34,283 New York). The only
+change that raised 2025 profit is more risk on the Asian engine (12% instead of 10%), with deeper drawdowns. No v12
+robot was built.
