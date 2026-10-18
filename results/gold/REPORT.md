@@ -161,3 +161,42 @@ Neighbours (216 variants: Donchian 10-15, RR 3-5, stop 1.25-2, BE buffer 0.1-0.5
 -2/-3): all profitable in 2026 and 2025, 94% in Q4 2024; median 2026 $23,851 (25-75%: $14.8k-$35.9k), median DD -73%.
 The pick is at the lucky end of its family, as expected for a setting chosen on the year it is scored on.
 
+
+## v7: seasonal two-mode bot for Feb-Jul (`GoldAsianBreakoutV7.mq5`, `scripts/gold_v7.py`)
+Request: do better than v5 in February-July. v5's Feb-Jul 2026 turned $1,000 into only $2,292 (2 of 6 months up).
+Search (`scripts/gold_febjul_search.py`, 737,280 combinations of session, Donchian, EMA, slope, stop, RR, BE buffer,
+daily trend, volatility cap, regime filter, trades/day, equity-curve filter, weekly stop, risk), scored on the
+**Feb-Jul 2026 window only (chosen on)** and checked on **Feb-Jul 2025 (test)**. The pick had to be profitable in
+both windows with most months up.
+
+**Mode B** (used Feb-Jul): Donchian 10, **EMA200 rising vs 8 bars ago**, previous-day break, 00:00-06:00, stop 1.5 ATR,
+4R, BE +1R -> +0.3R, **regime filter** (5-day / 60-day mean true range <= 1.6: skip when gold is unusually wild),
+**equity-curve filter** (last 10 paper trades >= -2R), weekly stop -2R, no daily limit, **10% risk both sides**.
+Aug-Jan keeps v5 unchanged.
+
+| $1,000, Feb-Jul only | 2026 (chosen on) | 2025 (test) |
+|---|---|---|
+| v5 | $2,292, 2/6 months up | **$21,141**, 5/6 up |
+| **Mode B** | **$14,925, 6/6 up**, worst month 0%, DD -44% | $13,104, 5/6 up, worst -2%, DD -48% |
+| Alternative A (00-08, Donchian 15, vol cap 2) | $46,864, 6/6 up | $4,075, DD -64% (rejected) |
+
+Full years, $1,000 start each period:
+
+| | Q4 2024 | 2025 | 2026 |
+|---|---|---|---|
+| v5 | $2,550 (-56%) | **$425,687** (-58%), 9/12 months up | $126,210 (-57%), 5/10 up |
+| **v7 = B Feb-Jul + v5 Aug-Jan** | $2,550 (-56%) | $263,864 (-58%), 9/12 up | **$821,795 (-55%), 9/10 up** |
+
+v7 2026 months: Jan +689%, Feb +82%, Mar +68%, Apr +0%, May +177%, Jun +61%, Jul +9%, Aug +376%, Sep -19%, Oct +80%.
+v7 2025 months: Jan +157%, Feb +152%, Mar +23%, Apr +50%, May +49%, Jun +93%, Jul -2%, Aug -12%, Sep +186%, Oct -18%,
+Nov +269%, Dec +3%.
+
+**Honest reading**
+* Mode B's settings were chosen on Feb-Jul 2026, so v7's 2026 result ($821,795) is mostly **in-sample**.
+* On the test window (Feb-Jul 2025) mode B made less than v5 ($13,104 vs $21,141), so **v7's 2025 is below v5's**
+  ($263,864 vs $425,687). B is smoother (5/6 months up, worst -2%) but not more profitable there.
+* Neighbours of B (48 variants: session 00-06/01-06/00-08, Donchian 10/15, stop 1.5/2, RR 3/4, regime 1.4/1.6): all
+  profitable in both Feb-Jul windows, 38 of 48 above $2,000 in both, but the **median is $1,971 in Feb-Jul 2026 and
+  $4,354 in Feb-Jul 2025**. B is the luckiest member of its family; a typical neighbour is no better than v5.
+* Conclusion: v7 is a reasonable alternative to v5 if smooth Feb-Jul months matter more than the highest total, but
+  the evidence that it beats v5 out of sample is weak. Demo-test before using real money.
