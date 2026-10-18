@@ -38,6 +38,8 @@ class P:
     strong_close: float = 0.0     # >0: signal bar must close in the top (bottom) fraction of its range
     regime_max: float = 99.0      # skip if ATR averaged over 5 days / over 60 days > regime_max
     regime_min: float = 0.0
+    pd_range_min: float = 0.0     # skip if yesterday's range / daily ATR(14) (as of yesterday) < pd_range_min
+    skip_weekdays: tuple = ()     # skip signals on these weekdays (0 = Monday)
     # exits
     stop_atr: float = 1.5
     min_stop: float = 2.0
@@ -125,6 +127,18 @@ def signals(m15: pd.DataFrame, p: P) -> pd.DataFrame:
         tr_ = ind.true_range(m15)
         reg = (tr_.rolling(96 * 5).mean() / tr_.rolling(96 * 60).mean()).shift().to_numpy()
         ok = (reg <= p.regime_max) & (reg >= p.regime_min)
+        L &= ok
+        S &= ok
+    if p.pd_range_min > 0:
+        wk = m15[idx.weekday != 6]                                    # Sunday-evening bars are not a trading day
+        d1 = wk.groupby(wk.index.normalize()).agg(open=("open", "first"), high=("high", "max"), low=("low", "min"),
+                                                  close=("close", "last"))
+        rel = ((d1.high - d1.low) / ind.atr(d1, 14)).shift()          # previous trading day vs ATR up to that day
+        ok = pd.Series(day).map(rel).fillna(0).to_numpy() >= p.pd_range_min
+        L &= ok
+        S &= ok
+    if p.skip_weekdays:
+        ok = ~np.isin(idx.weekday, p.skip_weekdays)
         L &= ok
         S &= ok
     if p.strong_close > 0:
