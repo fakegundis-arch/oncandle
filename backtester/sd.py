@@ -83,23 +83,41 @@ def zones(bars: pd.DataFrame, minutes: int, base_atr: float, leg_min: float, n_c
 
 
 @njit(cache=True)
-def fills(o, h, l, start, stop_k, d, lvl, cost):
-    """First touch of each zone's limit level inside [start, stop_k): (minute index or -1, fill price)."""
+def fills(o, h, l, start, stop_k, d, lvl, dist, reopen, cost):
+    """First touch of each zone's limit level inside [start, stop_k): (minute index, fill price). -1 = never touched;
+    -2 = the first touch cancels the zone instead: price opened beyond the distal line (gapped through the whole zone)
+    or the touch came within the first minutes after a market reopen (`reopen`)."""
     nz = len(start)
     fi = np.full(nz, -1, np.int64); fp = np.full(nz, np.nan)
     for z in range(nz):
         for k in range(start[z], min(stop_k[z], len(o))):
+            px = np.nan
             if d[z] == 1:
                 if o[k] + cost <= lvl[z]:
-                    fi[z] = k; fp[z] = o[k] + cost; break
-                if l[k] + cost <= lvl[z]:
-                    fi[z] = k; fp[z] = lvl[z]; break
+                    px = o[k] + cost
+                elif l[k] + cost <= lvl[z]:
+                    px = lvl[z]
             else:
                 if o[k] >= lvl[z]:
-                    fi[z] = k; fp[z] = o[k]; break
-                if h[k] >= lvl[z]:
-                    fi[z] = k; fp[z] = lvl[z]; break
+                    px = o[k]
+                elif h[k] >= lvl[z]:
+                    px = lvl[z]
+            if px == px:
+                if reopen[k] or d[z] * (px - dist[z]) <= 0:
+                    fi[z] = -2
+                else:
+                    fi[z] = k; fp[z] = px
+                break
     return fi, fp
+
+
+def reopen_mask(index: pd.DatetimeIndex, gap_min: int = 30, window_min: int = 15) -> np.ndarray:
+    """True for minutes less than `window_min` after the first bar following a pause of more than `gap_min` minutes
+    (weekend and daily breaks), when spreads are wide."""
+    t = index.to_numpy("datetime64[m]").astype(np.int64)
+    first = np.concatenate([[True], np.diff(t) > gap_min])
+    last_open = np.maximum.accumulate(np.where(first, t, np.iinfo(np.int64).min))
+    return (t - last_open) < window_min
 
 
 @njit(cache=True)

@@ -15,7 +15,8 @@ Grid (one position at a time; zone rules in backtester/sd.py):
   session  first touch at any hour / 07:00-20:00 UTC only
   age      order valid for this many zone bars          24, 96, 384
   pattern  all / reversal (drop-base-rally, rally-base-drop) / continuation (rally-base-rally, drop-base-drop)
-Metrics in R per period (one continuous run, periods by fill time): trades, total R, profit factor, max R drawdown.
+Metrics in R per period (one continuous run, periods by fill time): trades, total R, profit factor, max R drawdown,
+best single trade, gross loss; at the $0.25 spread and again at a cautious $0.40 (keys prefixed c40_).
 2026 (full, Jan-May, Jun-Oct) -> results/sd/v1_search.npz; 2025 and 15 Nov - 31 Dec 2024 -> results/sd/v1_sealed.npz.
     python scripts/sd_v1_search.py
 """
@@ -34,7 +35,7 @@ sys.path.insert(0, str(ROOT))
 from backtester import gold as G, sd as SD  # noqa: E402
 from backtester.engine import njit  # noqa: E402
 
-COST, MIN_STOP, BE_BUF = 0.25, 1.5, 0.1
+COST, COST_HI, MIN_STOP, BE_BUF = 0.25, 0.40, 1.5, 0.1
 OUT = ROOT / "results/sd"
 SEL = {"y26": ("2026-01-01", "2026-10-16"), "h1": ("2026-01-01", "2026-06-01"), "h2": ("2026-06-01", "2026-10-16")}
 SEALED = {"y25": ("2025-01-01", "2026-01-01"), "late24": ("2024-11-15", "2025-01-01")}
@@ -44,15 +45,16 @@ SIM = dict(entry=["prox", "mid"], buf=[0.05, 0.25], rr=[1.5, 2.0, 3.0, 4.0], be=
 MASK = dict(nbase=[1, 2, 3], leg=[1.25, 1.75, 2.5], hmax=[0.75, 1.5, 3.0], trend=["none", "tf", "d1"],
             session=["all", "07-20"], age=[24, 96, 384], pattern=["all", "rev", "cont"])
 DIMS = {**ZONE, **SIM, **MASK}
-METRICS = ("n", "R", "pf", "dd")
+METRICS = ("n", "R", "pf", "dd", "best", "gl")
 
 
 @njit(cache=True)
 def greedy(order, fi, xi, r, mask, lo, hi):
     """Take zones in fill order, one position at a time; per period [lo, hi) of fill minutes: trades, total R,
-    gross win, gross loss, max drawdown of cumulative R."""
+    gross win, gross loss, max drawdown of cumulative R, best single trade."""
     npr = len(lo)
     n = np.zeros(npr); s = np.zeros(npr); gw = np.zeros(npr); gl = np.zeros(npr); dd = np.zeros(npr)
+    best = np.zeros(npr)
     pk = np.zeros(npr)
     busy = -1
     for z in order:
@@ -67,10 +69,11 @@ def greedy(order, fi, xi, r, mask, lo, hi):
                 else:
                     gl[p] -= r[z]
                 pk[p] = max(pk[p], s[p]); dd[p] = min(dd[p], s[p] - pk[p])
-    return n, s, gw, gl, dd
+                best[p] = max(best[p], r[z])
+    return n, s, gw, gl, dd, best
 
 
-def zone_set(m1, tf, base):
+def zone_set(m1, tf, base, cost=COST):
     """Zones of one bar size / base setting with their fill minute for both entry levels (longest age) and the
     minute each age runs out."""
     bars = G.data(ROOT)[1] if tf == 15 else SD.resample(m1, tf)
@@ -80,12 +83,14 @@ def zone_set(m1, tf, base):
     start = idx.searchsorted(z.t_make.to_numpy())
     ends = {}
     for a in MASK["age"]:
-        k = np.minimum(pos + 1 + a, len(bars) - 1)
-        ends[a] = idx.searchsorted(bars.index[k].to_numpy())
+        k = pos + 1 + a
+        ends[a] = np.where(k < len(bars), idx.searchsorted(bars.index[np.minimum(k, len(bars) - 1)].to_numpy()), len(idx))
     o, h, l = (m1[c].to_numpy(np.float64) for c in ("open", "high", "low"))
     d = z.dir.to_numpy(np.int64)
     lv = {"prox": z.prox.to_numpy(), "mid": ((z.prox + z.dist) / 2).to_numpy()}
-    fl = {e: SD.fills(o, h, l, start, ends[max(MASK["age"])], d, lv[e], COST) for e in SIM["entry"]}
+    dist = z.dist.to_numpy()
+    reo = SD.reopen_mask(idx)
+    fl = {e: SD.fills(o, h, l, start, ends[max(MASK["age"])], d, lv[e], dist, reo, cost) for e in SIM["entry"]}
     return z, ends, fl
 
 
@@ -104,15 +109,15 @@ def taken(order, fi, xi, mask):
     return out[:m]
 
 
-def trades_for(cfg):
+def trades_for(cfg, cost=COST):
     """Trade list of one setting (dict over DIMS): fill time, exit time, dir, R, stop distance in $."""
     m1 = G.data(ROOT)[0]
     o, h, l, c = (m1[k].to_numpy(np.float64) for k in ("open", "high", "low", "close"))
-    z, ends, fl = zone_set(m1, cfg["tf"], cfg["base"])
+    z, ends, fl = zone_set(m1, cfg["tf"], cfg["base"], cost)
     d = z.dir.to_numpy(np.int64)
     fi, fp = fl[cfg["entry"]]
     stop_lvl = (z.dist - z.dir * cfg["buf"] * z.atr).to_numpy()
-    xi, r = SD.outcomes(o, h, l, c, fi, fp, d, stop_lvl, cfg["rr"], cfg["be"], BE_BUF, COST, MIN_STOP)
+    xi, r = SD.outcomes(o, h, l, c, fi, fp, d, stop_lvl, cfg["rr"], cfg["be"], BE_BUF, cost, MIN_STOP)
     filled = fi >= 0
     hours = m1.index.hour.to_numpy()
     in_ses = filled & (hours[np.maximum(fi, 0)] >= 7) & (hours[np.maximum(fi, 0)] < 20)
@@ -128,9 +133,17 @@ def trades_for(cfg):
 
 def job(key):
     tf, base = key
+    out = {}
+    for cost, pre in ((COST, ""), (COST_HI, "c40_")):
+        nz, res = _job(tf, base, cost)
+        out.update({pre + k: v for k, v in res.items()})
+    return key, nz, out
+
+
+def _job(tf, base, cost):
     m1 = G.data(ROOT)[0]
     o, h, l, c = (m1[k].to_numpy(np.float64) for k in ("open", "high", "low", "close"))
-    z, ends, fl = zone_set(m1, tf, base)
+    z, ends, fl = zone_set(m1, tf, base, cost)
     d = z.dir.to_numpy(np.int64)
     hours = m1.index.hour.to_numpy()
     per = {**SEL, **SEALED}
@@ -144,19 +157,19 @@ def job(key):
     for (ie, e), (ib, buf), (ir, rr), (ix, be) in itertools.product(*(enumerate(v) for v in SIM.values())):
         fi, fp = fl[e]
         stop_lvl = (z.dist - z.dir * buf * z.atr).to_numpy()
-        xi, r = SD.outcomes(o, h, l, c, fi, fp, d, stop_lvl, rr, be, BE_BUF, COST, MIN_STOP)
+        xi, r = SD.outcomes(o, h, l, c, fi, fp, d, stop_lvl, rr, be, BE_BUF, cost, MIN_STOP)
         filled = fi >= 0
         order = np.argsort(np.where(filled, fi, np.iinfo(np.int64).max), kind="mergesort").astype(np.int64)
         in_ses = filled & (hours[np.maximum(fi, 0)] >= 7) & (hours[np.maximum(fi, 0)] < 20)
         for mi, combo in enumerate(itertools.product(*MASK.values())):
             m = filled & zone_mask(z, tr, pat, fi, ends, in_ses, *combo)
-            n, sR, gw, gl, dd = greedy(order, fi, xi, r, m, lo, hi)
+            n, sR, gw, gl, dd, best = greedy(order, fi, xi, r, m, lo, hi)
             cell = (ie, ib, ir, ix) + np.unravel_index(mi, [len(v) for v in MASK.values()])
             for p_i, p in enumerate(per):
                 res[f"{p}_n"][cell] = n[p_i]; res[f"{p}_R"][cell] = sR[p_i]
                 res[f"{p}_pf"][cell] = gw[p_i] / gl[p_i] if gl[p_i] > 0 else (99.0 if gw[p_i] > 0 else 0.0)
-                res[f"{p}_dd"][cell] = dd[p_i]
-    return key, len(z), res
+                res[f"{p}_dd"][cell] = dd[p_i]; res[f"{p}_best"][cell] = best[p_i]; res[f"{p}_gl"][cell] = gl[p_i]
+    return len(z), res
 
 
 def main():
@@ -164,15 +177,16 @@ def main():
     keys = list(itertools.product(*ZONE.values()))
     shape = [len(v) for v in DIMS.values()]
     print(f"{int(np.prod(shape)):,} combinations", flush=True)
-    full = {f"{p}_{m}": np.zeros(shape, np.float32) for p in {**SEL, **SEALED} for m in METRICS}
+    full = {f"{c}{p}_{m}": np.zeros(shape, np.float32) for c in ("", "c40_") for p in {**SEL, **SEALED} for m in METRICS}
     with ProcessPoolExecutor(4) as ex:
         for key, nz, res in ex.map(job, keys):
             it, ib = ZONE["tf"].index(key[0]), ZONE["base"].index(key[1])
             for k, v in res.items():
                 full[k][it, ib] = v
             print(f"  tf {key[0]:>3} base {key[1]}: {nz:,} zones", flush=True)
-    np.savez_compressed(OUT / "v1_search.npz", shape=np.array(shape), **{k: v for k, v in full.items() if k.split("_")[0] in SEL})
-    np.savez_compressed(OUT / "v1_sealed.npz", shape=np.array(shape), **{k: v for k, v in full.items() if k.split("_")[0] in SEALED})
+    per = lambda k: k.removeprefix("c40_").split("_")[0]  # noqa: E731
+    np.savez_compressed(OUT / "v1_search.npz", shape=np.array(shape), **{k: v for k, v in full.items() if per(k) in SEL})
+    np.savez_compressed(OUT / "v1_sealed.npz", shape=np.array(shape), **{k: v for k, v in full.items() if per(k) in SEALED})
     print("2026 -> results/sd/v1_search.npz | 2025 and late 2024 sealed -> results/sd/v1_sealed.npz")
 
 

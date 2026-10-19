@@ -10,6 +10,12 @@ PROTOCOL (written and committed before the search ran):
   4. Risk per trade: the largest of 0.5, 1, 1.5, 2, 3, 4, 5% of equity at which a block bootstrap of the pick's 2026
      trades (2-week blocks, 400 one-year paths, seed 11) keeps the worst-decile max drawdown better than -25%.
   5. --reveal prints 2025 and late 2024 once. Success on 2025 (stated in advance): total R > 0 and profit factor >= 1.1.
+AMENDMENT (before 2025 was opened; commit 1511387's pick withdrawn): the engine audit found that 62% of the first pick's
+2026 R came from ONE fill at the 12 Apr 2026 Sunday reopen, booked after price had gapped through the whole zone and its
+stop (every top setting shared it). The engine now cancels a zone whose first touch opens beyond its distal line or comes
+in the first 15 minutes after a market reopen, and rule 1 also requires:
+  1b. without its single best 2026 trade: total R > 0 and profit factor >= 1.15;
+  1c. at a cautious $0.40 spread (instead of Exness's measured $0.25): total R > 0 and profit factor >= 1.15.
     python scripts/sd_v1.py            -> the pick (2026 only)
     python scripts/sd_v1.py --reveal   -> its 2025 and late-2024 results
 """
@@ -77,6 +83,9 @@ def boot_p10(t, a, b, f, n_sim=400, block_days=14, horizon_days=365, seed=11):
 def run():
     r, shape = load()
     c1 = (r["y26_n"] >= 60) & (r["y26_pf"] >= 1.3) & (r["h1_R"] > 0) & (r["h2_R"] > 0)
+    nb_R = r["y26_R"] - r["y26_best"]
+    nb_pf = np.where(r["y26_gl"] > 0, (r["y26_R"] + r["y26_gl"] - r["y26_best"]) / np.maximum(r["y26_gl"], 1e-9), 0.0)
+    c1 &= (nb_R > 0) & (nb_pf >= 1.15) & (r["c40_y26_R"] > 0) & (r["c40_y26_pf"] >= 1.15)
     ok_nb = ((r["y26_pf"] >= 1.15) & (r["y26_n"] >= 40)).astype(np.float32)
     nb = shifted(ok_nb)
     share = np.nansum(nb, axis=0) / np.maximum(np.sum([~np.isnan(a) for a in nb], axis=0), 1)
@@ -92,7 +101,8 @@ def run():
     for j in flat[:10]:
         ix = np.unravel_index(j, shape)
         print(f"  score {score[ix]:.2f} | 2026 {int(r['y26_n'][ix])} trades {r['y26_R'][ix]:+.1f}R PF {r['y26_pf'][ix]:.2f} "
-              f"DD {r['y26_dd'][ix]:.1f}R | Jan-May {r['h1_R'][ix]:+.1f}R Jun-Oct {r['h2_R'][ix]:+.1f}R | nb {share[ix]:.2f} | "
+              f"DD {r['y26_dd'][ix]:.1f}R | Jan-May {r['h1_R'][ix]:+.1f}R Jun-Oct {r['h2_R'][ix]:+.1f}R | best {r['y26_best'][ix]:+.1f}R "
+              f"| $0.40: {r['c40_y26_R'][ix]:+.1f}R PF {r['c40_y26_pf'][ix]:.2f} | nb {share[ix]:.2f} | "
               + ", ".join(f"{k}={v}" for k, v in describe(ix).items()))
     ix = np.unravel_index(flat[0], shape)
     cfg = describe(ix)
@@ -125,7 +135,8 @@ def reveal():
         a, b = SR.SEALED[k]
         eq, dd, mon = book(t, a, b, pick["risk"])
         print(f"  {lbl}: {int(z[f'{k}_n'][ix])} trades, {z[f'{k}_R'][ix]:+.1f}R, PF {z[f'{k}_pf'][ix]:.2f}, "
-              f"R-drawdown {z[f'{k}_dd'][ix]:.1f}R | $1,000 -> ${eq:,.0f}, max drawdown {dd:.1%}")
+              f"R-drawdown {z[f'{k}_dd'][ix]:.1f}R | $1,000 -> ${eq:,.0f}, max drawdown {dd:.1%} | at $0.40: "
+              f"{z[f'c40_{k}_R'][ix]:+.1f}R, PF {z[f'c40_{k}_pf'][ix]:.2f}")
 
 
 if __name__ == "__main__":
