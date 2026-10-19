@@ -396,3 +396,38 @@ to between -2R and 0R. 2026 $423,367 (-45%) against $387,196, but **2025 $11,656
 
 **Verdict:** the drawdown controls that help in 2026 did not carry over to 2025; v13's rules remain the best on the
 test year at every spread. The only drawdown control that held up is lower risk on the same rules (v12, v11).
+
+## Exness's real gold spread (MT5 export of XAUUSDm, the Standard account)
+Source: the user's MT5 export of XAUUSDm M1 bars with spread, 8 Jul - 16 Oct 2026 (100,000 bars; kept locally as
+`data/exness/XAUUSDm_M1_mt5.csv`, not in git). MT5 records each bar's lowest spread, so the spread at an order can be
+slightly higher.
+
+* **Exness spread: $0.24 (56% of minutes) or $0.26 (44%), at every hour**, including 00:00-06:00 UTC; median $0.24,
+  90th percentile $0.26, highest $0.58. Dukascopy at the same minutes: $0.75-0.78 in the Asian session, $0.56-0.62 in
+  the day. Exness server time = UTC (prices match Dukascopy within a median $0.21 at the same minute, $6+ when shifted
+  by an hour).
+* So the Dukascopy-spread figures of the cost sections above are too pessimistic for this account; **$0.25 is the
+  measured cost and $0.30 a cautious one** (`results/gold/exness_spread_table.csv`):
+
+| $1,000 | Q4 2024 at $0.25 | 2025 at $0.25 | 2026 at $0.25 | 2025 at $0.30 | 2026 at $0.30 |
+|---|---|---|---|---|---|
+| v5 | $2,550 (-56%) | $348,493 (-58%) | $105,584 (-57%) | $306,795 (-58%) | $105,584 (-57%) |
+| v9 | $1,593 (-53%) | $82,789 (-64%) | $405,766 (-56%) | $63,683 (-68%) | $336,219 (-56%) |
+| v10 | $1,569 (-31%) | $40,659 (-44%) | $57,753 (-33%) | $28,357 (-44%) | $57,753 (-33%) |
+| v11 | $1,164 (-60%) | $134,065 (-59%) | $144,704 (-35%) | $86,179 (-59%) | $144,687 (-35%) |
+| v12 | $1,333 (-61%) | $198,676 (-65%) | $246,285 (-40%) | $118,171 (-65%) | $246,261 (-40%) |
+| **v13** | $1,391 (-64%) | **$286,377 (-71%)** | **$387,233 (-45%)** | $157,959 (-71%) | $387,196 (-45%) |
+
+  A $0.05 change in spread moves a year by up to ~30% either way (it flips a few +4R winners).
+* **Exness's own prices** (`data/XAUUSD_EXNESS_M1.csv`: Dukascopy bars at $0.25 until 8 Jul 2026, then the Exness bars
+  with their recorded spread), 8 Jul - 15 Oct 2026, against Dukascopy bars at $0.25:
+
+| | Exness bars | Dukascopy bars | Identical trades |
+|---|---|---|---|
+| v13 | 59 trades, +11.3R, $1,000 -> $2,478 (-38%) | 56 trades, +13.0R, $1,000 -> $2,966 (-43%) | 51 (50 with the same result) |
+| v12 | 59 trades, +11.3R, -> $2,352 (-34%) | 56 trades, +13.0R, -> $2,751 (-38%) | 51 (50) |
+| v11 | 59 trades, +11.3R, -> $2,122 (-33%) | 56 trades, +13.0R, -> $2,446 (-32%) | 51 (50) |
+| v5 | 75 trades, +12.9R, -> $2,789 (-62%) | 69 trades, +18.9R, -> $4,319 (-55%) | 64 (64) |
+
+  The bots take mostly the same trades on Exness's feed; over this window the Exness results were ~15-35% lower, so
+  treat the Dukascopy backtests at $0.25 as a slightly optimistic guide.

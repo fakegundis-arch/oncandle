@@ -9,6 +9,10 @@ The strategies that held up in testing are kept here for later comparison. Unles
 
 ## Shortlist (best first)
 
+> **Exness spread, measured (Oct 2026, user's MT5 export of XAUUSDm):** $0.24-0.26 at every hour, so the gold
+> results at $0.20-0.25 apply to this account (Dukascopy's $0.65-0.78 does not). On Exness's own bars the bots take
+> mostly the same trades, with ~15-35% lower results (Jul-Oct 2026). `results/gold/REPORT.md`, "Exness's real gold spread".
+
 > **Exam on unseen gold (Feb 2023 - Sep 2024), Oct 2026:** every gold breakout version up to v13 loses 80-100% of the account
 > there (even at $0.20 cost); Dukascopy's recorded gold spread is ~3x the $0.20 assumed. Details:
 > `results/gold/REPORT.md`, section "Costs and the 2023 - 2024 check".
