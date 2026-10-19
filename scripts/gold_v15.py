@@ -1,7 +1,8 @@
 """Gold Asian breakout v15: pick from results/gold/v15_search.parquet using 2026 ONLY (Dukascopy's recorded spread).
 
 Rule (fixed before 2025 was looked at):
-  1. 2026 drawdown no worse than -40%  (v13 at the same spread: -76%).
+  1. 2026 drawdown no worse than -40%  (v13 at the same spread: -76%). With --cost 0.30 (second attempt, after the
+     first rule had no candidates at $0.30): no worse than v13 at $0.30 (-45%).
   2. At least 8 of 10 months of 2026 profitable.
   3. 2026 total above v13's at the same spread ($41,851).
   4. At least half of the one-step neighbours (any one setting moved to the next value) also pass 1-3.
@@ -31,7 +32,10 @@ KEYS = list(ALL)
 
 def load():
     d = pd.read_parquet(SRC)
-    d["pass"] = (d.y26_dd >= -0.40) & (d.y26_up >= 8) & (d.y26_usd > V13_2026)
+    # at $0.30 no setup passed the first rule (drawdown >= -40% AND above v13); second rule, still on 2026 only:
+    # drawdown no worse than v13's at the same spread (-45%) and more profit than v13
+    dd_cap = -0.45 if "--cost" in sys.argv else -0.40
+    d["pass"] = (d.y26_dd >= dd_cap) & (d.y26_up >= 8) & (d.y26_usd > V13_2026)
     look = d.set_index(KEYS)["pass"].to_dict()
     vals = d[KEYS].to_numpy(object)
     share = np.zeros(len(d))

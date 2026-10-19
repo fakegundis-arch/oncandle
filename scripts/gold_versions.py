@@ -77,7 +77,8 @@ def book(t, a, b):
         rets.append(v / prev - 1 if prev > 0 else 0.0); prev = v
     return eq, dd, pd.Series(rets, index=months), len(x)
 
-# v15: v13's Asian engine with drawdown controls (scripts/gold_v15.py); graded/longer equity filter 20 / -3R
+# v15 attempt 1 (rejected: weaker than v13 on 2025 at every spread; scripts/gold_v15.py): v13's Asian engine with
+# drawdown controls and a longer equity filter 20 / -3R
 V15 = replace(V10, be=1.5, be_buf=0.5, rr=4.0, min_stop_spread=8.0, atr_pct_min=0.08)
 OV15 = (20, -3.0, -2.0)
 VERSIONS["v15"] = [(V15, OV15, 0.08, 0.08)]

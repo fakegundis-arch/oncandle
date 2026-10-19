@@ -365,3 +365,34 @@ against 0.123% in 2025 and 0.184% in 2026; median stop $2.00 / $2.74 against $6.
 volatility (ATR below 0.064% of price: -0.10R per trade; 0.14-0.20%: +0.63R), but even the quietest trades of
 Q4 2024 / 2025 were profitable while those of 2023 / 2024 were not: part of the edge belongs to the post-2024 market.
 **Every version up to v13 was chosen on (and only works in) the volatile 2025-2026 market.**
+
+## v15 attempts: v13 with drawdown controls (no robot built)
+Request: improve v13 with smaller drawdowns and, if possible, more profit; choose on 2026, test on 2025. Every trade
+charged a realistic spread. Search `scripts/gold_v15_search.py` (69,120 per spread level): break-even +1R / +1.5R to
++0.3R / +0.5R, target 3-5R, stop for the day after a loss, spread guard (stop >= 8 / 12 / 16 x the spread of the minute
+before the order), minimum volatility 0 / 0.08 / 0.10% of price, graded equity-curve filter (last 10 / 20 paper
+trades: pause below -2R / -3R, optional half risk below 0R), weekly stop, risk Asia 6-14% / New York 0-4%.
+
+**Attempt 1, chosen at Dukascopy's recorded spread** (rule: 2026 drawdown >= -40%, >= 8/10 months up, above v13,
+half the neighbours passing): Asian engine only, 8%, break-even +1.5R -> +0.5R, 4R, spread guard 8x, minimum
+volatility 0.08%, equity filter 20 / -3R. 2026 $212,523 (-37%) against v13's $41,851 (-76%), but **2025 $1,798
+(-55%) against v13's $18,767 (-86%)**. All 40 robust candidates made money in 2025 (median $2,783), none beat v13.
+The first run read the spread guard's spread at the end of the entry minute; reading the minute before (as live)
+left 2026 unchanged but cut this pick's 2025 from $7,715 to $1,798: the guard reacts to noise.
+
+**Attempt 2, chosen at a $0.30 spread** (broker reviews put Exness Standard gold at roughly $0.16-0.35 in calm
+markets: [BrokerListings](https://brokerlistings.com/reviews/exness/spreads),
+[TradingBeasts](https://tradingbeasts.com/xau-usd-lowest-spread-brokers/)). The first rule had no candidates; with
+"no worse drawdown than v13 (-45%) and more profit" 56 passed, all v13 plus small tweaks, none with more than a third
+of the neighbours passing. Most robust: v13 + minimum volatility 0.08% + half risk while the last 10 paper trades sum
+to between -2R and 0R. 2026 $423,367 (-45%) against $387,196, but **2025 $11,656 (-87%) against v13's $157,959 (-71%)**.
+
+| $1,000, 2025 (test) | $0.20 | $0.30 | $0.40 | $0.60 | Dukascopy |
+|---|---|---|---|---|---|
+| v11 (Asia 10%, NY 5%) | $97,956 (-53%) | $86,179 (-59%) | $35,526 (-69%) | $18,527 (-64%) | $15,915 (-68%) |
+| v12 (Asia 12%, NY 4%) | $152,918 (-58%) | $118,171 (-65%) | $44,309 (-75%) | $21,897 (-75%) | $17,954 (-79%) |
+| **v13 (Asia 14%, NY 4%)** | **$221,532 (-64%)** | **$157,959 (-71%)** | **$52,680 (-80%)** | $24,063 (-82%) | $18,767 (-86%) |
+| v15 attempt 1 | $13,570 (-59%) | $11,483 (-59%) | $8,135 (-59%) | $10,770 (-59%) | $1,798 (-55%) |
+
+**Verdict:** the drawdown controls that help in 2026 did not carry over to 2025; v13's rules remain the best on the
+test year at every spread. The only drawdown control that held up is lower risk on the same rules (v12, v11).
