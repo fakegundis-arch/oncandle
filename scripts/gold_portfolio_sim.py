@@ -1,4 +1,4 @@
-"""Portfolio simulator for v17: several engines side by side (risk = % of equity at entry) plus two account-level
+"""Portfolio simulator (used from v17 on): several engines side by side (risk = % of equity at entry) plus two account-level
 rules that act across engines at order time:
   cap   : total risk of open positions may not exceed cap x equity (a new trade is cut to what is left, or skipped)
   dstop : no new trades for the rest of the UTC day once the day's equity is down more than dstop

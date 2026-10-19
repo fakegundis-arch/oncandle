@@ -459,105 +459,17 @@ the highest 2026 total. 114 passed the strict rules, 10 the neighbour rule.
 * 2025 rewarded v5-style trading (no daily-trend filter), 2026 v13-style trading with the extra sessions; no blend is
   best in both.
 
-## v17: v5 and v13 studied again, 12.5 million combinations (`GoldAsianBreakoutV17.mq5`)
-Request: a version whose drawdown in an unseen 2025 is better than -50%; choose on 2026. Exness spread $0.25 on
-every trade.
+## v17 (deleted)
+Deleted at the user's request: the robot's settings were chosen on 2025 + 2026, so 2025 was not an unseen test for it.
+Kept as the lesson for v18: the same engine family (v5's Asian engine + v13's Asian and New York engines with the 2026
+study's exits, quiet skip, daily stop and loss limit; 7,717,500 combinations) chosen on 2026 alone, with a block-bootstrap
+drawdown check, made $627,876 (-34%) in 2026 and then **$30,781 (-59%) in 2025** (independent recount $31,997, -56%)
+and $1,831 (-40%) in Q4 2024. A higher-risk variant's best figures came from a floating-point tie at its 6.00% daily
+stop (v5 and New York risked 6% each, so one loss put the day at exactly -6%).
 
-**Study of v5 and v13 on 2026 (both halves, four parallel analyses).** Drawdowns are risk per trade x losing streaks,
-and v13's Asian engine causes 80-140% of v13's drawdowns, so its risk is the main lever. Kept for the search: Asian
-break-even at +1.5-1.75R, New York exits (break-even at +0.75R to entry, target 3R, stop 1.25 ATR), a quiet-market skip
-(no real trade while ATR(14) is below 0.11-0.14% of price; the signal still counts as a paper trade), a small v5 sleeve,
-a daily stop and a daily 2-loss limit. Rejected: open-risk cap, trailing stops, partial exits, time exits, hour /
-weekday filters, cooldowns, an account weekly stop and cutting risk in a drawdown.
-
-**Stage 1 (Rule A, 2026 only; `scripts/gold_v17_search.py`, `scripts/gold_v17.py`).** Three engines side by side:
-v5's Asian engine, v13's Asian engine and v13's New York engine with the study's exits and skips (700 engine sets), x
-11,025 risk mixes (v5 0-3%, Asia 3-10%, New York 0-6%, daily stop, daily loss limit) = **7,717,500 combinations**.
-Rule (fixed before any result): 2026 drawdown >= -35%; >= 8/10 months up; half the one-step neighbours with drawdown
->= -40% and >= 8/10 up; block-bootstrap (2-week blocks, 400 simulated years) worst-decile drawdown better than -50% for
-all of 2026 and for each half; then the highest 2026 total. 1,653,263 passed rules 1-3; checking them best-first, 76
-of the best 15,000 passed rule 4. Pick: v5 sleeve 2.5%, Asia 5% (break-even +1.5R -> +0.3R), New York 5% (+0.75R ->
-entry, 3R, stop 1.25 ATR), daily stop 7.5%.
-
-| $1,000 | Q4 2024 | 2025 (test) | 2026 (chosen on) |
-|---|---|---|---|
-| Rule A pick | $1,831 (-40%) | **$30,781 (-59%)**; independent recompute $31,997 (-56%) | $627,876 (-34%), 9/10 up |
-
-* **It fails the target.** (The two 2025 figures differ by one New York trade on 6 Oct 2025, where the 10-trade
-  equity filter sits exactly at -2R; a rounding tie, not a look-ahead.) Of the 76 Rule A passers only 10 had a 2025
-  drawdown better than -50%; their median 2025 was $16,322 (-57%).
-* Why: 2025 was a much worse year for v13's two engines than 2026, while v5's engine was steady in both:
-
-| Engine (pick's trades) | 2025 R / trade | 2025 worst run-down | 2026 R / trade | 2026 worst run-down |
-|---|---|---|---|---|
-| v5 Asian | +0.32 | -8.1R | +0.38 | -7.8R |
-| v13 Asian (BE +1.5R) | +0.38 | **-16.0R** | +0.60 | -5.1R |
-| v13 New York (study exits) | +0.05 | **-14.0R** | +0.28 | -8.0R |
-
-  Choosing on 2026 alone loads up the engines that had their best year in 2026; the 2026 bootstrap (worst decile
-  -41% to -49%) did not cover 2025's -56% to -59%.
-
-**Stage 2 (Rule B, chosen on 2025 + 2026; `scripts/gold_v17b.py`). 2025 is no longer unseen here; Q4 2024 is the only
-period not used.** Wider risk grid (v5 sleeve 0-10% with full- or half-size sells, Asia 0-8%, New York 0-6%, daily stop
-off / 6% / 10%, daily loss limit off / 2) = **4,762,800 combinations** (matches stage 1 where the grids overlap). Rule
-B (fixed before its result): drawdown >= -45% in both years; >= 75% of months up in each; half the neighbours with
-drawdown >= -50% in both years; bootstrap worst decile better than -50% for each year's trades; then the highest profit
-in the weaker year. 801,783 passed rules 1-3, 390 of the best 254,000 passed rule 4.
-
-**v17 = the Rule B pick** (EA defaults): v5 sleeve 3% (sells 1.5%), Asia 3% (break-even +1.75R -> +0.1R, target 4R,
-quiet skip below 0.12%), New York 4% (v13's exits: +1R -> +0.3R, 4R, stop 1.5 ATR), daily stop 6.5%.
-
-| $1,000 at $0.25 | Q4 2024 (not used) | 2025 | 2026 |
-|---|---|---|---|
-| v5 | $2,550 (-56%) | $348,493 (-58%) | $105,584 (-57%) |
-| v13 | $1,391 (-64%) | $286,377 (-71%) | $387,233 (-45%) |
-| **v17 (daily stop 6.5%)** | $1,124 (-43%) | **$42,177 (-33%), 11/12 up** | **$50,801 (-31%), 9/10 up** |
-
-* Months 2025: Jan +42%, Feb +168%, Mar +15%, Apr +36%, May +4%, Jun +27%, Jul +59%, Aug -12%, Sep +148%, Oct +12%,
-  Nov +30%, Dec +6%. Months 2026: Jan +190%, Feb -9%, Mar +75%, Apr +12%, May +86%, Jun +83%, Jul +9%, Aug +111%,
-  Sep +6%, Oct +19%. Q4 2024: Oct +19%, Nov +35%, Dec -30%.
-* Stable to the daily stop: at 5.99% / 6.01% / 7% / off, 2025 makes $48,068 / $41,676 / $42,683 / $37,905 and 2026
-  $40,611 / $50,801 / $50,801 / $46,583, drawdowns -31% (2026) and -33% to -35% (2025) throughout. The grid's 6%
-  sits exactly on two 3% losses (a rounding tie), so the EA uses 6.5%.
-* Verified with an independent re-implementation (own overlay, quiet-skip lookup and booking loop): same trades and
-  the same figures in all three periods.
-* The price of the lower drawdown is profit: v17 makes ~$40-50k a year from $1,000 against v5's $105k-348k and v13's
-  $287k-387k, at about half their drawdowns. Q4 2024 still fell 43% (December -30%).
-* Higher-risk Rule B variants, for comparison only (all chosen with hindsight on both years):
-
-| Variant | 2025 | 2026 | Q4 2024 | Bootstrap worst decile 2025 / 2026 |
-|---|---|---|---|---|
-| v17 (rule 4 at -50%) | $45,184 (-33%) | $49,563 (-31%) | $1,124 (-43%) | -49% / -48% |
-| rule 4 at -60%: v5 4% (sells 2%), Asia 4%, NY 4%, daily stop 10% | $97,600 (-40%) | $129,479 (-37%) | $1,251 (-47%) | -59% / -57% |
-| no rule 4: v5 6%, Asia 4%, NY 6%, daily stop 6% | $407,285 (-42%) | $386,074 (-43%) | $1,450 (-63%) | -72% / -68% |
-
-  The last one is a rounding artifact (checked by four independent re-implementations, below).
-
-### The high-risk variant checked in detail (v5 6% both ways, Asia 4% / +1.75R -> +0.1R / quiet 0.11, New York 6%)
-* v5 and New York each risk 6%, so one full -1R loss puts the day at exactly -6%, and with the stop at exactly 6.00%
-  whether it fires depends on the last bit of floating-point arithmetic (R = -1 +/- 1e-14). That decided 47 entries
-  in 2025 and 27 in 2026. The same rules give 2025 $407,285 (-42%) with equity booked from 1.0, $344,563 (-47%) from
-  $1,000, and 2026 $386,074 or $410,225 (exact fractions). Note it never beat v13 in 2026 ($386,074 vs $387,233).
-* Away from the tie (any stop from 5.0% to 5.99% gives the same results, and any from 6.01% to 7%):
-
-| Daily stop | 2025 | 2026 | Q4 2024 | Drawdown with open trades marked (2025 / 2026) | Bootstrap worst decile (2025 / 2026) |
-|---|---|---|---|---|---|
-| 5.0% (one 6% loss ends the day) | $197,457 (-50%), 9/12 up | $392,969 (-51%), 8/10 up | $1,612 (-61%) | -55% / -55% | -73% / -69% |
-| 7.0% (one loss never ends the day) | $343,573 (-52%), 10/12 up | $225,173 (-50%), 7/10 up | $1,271 (-64%) | -58% / -60% | -71% / -75% |
-| none | $218,734 (-58%) | $498,827 (-44%) | $1,074 (-70%) | -59% / -48% | -79% / -72% |
-
-  Months at 5.0%, 2025: +41, +385, -2, +93, -9, +104, +87, -9, +91, +5, +63, +49%; 2026: +424, -11, +109, -33, +191,
-  +133, +76, +142, +9, +91%. At 7.0%, 2025: +78, +375, +14, +96, -26, +83, +99, -20, +166, +24, +69, +52%; 2026: +392,
-  -17, +114, -21, +152, +137, +43, +142, -3, +62%.
-* Live, the EA rounds lots down to 0.01, so a "6%" loss costs a little under 6% (5.0-6.0%) and an input of 6.0 behaves
-  like 7.0 while fills are exact; with a few cents of stop slippage on a bigger account it drifts towards 5.0.
-  Simulated EA-style it never reaches the $386k/$407k. Type 5.0 or 7.0, never 5.9-6.1 (and InpA_QuietPct 0.11).
-* Only 4 of its 30 one-step neighbours stay better than -50% in both years (median 2025 drawdown -53%).
-
-### Two measurement caveats found by the check (they apply to every version in this report)
-* **Weekly stop tie.** Two full losses in a week sum to -2R +/- 1e-14, so the -2R weekly stop is also decided by
-  rounding (in the backtests and in the EAs). Making it always or never fire at exactly -2R moves v5's 2025 from
-  $348,493 to $260,734-272,274 and v13's from $286,377 to $244,821-274,922. v17: 2025 $32,634-42,177, 2026
-  $50,048-53,970, drawdowns -31% to -36%. High-risk variant: 2025 $156,512-343,573, drawdowns -47% to -56%.
-* **Drawdowns are on closed trades.** Counting open positions at each minute's close adds 3-10 points: v17 -34% to
-  -41% (2025) and -36% to -37% (2026); the high-risk variant -52% to -64%.
+## Measurement caveats (apply to every version above)
+* **Weekly stop tie.** Two full losses in a week sum to -2R +/- 1e-14, so the -2R weekly stop is decided by rounding
+  (in the backtests and in the EAs); the equity-curve filter has the same tie at exactly -2R. Making the weekly stop
+  always or never fire at exactly -2R moves v5's 2025 from $348,493 to $260,734-272,274 and v13's from $286,377 to
+  $244,821-274,922.
+* **Drawdowns are on closed trades.** Counting open positions at each minute's close adds roughly 3-10 points.
