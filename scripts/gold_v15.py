@@ -19,13 +19,18 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from gold_v15_search import GRID, OVER, RISK  # noqa: E402
 
-V13_2026 = 41_851
+V13_2026 = 41_851                         # v13 at Dukascopy's spread; with --cost 0.30: v13 at $0.30
+SRC = ROOT / "results/gold/v15_search.parquet"
+if "--cost" in sys.argv:
+    c = float(sys.argv[sys.argv.index("--cost") + 1])
+    SRC = ROOT / f"results/gold/v15_search_c{c:.2f}.parquet"
+    V13_2026 = {0.30: 387_196}[round(c, 2)]
 ALL = {**GRID, **OVER, **RISK}
 KEYS = list(ALL)
 
 
 def load():
-    d = pd.read_parquet(ROOT / "results/gold/v15_search.parquet")
+    d = pd.read_parquet(SRC)
     d["pass"] = (d.y26_dd >= -0.40) & (d.y26_up >= 8) & (d.y26_usd > V13_2026)
     look = d.set_index(KEYS)["pass"].to_dict()
     vals = d[KEYS].to_numpy(object)

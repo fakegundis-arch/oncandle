@@ -30,6 +30,9 @@ OVER = dict(eq_n=[10, 20], eq_off=[-3.0, -2.0], eq_half=["none", "0"], week_cap=
 RISK = dict(w_asia=[0.06, 0.08, 0.10, 0.12, 0.14], w_ny=[0.0, 0.02, 0.04])
 PER = {"y26": ("2026-01-01", "2026-11-01"), "y25": ("2025-01-01", "2026-01-01"), "q4": ("2024-10-01", "2025-01-01")}
 COST = dict(cost_mode="data")
+if "--cost" in sys.argv:                       # fixed spread instead of Dukascopy's recorded one, e.g. --cost 0.30
+    COST = dict(cost=float(sys.argv[sys.argv.index("--cost") + 1]))
+OUT = ROOT / "results/gold" / ("v15_search.parquet" if "cost_mode" in COST else f"v15_search_c{COST['cost']:.2f}.parquet")
 
 
 @njit(cache=True)
@@ -72,7 +75,9 @@ def apply(t, eq_n, eq_off, eq_half, week_cap):
 
 def job(kw):
     m1, m15 = G.data(ROOT)
-    ch = {**kw, **COST}
+    kw = dict(kw)
+    cost = kw.pop("_cost", COST)
+    ch = {**kw, **cost}
     a0 = G.backtest(m1, m15, replace(V10, **ch))
     n0 = G.backtest(m1, m15, replace(NY, **ch))
     rows = []
@@ -95,14 +100,14 @@ def job(kw):
 
 
 def main():
-    jobs = [dict(zip(GRID, v)) for v in itertools.product(*GRID.values())]
+    jobs = [{**dict(zip(GRID, v)), "_cost": COST} for v in itertools.product(*GRID.values())]
     parts = []
     with ProcessPoolExecutor(4) as ex:
         for i, df in enumerate(ex.map(job, jobs, chunksize=2)):
             parts.append(df)
             if i % 24 == 0:
                 print(i, "/", len(jobs), flush=True)
-    pd.concat(parts, ignore_index=True).to_parquet(ROOT / "results/gold/v15_search.parquet", index=False)
+    pd.concat(parts, ignore_index=True).to_parquet(OUT, index=False)
     print(sum(len(p) for p in parts), "combinations")
 
 
