@@ -7,3 +7,4 @@ results/truth/*.parquet
 results/index_breakout/*.parquet
 results/gold/*.parquet
 results/gold/*.npz
+results/sd/*.npz
