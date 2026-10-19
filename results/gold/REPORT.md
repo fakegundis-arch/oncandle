@@ -473,3 +473,23 @@ stop (v5 and New York risked 6% each, so one loss put the day at exactly -6%).
   always or never fire at exactly -2R moves v5's 2025 from $348,493 to $260,734-272,274 and v13's from $286,377 to
   $244,821-274,922.
 * **Drawdowns are on closed trades.** Counting open positions at each minute's close adds roughly 3-10 points.
+
+## v18: chosen on 2026 only, 2025 unseen (`GoldAsianBreakoutV18.mq5`, `scripts/gold_v18.py`)
+Protocol committed before the search (b7abce1); pick committed before 2025 was opened (a916dc9); 2025 and Q4 2024 kept
+in a sealed file the selection code never reads, opened once.
+
+* Engines: v5's Asian engine, v13's Asian engine (break-even / target variants, quiet skip), v13's New York engine
+  (exit variants, quiet skip); risk v5 0-8% (full- or half-size sells), Asia 0-8%, New York 0-6%; daily loss-count limit
+  off / 2 / 3. Tie-free -2R filters (1e-9 margin); no percentage daily stop. **2,116,800 combinations.**
+* The selection rule itself was chosen by a test inside 2026: six candidate rules (bootstrap bar -50% / -40%, a 0.1R
+  edge haircut, best point / best plateau), each choosing on Jan-May and scored on Jun-Oct, and the other way round.
+  No rule kept the scoring half better than -40% in both directions (worse half: R1/R4 -53%, R3/R6 -47%, R2/R5 -42%),
+  so the stated fallback took R2 (bootstrap worst decile better than -40%, highest 2026 total).
+* **Pick:** v5 1%, Asia 7% (break-even +1.5R -> +0.3R, 4R, quiet skip below 0.11%), New York 5% (+0.6R -> entry, 3R,
+  stop 1.25 ATR), no new trades after 3 losing trades in a day.
+
+| $1,000 at $0.25 | Q4 2024 (unseen) | 2025 (unseen) | 2026 (chosen on) |
+|---|---|---|---|
+| v18 | $1,158 (-36%), 1/3 up | **$17,860 (-56%), 8/12 up, worst month -45%** | $922,583 (-30%), 9/10 up |
+
+**It fails the target (2025 drawdown better than -50%).** No re-pick was made.
