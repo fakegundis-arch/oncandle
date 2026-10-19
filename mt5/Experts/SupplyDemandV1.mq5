@@ -13,6 +13,9 @@
 //|  Each zone is traded once: the FIRST time the ask (demand) / bid  |
 //|  (supply) reaches the entry line, within InpAgeBars bars. If a    |
 //|  position is already open, that touch uses the zone up. Stop      |
+//|  A first touch that is already beyond the distal line (a gap      |
+//|  through the zone) or comes in the first 15 minutes after a       |
+//|  market reopen cancels the zone instead. Stop                     |
 //|  InpBufATR x ATR beyond the distal line (at least InpMinStop),    |
 //|  target InpRR x the risk. One position at a time.                 |
 //|  Attach to XAUUSD M15 (Exness, server time UTC).                  |
@@ -22,19 +25,19 @@
 
 #include <Trade/Trade.mqh>
 
-input double InpRiskPct   = 3.0;    // % of balance risked per trade
+input double InpRiskPct   = 2.0;    // % of balance risked per trade
 input double InpBaseATR   = 0.75;   // base candle max range (x ATR)
 input int    InpMaxBase   = 3;      // max base candles
-input double InpLegATR    = 1.75;   // leg-out min range (x ATR)
+input double InpLegATR    = 1.25;   // leg-out min range (x ATR)
 input double InpMaxHeight = 1.5;    // max zone height (x ATR)
 input int    InpPattern   = 1;      // 0 = all bases, 1 = reversal only, 2 = continuation only
-input int    InpTrend     = 0;      // 0 = none, 1 = with EMA(200) of chart bars, 2 = with yesterday's D1 close vs EMA(20)
-input bool   InpEntryMid  = false;  // false = entry at the proximal line, true = at the zone middle
-input double InpBufATR    = 0.05;   // stop beyond the distal line (x ATR)
+input int    InpTrend     = 2;      // 0 = none, 1 = with EMA(200) of chart bars, 2 = with yesterday's D1 close vs EMA(20)
+input bool   InpEntryMid  = true;   // false = entry at the proximal line, true = at the zone middle
+input double InpBufATR    = 0.25;   // stop beyond the distal line (x ATR)
 input double InpMinStop   = 1.5;    // minimum stop distance (price units)
-input double InpRR        = 1.5;    // target (x risk)
-input double InpBE        = 0.0;    // >0: stop to entry + 0.1R after this many R (0 = off)
-input int    InpAgeBars   = 384;    // zone valid for this many bars after the leg-out
+input double InpRR        = 4.0;    // target (x risk)
+input double InpBE        = 1.0;    // >0: stop to entry + 0.1R after this many R (0 = off)
+input int    InpAgeBars   = 24;     // zone valid for this many bars after the leg-out
 input bool   InpSession   = false;  // true: trade first touches only 07:00-20:00 UTC (other touches use the zone up)
 input ulong  InpMagic     = 20261201;
 
@@ -212,6 +215,20 @@ void OnDeinit(const int reason)
    IndicatorRelease(hAtr); IndicatorRelease(hEma); IndicatorRelease(hD1);
   }
 
+// first 15 minutes after a pause of more than 30 minutes in M1 bars (weekend / daily break): spreads are wide
+bool ReopenWindow()
+  {
+   datetime now = TimeCurrent();
+   for(int q = 0; q < 16; q++)
+     {
+      datetime a = iTime(_Symbol, PERIOD_M1, q), b = iTime(_Symbol, PERIOD_M1, q + 1);
+      if(a == 0 || b == 0) return false;
+      if(now - a >= 15 * 60) return false;
+      if(a - b > 30 * 60) return true;
+     }
+   return false;
+  }
+
 void OnTick()
   {
    datetime t0 = iTime(_Symbol, _Period, 0);
@@ -232,6 +249,8 @@ void OnTick()
       bool touched = zones[i].dir == 1 ? ask <= zones[i].lvl : bid >= zones[i].lvl;
       if(!touched) continue;
       zones[i].used = true;                       // first touch uses the zone up, traded or not
+      bool through = zones[i].dir == 1 ? ask <= zones[i].dist : bid >= zones[i].dist;
+      if(through || ReopenWindow()) continue;     // gapped through the zone / reopen spread: cancelled
       if(inSession && !HasPosition()) Enter(zones[i]);
      }
   }
