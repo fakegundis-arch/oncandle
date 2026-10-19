@@ -325,8 +325,10 @@ def backtest(m1: pd.DataFrame, m15: pd.DataFrame, p: P) -> pd.DataFrame:
         costs = m1["spread"].to_numpy(np.float64)[e_i] * p.cost_scale
     else:
         costs = np.full(len(e_i), p.cost)
-    if p.min_stop_spread > 0:                                          # spread guard (live spread known at the order)
-        keep = s.sl.to_numpy() >= p.min_stop_spread * costs
+    if p.min_stop_spread > 0:                     # spread guard: the spread just before the order (previous minute)
+        seen = (m1["spread"].to_numpy(np.float64)[np.maximum(e_i - 1, 0)] * p.cost_scale
+                if p.cost_mode == "data" and "spread" in m1 else costs)
+        keep = s.sl.to_numpy() >= p.min_stop_spread * seen
         s, e_i, costs = s[keep], e_i[keep], costs[keep]
     sl = s.sl.to_numpy().copy()
     e_px = np.full(len(e_i), np.nan)
