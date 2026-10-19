@@ -493,3 +493,40 @@ in a sealed file the selection code never reads, opened once.
 | v18 | $1,158 (-36%), 1/3 up | **$17,860 (-56%), 8/12 up, worst month -45%** | $922,583 (-30%), 9/10 up |
 
 **It fails the target (2025 drawdown better than -50%).** No re-pick was made.
+
+**Checks** (independent re-implementations; repository code untouched): the selection never reads 2025 and has no
+look-ahead; it is exact (all 441 candidates with a higher 2026 total fail the bootstrap bar); every 2026, 2025 and Q4 2024
+figure reproduces to the cent. Caveats: the selection step was blind to 2025 but the design was not (v5's original
+settings were chosen with a 2025 condition, and the risk grid follows v17's second stage); the pick cleared the -40%
+bootstrap bar by 0.5 points at the fixed seed (median over other seeds -40.4%); with open positions marked at each minute
+the drawdowns are 2026 -36%, 2025 -58%, Q4 2024 -44%.
+
+| 2025 | v5 trades / R | Asia trades / R | New York trades / R | Month | Balance |
+|---|---|---|---|---|---|
+| Jan | 17 / +8.4 | 1 / -1.0 | 14 / +1.0 | +3% | $1,033 |
+| Feb | 24 / +11.8 | 9 / +16.2 | 20 / +7.0 | +266% | $3,777 |
+| Mar | 19 / +6.4 | 3 / +2.0 | 12 / +1.0 | +19% | $4,501 |
+| Apr | 16 / +12.0 | 2 / +4.3 | 0 | +46% | $6,559 |
+| May | 12 / -4.2 | 9 / -2.7 | 6 / -6.0 | **-45%** | $3,608 |
+| Jun | 23 / +11.3 | 5 / 0.0 | 11 / -1.0 | -1% | $3,572 |
+| Jul | 25 / +6.7 | 2 / -0.7 | 13 / +11.0 | +66% | $5,916 |
+| Aug | 15 / +0.4 | 2 / -2.0 | 14 / +3.0 | -3% | $5,733 |
+| Sep | 28 / +10.0 | 9 / +11.2 | 23 / +4.0 | +149% | $14,265 |
+| Oct | 22 / +0.8 | 7 / +4.3 | 5 / -3.0 | +7% | $15,269 |
+| Nov | 21 / +12.0 | 5 / -2.4 | 9 / -1.0 | -12% | $13,507 |
+| Dec | 19 / +1.4 | 15 / +1.5 | 17 / +7.0 | +32% | $17,860 |
+
+* The -56% came from 8 May - 12 Jun 2025 ($7,661 -> $3,364): the Asian engine lost 10 of 11 (62% of the fall, at 7%
+  risk), New York 8 of 11 (31%), v5 7%. Most Asian trades are the same trade as a v5 trade (88% in 2025), so those
+  carried 8% risk, and on 12 / 13 May and 11 Jun all three engines lost (-12.6% each day).
+* Before the filters the engines' edge was similar in both years (R per raw trade 2025 / 2026: v5 +0.33 / +0.27,
+  Asia +0.44 / +0.49, New York +0.15 / +0.17); in 2025 the Asian engine's equity filter, quiet skip and weekly stop
+  skipped +51R of its +81R, in 2026 they skipped losers. The filters fit 2026.
+* For scale only (not a pick, and 2025 is no longer unseen for it): the same settings at 0.8x risk give 2025 $11,885
+  (-48%), 2026 $309,872 (-24%); at 0.5x 2025 $5,564 (-32%), 2026 $47,463 (-15%).
+* Two 2026-only selections of this engine family (v17's first stage and v18) both fell 56-59% in 2025 after showing
+  -30% to -34% in 2026; inside 2026 the Jun-Oct -> Jan-May test gave the same warning (-27% -> -42%).
+* Robot: same signals as the backtest (a Python copy of the EA logic reproduces all three periods exactly). Live
+  differences: Exness's own bars gave v18 $2,755 (-38%) against $7,212 (-30%) on the backtest's bars over 8 Jul - 15 Oct
+  2026; lot rounding from a $1,000 start costs about 20% of 2026 (v5 at 1% is often below 0.01 lot); the open paper
+  trade lives in memory, so a restart while one is open shifts the equity filter and weekly stop.

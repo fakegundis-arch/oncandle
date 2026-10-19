@@ -90,21 +90,33 @@ int D1Trend()
 
 int    DayKey(datetime t) { MqlDateTime d; TimeToStruct(t, d); return d.year * 10000 + d.mon * 100 + d.day; }
 
-// losing trades of this EA (any engine) closed today
+// global-variable prefix: account and symbol, so demo/live accounts and symbols never share state
+string Pfx() { return StringFormat("GAB18_%I64d_%s_", AccountInfoInteger(ACCOUNT_LOGIN), _Symbol); }
+
+// positions of this EA (any engine) on this symbol closed at a loss today; deals of one position are summed first
 int LossesToday()
   {
    datetime now = TimeCurrent();
    MqlDateTime d; TimeToStruct(now, d); d.hour = 0; d.min = 0; d.sec = 0;
-   if(!HistorySelect(StructToTime(d), now)) return 0;
-   int n = 0;
+   if(!HistorySelect(StructToTime(d), now + 3600)) return 0;
+   ulong ids[]; double net[]; int k = 0;
    for(int i = HistoryDealsTotal() - 1; i >= 0; i--)
      {
       ulong t = HistoryDealGetTicket(i);
       long mg = HistoryDealGetInteger(t, DEAL_MAGIC);
-      if(mg < (long)InpMagic || mg > (long)InpMagic + 2 || HistoryDealGetInteger(t, DEAL_ENTRY) != DEAL_ENTRY_OUT) continue;
-      double net = HistoryDealGetDouble(t, DEAL_PROFIT) + HistoryDealGetDouble(t, DEAL_SWAP) + HistoryDealGetDouble(t, DEAL_COMMISSION);
-      if(net < -0.0025 * AccountInfoDouble(ACCOUNT_BALANCE)) n++;
+      long en = HistoryDealGetInteger(t, DEAL_ENTRY);
+      if(mg < (long)InpMagic || mg > (long)InpMagic + 2 || HistoryDealGetString(t, DEAL_SYMBOL) != _Symbol) continue;
+      if(en != DEAL_ENTRY_OUT && en != DEAL_ENTRY_OUT_BY) continue;
+      ulong id = (ulong)HistoryDealGetInteger(t, DEAL_POSITION_ID);
+      double v = HistoryDealGetDouble(t, DEAL_PROFIT) + HistoryDealGetDouble(t, DEAL_COMMISSION);
+      int j = 0;
+      while(j < k && ids[j] != id) j++;
+      if(j == k) { ArrayResize(ids, k + 1); ArrayResize(net, k + 1); ids[k] = id; net[k] = 0; k++; }
+      net[j] += v;
      }
+   int n = 0;
+   for(int j = 0; j < k; j++)
+      if(net[j] < -0.0025 * AccountInfoDouble(ACCOUNT_BALANCE)) n++;
    return n;
   }
 
@@ -121,12 +133,12 @@ double LotsForRisk(double dist, double riskPct)
    if(tv <= 0 || ts <= 0 || dist <= 0) return 0;
    double lots = AccountInfoDouble(ACCOUNT_BALANCE) * riskPct / 100.0 / (dist / ts * tv);
    double step = SymbolInfoDouble(_Symbol, SYMBOL_VOLUME_STEP);
-   lots = MathFloor(lots / step) * step;
+   lots = MathFloor(lots / step + 1e-9) * step;
    if(lots < SymbolInfoDouble(_Symbol, SYMBOL_VOLUME_MIN)) return 0;
    return MathMin(lots, SymbolInfoDouble(_Symbol, SYMBOL_VOLUME_MAX));
   }
 
-// one breakout engine (mirrors backtester/gold.py + scripts/gold_v17_search.overlay2)
+// one breakout engine (mirrors backtester/gold.py + scripts/gold_v18_search.overlay)
 class Engine
   {
 public:
@@ -141,7 +153,7 @@ public:
    int    vDir, vWeek;
    double vEntry, vStop, vTgt, vR;
 
-   string GV(string k) { return StringFormat("GAB18_%I64u_%s", magic, k); }
+   string GV(string k) { return Pfx() + StringFormat("%I64u_%s", magic, k); }
 
    bool Init(string t, ulong mg, double rk, int dn, int s0, int s1, bool d1, bool reg, int en, int md,
              double b, double bb, double rr_, double sa, double q)
@@ -305,6 +317,12 @@ Engine eng[3];
 
 int OnInit()
   {
+   if(_Period != PERIOD_M15) { Print("V18: attach to an M15 chart"); return INIT_PARAMETERS_INCORRECT; }
+   if(AccountInfoInteger(ACCOUNT_MARGIN_MODE) != ACCOUNT_MARGIN_MODE_RETAIL_HEDGING)
+     { Print("V18 needs a hedging account (one position per engine)"); return INIT_FAILED; }
+   for(long c = ChartFirst(); c >= 0; c = ChartNext(c))
+      if(c != ChartID() && ChartGetString(c, CHART_EXPERT_NAME) == MQLInfoString(MQL_PROGRAM_NAME))
+        { PrintFormat("V18 already runs on chart %I64d - one instance only", c); return INIT_FAILED; }
    hAtr = iATR(_Symbol, _Period, 14);
    hD1 = iMA(_Symbol, PERIOD_D1, InpD1TrendEMA, 0, MODE_EMA, PRICE_CLOSE);
    if(hAtr == INVALID_HANDLE || hD1 == INVALID_HANDLE ||
@@ -316,7 +334,6 @@ int OnInit()
                    InpN_RR, InpN_StopATR, InpN_QuietPct))
       return INIT_FAILED;
    eng[0].sellMult = InpV_SellMult;
-   if(_Period != PERIOD_M15) Print("Warning: tested on M15 only");
    return INIT_SUCCEEDED;
   }
 
@@ -324,6 +341,7 @@ void OnDeinit(const int reason)
   {
    IndicatorRelease(hAtr); IndicatorRelease(hD1);
    for(int i = 0; i < 3; i++) IndicatorRelease(eng[i].hEma);
+   GlobalVariablesFlush();
   }
 
 void OnTick()
