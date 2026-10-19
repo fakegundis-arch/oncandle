@@ -431,3 +431,30 @@ slightly higher.
 
   The bots take mostly the same trades on Exness's feed; over this window the Exness results were ~15-35% lower, so
   treat the Dukascopy backtests at $0.25 as a slightly optimistic guide.
+
+## v16 attempt: v5 and v13 engines blended (no robot built)
+Request: beat both v13 and v5 in 2026 and 2025, with a 2025 drawdown better than -50%; choose on 2026, 2025 unseen.
+Exness spread $0.25. `scripts/gold_v16_search.py`: up to four engines side by side (v5's Asian engine; v13's Asian
+engine; v13's New York engine; a London 07-09 engine with v13's filters), their settings (trades/day, equity-curve
+filter, break-even, minimum volatility, London Donchian / RR) and each engine's risk (0-14%, half-size shorts or not):
+**2,211,840 combinations**, booked with a vectorised portfolio simulator (reproduces v13 and v5 exactly).
+
+Rule on 2026 (`scripts/gold_v16.py`): above v13 ($387,233), drawdown >= -40%, >= 8/10 months up, half the
+neighbours at least as good as v13 (first form, "half the neighbours pass the strict rules", had no candidates), then
+the highest 2026 total. 114 passed the strict rules, 10 the neighbour rule.
+
+| $1,000 at $0.25 | Q4 2024 | 2025 (test) | 2026 (chosen on) |
+|---|---|---|---|
+| v5 | $2,550 (-56%) | $348,493 (-58%) | $105,584 (-57%) |
+| v13 | $1,391 (-64%) | $286,377 (-71%) | $387,233 (-45%) |
+| v16 pick (v5-Asia 3% / sells 1.5%, v13-Asia 9% with BE +1.5R -> +0.3R, New York 6%, London 2%) | $1,864 (-68%) | **$110,239 (-78%)** | $865,210 (-40%) |
+
+* None of the 10 robust 2026 candidates met the 2025 targets (median 2025 $97,243, median drawdown -75%).
+* Of all 2,211,840 combinations, 12 meet the 2025 targets (all v5-heavy blends: 2025 $361k-549k at -50%), and they
+  make only $88k-127k in 2026 (ranked about 1.1-1.3 millionth on 2026). **No combination beats both v5 and v13 in both
+  years with a 2025 drawdown better than -50%**, even with hindsight.
+* Choosing on both years together (no unseen year left except Q4 2024), the best balanced blends make about
+  $200k-245k in each year with drawdowns of -39% to -50% (e.g. v5-Asia 6%, v13-Asia 3%, New York 4%, London 4%:
+  2025 $213,432 (-49%), 2026 $217,819 (-44%), Q4 2024 $1,231 (-59%)).
+* 2025 rewarded v5-style trading (no daily-trend filter), 2026 v13-style trading with the extra sessions; no blend is
+  best in both.

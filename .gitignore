@@ -6,3 +6,4 @@ results/news_lab/*.parquet
 results/truth/*.parquet
 results/index_breakout/*.parquet
 results/gold/*.parquet
+results/gold/*.npz
