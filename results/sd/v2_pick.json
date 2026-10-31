@@ -1,0 +1,47 @@
+{
+ "family": "structure_trend",
+ "cfg": {
+  "ztf": 15,
+  "bos": "z3",
+  "w": 12,
+  "f": 1.0,
+  "buf": 0.25,
+  "tgt": "r12",
+  "be": 1.0,
+  "htf": "1440_4_both_fill",
+  "gmin": 0.0,
+  "hmax": 1.0,
+  "ses": "all",
+  "age": 96
+ },
+ "plateau": 7.93,
+ "neighbour_share": 0.9545,
+ "combinations_tried": 164502144,
+ "audit": "confirmed (independent re-implementation, 78/78 trades identical; truncation test; no look-ahead)",
+ "other_candidates": {
+  "premium_discount": 6.82,
+  "rejection": 5.99,
+  "zone_quality": 5.89,
+  "mtf_refine": "2.17 (confirmed)"
+ },
+ "y26": {
+  "n": 78,
+  "R": 166.30000000000007,
+  "pf": 6.734482758620693,
+  "win": 0.6282051282051282,
+  "dd_R": -8.299999999999919,
+  "best": 12.0,
+  "R_wo_best": 154.30000000000007,
+  "pf_wo_best": 6.320689655172417,
+  "h1_n": 41,
+  "h1_R": 93.60000000000005,
+  "h1_pf": 6.850000000000002,
+  "h2_n": 37,
+  "h2_R": 72.70000000000006,
+  "h2_pf": 6.5923076923076955,
+  "log_growth": 9.888223729905919,
+  "usd": 19697041.581203174,
+  "dd": -0.5846327976125116,
+  "months_up": 9
+ }
+}
