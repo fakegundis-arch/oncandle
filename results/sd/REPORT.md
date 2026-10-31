@@ -55,10 +55,10 @@ Five explorer agents each designed and searched one family on 2026 (2.8M-164.5M 
 | Family | Idea | Plateau score | 2026 trades / R / PF | Audit |
 |---|---|---|---|---|
 | **structure_trend** | 15-min fair-value-gap zone whose impulse broke the last unbroken 15-min swing; daily swing structure (higher highs and higher lows and last break up, mirrored) must agree | **7.93** | 78 / +166.3R / 6.73 | confirmed (78/78 trades identical, truncation test, no look-ahead) |
-| premium_discount | zones only in the discount / premium half of a reference range, session and volatility filters | 6.82 | 186 / +138.0R / 2.05 | see below |
-| rejection | enter after a rejection candle closes back outside the zone | 5.99 | 64 / +119.6R / 5.98 | see below |
-| zone_quality | score zones by departure, time away, leg strength | 5.89 | 241 / +114.1R / 1.94 | see below |
-| mtf_refine | H1 zone, M15 change-of-character entry, 4R, 12-h exit | 2.17 | 204 / +55.1R / 1.49 | confirmed |
+| premium_discount | zones only in the discount / premium half of a reference range, session and volatility filters | 6.82 | 186 / +138.0R / 2.05 | confirmed (186/186; shifted bars PF 1.8-2.2) |
+| rejection | enter after a rejection candle closes back outside the zone | 5.99 | 64 / +119.6R / 5.98 | confirmed, but shifted bars keep ~5% of the edge |
+| zone_quality | score zones by departure, time away, leg strength | 5.89 | 241 / +114.1R / 1.94 | confirmed (241/241; shifted bars keep 55-75%) |
+| mtf_refine | H1 zone, M15 change-of-character entry, 4R, 12-h exit | 2.17 | 204 / +55.1R / 1.49 | confirmed (204/204; shifted bars PF ~1.3) |
 
 **v2 = structure_trend** (`scripts/sd_v2_strategy.py`, pick d7e6412): limit order at the gap edge, stop 0.25 ATR beyond
 candle 1 (at least $1.5), target 12R, stop to +0.1R after +1R, order valid 96 bars, one position at a time.
