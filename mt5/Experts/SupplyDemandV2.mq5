@@ -22,7 +22,7 @@
 //|  drawdown although the strategy made +30.6R (PF 1.37).            |
 //+------------------------------------------------------------------+
 #property copyright "oncandle"
-#property version   "2.00"
+#property version   "2.01"
 
 #include <Trade/Trade.mqh>
 
@@ -36,13 +36,14 @@ input double InpMinStop    = 1.5;   // minimum risk distance (price units)
 input double InpRR         = 12.0;  // target (x risk)
 input double InpBE         = 1.0;   // stop to entry + 0.1R after this many R (0 = off)
 input int    InpAgeBars    = 96;    // order valid this many bars after activation
+input double InpReplaySpread = 0.25; // spread assumed when a restart replays bar lows (= the backtest cost)
 input ulong  InpMagic      = 20261202;
 
 struct Zone { datetime tGap; int dir; double prox, dist, atr, ref; bool active, used; datetime tAct; };
 Zone     zones[];
-int      hAtr = INVALID_HANDLE;
-datetime lastBar = 0;
+datetime lastBar = 0, dailyFor = 0, exitMin = 0;
 int      dTrend = 0, dHHHL = 0;
+bool     needRebuild = true, hadPos = false;
 CTrade   trade;
 
 // fractal swing structure, same as sd_v2_strategy._structure: per bar (oldest first) trend (last break),
@@ -86,28 +87,39 @@ bool Closed(ENUM_TIMEFRAMES tf, int last, int count, double &h[], double &l[], d
           CopyClose(_Symbol, tf, last, count, c) == count && CopyTime(_Symbol, tf, last, count, t) == count;
   }
 
+// daily state from the last completed D1 bar; computed once per day, retried on every tick until the D1 series has today
 void UpdateDaily()
   {
+   datetime d0 = iTime(_Symbol, PERIOD_D1, 0);
+   if(d0 != 0 && d0 == dailyFor) return;
+   dTrend = 0; dHHHL = 0; dailyFor = 0;
+   long today = (long)TimeCurrent() / 86400 * 86400;
+   if(d0 == 0 || (long)d0 < today) return;                 // D1 not updated to today yet: no trades, retry
    double h[], l[], c[]; datetime t[];
    int n = MathMin(400, Bars(_Symbol, PERIOD_D1) - 1);
-   if(n < 4 * InpDailyL + 4 || !Closed(PERIOD_D1, 1, n, h, l, c, t)) { dTrend = 0; dHHHL = 0; return; }
+   if(n < 4 * InpDailyL + 4 || !Closed(PERIOD_D1, 1, n, h, l, c, t)) return;
    int tr[], hh[]; double osh[], osl[];
    Structure(h, l, c, InpDailyL, tr, hh, osh, osl);
-   dTrend = tr[n - 1]; dHHHL = hh[n - 1];
+   dTrend = tr[n - 1]; dHHHL = hh[n - 1]; dailyFor = d0;
   }
 
-double AtrAt(int shift)
+// ATR(14) of bar j (oldest-first arrays) = simple mean of the true range of bars j-13 .. j, as MT5 iATR and
+// backtester.indicators.atr; from prices, so it also works inside OnInit / Rebuild (no indicator handle to wait for)
+double AtrOf(const double &h[], const double &l[], const double &c[], int j)
   {
-   double v[1];
-   return CopyBuffer(hAtr, 0, shift, 1, v) == 1 ? v[0] : 0;
+   if(j < 14) return 0;
+   double s = 0;
+   for(int k = j - 13; k <= j; k++) s += MathMax(h[k], c[k - 1]) - MathMin(l[k], c[k - 1]);
+   return s / 14.0;
   }
 
-// at the close of the bar at shift `sh` (1 live, more in Rebuild): activation of pending gaps, then a new gap at that bar
-void OnNewBar(int sh)
+// at the close of the bar at shift `sh` (1 live, more in Rebuild): activation of pending gaps, then a new gap at that bar;
+// false when the bars could not be read (the caller replays later)
+bool OnNewBar(int sh)
   {
    int n = 600;
    double h[], l[], c[]; datetime t[];
-   if(Bars(_Symbol, _Period) < n + sh + 20 || !Closed(_Period, sh, n, h, l, c, t)) return;
+   if(Bars(_Symbol, _Period) < n + sh + 20 || !Closed(_Period, sh, n, h, l, c, t)) return false;
    int tr[], hh[]; double osh[], osl[];
    Structure(h, l, c, InpSwingL, tr, hh, osh, osl);
    int i = n - 1;                                   // the bar that just closed
@@ -120,25 +132,27 @@ void OnNewBar(int sh)
       if(zones[z].dir * (c[i] - zones[z].ref) > 0) { zones[z].active = true; zones[z].tAct = t[i]; }
      }
    // new gap at bar i
-   double a = AtrAt(sh + 3);                        // ATR(14) of bar i-3
-   if(a <= 0) return;
-   Zone zn; zn.used = false; zn.active = false; zn.tGap = t[i]; zn.atr = a;
+   double a = AtrOf(h, l, c, i - 3);                // ATR(14) of bar i-3
+   if(a <= 0) return true;
+   Zone zn; zn.used = false; zn.active = false; zn.tGap = t[i]; zn.atr = a; zn.tAct = 0;
    if(l[i] > h[i - 2])      { zn.dir = 1;  zn.prox = l[i]; zn.dist = l[i - 2]; zn.ref = osh[i - 2]; }
    else if(h[i] < l[i - 2]) { zn.dir = -1; zn.prox = h[i]; zn.dist = h[i - 2]; zn.ref = osl[i - 2]; }
-   else return;
-   if(MathAbs(zn.prox - zn.dist) > InpMaxHeight * a || zn.ref == EMPTY_VALUE) return;
+   else return true;
+   if(MathAbs(zn.prox - zn.dist) > InpMaxHeight * a || zn.ref == EMPTY_VALUE) return true;
    // activation already by the close of bar i-1 or bar i (activation is never before bar i's close)
    if(zn.dir * (c[i - 1] - zn.ref) > 0 || zn.dir * (c[i] - zn.ref) > 0) { zn.active = true; zn.tAct = t[i]; }
    int m = ArraySize(zones); ArrayResize(zones, m + 1); zones[m] = zn;
+   return true;
   }
 
 bool Expired(Zone &z) { return z.active && iBarShift(_Symbol, _Period, z.tAct, false) > InpAgeBars; }
 
-// after a restart: replay the last bars - touches (from bar highs / lows) use zones up, closes activate and create them
-void Rebuild()
+// after a restart (or bars that had no ticks here): replay the last bars - touches (from bar highs / lows at the
+// backtest's spread) use zones up, closes activate and create them; false when the history is not ready yet
+bool Rebuild()
   {
    ArrayResize(zones, 0);
-   double sp = SymbolInfoDouble(_Symbol, SYMBOL_ASK) - SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   double sp = InpReplaySpread;
    for(int s = InpAgeBars + InpBosWindow + 5; s >= 0; s--)
      {
       double hi = iHigh(_Symbol, _Period, s), lo = iLow(_Symbol, _Period, s);
@@ -148,10 +162,11 @@ void Rebuild()
          if(zones[z].active && iBarShift(_Symbol, _Period, zones[z].tAct, false) - s > InpAgeBars) { zones[z].used = true; continue; }
          if(zones[z].dir == 1 ? lo + sp <= zones[z].prox : hi >= zones[z].prox) zones[z].used = true;
         }
-      if(s >= 1) OnNewBar(s);
+      if(s >= 1 && !OnNewBar(s)) { ArrayResize(zones, 0); return false; }
      }
    Prune();
    PrintFormat("SupplyDemandV2: %d zones after rebuild", ArraySize(zones));
+   return true;
   }
 
 void Prune()
@@ -236,27 +251,32 @@ int OnInit()
    if(_Period != PERIOD_M15) { Print("SupplyDemandV2: attach to an M15 chart"); return INIT_PARAMETERS_INCORRECT; }
    trade.SetExpertMagicNumber(InpMagic);
    trade.SetTypeFillingBySymbol(_Symbol);
-   hAtr = iATR(_Symbol, _Period, 14);
-   if(hAtr == INVALID_HANDLE) return INIT_FAILED;
-   lastBar = iTime(_Symbol, _Period, 0);
-   UpdateDaily();
-   Rebuild();
-   return INIT_SUCCEEDED;
+   if(!MQLInfoInteger(MQL_TESTER) && MathAbs((long)(TimeTradeServer() - TimeGMT())) > 600)
+      Print("SupplyDemandV2: WARNING - server time is not GMT+0; D1 bars and the daily filter will not match the backtest");
+   needRebuild = true; dailyFor = 0; exitMin = 0;
+   hadPos = HasPosition();
+   return INIT_SUCCEEDED;                     // zones are rebuilt on the first tick, once the history is there
   }
 
-void OnDeinit(const int reason) { IndicatorRelease(hAtr); }
+void OnDeinit(const int reason) { }
 
 void OnTick()
   {
    datetime t0 = iTime(_Symbol, _Period, 0);
-   if(t0 != lastBar)
+   if(t0 == 0) return;
+   if(needRebuild || t0 != lastBar)
      {
-      lastBar = t0;
-      UpdateDaily();
-      OnNewBar(1);
+      int missed = needRebuild ? 0 : iBarShift(_Symbol, _Period, lastBar, false);   // 1 = exactly one bar closed
+      if(!(missed == 1 && OnNewBar(1)))
+         if(!Rebuild()) { needRebuild = true; return; }     // history not ready: no trading, retry on the next tick
       Prune();
+      lastBar = t0; needRebuild = false;
      }
+   UpdateDaily();
    ManageBE();
+   bool pos = HasPosition();
+   if(hadPos && !pos) exitMin = iTime(_Symbol, PERIOD_M1, 0);   // backtest: no entry in the minute a trade closed
+   hadPos = pos;
    double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK), bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
    for(int i = 0; i < ArraySize(zones); i++)
      {
@@ -268,7 +288,7 @@ void OnTick()
       bool through = zones[i].dir == 1 ? ask <= zones[i].dist : bid >= zones[i].dist;
       if(through || ReopenWindow()) continue;
       if(dTrend != zones[i].dir || dHHHL != zones[i].dir) continue;   // daily structure must agree at the fill
-      if(!HasPosition()) Enter(zones[i]);
+      if(!HasPosition() && iTime(_Symbol, PERIOD_M1, 0) != exitMin) { Enter(zones[i]); hadPos = HasPosition(); }
      }
   }
 //+------------------------------------------------------------------+

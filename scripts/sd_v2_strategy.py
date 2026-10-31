@@ -1,7 +1,8 @@
 """Supply & demand v2 (family 'structure_trend', found by an explorer agent and confirmed by an independent auditor):
 market-structure aligned fair-value-gap zones on gold. Chosen on 2026 only (scripts/sd_v2_eval.py protocol).
 
-Rules (cfg = BEST), all on Exness XAUUSD M1 bid bars (UTC), longs at the ask = bid + cost:
+Rules (cfg = BEST), on the gold M1 bid bars of data/XAUUSD_M1.csv (Dukascopy feed, UTC; Exness spread charged as `cost`),
+longs at the ask = bid + cost:
   1. Zone timeframe `ztf` (15 min). A bullish fair-value gap (FVG) exists at bar i when low[i] > high[i-2] (candle 1 high
      below candle 3 low); bearish mirror: high[i] < low[i-2]. ATR = ATR(14) (simple mean of true range) of bar i-3.
      Demand zone: proximal = low[i] (top of the gap), distal = low[i-2] (candle-1 low). Supply: proximal = high[i],

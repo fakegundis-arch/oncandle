@@ -77,3 +77,9 @@ candle 1 (at least $1.5), target 12R, stop to +0.1R after +1R, order valid 96 ba
 * Hindsight, for information only: 2025 at 1% $1,273 (-27%), 2% $1,449 (-49%), 3% $1,502 (-65%), 5% $1,287 (-84%).
 * Audit caveats (2026): picked from 164.5M settings; about half the 2026 edge depends on 15-min bars starting on the hour
   (bars shifted by 1-14 minutes still pass, PF 2.0-5.5); the daily structure filter carries most of the edge.
+* Robot (`mt5/Experts/SupplyDemandV2.mq5`, default 10% risk as requested): an independent review ported its logic to
+  Python and matched all 226 trades of 2025-2026. Its fixes are in: ATR from prices (no indicator handle to wait for at
+  start-up), restarts rebuild the zones at the backtest's $0.25 spread, missed bars are replayed, no entry in the minute a
+  trade closed, a warning when the server is not GMT+0. On Exness's own bars (9 Jul - 15 Oct 2026) 19 of 25 entries
+  matched the backtest feed (+35.9R against +38.0R). The robot enters at market on the touch; the backtest assumes a limit
+  fill at the line.
