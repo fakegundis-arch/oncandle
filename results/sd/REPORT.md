@@ -42,3 +42,38 @@ May 9 / -1.8, Jun 6 / +2.3, Jul 9 / +2.1, Aug 6 / -2.7, Sep 5 / 0.0, Oct 3 / -0.
   2025 -13.5R, PF 0.79), and their 2026 and 2025 results are negatively correlated (-0.38). Over all 82,311 settings with
   >= 40 trades in both years the median profit factor is 0.87 in 2026 and 0.81 in 2025. **This mechanical supply &
   demand definition has no edge on gold after costs; the 2026 winners were chance.**
+
+# Supply & demand v2 - agent search, chosen on 2026, tested on unseen 2025
+
+Protocol committed first (f389148, `scripts/sd_v2_eval.py`): 2026 only; >= 60 trades, PF >= 1.3, both halves positive
+with PF >= 1.1, PF >= 1.15 without the best trade and at a $0.40 spread, >= 60% of one-step neighbours with PF >= 1.15;
+score = plateau-median growth at the user's 10% risk per trade; each candidate audited independently; v2 = the confirmed
+candidate with the highest score; 2025 computed once. Success on 2025 stated in advance: total R > 0 and PF >= 1.1.
+
+Five explorer agents each designed and searched one family on 2026 (2.8M-164.5M settings each); all five passed:
+
+| Family | Idea | Plateau score | 2026 trades / R / PF | Audit |
+|---|---|---|---|---|
+| **structure_trend** | 15-min fair-value-gap zone whose impulse broke the last unbroken 15-min swing; daily swing structure (higher highs and higher lows and last break up, mirrored) must agree | **7.93** | 78 / +166.3R / 6.73 | confirmed (78/78 trades identical, truncation test, no look-ahead) |
+| premium_discount | zones only in the discount / premium half of a reference range, session and volatility filters | 6.82 | 186 / +138.0R / 2.05 | see below |
+| rejection | enter after a rejection candle closes back outside the zone | 5.99 | 64 / +119.6R / 5.98 | see below |
+| zone_quality | score zones by departure, time away, leg strength | 5.89 | 241 / +114.1R / 1.94 | see below |
+| mtf_refine | H1 zone, M15 change-of-character entry, 4R, 12-h exit | 2.17 | 204 / +55.1R / 1.49 | confirmed |
+
+**v2 = structure_trend** (`scripts/sd_v2_strategy.py`, pick d7e6412): limit order at the gap edge, stop 0.25 ATR beyond
+candle 1 (at least $1.5), target 12R, stop to +0.1R after +1R, order valid 96 bars, one position at a time.
+
+| | Trades | R | PF | 12R winners | $1,000 at 10% |
+|---|---|---|---|---|---|
+| 2026 (chosen on) | 78 | +166.3R | 6.73 | 16 (21%) | $19,697,042 (-58%) |
+| **2025 (unseen)** | 148 | **+30.6R** | **1.37** (1.32 at $0.40) | 9 (6%) | **$336 (-98.5%)** |
+| 15 Nov - 31 Dec 2024 | 1 | -1.0R | - | 0 | $900 |
+
+* **It passes the stated 2025 test** (R > 0, PF >= 1.1) - the first supply & demand version to do so - but the edge was
+  far thinner than in 2026 (PF 1.37 against 6.73; big winners a third as often).
+* **At 10% per trade it fails in money:** 83 losses and 56 break-evens around 9 big winners compound to $336, with a
+  -98.5% drawdown. 2025 months at 10%: Jan +85%, Feb -4%, Mar -51%, Apr -27%, May -34%, Jun -50%, Jul -9%, Aug -7%,
+  Sep -45%, Oct +68%, Nov +192%, Dec -29%.
+* Hindsight, for information only: 2025 at 1% $1,273 (-27%), 2% $1,449 (-49%), 3% $1,502 (-65%), 5% $1,287 (-84%).
+* Audit caveats (2026): picked from 164.5M settings; about half the 2026 edge depends on 15-min bars starting on the hour
+  (bars shifted by 1-14 minutes still pass, PF 2.0-5.5); the daily structure filter carries most of the edge.
