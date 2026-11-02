@@ -25,6 +25,21 @@ target 0.75R; at most 2 losses a day; flat at 20:45 UTC; no trading on US holida
 * Note: early on agent A printed about 10 warm-up trades from Oct-Dec 2025 of a plain zone baseline (not tuned on them).
 * Lesson: a single passing check on four months (+4R, PF 1.5) was not enough evidence; the edge did not exist in 2025.
 
+**After the exam failure, agent A checked three materially different ideas; all passed Jan-Jun and all failed Jul-Oct:**
+
+| Check | Idea | Jan-Jun PF / drawdown | Jul-Oct trades / R / PF / drawdown | Works |
+|---|---|---|---|---|
+| 2 | Asian session in the daily trend (00:00 UTC entry with yesterday's 50-day EMA and 5-day momentum, out at 06:00) | 1.87 / -14% | 50 / -1.3R / 0.80 / -25% | no |
+| 3 | $50 round-number breakouts (stop orders at untouched round levels, 0.75R) | 1.86 / -24% | 115 / +6.8R / 1.22 / -47% | no (PF < 1.3, drawdown) |
+| 4 | Prior-day value-area re-entry (back inside the 80% value area, target the most-traded price) | 2.66 / -21% | 48 / -5.2R / 0.78 / -69% | no |
+
+It then tried 11 more ideas (zones on H2/H4, breakout-retests, pin bars / engulfing at extremes, sweep-and-reclaim,
+wick-rejection zones, flipped zones, round-number retests, level breakouts, trend-day continuation, London fix,
+compression / opening-range breaks) against a stricter bar of its own (settings chosen on odd weeks must hold on even
+weeks) and none qualified, so it stopped with 4 checks unused. Its conclusion: passing every candle shift and most
+neighbours on Jan-Jun was not real evidence (every variant re-measures the same ~125 days); only momentum effects
+(big-candle continuation, round-number stop runs) stayed even partly positive in Jul-Oct.
+
 ## Agent B (any idea)
 **Check 1 - H1 Donchian(20) breakout with the daily trend** (5 ATR stop, break-even at +0.3R): Jan-Jun PF 4.73, DD -18%,
 very robust there (11/11 grid shifts, 13/13 neighbours) - Jul-Oct 34 trades, -3.2R, PF 0.66, DD -35%: **fails**, dropped.
