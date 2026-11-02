@@ -24,3 +24,24 @@ target 0.75R; at most 2 losses a day; flat at 20:45 UTC; no trading on US holida
   2026 only); nothing else was changed.
 * Note: early on agent A printed about 10 warm-up trades from Oct-Dec 2025 of a plain zone baseline (not tuned on them).
 * Lesson: a single passing check on four months (+4R, PF 1.5) was not enough evidence; the edge did not exist in 2025.
+
+## Agent B (any idea)
+**Check 1 - H1 Donchian(20) breakout with the daily trend** (5 ATR stop, break-even at +0.3R): Jan-Jun PF 4.73, DD -18%,
+very robust there (11/11 grid shifts, 13/13 neighbours) - Jul-Oct 34 trades, -3.2R, PF 0.66, DD -35%: **fails**, dropped.
+Dropped without a check: RSI pullbacks, previous-day high / low fades (PF 0.72) and breakouts, London / New York
+opening-range breakouts and fades.
+
+**Check 2 - Asian-range breakout into the London morning** (`scripts/lab_b/`, fixed in 323a5de before the exam): range =
+00:00-07:30 UTC high / low; 07:30-10:00 a buy-stop above / sell-stop below it (+0.03 x daily ATR), first one only; stop
+1.5 x the range width, target 0.75R, otherwise out at 16:00 UTC; flat before weekend / holiday closes.
+
+| | Trades | R | PF | Win | Max drawdown at 10% | $1,000 |
+|---|---|---|---|---|---|---|
+| Jan-Jun 2026 (built on) | 48 | +6.4R | 2.13 | - | -11% | $1,808 |
+| Jul-Oct 2026 (check 2 of 8) | 35 | +8.1R | 3.86 | - | -11% | $2,161 - **passes** |
+| **2025 (final exam)** | 134 | **-3.1R** | **0.91** | 46% | **-63%** | **$586 - fails** |
+
+* 2025 by month: Jan +14%, Feb +1%, Mar +7%, Apr +4%, May +21%, Jun -19%, Jul +2%, Aug -8%, Sep -18%, Oct -1%, Nov -36%,
+  Dec -5%. At $0.40: $567. (Q4 2024, information only: 26 trades, PF 1.03.)
+* Both agents' Jul-Oct winners failed 2025: four months of validation did not separate real edges from luck. Each failed
+  exam that sends an agent back for another try also uses up a little of 2025's value as an unseen test.
