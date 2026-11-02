@@ -60,3 +60,13 @@ opening-range breakouts and fades.
   Dec -5%. At $0.40: $567. (Q4 2024, information only: 26 trades, PF 1.03.)
 * Both agents' Jul-Oct winners failed 2025: four months of validation did not separate real edges from luck. Each failed
   exam that sends an agent back for another try also uses up a little of 2025's value as an unseen test.
+* After the exam failure agent B scanned about 20 more families on Jan-Jun (sweep reversals, zones, round-number /
+  impulse / run / z-score / gap / 08:30 fades; EMA crosses, pullbacks, flags, RSI momentum, daily momentum; session
+  continuation, prior-day / narrow-range / inside-bar / Tokyo-open breakouts) and spent no further checks: fades lost
+  everywhere (PF ~0.55-0.9); the momentum ideas that made money depended on one day boundary or one start time, were
+  carried by the Jan-Mar blow-off, or earned mostly through clock exits. It stopped with 6 checks unused.
+
+## Outcome
+Six checks in all (agent A 4, agent B 2); two passed Jul-Oct and both failed the 2025 exam. **No strategy from this
+round works.** The agents' own conclusion: on gold in 2025-2026, fades lose, and momentum entries at significant levels
+are the only family with a positive edge, but no version of it was stable across periods at 10% risk per trade.
