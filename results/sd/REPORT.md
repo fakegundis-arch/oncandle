@@ -83,3 +83,29 @@ candle 1 (at least $1.5), target 12R, stop to +0.1R after +1R, order valid 96 ba
   trade closed, a warning when the server is not GMT+0. On Exness's own bars (9 Jul - 15 Oct 2026) 19 of 25 entries
   matched the backtest feed (+35.9R against +38.0R). The robot enters at market on the touch; the backtest assumes a limit
   fill at the line.
+
+# Supply & demand v3 - built on Jan-Apr 2026, tested once on May-Oct 2026
+
+Protocol committed first (2aaa6eb, `scripts/sd_v3_eval.py`): explorers and auditors got a data loader ending 30 Apr 2026;
+$1,000 at 10% risk per trade; a candidate needed >= 30 Jan-Apr trades, PF >= 1.3, both two-month halves positive, PF >= 1.15
+without its best trade and at a $0.40 spread, a Jan-Apr drawdown at 10% better than -35%, and a neighbour plateau. Success
+on May-Oct stated in advance: total R > 0, PF >= 1.2 and drawdown at 10% better than -40%.
+
+| Candidate (agent) | Jan-Apr trades / PF / drawdown at 10% | Plateau | Audit (Jan-Apr only) | May-Oct trades / R / PF | May-Oct drawdown | $1,000 May-Oct |
+|---|---|---|---|---|---|---|
+| **premium_discount = v3** (30-min London zones, entry at mid-zone only in the discount / premium 40% of the previous day's range, half off at 1.5R, rest 2.5R, max 2 a day, stop after a loss) | 53 / 3.61 / -27% | 3.25 | confirmed (passes at every candle shift) | **52 / -9.75R / 0.72** | **-88%** | **$257** |
+| structure_trend (30-min FVG zones with the 12-h swing trend, 2R, 20:45 daily exit) | 38 / 3.68 / -27% | 1.49 | confirmed (18 of 29 shifts pass) | 46 / -7.15R / 0.71 | -62% | $376 |
+| zone_quality (30/60-min zones scored by excursion, quick return, tight base; cooldown after 2 losses) | 73 / 3.37 / -19% | 3.52 | rejected (4 of 60 alignments pass) | 103 / -7.99R / 0.85 | -80% | $224 |
+| mtf_refine (H1 zones, M3 engulfing entry, 3R) | 61 / 3.07 / -27% | 3.29 | rejected (2 of 60 pass) | 144 / -14.06R / 0.85 | -96% | $54 |
+| rejection (M30 zones, M5 pin bar, 3R) | 108 / 2.84 / -34% | 4.06 | rejected (1 of 30 pass) | 126 / -15.00R / 0.77 | -95% | $83 |
+
+* **v3 fails its test on every count** (pick committed in 1209327 before May-Oct was run; the result is the same at $0.40).
+  Its win rate fell from 70% to 33%; 10 losses in a row from 20 Aug to 21 Sep took the account from $1,080 to $127. By
+  month: May -31%, Jun -24%, Jul -2%, Aug -58%, Sep -33%, Oct (1-15) +80%.
+* **All five failed** - including the two the audits confirmed. Every Jan-Apr profit factor of 2.8-3.7 became 0.71-0.85
+  out of sample. Four months of data and tens of thousands of combinations per agent produced settings that fit Jan-Apr
+  and nothing more; the audits' candle-shift test caught three of the five, and the other two failed anyway.
+* Checks by the tester: Jan-Apr reproduced trade for trade on the full data; no overlaps; truncation tests identical;
+  8 pick trades rebuilt by hand from raw bars; no pick trade held over a weekend or an early close.
+* Jan-Oct as one run (Jan-Apr is the training period, so not a test): the pick reaches $38,025 by the end of April and
+  ends at $9,778 (-89% drawdown).
