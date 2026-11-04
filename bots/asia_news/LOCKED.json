@@ -1,0 +1,254 @@
+{
+ "locked_at_utc": "2026-11-04T19:47:58+00:00",
+ "note": "Frozen after the Jan-Jun 2026 build, before asia_news_lab.final_test (Jul 1 - Oct 15 2026). One rule set for all versions; only the instrument mapping differs. The pair version = pair_aud + pair_nzd + pair_jpy (each trades only its own currency).",
+ "rules": "FF verdict sum (split report -> unemployment rate, then CPI y/y, CPI q/q; all in line -> no trade); entry at the open 15 min after the release minute; stop 1.5 x ATR(24 H1 bars before the release); no target; exit 6 h after entry (Friday 20:00 UTC latest); one position per instrument; 10% risk.",
+ "final_test_entries": {
+  "gold": "XAUUSD",
+  "nasdaq": "NAS100",
+  "pair_aud": "AUDUSD",
+  "pair_nzd": "NZDUSD",
+  "pair_jpy": "USDJPY"
+ },
+ "versions": {
+  "gold": {
+   "instrument": "gold",
+   "symbol": "XAUUSD",
+   "currencies": [
+    "AUD",
+    "NZD",
+    "JPY",
+    "CNY"
+   ],
+   "kinds": [
+    "CPI",
+    "EMP",
+    "GDP",
+    "RATE",
+    "ACT",
+    "OTHER"
+   ],
+   "signal": {
+    "vote": "ff",
+    "inline": "none",
+    "tiebreak": [
+     "unemployment rate",
+     "cpi y/y",
+     "cpi q/q"
+    ]
+   },
+   "map": {
+    "gold": {
+     "AUD": 1,
+     "NZD": 1,
+     "JPY": 1,
+     "CNY": 1
+    }
+   },
+   "entry_delay": 15,
+   "confirm": 0,
+   "stop_atr_tf": 60,
+   "stop_atr_n": 24,
+   "stop_k": 1.5,
+   "target_r": 0.0,
+   "hold_min": 360,
+   "news_mult": 2.0,
+   "news_window": 5
+  },
+  "nasdaq": {
+   "instrument": "nasdaq",
+   "symbol": "NAS100",
+   "currencies": [
+    "AUD",
+    "NZD",
+    "JPY",
+    "CNY"
+   ],
+   "kinds": [
+    "CPI",
+    "EMP",
+    "GDP",
+    "RATE",
+    "ACT",
+    "OTHER"
+   ],
+   "signal": {
+    "vote": "ff",
+    "inline": "none",
+    "tiebreak": [
+     "unemployment rate",
+     "cpi y/y",
+     "cpi q/q"
+    ]
+   },
+   "map": {
+    "nasdaq": {
+     "AUD": 1,
+     "NZD": 1,
+     "JPY": -1,
+     "CNY": 1
+    }
+   },
+   "entry_delay": 15,
+   "confirm": 0,
+   "stop_atr_tf": 60,
+   "stop_atr_n": 24,
+   "stop_k": 1.5,
+   "target_r": 0.0,
+   "hold_min": 360,
+   "news_mult": 2.0,
+   "news_window": 5
+  },
+  "pair_aud": {
+   "instrument": "pair",
+   "symbol": "AUDUSD",
+   "currencies": [
+    "AUD"
+   ],
+   "kinds": [
+    "CPI",
+    "EMP",
+    "GDP",
+    "RATE",
+    "ACT",
+    "OTHER"
+   ],
+   "signal": {
+    "vote": "ff",
+    "inline": "none",
+    "tiebreak": [
+     "unemployment rate",
+     "cpi y/y",
+     "cpi q/q"
+    ]
+   },
+   "map": null,
+   "entry_delay": 15,
+   "confirm": 0,
+   "stop_atr_tf": 60,
+   "stop_atr_n": 24,
+   "stop_k": 1.5,
+   "target_r": 0.0,
+   "hold_min": 360,
+   "news_mult": 2.0,
+   "news_window": 5
+  },
+  "pair_nzd": {
+   "instrument": "pair",
+   "symbol": "NZDUSD",
+   "currencies": [
+    "NZD"
+   ],
+   "kinds": [
+    "CPI",
+    "EMP",
+    "GDP",
+    "RATE",
+    "ACT",
+    "OTHER"
+   ],
+   "signal": {
+    "vote": "ff",
+    "inline": "none",
+    "tiebreak": [
+     "unemployment rate",
+     "cpi y/y",
+     "cpi q/q"
+    ]
+   },
+   "map": null,
+   "entry_delay": 15,
+   "confirm": 0,
+   "stop_atr_tf": 60,
+   "stop_atr_n": 24,
+   "stop_k": 1.5,
+   "target_r": 0.0,
+   "hold_min": 360,
+   "news_mult": 2.0,
+   "news_window": 5
+  },
+  "pair_jpy": {
+   "instrument": "pair",
+   "symbol": "USDJPY",
+   "currencies": [
+    "JPY"
+   ],
+   "kinds": [
+    "CPI",
+    "EMP",
+    "GDP",
+    "RATE",
+    "ACT",
+    "OTHER"
+   ],
+   "signal": {
+    "vote": "ff",
+    "inline": "none",
+    "tiebreak": [
+     "unemployment rate",
+     "cpi y/y",
+     "cpi q/q"
+    ]
+   },
+   "map": null,
+   "entry_delay": 15,
+   "confirm": 0,
+   "stop_atr_tf": 60,
+   "stop_atr_n": 24,
+   "stop_k": 1.5,
+   "target_r": 0.0,
+   "hold_min": 360,
+   "news_mult": 2.0,
+   "news_window": 5
+  }
+ },
+ "train_jan_jun_2026": {
+  "gold": {
+   "n": 16,
+   "R": 13.69,
+   "pf": 7.3,
+   "dd": -0.167,
+   "jan_mar_R": 7.05,
+   "apr_jun_R": 6.65,
+   "pf_2x_cost": 7.23,
+   "pf_entry_2min_later": 10.1,
+   "passes": true
+  },
+  "nasdaq": {
+   "n": 16,
+   "R": 1.77,
+   "pf": 1.57,
+   "dd": -0.167,
+   "jan_mar_R": 1.86,
+   "apr_jun_R": -0.09,
+   "pf_2x_cost": 1.5,
+   "pf_entry_2min_later": 1.24,
+   "passes": false,
+   "failed": "apr-jun R>0"
+  },
+  "pair (pair_aud+pair_nzd+pair_jpy combined)": {
+   "n": 19,
+   "R": 10.41,
+   "pf": 3.02,
+   "dd": -0.19,
+   "jan_mar_R": 2.65,
+   "apr_jun_R": 7.76,
+   "pf_2x_cost": 2.35,
+   "pf_entry_2min_later": 2.11,
+   "passes": true
+  },
+  "pair_aud": {
+   "n": 14,
+   "R": 9.31,
+   "pf": 5.32
+  },
+  "pair_nzd": {
+   "n": 5,
+   "R": 1.09,
+   "pf": 1.36
+  },
+  "pair_jpy": {
+   "n": 0
+  }
+ },
+ "success_rule_jul_oct": ">= 8 trades, R > 0, PF >= 1.3, max drawdown at 10% better than -35% (per version; the pair version judged on the combined AUDUSD+NZDUSD+USDJPY trades, the per-pair entries also reported)"
+}

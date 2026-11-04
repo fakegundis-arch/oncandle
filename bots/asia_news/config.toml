@@ -1,0 +1,41 @@
+# newsbot configuration. Strategy settings are NOT here: they are frozen in LOCKED.json.
+# Times are UTC. Relative paths are relative to this file.
+
+[general]
+mode = "dry-run"              # "dry-run" (log orders, never send) or "live" (also needs: python run_bot.py --live)
+versions = ["pair"]           # any of "pair" (AUDUSD / NZDUSD / USDJPY), "gold", "nasdaq" - see README before adding
+risk = 0.10                   # fraction of equity lost if the stop is hit (the research setting; see the risks)
+locked_file = "LOCKED.json"
+state_file = "state/newsbot_state.json"
+log_file = "logs/newsbot.log"
+journal_file = "logs/trades.csv"
+loop_seconds = 5
+max_entry_lag_seconds = 120   # an entry that cannot be filled within 2 min of its planned time is skipped
+
+[calendar]
+json_url = "https://nfs.faireconomy.media/ff_calendar_thisweek.json"   # schedule + forecast + previous
+cache_file = "state/ff_thisweek.json"
+refresh_minutes = 60          # FF updates the export hourly and returns HTTP 429 if asked more often
+actual_source = "ffpage"      # "ffpage" (Forex Factory page via headless Chromium) or "file" (actual_file)
+actual_file = "state/actuals.json"
+poll_seconds = 10             # how often the page is re-read after the release time
+actual_timeout_seconds = 600  # no actual 10 min after the release -> skip (the entry is at +15 min anyway)
+require_all_figures = true    # wait until every figure of the release has an actual (as in the backtest)
+chromium_path = ""            # empty = Playwright's own Chromium (playwright install chromium)
+user_agent = ""               # empty = the browser's default
+
+[mt5]
+path = ""                     # terminal64.exe path, empty = the running / default terminal
+login = ""                    # account number (or leave empty to use the terminal's logged-in account)
+password = ""
+server = ""                   # e.g. "Exness-MT5Trial" / "Exness-MT5Real"
+server_utc_offset_hours = 0   # broker server time - UTC (Exness = 0; many brokers = 2 or 3)
+magic = 260707
+deviation_points = 50
+
+[symbols]                     # research name -> broker symbol (Exness Standard-account names, suffix "m")
+XAUUSD = "XAUUSDm"
+NAS100 = "USTECm"
+AUDUSD = "AUDUSDm"
+NZDUSD = "NZDUSDm"
+USDJPY = "USDJPYm"

@@ -1,0 +1,548 @@
+{
+ "time": "2026-11-04T19:57:11+00:00",
+ "results": {
+  "gold": {
+   "symbol": "XAUUSD",
+   "cfg": {
+    "instrument": "gold",
+    "symbol": "XAUUSD",
+    "currencies": [
+     "AUD",
+     "NZD",
+     "JPY",
+     "CNY"
+    ],
+    "kinds": [
+     "CPI",
+     "EMP",
+     "GDP",
+     "RATE",
+     "ACT",
+     "OTHER"
+    ],
+    "signal": {
+     "vote": "ff",
+     "inline": "none",
+     "tiebreak": [
+      "unemployment rate",
+      "cpi y/y",
+      "cpi q/q"
+     ]
+    },
+    "map": {
+     "gold": {
+      "AUD": 1,
+      "NZD": 1,
+      "JPY": 1,
+      "CNY": 1
+     }
+    },
+    "entry_delay": 15,
+    "confirm": 0,
+    "stop_atr_tf": 60,
+    "stop_atr_n": 24,
+    "stop_k": 1.5,
+    "target_r": 0.0,
+    "hold_min": 360,
+    "news_mult": 2.0,
+    "news_window": 5
+   },
+   "test": {
+    "n": 11,
+    "R": 0.05065190474112219,
+    "pf": 1.0114233300159783,
+    "win": 0.5454545454545454,
+    "avg_R": 0.00460471861282929,
+    "usd": 954.2665478365259,
+    "dd": -0.29692412173932203,
+    "max_losing_streak": 3
+   },
+   "test_2x_cost": {
+    "n": 11,
+    "R": -0.015685134579558557,
+    "pf": 0.9964691680227443,
+    "win": 0.5454545454545454,
+    "avg_R": -0.0014259213254144143,
+    "usd": 948.2999054032455,
+    "dd": -0.29811191162260375,
+    "max_losing_streak": 3
+   },
+   "success": false,
+   "trades": [
+    {
+     "entry_time": "2026-07-20 23:00:00",
+     "exit_time": "2026-07-21 05:00:00",
+     "dir": "1",
+     "r": "2.295485155472273",
+     "event": "NZD CPI 2026-07-20 22:45 score +1 (vs forecast: CPI q/q +1)"
+    },
+    {
+     "entry_time": "2026-07-23 01:45:00",
+     "exit_time": "2026-07-23 07:42:00",
+     "dir": "1",
+     "r": "-1.0",
+     "event": "AUD EMP 2026-07-23 01:30 score +1 (vs forecast: Employment Change +1, Unemployment Rate +0)"
+    },
+    {
+     "entry_time": "2026-07-29 01:45:00",
+     "exit_time": "2026-07-29 07:22:00",
+     "dir": "-1",
+     "r": "-1.0",
+     "event": "AUD CPI 2026-07-29 01:30 score -2 (vs forecast: CPI m/m -1, CPI y/y -1, Trimmed Mean CPI m/m +0)"
+    },
+    {
+     "entry_time": "2026-08-04 23:00:00",
+     "exit_time": "2026-08-05 01:55:00",
+     "dir": "-1",
+     "r": "-1.0",
+     "event": "NZD EMP 2026-08-04 22:45 score -1 (split -> unemployment rate: Employment Change q/q +1, Unemployment Rate -1)"
+    },
+    {
+     "entry_time": "2026-08-20 01:45:00",
+     "exit_time": "2026-08-20 07:45:00",
+     "dir": "-1",
+     "r": "0.08202358177976257",
+     "event": "AUD EMP 2026-08-20 01:30 score -2 (vs forecast: Employment Change -1, Unemployment Rate -1)"
+    },
+    {
+     "entry_time": "2026-08-26 01:45:00",
+     "exit_time": "2026-08-26 07:45:00",
+     "dir": "1",
+     "r": "-0.43407523640418877",
+     "event": "AUD CPI 2026-08-26 01:30 score +3 (vs forecast: Trimmed Mean CPI m/m +1, CPI m/m +1, CPI y/y +1)"
+    },
+    {
+     "entry_time": "2026-09-02 01:45:00",
+     "exit_time": "2026-09-02 07:45:00",
+     "dir": "1",
+     "r": "0.4548178786983253",
+     "event": "AUD GDP 2026-09-02 01:30 score +1 (vs forecast: GDP q/q +1)"
+    },
+    {
+     "entry_time": "2026-09-16 23:00:00",
+     "exit_time": "2026-09-17 05:00:00",
+     "dir": "1",
+     "r": "0.9623692847874309",
+     "event": "NZD GDP 2026-09-16 22:45 score +1 (vs forecast: GDP q/q +1)"
+    },
+    {
+     "entry_time": "2026-09-24 01:45:00",
+     "exit_time": "2026-09-24 07:45:00",
+     "dir": "-1",
+     "r": "0.3140993178230005",
+     "event": "AUD EMP 2026-09-24 01:30 score -1 (split -> unemployment rate: Employment Change +1, Unemployment Rate -1)"
+    },
+    {
+     "entry_time": "2026-09-30 01:45:00",
+     "exit_time": "2026-09-30 06:52:00",
+     "dir": "-1",
+     "r": "-1.0",
+     "event": "AUD CPI 2026-09-30 01:30 score -3 (vs forecast: CPI y/y -1, Trimmed Mean CPI m/m -1, CPI m/m -1)"
+    },
+    {
+     "entry_time": "2026-10-15 00:45:00",
+     "exit_time": "2026-10-15 06:45:00",
+     "dir": "-1",
+     "r": "0.3759319225845185",
+     "event": "AUD EMP 2026-10-15 00:30 score -2 (vs forecast: Employment Change -1, Unemployment Rate -1)"
+    }
+   ]
+  },
+  "nasdaq": {
+   "symbol": "NAS100",
+   "cfg": {
+    "instrument": "nasdaq",
+    "symbol": "NAS100",
+    "currencies": [
+     "AUD",
+     "NZD",
+     "JPY",
+     "CNY"
+    ],
+    "kinds": [
+     "CPI",
+     "EMP",
+     "GDP",
+     "RATE",
+     "ACT",
+     "OTHER"
+    ],
+    "signal": {
+     "vote": "ff",
+     "inline": "none",
+     "tiebreak": [
+      "unemployment rate",
+      "cpi y/y",
+      "cpi q/q"
+     ]
+    },
+    "map": {
+     "nasdaq": {
+      "AUD": 1,
+      "NZD": 1,
+      "JPY": -1,
+      "CNY": 1
+     }
+    },
+    "entry_delay": 15,
+    "confirm": 0,
+    "stop_atr_tf": 60,
+    "stop_atr_n": 24,
+    "stop_k": 1.5,
+    "target_r": 0.0,
+    "hold_min": 360,
+    "news_mult": 2.0,
+    "news_window": 5
+   },
+   "test": {
+    "n": 11,
+    "R": 3.7520619249952176,
+    "pf": 2.8703861281513405,
+    "win": 0.5454545454545454,
+    "avg_R": 0.34109653863592887,
+    "usd": 1401.057176262973,
+    "dd": -0.15968753774739597,
+    "max_losing_streak": 3
+   },
+   "test_2x_cost": {
+    "n": 11,
+    "R": 3.6460279966667004,
+    "pf": 2.7829862716507767,
+    "win": 0.5454545454545454,
+    "avg_R": 0.33145709060606365,
+    "usd": 1386.919893283229,
+    "dd": -0.16106319498315147,
+    "max_losing_streak": 3
+   },
+   "success": true,
+   "trades": [
+    {
+     "entry_time": "2026-07-20 23:00:00",
+     "exit_time": "2026-07-21 05:00:00",
+     "dir": "1",
+     "r": "1.819342193713512",
+     "event": "NZD CPI 2026-07-20 22:45 score +1 (vs forecast: CPI q/q +1)"
+    },
+    {
+     "entry_time": "2026-07-23 01:45:00",
+     "exit_time": "2026-07-23 03:11:00",
+     "dir": "1",
+     "r": "-1.0",
+     "event": "AUD EMP 2026-07-23 01:30 score +1 (vs forecast: Employment Change +1, Unemployment Rate +0)"
+    },
+    {
+     "entry_time": "2026-07-29 01:45:00",
+     "exit_time": "2026-07-29 07:45:00",
+     "dir": "-1",
+     "r": "-0.18871160421235347",
+     "event": "AUD CPI 2026-07-29 01:30 score -2 (vs forecast: CPI m/m -1, CPI y/y -1, Trimmed Mean CPI m/m +0)"
+    },
+    {
+     "entry_time": "2026-08-04 23:00:00",
+     "exit_time": "2026-08-05 05:00:00",
+     "dir": "-1",
+     "r": "-0.48360953272081686",
+     "event": "NZD EMP 2026-08-04 22:45 score -1 (split -> unemployment rate: Employment Change q/q +1, Unemployment Rate -1)"
+    },
+    {
+     "entry_time": "2026-08-20 01:45:00",
+     "exit_time": "2026-08-20 07:45:00",
+     "dir": "-1",
+     "r": "0.38752881309967097",
+     "event": "AUD EMP 2026-08-20 01:30 score -2 (vs forecast: Employment Change -1, Unemployment Rate -1)"
+    },
+    {
+     "entry_time": "2026-08-26 01:45:00",
+     "exit_time": "2026-08-26 07:45:00",
+     "dir": "1",
+     "r": "0.675588297535763",
+     "event": "AUD CPI 2026-08-26 01:30 score +3 (vs forecast: Trimmed Mean CPI m/m +1, CPI m/m +1, CPI y/y +1)"
+    },
+    {
+     "entry_time": "2026-09-02 01:45:00",
+     "exit_time": "2026-09-02 07:45:00",
+     "dir": "1",
+     "r": "-0.04248890978505824",
+     "event": "AUD GDP 2026-09-02 01:30 score +1 (vs forecast: GDP q/q +1)"
+    },
+    {
+     "entry_time": "2026-09-16 23:00:00",
+     "exit_time": "2026-09-17 05:00:00",
+     "dir": "1",
+     "r": "0.8713596408497803",
+     "event": "NZD GDP 2026-09-16 22:45 score +1 (vs forecast: GDP q/q +1)"
+    },
+    {
+     "entry_time": "2026-09-24 01:45:00",
+     "exit_time": "2026-09-24 07:45:00",
+     "dir": "-1",
+     "r": "1.10183250556602",
+     "event": "AUD EMP 2026-09-24 01:30 score -1 (split -> unemployment rate: Employment Change +1, Unemployment Rate -1)"
+    },
+    {
+     "entry_time": "2026-09-30 01:45:00",
+     "exit_time": "2026-09-30 07:45:00",
+     "dir": "-1",
+     "r": "-0.2912259629177577",
+     "event": "AUD CPI 2026-09-30 01:30 score -3 (vs forecast: CPI y/y -1, Trimmed Mean CPI m/m -1, CPI m/m -1)"
+    },
+    {
+     "entry_time": "2026-10-15 00:45:00",
+     "exit_time": "2026-10-15 06:45:00",
+     "dir": "-1",
+     "r": "0.9024464838664575",
+     "event": "AUD EMP 2026-10-15 00:30 score -2 (vs forecast: Employment Change -1, Unemployment Rate -1)"
+    }
+   ]
+  },
+  "pair_aud": {
+   "symbol": "AUDUSD",
+   "cfg": {
+    "instrument": "pair",
+    "symbol": "AUDUSD",
+    "currencies": [
+     "AUD"
+    ],
+    "kinds": [
+     "CPI",
+     "EMP",
+     "GDP",
+     "RATE",
+     "ACT",
+     "OTHER"
+    ],
+    "signal": {
+     "vote": "ff",
+     "inline": "none",
+     "tiebreak": [
+      "unemployment rate",
+      "cpi y/y",
+      "cpi q/q"
+     ]
+    },
+    "map": null,
+    "entry_delay": 15,
+    "confirm": 0,
+    "stop_atr_tf": 60,
+    "stop_atr_n": 24,
+    "stop_k": 1.5,
+    "target_r": 0.0,
+    "hold_min": 360,
+    "news_mult": 2.0,
+    "news_window": 5
+   },
+   "test": {
+    "n": 8,
+    "R": -3.9205165294389692,
+    "pf": 0.30051956228018156,
+    "win": 0.25,
+    "avg_R": -0.49006456617987115,
+    "usd": 652.111619986025,
+    "dd": -0.4092077079093571,
+    "max_losing_streak": 3
+   },
+   "test_2x_cost": {
+    "n": 8,
+    "R": -4.3449742481263876,
+    "pf": 0.2467367425469641,
+    "win": 0.25,
+    "avg_R": -0.5431217810157984,
+    "usd": 625.2172351109645,
+    "dd": -0.42789042402060773,
+    "max_losing_streak": 3
+   },
+   "success": false,
+   "trades": [
+    {
+     "entry_time": "2026-07-23 01:45:00",
+     "exit_time": "2026-07-23 06:58:00",
+     "dir": "1",
+     "r": "-1.0",
+     "event": "AUD EMP 2026-07-23 01:30 score +1 (vs forecast: Employment Change +1, Unemployment Rate +0)"
+    },
+    {
+     "entry_time": "2026-07-29 01:45:00",
+     "exit_time": "2026-07-29 06:15:00",
+     "dir": "-1",
+     "r": "-1.0",
+     "event": "AUD CPI 2026-07-29 01:30 score -2 (vs forecast: CPI m/m -1, CPI y/y -1, Trimmed Mean CPI m/m +0)"
+    },
+    {
+     "entry_time": "2026-08-20 01:45:00",
+     "exit_time": "2026-08-20 07:45:00",
+     "dir": "-1",
+     "r": "-0.6737504919323216",
+     "event": "AUD EMP 2026-08-20 01:30 score -2 (vs forecast: Employment Change -1, Unemployment Rate -1)"
+    },
+    {
+     "entry_time": "2026-08-26 01:45:00",
+     "exit_time": "2026-08-26 07:45:00",
+     "dir": "1",
+     "r": "0.6464646464646261",
+     "event": "AUD CPI 2026-08-26 01:30 score +3 (vs forecast: Trimmed Mean CPI m/m +1, CPI m/m +1, CPI y/y +1)"
+    },
+    {
+     "entry_time": "2026-09-02 01:45:00",
+     "exit_time": "2026-09-02 02:11:00",
+     "dir": "1",
+     "r": "-1.0",
+     "event": "AUD GDP 2026-09-02 01:30 score +1 (vs forecast: GDP q/q +1)"
+    },
+    {
+     "entry_time": "2026-09-24 01:45:00",
+     "exit_time": "2026-09-24 07:45:00",
+     "dir": "-1",
+     "r": "-0.931147540983588",
+     "event": "AUD EMP 2026-09-24 01:30 score -1 (split -> unemployment rate: Employment Change +1, Unemployment Rate -1)"
+    },
+    {
+     "entry_time": "2026-09-30 01:45:00",
+     "exit_time": "2026-09-30 06:05:00",
+     "dir": "-1",
+     "r": "-1.0",
+     "event": "AUD CPI 2026-09-30 01:30 score -3 (vs forecast: CPI y/y -1, Trimmed Mean CPI m/m -1, CPI m/m -1)"
+    },
+    {
+     "entry_time": "2026-10-15 00:45:00",
+     "exit_time": "2026-10-15 06:45:00",
+     "dir": "-1",
+     "r": "1.0379168570123138",
+     "event": "AUD EMP 2026-10-15 00:30 score -2 (vs forecast: Employment Change -1, Unemployment Rate -1)"
+    }
+   ]
+  },
+  "pair_nzd": {
+   "symbol": "NZDUSD",
+   "cfg": {
+    "instrument": "pair",
+    "symbol": "NZDUSD",
+    "currencies": [
+     "NZD"
+    ],
+    "kinds": [
+     "CPI",
+     "EMP",
+     "GDP",
+     "RATE",
+     "ACT",
+     "OTHER"
+    ],
+    "signal": {
+     "vote": "ff",
+     "inline": "none",
+     "tiebreak": [
+      "unemployment rate",
+      "cpi y/y",
+      "cpi q/q"
+     ]
+    },
+    "map": null,
+    "entry_delay": 15,
+    "confirm": 0,
+    "stop_atr_tf": 60,
+    "stop_atr_n": 24,
+    "stop_k": 1.5,
+    "target_r": 0.0,
+    "hold_min": 360,
+    "news_mult": 2.0,
+    "news_window": 5
+   },
+   "test": {
+    "n": 2,
+    "R": 0.40246913580241817,
+    "pf": 1.4024691358024182,
+    "win": 0.5,
+    "avg_R": 0.20123456790120908,
+    "usd": 1026.2222222222176,
+    "dd": -0.09999999999999987,
+    "max_losing_streak": 1
+   },
+   "test_2x_cost": {
+    "n": 2,
+    "R": 0.20493827160491285,
+    "pf": 1.2049382716049128,
+    "win": 0.5,
+    "avg_R": 0.10246913580245642,
+    "usd": 1008.4444444444423,
+    "dd": -0.09999999999999998,
+    "max_losing_streak": 1
+   },
+   "success": false,
+   "trades": [
+    {
+     "entry_time": "2026-08-04 23:00:00",
+     "exit_time": "2026-08-05 05:00:00",
+     "dir": "-1",
+     "r": "1.4024691358024182",
+     "event": "NZD EMP 2026-08-04 22:45 score -1 (split -> unemployment rate: Employment Change q/q +1, Unemployment Rate -1)"
+    },
+    {
+     "entry_time": "2026-09-16 23:00:00",
+     "exit_time": "2026-09-17 00:54:00",
+     "dir": "1",
+     "r": "-1.0",
+     "event": "NZD GDP 2026-09-16 22:45 score +1 (vs forecast: GDP q/q +1)"
+    }
+   ]
+  },
+  "pair_jpy": {
+   "symbol": "USDJPY",
+   "cfg": {
+    "instrument": "pair",
+    "symbol": "USDJPY",
+    "currencies": [
+     "JPY"
+    ],
+    "kinds": [
+     "CPI",
+     "EMP",
+     "GDP",
+     "RATE",
+     "ACT",
+     "OTHER"
+    ],
+    "signal": {
+     "vote": "ff",
+     "inline": "none",
+     "tiebreak": [
+      "unemployment rate",
+      "cpi y/y",
+      "cpi q/q"
+     ]
+    },
+    "map": null,
+    "entry_delay": 15,
+    "confirm": 0,
+    "stop_atr_tf": 60,
+    "stop_atr_n": 24,
+    "stop_k": 1.5,
+    "target_r": 0.0,
+    "hold_min": 360,
+    "news_mult": 2.0,
+    "news_window": 5
+   },
+   "test": {
+    "n": 0,
+    "R": 0.0,
+    "pf": 0.0,
+    "win": 0.0,
+    "avg_R": 0.0,
+    "usd": 1000.0,
+    "dd": 0.0,
+    "max_losing_streak": 0
+   },
+   "test_2x_cost": {
+    "n": 0,
+    "R": 0.0,
+    "pf": 0.0,
+    "win": 0.0,
+    "avg_R": 0.0,
+    "usd": 1000.0,
+    "dd": 0.0,
+    "max_losing_streak": 0
+   },
+   "success": false,
+   "trades": []
+  }
+ }
+}
