@@ -2,8 +2,9 @@
 
 PROTOCOL
   * News: Forex Factory calendar (data/calendar/ff_calendar.csv: time_utc, currency, impact, name, actual, forecast,
-    previous, better_worse = FF's own verdict 1 better / 2 worse for the currency). Only HIGH-impact events released in
-    the Asian session, 21:45-07:00 UTC (AUD, NZD, JPY releases and anything else that falls there); nothing outside it.
+    previous, better_worse = FF's own verdict 1 better / 2 worse for the currency). Only HIGH-impact events of the Asian
+    currencies (AUD, NZD, JPY, CNY) released in the Asian session, 21:45-07:00 UTC; nothing outside it (UK releases at
+    06:00 UTC belong to the London morning and are excluded).
   * Instruments: gold (XAUUSD), Nasdaq (NAS100) and the currency's own pair (AUD -> AUDUSD, NZD -> NZDUSD,
     JPY -> USDJPY, where a stronger yen means USDJPY down). M1 BID bars; longs buy at bid + cost, shorts sell at bid.
   * Costs: base spread per instrument (COST); entries within the first 5 minutes after a release pay NEWS_MULT x the
@@ -56,8 +57,11 @@ def _calendar() -> pd.DataFrame:
     return _C["cal"]
 
 
+ASIAN_CCY = ("AUD", "NZD", "JPY", "CNY")
+
+
 def asia_high(c: pd.DataFrame) -> pd.DataFrame:
-    return c[(c.impact == "high") & c.asia].copy()
+    return c[(c.impact == "high") & c.asia & c.currency.isin(ASIAN_CCY)].copy()
 
 
 def calendar_train() -> pd.DataFrame:
