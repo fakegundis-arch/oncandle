@@ -121,10 +121,11 @@ def passes_train(m: dict, m_2x_cost: dict, m_late: dict) -> dict:
     return chk
 
 
-def final_test(strategies: dict) -> dict:
-    """Run ONCE: strategies = {name: (make_trades, cfg, symbol)}. Returns and saves the Jul-Oct 2026 results at the base
-    and 2x costs. Refuses to run again."""
-    f = OUT / "final_test.json"
+def final_test(strategies: dict, tag: str = "final_test") -> dict:
+    """Run ONCE per tag: strategies = {name: (make_trades, cfg, symbol)}. Returns and saves the Jul-Oct 2026 results at
+    the base and 2x costs to results/asia_news/<tag>.json. Refuses to run a tag again. (Tag "final_test" = the first bot,
+    Nov 4 2026; tag "nasdaq_v2" = the Nasdaq rebuild, whose Jul-Oct is a second use of those months.)"""
+    f = OUT / f"{tag}.json"
     if f.exists():
         raise RuntimeError("final_test has already been run")
     c = _calendar()
