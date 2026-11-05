@@ -58,18 +58,63 @@ class ReplayBroker(MT5Broker):
     stop before target; gaps fill at the open)."""
 
     def __init__(self, frames: dict, costs: dict, clock: Clock, equity: float = 1000.0, news_times=(),
-                 news_mult: float = 2.0, news_window: int = 5):
+                 news_mult: float = 2.0, news_window: int = 5, stop_slip: float = 0.0):
         super().__init__({}, {}, dry_run=True)
         self.frames, self.costs, self.clock, self.eq = frames, costs, clock, equity
         self.news = sorted(pd.Timestamp(t) for t in news_times)
         self.news_mult, self.news_window = news_mult, news_window
+        self.stop_slip = stop_slip                    # stop fills within news_window pay stop_slip x cost (backtest's)
+        self.orders: dict[int, dict] = {}
+        self.fills: dict[int, dict] = {}
 
-    def spread(self, sym: str, t: pd.Timestamp) -> float:
+    def _in_news(self, t: pd.Timestamp) -> bool:
         import bisect
         i = bisect.bisect_right(self.news, t) - 1                 # latest release at or before t
-        if i >= 0 and t - self.news[i] <= pd.Timedelta(minutes=self.news_window):
-            return self.costs[sym] * self.news_mult
-        return self.costs[sym]
+        return i >= 0 and t - self.news[i] <= pd.Timedelta(minutes=self.news_window)
+
+    def spread(self, sym: str, t: pd.Timestamp) -> float:
+        return self.costs[sym] * self.news_mult if self._in_news(t) else self.costs[sym]
+
+    def slip(self, sym: str, t: pd.Timestamp) -> float:
+        return self.stop_slip * self.costs[sym] if self._in_news(t) else 0.0
+
+    # pending stop orders: triggered on completed bars from the minute they were placed, as the backtest
+    def place_stop(self, sym, direction, price, sl, tp, lots, expires, comment):
+        self._paper_ticket += 1
+        self.orders[self._paper_ticket] = dict(sym=sym, d=direction, price=price, placed=pd.Timestamp(self.clock()).floor("min"),
+                                               expires=pd.Timestamp(expires))
+        return self._paper_ticket
+
+    def cancel_order(self, ticket):
+        self.orders.pop(ticket, None)
+        return True
+
+    def order_status(self, ticket, sym):
+        if ticket in self.fills:
+            return self.fills[ticket]
+        o = self.orders.get(ticket)
+        if o is None:
+            return {"state": "gone"}
+        m = self.frames[o["sym"]]
+        w = m[(m.index >= o["placed"]) & (m.index < min(pd.Timestamp(self.clock()).floor("min"), o["expires"]))]
+        for t, r in w.iterrows():
+            ct = self.spread(o["sym"], t)
+            if o["d"] > 0 and r.high + ct >= o["price"]:
+                px = max(o["price"], r.open + ct) + self.slip(o["sym"], t)
+            elif o["d"] < 0 and r.low <= o["price"]:
+                px = min(o["price"], r.open) - self.slip(o["sym"], t)
+            else:
+                continue
+            del self.orders[ticket]
+            self._paper_ticket += 1
+            self.fills[ticket] = {"state": "filled", "position": self._paper_ticket, "price": float(px),
+                                  "time": t.to_pydatetime(), "spread": ct}
+            return self.fills[ticket]
+        return {"state": "pending"}
+
+    def modify_sltp(self, pos, sl, tp):
+        pos.sl, pos.tp = sl, tp
+        return True
 
     def equity(self) -> float:
         return self.eq
@@ -94,8 +139,11 @@ class ReplayBroker(MT5Broker):
     def open(self, pos: Position):
         self._paper_ticket += 1
         pos.ticket = self._paper_ticket
-        bid, ask, _ = self.tick(pos.symbol)
+        bid, ask, t = self.tick(pos.symbol)
         pos.extra["spread"] = ask - bid                       # the trade's spread (a short pays it on its exit)
+        if pos.extra.get("stop_entry"):                       # a stop order whose level the market opened beyond
+            sh = pos.direction * self.slip(pos.symbol, pd.Timestamp(t))
+            pos.entry, pos.sl, pos.tp = pos.entry + sh, pos.sl + sh, (pos.tp + sh) if pos.tp else 0.0
         return pos
 
     def _pos_spread(self, pos: Position) -> float:

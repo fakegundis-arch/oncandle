@@ -7,7 +7,11 @@ Two entry modes (cfg["entry"]):
   "pair_reaction"  (v2, Nasdaq) direction from the released currency's OWN pair reaction: the pair's bid from the close
                    of the minute before the release to the open of minute release + react_min; currency stronger ->
                    cfg map +1 (buy NAS100 for AUD / NZD).  Entry at release + entry_delay at market.  Needs prices of
-                   the signal pair, NOT the actual (see reaction_direction)."""
+                   the signal pair, NOT the actual (see reaction_direction).
+  "breakout"       (v3, Nasdaq) the traded symbol's range over the release minute .. release + brk_min - 1 (incl. the
+                   pre-release close); at release + brk_min a buy stop above it and a sell stop below it (one cancels
+                   the other), valid brk_window minutes; stop / target from the fill (see breakout_setup).  Needs
+                   prices only."""
 from __future__ import annotations
 
 import math
@@ -41,6 +45,13 @@ DEFAULT_CFG = {
     "react_min": 2,                # the pair's move is read from the pre-release close to the open of release + react_min
     "react_min_move": 0.0,         # minimum |pair move| (price units) to trade; 0 = any non-zero move
     "pre_gap_max": 5,              # the pair's pre-release close must be at most this many minutes before the release
+    # --- v3 "breakout" entry (ignored by the other entries)
+    "brk_min": 3,                  # range = bars release .. release + brk_min - 1; stop orders placed at release + brk_min
+    "brk_window": 60,              # the stop orders are cancelled brk_window minutes after they are placed
+    "brk_buf_atr": 0.0,            # buy stop at range high + buf x ATR, sell stop at range low - buf x ATR
+    "brk_incl_pre": True,          # the range includes the close of the bar before the release
+    "brk_slip": 1.0,               # backtest: a stop fill within news_window minutes pays brk_slip x spread of slippage
+    "stop_mode": "atr",            # breakout: stop = stop_k x ATR from the fill (the only mode the bot implements)
 }
 
 
@@ -57,6 +68,8 @@ class Plan:
 
 def full_cfg(cfg: dict) -> dict:
     out = {**DEFAULT_CFG, **cfg}
+    if out["entry"] == "breakout" and "entry_delay" not in cfg:
+        out["entry_delay"] = out["brk_min"]        # the "entry 2 minutes later" stress test is entry_delay + 2
     out["signal"] = {**DEFAULT_CFG["signal"], **(cfg.get("signal") or {}), "kinds": out["kinds"]}
     return out
 
@@ -178,3 +191,58 @@ def make_plan(rel: Release, cfg: dict, bars: pd.DataFrame | None, entry_delay: i
     else:
         why = f"{rel.key()} score {b.score:+d} ({b.why}: " + ", ".join(f"{n} {v:+d}" for n, v in b.votes) + ")"
     return Plan(rel, d, stop, tgt, ent, ex, why)
+
+
+@dataclass
+class BreakoutSetup:
+    release: Release
+    hi: float                      # range high / low (bid) incl. the pre-release close
+    lo: float
+    up: float                      # buy stop price: triggers when the ASK reaches it
+    dn: float                      # sell stop price: triggers when the BID reaches it
+    stop_dist: float               # price units, measured from the fill
+    target_dist: float             # price units (inf = none)
+    place_at: datetime             # release + brk_min: the orders go in
+    expire_at: datetime            # place_at + brk_window: untriggered orders are cancelled
+    atr: float
+    why: str
+
+
+def breakout_setup(rel: Release, cfg: dict, bars: pd.DataFrame, atr_value: float | None = None):
+    """THE range / level rule of entry = "breakout" (shared by the backtest and the live bot).  `bars`: M1 bid bars of
+    the traded symbol covering the ATR window and the release minute .. release + brk_min - 1 (later bars are ignored).
+    Returns (BreakoutSetup, "") or (None, reason).  No trade if the symbol does not quote at the release minute (its
+    bar at the release minute missing, or the bar before it more than 5 minutes earlier)."""
+    c = full_cfg(cfg)
+    if c["entry"] != "breakout" or rel.currency not in c["currencies"]:
+        return None, "not traded by this version"
+    if c["stop_mode"] != "atr":
+        raise ValueError("breakout: only stop_mode = 'atr' is implemented")
+    t0 = pd.Timestamp(rel.time)
+    tn = t0 + timedelta(minutes=int(c["brk_min"]))
+    idx = bars.index
+    i0 = int(idx.searchsorted(t0))
+    if i0 >= len(idx) or idx[i0] != t0 or i0 == 0 or t0 - idx[i0 - 1] > timedelta(minutes=5):
+        return None, f"{c['symbol']} not quoting at the release minute"
+    iN = int(idx.searchsorted(tn))
+    w = bars.iloc[i0:iN]
+    hi, lo = float(w.high.max()), float(w.low.min())
+    pre = float(bars.close.iat[i0 - 1])
+    if c["brk_incl_pre"]:
+        hi, lo = max(hi, pre), min(lo, pre)
+    a = atr(bars, rel.time, int(c["stop_atr_tf"]), int(c["stop_atr_n"])) if atr_value is None else atr_value
+    if not a > 0:
+        return None, "ATR unavailable"
+    buf = float(c["brk_buf_atr"]) * a
+    sd = float(c["stop_k"]) * a
+    tgt = float(c["target_r"]) * sd if c["target_r"] and c["target_r"] > 0 else math.inf
+    why = (f"{rel.key()} first {int(c['brk_min'])} min range {lo:.2f}-{hi:.2f} (ATR {a:.2f}): buy stop {hi + buf:.2f} / "
+           f"sell stop {lo - buf:.2f}, stop {sd:.2f}, target {'%.2f' % tgt if math.isfinite(tgt) else '-'}")
+    return BreakoutSetup(rel, hi, lo, hi + buf, lo - buf, sd, tgt, tn.to_pydatetime(),
+                         (tn + timedelta(minutes=int(c["brk_window"]))).to_pydatetime(), a, why), ""
+
+
+def breakout_exit_by(cfg: dict, fill_time: datetime) -> datetime:
+    """Time exit of a breakout trade: hold_min after the fill, Friday 20:00 UTC at the latest."""
+    c = full_cfg(cfg)
+    return weekend_cap(fill_time, fill_time + timedelta(minutes=int(c["hold_min"])))

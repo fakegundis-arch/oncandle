@@ -8,6 +8,10 @@
   is below the minimum lot the trade is skipped (it would risk more than asked)
 * dry_run=True: connects to MT5 for prices / bars / account size, but never calls order_send; orders, stop / target
   hits (checked on M1 bars) and time exits are logged and kept in a virtual position book
+* pending stop orders (v3 breakout): place_stop / cancel_order / order_status / modify_sltp.  Live they are real MT5
+  BUY_STOP / SELL_STOP orders (a buy stop triggers when the ask reaches its price, a sell stop when the bid does) with
+  an expiration (GTC if the symbol refuses one - the bot cancels them itself); dry-run keeps them in a virtual order
+  book and triggers them on M1 bars.
 """
 from __future__ import annotations
 
@@ -53,6 +57,7 @@ class MT5Broker:
         self.off = timedelta(hours=float(mt5cfg.get("server_utc_offset_hours", 0)))
         self.mt5 = None
         self._paper_ticket = 900000
+        self._paper_orders: dict[int, dict] = {}
 
     # ------------------------------------------------------------------ connection
     def connect(self) -> None:
@@ -203,4 +208,111 @@ class MT5Broker:
             log.info("CLOSE %s ticket %s at %.5f (%s)", s, p.ticket, res.price, why)
         else:
             log.error("close failed for ticket %s: %s", p.ticket, getattr(res, "comment", mt5.last_error()))
+        return ok
+
+    # ------------------------------------------------------------------ pending stop orders (v3 breakout)
+    def place_stop(self, sym: str, direction: int, price: float, sl: float, tp: float, lots: float,
+                   expires: datetime, comment: str) -> int | None:
+        """Buy stop (direction +1) / sell stop (-1) at `price` with its stop / target (tp 0 = none), cancelled by the
+        broker at `expires` (UTC) where the symbol allows it.  -> order ticket, or None if refused."""
+        if self.dry:
+            self._paper_ticket += 1
+            self._paper_orders[self._paper_ticket] = dict(sym=sym, d=direction, price=price, sl=sl, tp=tp, lots=lots,
+                                                          placed=utcnow().replace(second=0, microsecond=0),
+                                                          expires=expires)
+            log.info("[DRY-RUN] PLACE %s %s %.2f lots @ %.5f sl %.5f tp %s until %s (%s)",
+                     "BUY STOP" if direction > 0 else "SELL STOP", self.name(sym), lots, price, sl, tp or "-",
+                     f"{expires:%H:%M}", comment)
+            return self._paper_ticket
+        mt5, s = self.mt5, self.name(sym)
+        dg = mt5.symbol_info(s).digits
+        base = {"action": mt5.TRADE_ACTION_PENDING, "symbol": s, "volume": lots,
+                "type": mt5.ORDER_TYPE_BUY_STOP if direction > 0 else mt5.ORDER_TYPE_SELL_STOP,
+                "price": round(price, dg), "sl": round(sl, dg), "tp": round(tp, dg) if tp else 0.0,
+                "deviation": int(self.cfg.get("deviation_points", 50)), "magic": int(self.cfg.get("magic", 260707)),
+                "comment": comment[:31]}
+        exp = int((expires + self.off).replace(tzinfo=timezone.utc).timestamp())       # server time, seconds
+        tries = [{"type_time": mt5.ORDER_TIME_SPECIFIED, "expiration": exp, "type_filling": self._filling(s)},
+                 {"type_time": mt5.ORDER_TIME_GTC, "type_filling": self._filling(s)},
+                 {"type_time": mt5.ORDER_TIME_GTC, "type_filling": mt5.ORDER_FILLING_RETURN}]
+        res = None
+        for t in tries:                              # refused expiration / filling mode -> the next variant
+            res = mt5.order_send({**base, **t})
+            if res is not None and res.retcode == mt5.TRADE_RETCODE_DONE:
+                log.info("PLACE %s %s %.2f lots @ %.5f sl %.5f tp %s order %s", "BUY STOP" if direction > 0 else
+                         "SELL STOP", s, lots, price, sl, tp or "-", res.order)
+                return int(res.order)
+            if res is None or res.retcode not in (getattr(mt5, "TRADE_RETCODE_INVALID_EXPIRATION", 10022),
+                                                  getattr(mt5, "TRADE_RETCODE_INVALID_FILL", 10030)):
+                break
+        log.error("pending order refused: %s %s", getattr(res, "retcode", None), getattr(res, "comment", mt5.last_error()))
+        return None
+
+    def cancel_order(self, ticket: int) -> bool:
+        if self.dry:
+            if self._paper_orders.pop(ticket, None) is not None:
+                log.info("[DRY-RUN] CANCEL order %s", ticket)
+            return True
+        mt5 = self.mt5
+        if not mt5.orders_get(ticket=ticket):
+            return True                                  # already filled / expired / cancelled
+        res = mt5.order_send({"action": mt5.TRADE_ACTION_REMOVE, "order": ticket})
+        ok = res is not None and res.retcode == mt5.TRADE_RETCODE_DONE
+        if not ok:
+            log.error("cancel failed for order %s: %s", ticket, getattr(res, "comment", mt5.last_error()))
+        return ok
+
+    def _srv(self, ts) -> datetime:
+        return datetime.fromtimestamp(int(ts), tz=timezone.utc).replace(tzinfo=None) - self.off
+
+    def order_status(self, ticket: int, sym: str) -> dict:
+        """{"state": "pending"} | {"state": "filled", "position", "price", "time"} | {"state": "closed", "position",
+        "price", "time", "exit_price", "exit_time"} (filled and already closed) | {"state": "gone"} (expired /
+        cancelled without a fill)."""
+        if self.dry:
+            o = self._paper_orders.get(ticket)
+            if o is None:
+                return {"state": "gone"}
+            b = self.bars_m1(sym, 600)
+            b = b[(b.index >= pd.Timestamp(o["placed"])) & (b.index < pd.Timestamp(o["expires"]))]
+            spread = self._spread(sym)
+            for t, r in b.iterrows():
+                if o["d"] > 0 and r.high + spread >= o["price"]:
+                    px = max(o["price"], r.open + spread)
+                elif o["d"] < 0 and r.low <= o["price"]:
+                    px = min(o["price"], r.open)
+                else:
+                    continue
+                del self._paper_orders[ticket]
+                self._paper_ticket += 1
+                log.info("[DRY-RUN] order %s filled at %.5f (%s)", ticket, px, t)
+                return {"state": "filled", "position": self._paper_ticket, "price": float(px), "time": t.to_pydatetime()}
+            return {"state": "pending"}
+        mt5, s = self.mt5, self.name(sym)
+        if mt5.orders_get(ticket=ticket):
+            return {"state": "pending"}
+        for p in mt5.positions_get(symbol=s) or ():
+            if int(p.identifier) == int(ticket):       # a position's identifier is the ticket of the order that opened it
+                return {"state": "filled", "position": int(p.ticket), "price": float(p.price_open), "time": self._srv(p.time)}
+        deals = mt5.history_deals_get(position=ticket) or ()
+        ins = [d for d in deals if d.entry == mt5.DEAL_ENTRY_IN]
+        outs = [d for d in deals if d.entry == mt5.DEAL_ENTRY_OUT]
+        if ins and outs:
+            return {"state": "closed", "position": int(ticket), "price": float(ins[0].price), "time": self._srv(ins[0].time),
+                    "exit_price": float(outs[-1].price), "exit_time": self._srv(outs[-1].time)}
+        return {"state": "gone"}
+
+    def modify_sltp(self, pos: Position, sl: float, tp: float) -> bool:
+        """Re-anchor the stop / target of an open position (to its real fill)."""
+        pos.sl, pos.tp = sl, tp
+        if self.dry:
+            return True
+        mt5, s = self.mt5, self.name(pos.symbol)
+        dg = mt5.symbol_info(s).digits
+        res = mt5.order_send({"action": mt5.TRADE_ACTION_SLTP, "symbol": s, "position": pos.ticket,
+                              "sl": round(sl, dg), "tp": round(tp, dg) if tp else 0.0})
+        ok = res is not None and res.retcode == mt5.TRADE_RETCODE_DONE
+        if not ok:
+            log.error("stop / target change failed for %s: %s (the order's own stop / target stay)", pos.ticket,
+                      getattr(res, "comment", mt5.last_error()))
         return ok

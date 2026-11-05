@@ -27,7 +27,8 @@ import numpy as np
 import pandas as pd
 
 from .events import releases_from_frame
-from .strategy import atr, confirmed, full_cfg, make_plan, reaction_direction, signal_pair
+from .strategy import (atr, breakout_exit_by, breakout_setup, confirmed, full_cfg, make_plan, reaction_direction,
+                       signal_pair)
 
 _ATR: dict = {}                            # (frame fingerprint, release, tf, n) -> ATR  (speed only)
 MAX_ENTRY_GAP = timedelta(minutes=2)       # market not quoting within 2 min of the planned entry -> skip
@@ -67,9 +68,18 @@ def simulate(m1: pd.DataFrame, plan, cost: float, news_mult: float, news_window:
     t_e = idx[i]
     ct = cost * news_mult if t_e <= win_end else cost        # the trade's spread
     fill = o[i] + ct if d > 0 else o[i]                      # long buys at the ask, short sells at the bid
+    return run_from(m1, i, fill, d, sd, plan.target_dist, pd.Timestamp(plan.exit_by), ct)
+
+
+def run_from(m1: pd.DataFrame, i: int, fill: float, d: int, sd: float, target_dist: float, ex_t, ct: float):
+    """The trade after its fill in bar i at `fill` (a long's fill already includes the spread; a short pays `ct` on its
+    exit): stop / target from the fill, stop before target, the fill bar can only stop out, gaps at the open, time
+    exit at the open of the first bar at / after ex_t.  -> (entry_time, exit_time, r, reason, fill, exit_price)."""
+    idx = m1.index
+    o, h, l = m1.open.to_numpy(), m1.high.to_numpy(), m1.low.to_numpy()
+    t_e = idx[i]
     sl = fill - d * sd
-    tp = fill + d * plan.target_dist if np.isfinite(plan.target_dist) else None
-    ex_t = pd.Timestamp(plan.exit_by)
+    tp = fill + d * target_dist if np.isfinite(target_dist) else None
     j = i
     while j < len(idx):
         t = idx[j]
@@ -90,6 +100,81 @@ def simulate(m1: pd.DataFrame, plan, cost: float, news_mult: float, news_window:
         j += 1
     px = m1.close.iloc[-1] + (ct if d < 0 else 0.0)
     return t_e, idx[-1], d * (px - fill) / sd, "end-of-data", fill, px
+
+
+def simulate_breakout(m1: pd.DataFrame, s, cfg: dict, cost: float, late: int = 0):
+    """entry = "breakout": OCO stop orders of the BreakoutSetup `s`, active in the bars from s.place_at to before
+    s.expire_at.  A buy stop triggers when the ask (bid + spread) high reaches s.up and fills at max(s.up, ask open),
+    a sell stop when the bid low reaches s.dn and fills at min(s.dn, bid open); within news_window minutes of the
+    release the spread is news_mult x cost and a fill pays brk_slip x cost of slippage.  Both triggered in one bar ->
+    the WORSE trade is booked.  late > 0 (stress test): a market order `late` minutes after the trigger instead.
+    -> (entry_time, exit_time, r, reason, fill, exit_price, direction) or None (no trigger)."""
+    c = cfg
+    idx = m1.index
+    o, h, l = m1.open.to_numpy(), m1.high.to_numpy(), m1.low.to_numpy()
+    rel_t = pd.Timestamp(s.release.time)
+    win = timedelta(minutes=int(c["news_window"]))
+    a, b = idx.searchsorted(pd.Timestamp(s.place_at)), idx.searchsorted(pd.Timestamp(s.expire_at))
+
+    def spread(k):
+        return cost * float(c["news_mult"]) if idx[k] - rel_t <= win else cost
+
+    for j in range(a, min(b, len(idx))):
+        ct = spread(j)
+        up, dn = h[j] + ct >= s.up, l[j] <= s.dn
+        if not (up or dn):
+            continue
+        legs = []
+        if late:
+            k = idx.searchsorted(idx[j] + timedelta(minutes=int(late)))
+            if k >= len(idx):
+                return None
+            ck = spread(k)
+            legs = [(k, o[k] + ck, 1, ck)] * int(up) + [(k, o[k], -1, ck)] * int(dn)
+        else:
+            slip = float(c["brk_slip"]) * cost if idx[j] - rel_t <= win else 0.0
+            if up:
+                legs.append((j, max(s.up, o[j] + ct) + slip, 1, ct))
+            if dn:
+                legs.append((j, min(s.dn, o[j]) - slip, -1, ct))
+        out = None
+        for i, fill, d, ci in legs:
+            ex_t = pd.Timestamp(breakout_exit_by(c, idx[i].to_pydatetime()))
+            r = run_from(m1, i, fill, d, s.stop_dist, s.target_dist, ex_t, ci)
+            if out is None or r[2] < out[2]:
+                out = (*r, d)
+        return out
+    return None
+
+
+def _breakout_trades(c: dict, rels, m1: pd.DataFrame, cost: float, late: int, detail: bool, fp) -> list[dict]:
+    lo, hi = m1.index[0], m1.index[-1]
+    rows, busy_until = [], None
+    for rel in rels:
+        t = pd.Timestamp(rel.time)
+        if not (lo <= t <= hi) or rel.currency not in c["currencies"]:
+            continue
+        if busy_until is not None and t <= busy_until:          # one position at a time
+            continue
+        key = (fp, rel.time, int(c["stop_atr_tf"]), int(c["stop_atr_n"]))
+        if key not in _ATR:
+            _ATR[key] = atr(m1, rel.time, int(c["stop_atr_tf"]), int(c["stop_atr_n"]))
+        st, _ = breakout_setup(rel, c, m1, atr_value=_ATR[key])
+        if st is None:
+            continue
+        res = simulate_breakout(m1, st, c, cost, late)
+        if res is None:
+            continue
+        te, tx, r, why, fill, px, d = res
+        if busy_until is not None and te <= busy_until:
+            continue
+        busy_until = tx
+        row = dict(entry_time=te, exit_time=tx, dir=d, r=float(r), event=st.why)
+        if detail:
+            row.update(reason=why, entry=fill, exit=px, stop_dist=st.stop_dist, ccy=rel.currency, kind=rel.kind,
+                       release=t, up=st.up, dn=st.dn)
+        rows.append(row)
+    return rows
 
 
 _REL: dict = {}
@@ -122,8 +207,11 @@ def make_trades(cfg: dict, calendar: pd.DataFrame, m1: pd.DataFrame, cost: float
     lo, hi = m1.index[0], m1.index[-1]
     fp = (len(m1), lo, hi, float(m1.close.iloc[0]), float(m1.close.iloc[-1]), float(m1.high.max()))
     rows, busy_until = [], None
+    if c["entry"] == "breakout":
+        late = 0 if entry_delay is None else int(entry_delay) - int(c["entry_delay"])
+        rows = _breakout_trades(c, rels, m1, cost, late, detail, fp)
     react = c["entry"] == "pair_reaction"
-    for rel in rels:
+    for rel in (rels if c["entry"] != "breakout" else []):
         if not (lo <= pd.Timestamp(rel.time) <= hi):
             continue
         if rel.currency not in c["currencies"]:

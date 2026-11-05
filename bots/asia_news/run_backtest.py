@@ -21,6 +21,7 @@ import pandas as pd
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 from newsbot.backtest import make_trades  # noqa: E402
+from newsbot.strategy import full_cfg  # noqa: E402
 
 
 def combined(t: pd.DataFrame, a: str, b: str, risk: float) -> dict:
@@ -49,7 +50,7 @@ def main():
         m1 = L.prices_train(sym)
         t1 = make_trades(cfg, cal, m1, L.COST[sym])
         t2 = make_trades(cfg, cal, m1, 2 * L.COST[sym])
-        t3 = make_trades(cfg, cal, m1, L.COST[sym], entry_delay=int(cfg["entry_delay"]) + 2)
+        t3 = make_trades(cfg, cal, m1, L.COST[sym], entry_delay=int(full_cfg(cfg)["entry_delay"]) + 2)
         t1, t2, t3 = (t[(t.entry_time >= L.TRAIN[0]) & (t.entry_time < L.TRAIN[1])] for t in (t1, t2, t3))
         m, m2, m3 = L.evaluate_train(t1), L.evaluate_train(t2), L.evaluate_train(t3)
         chk = L.passes_train(m, m2, m3)

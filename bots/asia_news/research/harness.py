@@ -8,9 +8,10 @@ import pandas as pd
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
-sys.path.insert(0, "/home/user/oncandle/scripts")
+sys.path.insert(0, str(HERE.parents[2] / "scripts"))
 import asia_news_lab as L  # noqa: E402
 from newsbot.backtest import make_trades  # noqa: E402
+from newsbot.strategy import full_cfg  # noqa: E402
 
 _P: dict = {}
 CAL = L.calendar_train()
@@ -24,7 +25,7 @@ def px(sym):
 
 def trades(cfg, mult=1.0, late=0, detail=False):  # noqa: D103
     sym = cfg["symbol"]
-    delay = None if not late else cfg.get("entry_delay", 1) + late
+    delay = None if not late else int(full_cfg(cfg)["entry_delay"]) + late
     t = make_trades(cfg, CAL, px(sym), mult * L.COST[sym], entry_delay=delay, detail=detail)
     if len(t):
         t = t[(t.entry_time >= L.TRAIN[0]) & (t.entry_time < L.TRAIN[1])]

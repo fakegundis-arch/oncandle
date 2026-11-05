@@ -35,9 +35,11 @@ def replay(versions: dict) -> pd.DataFrame:
     cfg = {k: dict(v) for k, v in DEFAULTS.items()}
     cfg["general"].update(state_file="", journal_file="", max_entry_lag_seconds=120)
     cfg["calendar"].update(poll_seconds=10, actual_timeout_seconds=600)
-    broker = ReplayBroker(frames, costs, clock, news_times=[r.time for r in rels])
+    slips = {full_cfg(v)["brk_slip"] for v in versions.values() if full_cfg(v)["entry"] == "breakout"}
+    broker = ReplayBroker(frames, costs, clock, news_times=[r.time for r in rels], stop_slip=max(slips or {0.0}))
     bot = Bot(cfg, versions, ReplaySchedule(cal, clock), ReplayActuals(cal, clock, 30), broker, clock)
-    span = max(int(v["entry_delay"]) + int(v["hold_min"]) for v in versions.values()) + 10
+    span = max(int(full_cfg(v)["entry_delay"]) + int(full_cfg(v)["hold_min"]) +
+               (int(full_cfg(v)["brk_window"]) if full_cfg(v)["entry"] == "breakout" else 0) for v in versions.values()) + 10
     steps = set()
     for r in rels:
         if not (pd.Timestamp(L.TRAIN[0]) <= pd.Timestamp(r.time) < pd.Timestamp(L.TRAIN[1])):

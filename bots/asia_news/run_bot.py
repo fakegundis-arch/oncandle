@@ -79,7 +79,7 @@ def main():
         for rel in sched.upcoming():
             figs = ", ".join(f"{f.name} (f {f.forecast:g}, p {f.previous:g})" for f in rel.figures)
             plans = []
-            news = {n: v for n, v in versions.items() if full_cfg(v)["entry"] != "pair_reaction"}
+            news = {n: v for n, v in versions.items() if full_cfg(v)["entry"] not in ("pair_reaction", "breakout")}
             for bias in (+1, -1):
                 d = {n: instrument_direction(bias, rel.currency, v["instrument"], v["symbol"], v.get("map"))
                      for n, v in news.items() if rel.currency in v["currencies"]}
@@ -96,6 +96,13 @@ def main():
                 plans.append(f"{n}: {pair} at {rel.time + timedelta(minutes=int(c['react_min'])):%H:%M} vs the "
                              f"pre-release close: up -> {'BUY' if up > 0 else 'SELL'} {c['symbol']}, down -> "
                              f"{'SELL' if up > 0 else 'BUY'} (entry {rel.time + timedelta(minutes=int(c['entry_delay'])):%H:%M})")
+            for n, v in versions.items():
+                c = full_cfg(v)
+                if c["entry"] != "breakout" or rel.currency not in c["currencies"]:
+                    continue
+                t3 = rel.time + timedelta(minutes=int(c["brk_min"]))
+                plans.append(f"{n}: {c['symbol']} range {rel.time:%H:%M}-{t3 - timedelta(minutes=1):%H:%M}, buy stop above / "
+                             f"sell stop below at {t3:%H:%M}, valid until {t3 + timedelta(minutes=int(c['brk_window'])):%H:%M}")
             print(f"{rel.time:%a %Y-%m-%d %H:%M} UTC {rel.currency} {figs}\n    " + (" | ".join(plans) or "not traded"))
         return
 
