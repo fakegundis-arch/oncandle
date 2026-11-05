@@ -73,15 +73,30 @@ def main():
     sched, act = sources(cfg)
 
     if a.schedule:
+        from datetime import timedelta
+
+        from newsbot.strategy import full_cfg, signal_pair
         for rel in sched.upcoming():
             figs = ", ".join(f"{f.name} (f {f.forecast:g}, p {f.previous:g})" for f in rel.figures)
             plans = []
+            news = {n: v for n, v in versions.items() if full_cfg(v)["entry"] != "pair_reaction"}
             for bias in (+1, -1):
                 d = {n: instrument_direction(bias, rel.currency, v["instrument"], v["symbol"], v.get("map"))
-                     for n, v in versions.items() if rel.currency in v["currencies"]}
-                plans.append(("better: " if bias > 0 else "worse: ") +
-                             ", ".join(f"{n} {'BUY' if x > 0 else 'SELL'} {versions[n]['symbol']}" for n, x in d.items() if x))
-            print(f"{rel.time:%a %Y-%m-%d %H:%M} UTC {rel.currency} {figs}\n    " + " | ".join(plans))
+                     for n, v in news.items() if rel.currency in v["currencies"]}
+                if any(d.values()):
+                    plans.append(("better: " if bias > 0 else "worse: ") +
+                                 ", ".join(f"{n} {'BUY' if x > 0 else 'SELL'} {versions[n]['symbol']}"
+                                           for n, x in d.items() if x))
+            for n, v in versions.items():
+                c = full_cfg(v)
+                if c["entry"] != "pair_reaction" or rel.currency not in c["currencies"]:
+                    continue
+                pair, base = signal_pair(rel.currency, c)
+                up = base * int((c["map"] or {}).get(c["instrument"], {}).get(rel.currency, 0))
+                plans.append(f"{n}: {pair} at {rel.time + timedelta(minutes=int(c['react_min'])):%H:%M} vs the "
+                             f"pre-release close: up -> {'BUY' if up > 0 else 'SELL'} {c['symbol']}, down -> "
+                             f"{'SELL' if up > 0 else 'BUY'} (entry {rel.time + timedelta(minutes=int(c['entry_delay'])):%H:%M})")
+            print(f"{rel.time:%a %Y-%m-%d %H:%M} UTC {rel.currency} {figs}\n    " + (" | ".join(plans) or "not traded"))
         return
 
     if a.test_actual:

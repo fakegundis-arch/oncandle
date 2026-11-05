@@ -3,9 +3,9 @@
 
 [general]
 mode = "dry-run"              # "dry-run" (log orders, never send) or "live" (also needs: python run_bot.py --live)
-versions = ["pair"]           # any of "pair" (AUDUSD / NZDUSD / USDJPY), "gold", "nasdaq" - see README before adding
+versions = ["nasdaq_v2"]      # names in locked_file; LOCKED_NQ.json: "nasdaq_v2"; LOCKED.json (first bot): "pair", "gold", "nasdaq"
 risk = 0.10                   # fraction of equity lost if the stop is hit (the research setting; see the risks)
-locked_file = "LOCKED.json"
+locked_file = "LOCKED_NQ.json"   # v2 Nasdaq (pair_reaction); "LOCKED.json" = the first bot
 state_file = "state/newsbot_state.json"
 log_file = "logs/newsbot.log"
 journal_file = "logs/trades.csv"

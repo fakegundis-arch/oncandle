@@ -1,0 +1,12 @@
+mom: 256 configs, real calendar: pass 0.45, best passing R 14.7, median R 1.67
+   pseudo (40): pass share median 0.13 (>= real: 0.10); best passing R median 9.2 (>= real: 0.17); median R >= real: 0.17
+brk: 192 configs, real calendar: pass 0.31, best passing R 18.0, median R 3.19
+   pseudo (40): pass share median 0.10 (>= real: 0.17); best passing R median 10.1 (>= real: 0.23); median R >= real: 0.15
+strad: 96 configs, real calendar: pass 0.27, best passing R 16.2, median R 1.48
+   pseudo (40): pass share median 0.04 (>= real: 0.20); best passing R median 3.4 (>= real: 0.05); median R >= real: 0.33
+news: 320 configs, real calendar: pass 0.37, best passing R 11.8, median R 1.15
+   pseudo (40): pass share median 0.02 (>= real: 0.12); best passing R median 3.0 (>= real: 0.17); median R >= real: 0.25
+pairdir: 256 configs, real calendar: pass 0.45, best passing R 18.0, median R 2.81
+   pseudo (40): pass share median 0.08 (>= real: 0.12); best passing R median 8.1 (>= real: 0.12); median R >= real: 0.10
+pairAN: 36 configs, real calendar: pass 0.86, best passing R 6.1, median R 3.77
+   pseudo (100): pass share median 0.03 (>= real: 0.03); best passing R median 2.2 (>= real: 0.33); median R >= real: 0.12

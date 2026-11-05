@@ -11,7 +11,7 @@ except ModuleNotFoundError:                     # pragma: no cover
     tomllib = None
 
 DEFAULTS = {
-    "general": {"mode": "dry-run", "versions": ["pair"], "risk": 0.10, "locked_file": "LOCKED.json",
+    "general": {"mode": "dry-run", "versions": ["nasdaq_v2"], "risk": 0.10, "locked_file": "LOCKED_NQ.json",
                 "state_file": "state/newsbot_state.json", "log_file": "logs/newsbot.log",
                 "journal_file": "logs/trades.csv", "loop_seconds": 5, "max_entry_lag_seconds": 120},
     "calendar": {"json_url": "https://nfs.faireconomy.media/ff_calendar_thisweek.json",

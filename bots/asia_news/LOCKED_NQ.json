@@ -1,0 +1,59 @@
+{
+ "locked_at_utc": "2026-11-05T09:28:40+00:00",
+ "note": "Nasdaq v2, frozen after the Jan-Jun 2026 build (research_nq.md), before asia_news_lab.final_test(tag='nasdaq_v2'), Jul 1 - Oct 15 2026. Strategy entry point: bot/newsbot/backtest.make_trades.",
+ "rules": "FF high-impact AUD / NZD releases 21:45-07:00 UTC (JPY excluded: BoJ minute not known in advance). Direction = the released currency's own pair (AUDUSD / NZDUSD) from the close of the minute before the release to the open of release + 2 min: currency stronger -> BUY NAS100, weaker -> SELL, unchanged -> no trade (no actual needed). Entry NAS100 at market at the open of release + 2 min (skip if no quote within 2 min). Stop 2 x ATR(24 H1 bars before the release), no target, exit 6 h after entry (Friday 20:00 UTC latest), one position at a time, 10% risk.",
+ "build_jan_jun_2026": {
+  "n": 24,
+  "R": 4.41,
+  "pf": 2.97,
+  "dd": -0.072,
+  "usd": 1507,
+  "jan_mar_R": 3.12,
+  "apr_jun_R": 1.29,
+  "pf_2x_cost": 2.67,
+  "pf_entry_2min_later": 3.37,
+  "passes_train": true
+ },
+ "final_test_entries": {
+  "nasdaq_v2": "NAS100"
+ },
+ "versions": {
+  "nasdaq_v2": {
+   "instrument": "nasdaq",
+   "symbol": "NAS100",
+   "entry": "pair_reaction",
+   "currencies": [
+    "AUD",
+    "NZD"
+   ],
+   "signal_pairs": {
+    "AUD": [
+     "AUDUSD",
+     1
+    ],
+    "NZD": [
+     "NZDUSD",
+     1
+    ]
+   },
+   "map": {
+    "nasdaq": {
+     "AUD": 1,
+     "NZD": 1
+    }
+   },
+   "react_min": 2,
+   "react_min_move": 0.0,
+   "pre_gap_max": 5,
+   "entry_delay": 2,
+   "confirm": 0,
+   "stop_atr_tf": 60,
+   "stop_atr_n": 24,
+   "stop_k": 2.0,
+   "target_r": 0.0,
+   "hold_min": 360,
+   "news_mult": 2.0,
+   "news_window": 5
+  }
+ }
+}

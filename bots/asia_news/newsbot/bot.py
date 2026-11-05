@@ -5,7 +5,13 @@
      the release is skipped),
   4. runs the SAME signal / plan code as the backtest (newsbot.strategy.make_plan) and, at release + entry_delay,
      sends the order with its stop (and target) sized to risk `risk` x equity,
-and persists its state so a restart neither repeats nor forgets a trade."""
+and persists its state so a restart neither repeats nor forgets a trade.
+
+Versions with entry = "pair_reaction" (v2 Nasdaq) need no actual: at the release time the bot schedules the entry;
+at release + react_min it reads the signal pair (AUDUSD / NZDUSD): pre-release close from its M1 bars, post = the
+first quote at / after that minute; the direction rule is newsbot.strategy.reaction_from_prices (the backtest's), and
+NAS100 is bought / sold at the first quote at / after release + entry_delay.  Pair or NAS100 not quoting within
+`max_entry_lag_seconds` -> skipped (as in the backtest)."""
 from __future__ import annotations
 
 import csv
@@ -18,7 +24,7 @@ from pathlib import Path
 from .broker import Position, utcnow
 from .events import Release
 from .signal import currency_bias
-from .strategy import full_cfg, make_plan
+from .strategy import full_cfg, make_plan, pre_release_close, reaction_from_prices, signal_pair
 
 log = logging.getLogger("newsbot.bot")
 
@@ -48,6 +54,11 @@ class Bot:
         self.entries: list[dict] = []              # scheduled entries {version, rel, at}
         self.positions: list[Position] = []
         self.closed: list[Position] = []
+        self.react = {n for n, v in self.versions.items() if v["entry"] == "pair_reaction"}
+        for n in self.react:
+            v = self.versions[n]
+            if int(v["react_min"]) > int(v["entry_delay"]):
+                raise ValueError(f"{n}: react_min must not be later than entry_delay")
         self._load()
 
     # ---------------------------------------------------------------- persistence
@@ -104,21 +115,49 @@ class Bot:
                 keep.append(p)
         self.positions = keep
 
+    def _schedule_reactions(self, rel: Release, now: datetime):
+        """entry = "pair_reaction": no actual needed - schedule the price check / entry of each such version."""
+        for name in self.react:
+            v = self.versions[name]
+            if rel.currency not in v["currencies"] or now < rel.time:
+                continue
+            rk = f"{name}|{rel.key()}"
+            if rk in self.done or any(e.get("rk") == rk for e in self.entries):
+                continue
+            at = rel.time + timedelta(minutes=int(v["entry_delay"]))
+            if now > at + self.lag:
+                self.done[rk] = "missed (bot was not running)"
+                continue
+            if getattr(self.broker, "signal_only", False):
+                self.done[rk] = "not traded: pair_reaction needs MT5 prices (signal-only mode)"
+                log.info("%s %s: %s", name, rel.key(), self.done[rk])
+                continue
+            pair = signal_pair(rel.currency, v)
+            self.entries.append({"version": name, "rel": rel, "at": at, "rk": rk, "rx": None,
+                                 "react_at": rel.time + timedelta(minutes=int(v["react_min"]))})
+            log.info("release time reached: %s - %s: reading %s at %s, entry at %s", rel.key(), name,
+                     pair[0] if pair else "?", f"{rel.time + timedelta(minutes=int(v['react_min'])):%H:%M}", f"{at:%H:%M}")
+
     def _watch_releases(self, now: datetime):
         try:
             rels = self.schedule.upcoming()
         except Exception as e:                                   # keep trading what is already scheduled
             log.warning("schedule source failed: %s", e)
             rels = []
-        latest_delay = max(int(v["entry_delay"]) for v in self.versions.values())
+        news = {n: v for n, v in self.versions.items() if n not in self.react}
+        latest_delay = max([int(v["entry_delay"]) for v in news.values()] or [0])
         for rel in rels:
+            if self.react:
+                self._schedule_reactions(rel, now)
+            if not news:
+                continue
             k = rel.key()
             if k in self.done or k in self.pending or now < rel.time:
                 continue
             if now > rel.time + timedelta(minutes=latest_delay) + self.lag:
                 self.done[k] = "missed (bot was not running)"
                 continue
-            if not any(rel.currency in v["currencies"] for v in self.versions.values()):
+            if not any(rel.currency in v["currencies"] for v in news.values()):
                 self.done[k] = "no version trades this currency"
                 continue
             self.pending[k] = {"rel": rel, "last": None}
@@ -164,6 +203,8 @@ class Bot:
         out = []
         b = currency_bias(rel, next(iter(self.versions.values()))["signal"])
         for name, v in self.versions.items():
+            if name in self.react:
+                continue
             plan = make_plan(rel, v, None, atr_value=1.0)         # direction only; the stop is sized at entry
             if plan is None:
                 out.append(f"{name}: no trade")
@@ -180,34 +221,68 @@ class Bot:
         `max_entry_lag_seconds` (market closed, e.g. gold's daily break) the trade is skipped - as in the backtest."""
         rest = []
         for e in self.entries:
-            if now < e["at"]:
+            react = "rk" in e
+            if react and e["rx"] is None and now >= e["react_at"]:
+                if not self._read_reaction(e, now):
+                    continue                                       # decided: no trade / pair not quoting
+            if now < e["at"] or (react and e["rx"] is None):
                 rest.append(e)
                 continue
             if now > e["at"] + self.lag:
                 log.warning("%s %s: %s did not quote within the entry window - skipped", e["version"], e["rel"].key(),
                             self.versions[e["version"]]["symbol"])
+                if react:
+                    self.done[e["rk"]] = "skipped: no quote within the entry window"
                 continue
             tk = self.broker.tick(self.versions[e["version"]]["symbol"])
             if tk is None or tk[2] < e["at"]:
                 rest.append(e)                                    # no fresh quote yet: keep waiting
                 continue
             try:
-                self._open(e["version"], e["rel"], now, tk)
+                ok = self._open(e["version"], e["rel"], now, tk, e.get("rx"))
+                if react:
+                    self.done[e["rk"]] = ("entered: " if ok else "not entered (see log): ") + e["rx"].why
             except Exception as ex:
                 log.exception("%s: entry failed: %s", e["version"], ex)
+                if react:
+                    self.done[e["rk"]] = f"entry failed: {ex}"
         self.entries = rest
 
-    def _open(self, name: str, rel: Release, now: datetime, tk):
+    def _read_reaction(self, e: dict, now: datetime) -> bool:
+        """pair_reaction: read the signal pair once a fresh quote at / after react_at exists.  Returns True if the entry
+        stays scheduled (waiting for a quote, or a direction was found), False if it is finished (no trade / skipped)."""
+        name, rel = e["version"], e["rel"]
+        v = self.versions[name]
+        pair = signal_pair(rel.currency, v)[0]
+        if now > e["react_at"] + self.lag:
+            self.done[e["rk"]] = f"skipped: {pair} did not quote within the window"
+            log.warning("%s %s: %s", name, rel.key(), self.done[e["rk"]])
+            return False
+        tk = self.broker.tick(pair)
+        if tk is None or tk[2] < e["react_at"]:
+            return True                                            # wait for the first quote at / after react_at
+        pre = pre_release_close(rel, v, self.broker.bars_m1(pair, 240))
+        rx = reaction_from_prices(rel, v, pre, tk[0], tk[2])
+        if rx is None or rx.direction == 0:
+            self.done[e["rk"]] = "no trade: " + (rx.why if rx else f"{pair} had no quote before the release")
+            log.info("%s %s: %s", name, rel.key(), self.done[e["rk"]])
+            return False
+        e["rx"] = rx
+        log.info("%s: %s -> %s %s at %s", name, rx.why, "BUY" if rx.direction > 0 else "SELL", v["symbol"],
+                 f"{e['at']:%H:%M}")
+        return True
+
+    def _open(self, name: str, rel: Release, now: datetime, tk, reaction=None):
         v = self.versions[name]
         sym = v["symbol"]
         if any(p.symbol == sym for p in self.positions):
             log.info("%s: %s already has an open position - one position per instrument, skipped", name, sym)
-            return
+            return False
         bars = self.broker.bars_m1(sym, int(v["stop_atr_tf"]) * (int(v["stop_atr_n"]) + 2) * 3)
-        plan = make_plan(rel, v, bars)
+        plan = make_plan(rel, v, bars, reaction=reaction)
         if plan is None:
             log.warning("%s: no plan (ATR unavailable?)", name)
-            return
+            return False
         bid, ask, _ = tk
         entry = ask if plan.direction > 0 else bid
         sl = entry - plan.direction * plan.stop_dist
@@ -216,10 +291,12 @@ class Bot:
         lots, loss1 = self.broker.lots_for(sym, plan.direction, entry, sl, risk_money)
         if lots <= 0:
             log.warning("%s: minimum lot would risk %.2f > %.2f - skipped", name, loss1, risk_money)
-            return
+            return False
         pos = Position(0, name, sym, plan.direction, lots, entry, sl, tp, now.isoformat(), plan.exit_by.isoformat(),
                        rel.key(), extra={"why": plan.why, "stop_dist": plan.stop_dist, "risk_money": risk_money})
         pos = self.broker.open(pos)
         if pos is not None:
             self.positions.append(pos)
             log.info("%s: %s", name, plan.why)
+            return True
+        return False

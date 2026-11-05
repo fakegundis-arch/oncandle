@@ -1,5 +1,5 @@
 """End-to-end check: the LIVE loop (newsbot.bot.Bot) replayed minute by minute over Jan-Jun 2026 must take the same
-trades as the backtest (newsbot.backtest.make_trades).  usage: python check_replay.py [LOCKED.json]"""
+trades as the backtest (newsbot.backtest.make_trades).  usage: python check_replay.py [LOCKED.json [trades_out.csv]]"""
 import json
 import logging
 import sys
@@ -15,6 +15,7 @@ from newsbot.bot import Bot  # noqa: E402
 from newsbot.config import DEFAULTS  # noqa: E402
 from newsbot.events import releases_from_frame  # noqa: E402
 from newsbot.replay import Clock, ReplayActuals, ReplayBroker, ReplaySchedule  # noqa: E402
+from newsbot.strategy import full_cfg  # noqa: E402
 
 logging.basicConfig(level=logging.WARNING)
 
@@ -22,15 +23,20 @@ logging.basicConfig(level=logging.WARNING)
 def replay(versions: dict) -> pd.DataFrame:
     cal = H.CAL
     rels = releases_from_frame(cal)
-    syms = sorted({v["symbol"] for v in versions.values()})
+    syms = {v["symbol"] for v in versions.values()}
+    for v in versions.values():                       # pair_reaction versions also watch their signal pairs
+        c = full_cfg(v)
+        if c["entry"] == "pair_reaction":
+            syms |= {c["signal_pairs"][ccy][0] for ccy in c["currencies"] if ccy in c["signal_pairs"]}
+    syms = sorted(syms)
     frames = {s: H.px(s) for s in syms}
     costs = {s: L.COST[s] for s in syms}
     clock = Clock(rels[0].time)
     cfg = {k: dict(v) for k, v in DEFAULTS.items()}
     cfg["general"].update(state_file="", journal_file="", max_entry_lag_seconds=120)
     cfg["calendar"].update(poll_seconds=10, actual_timeout_seconds=600)
-    bot = Bot(cfg, versions, ReplaySchedule(cal, clock), ReplayActuals(cal, clock, 30), ReplayBroker(frames, costs, clock),
-              clock)
+    broker = ReplayBroker(frames, costs, clock, news_times=[r.time for r in rels])
+    bot = Bot(cfg, versions, ReplaySchedule(cal, clock), ReplayActuals(cal, clock, 30), broker, clock)
     span = max(int(v["entry_delay"]) + int(v["hold_min"]) for v in versions.values()) + 10
     steps = set()
     for r in rels:
@@ -55,6 +61,7 @@ def replay(versions: dict) -> pd.DataFrame:
 
 if __name__ == "__main__":
     locked = json.loads(Path(sys.argv[1]).read_text())["versions"] if len(sys.argv) > 1 else None
+    out_file = Path(sys.argv[2]) if len(sys.argv) > 2 else None
     if locked is None:
         from robust import BASE, VERS
         locked = {"gold": {**BASE, **VERS["gold"]}, "nasdaq": {**BASE, **VERS["nasdaq"]}}
@@ -71,6 +78,8 @@ if __name__ == "__main__":
         dr = (both.r_bt - both.r_live).abs()
         ok = same_n and (m._merge == "both").all() and (both.dir_bt == both.dir_live).all() and (dr < 0.05).all()
         ok_all &= bool(ok)
+        if out_file is not None:
+            m.assign(version=name).to_csv(out_file, mode="a", index=False, header=not out_file.exists())
         print(f"{name:9s} backtest n={len(bt):2d} R={bt.r.sum():6.2f} | live replay n={len(rp):2d} R={rp.r.sum():6.2f} | "
               f"max |dR| {dr.max() if len(dr) else 0:.3f} | {'MATCH' if ok else 'DIFFERENT'}")
         if not ok:

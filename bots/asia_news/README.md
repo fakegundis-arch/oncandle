@@ -1,5 +1,48 @@
 # newsbot - Asian-session high-impact news bot (Python + MetaTrader 5)
 
+## v2: Nasdaq "pair reaction" version (`nasdaq_v2`, LOCKED_NQ.json - the default of this folder)
+
+Built on January-June 2026 only (research: `research_nq.md`, scripts in `lab/`). Rules:
+
+1. Universe: Forex Factory HIGH-impact **AUD and NZD** releases between 21:45 and 07:00 UTC (CPI, jobs, GDP, RBA,
+   RBNZ...; same-minute figures = one release; speeches / statements ignored). JPY (BoJ) is NOT traded: its
+   announcement minute is not known in advance and this entry needs the minute.
+2. Signal - **no actual needed**: the released currency's own pair, AUDUSD for AUD / NZDUSD for NZD, from the close
+   of the minute before the release to the first price at / after **release + 2 minutes**. Currency stronger -> BUY
+   NAS100 (risk-on read), weaker -> SELL, unchanged -> no trade.
+3. Entry: NAS100 at market at release + 2 minutes (skipped if NAS100 does not quote within 2 minutes - e.g. the
+   21:45 UTC NZD releases in the northern winter).
+4. Stop 2 x the average true range of the 24 hourly bars before the release (a disaster stop), no target, exit
+   **6 hours after the entry** (Friday 20:00 UTC at the latest). One position at a time. 10 % of equity risked.
+
+Jan-Jun 2026 (build period): 24 trades, +4.41 R, PF 2.97, max drawdown -7.2 % at 10 % risk, $1,000 -> $1,507;
+Jan-Mar +3.12 R, Apr-Jun +1.29 R, PF 2.67 at 2 x cost, 3.37 with the entry 2 minutes later - passes the protocol.
+**Read research_nq.md before trading it:** NAS100 itself does not react to these releases, the evidence that this is
+a news effect rather than chance is weak (section 3 there), and "always long" on the same entries made almost as much.
+final_test, Jul 1 - Oct 15 2026 (run once after locking): 13 trades, +2.34 R, PF 2.24, max drawdown -15.9 %,
+$1,000 -> $1,236 (2 x cost: +2.14 R, PF 2.10) - meets the stated success rule, but rests on 2-3 trades.
+
+> **Status after the 2025 exam (Jan-Dec 2025, run once on the locked settings; success = R > 0 and PF >= 1.2):**
+> 47 trades, +0.26 R, PF 1.02, max drawdown -46 %, $1,000 -> $942 (2 x cost: -1.41 R, PF 0.88) - **fails**.
+> Jan-Sep 2025 lost -5.2 R; only Oct-Dec made money. Buying NAS100 at the same entries regardless of the AUD / NZD
+> reaction did better (+2.24 R, PF 1.24), so the direction signal adds nothing. **No demonstrated edge - do not trade
+> it with real money; dry-run only.** Details: `../../results/asia_news/REPORT.md`.
+
+What the live loop does for `nasdaq_v2` (newsbot/bot.py): at the scheduled release minute it schedules the version
+(no Forex Factory page needed); at release + 2 min it reads AUDUSD / NZDUSD (pre-release close from the M1 bars,
+post = the first quote at / after that minute), applies `newsbot.strategy.reaction_from_prices` (the backtest's own
+rule) and sends the NAS100 order with its stop. It therefore needs MT5 prices of NAS100 AND the signal pair
+(`[symbols]` in config.toml: NAS100 -> USTECm, AUDUSD -> AUDUSDm, NZDUSD -> NZDUSDm on Exness) and an exact release
+time from the weekly schedule. `--signal-only` cannot run this version (it has no prices). Checks:
+`python run_backtest.py` (default LOCKED_NQ.json) reproduces the numbers above, `python research/check_replay.py
+LOCKED_NQ.json` replays Jan-Jun minute by minute through the live loop (all 24 trades identical, to 1e-14 R),
+`python -m pytest tests` (21 tests, `tests/test_pair_reaction.py` covers v2).
+
+The rest of this README describes the first bot (versions `pair`, `gold`, `nasdaq` in LOCKED.json), which is still
+runnable with `locked_file = "LOCKED.json"` in config.toml.
+
+## v1
+
 Trades Forex Factory **high-impact** releases of **AUD, NZD, JPY (CNY)** published in the Asian session
 (21:45-07:00 UTC): Australian CPI / jobs / GDP / RBA, New Zealand CPI / jobs / GDP / RBNZ, BoJ decisions.
 At each release it reads the actual, compares it with the forecast (Forex Factory's own better / worse verdict),
@@ -14,9 +57,10 @@ decides whether the currency is bullish or bearish, and trades one of three vers
 > **Status after the out-of-sample test (Jul 1 - Oct 15 2026, run once on the locked settings):**
 > pair 10 trades, -3.5 R, PF 0.47, max drawdown -39 % (fail); gold 11 trades, +0.05 R, PF 1.01 (fail);
 > Nasdaq 11 trades, +3.8 R, PF 2.87 (formally passes, but it failed the build rules and took the very same calls as
-> gold, so it is not evidence of an edge). **No version has a demonstrated edge - do not trade it with real money.**
-> The bot itself works (its live loop reproduces the backtest trade for trade); use it in dry-run / signal-only
-> mode. Details in `research.md`.
+> gold, so it is not evidence of an edge). All three failed the 2025 exam. **No version has a demonstrated edge - do
+> not trade it with real money.** The bot itself works (its live loop reproduces the backtest trade for trade); use
+> it in dry-run / signal-only mode. Details in `research.md`.
+
 
 ## The rules (frozen in LOCKED.json)
 
@@ -61,7 +105,7 @@ tests/             unit tests (pytest)
 ## Run - dry-run first
 
 ```
-python run_bot.py --schedule          # this week's target releases and what "better" / "worse" would trade
+python run_bot.py --schedule          # this week's target releases and what each version would trade
 python run_bot.py --signal-only       # no MT5: polls the calendar, reads actuals, logs the signal only
 python run_bot.py                     # DRY-RUN: real MT5 prices, sizes and stops, orders only logged
 python run_bot.py --live              # real orders - ONLY if config.toml also says mode = "live"

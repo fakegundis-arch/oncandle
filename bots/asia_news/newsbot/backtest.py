@@ -11,6 +11,13 @@ Fills (bars are BID):
   * time exit at the open of the first bar at / after the exit time; weekends closed by Friday 20:00 UTC
   * one position per instrument at a time (a release arriving while a trade is open is skipped)
 make_trades(cfg, calendar, m1, cost) is the strategy entry point used by asia_news_lab.final_test.
+
+entry = "pair_reaction" (v2 Nasdaq) also needs the M1 bid bars of the signal pair (AUDUSD / NZDUSD): pass them as
+aux={"AUDUSD": df, ...}, or leave aux=None and the bars come from `AUX_PRICES(symbol, start, end)` - by default the
+research toolkit scripts/asia_news_lab.py (prices_train() when the traded bars end inside the build period, so a
+build run never loads later data; the toolkit's own M1 loader cut to the traded bars' time span otherwise, i.e. in
+final_test).  The direction is read from the pair at release + react_min; the entry is at release + entry_delay
+(the "entry 2 minutes later" stress test moves the entry, not the signal).
 """
 from __future__ import annotations
 
@@ -20,10 +27,31 @@ import numpy as np
 import pandas as pd
 
 from .events import releases_from_frame
-from .strategy import atr, confirmed, full_cfg, make_plan
+from .strategy import atr, confirmed, full_cfg, make_plan, reaction_direction, signal_pair
 
 _ATR: dict = {}                            # (frame fingerprint, release, tf, n) -> ATR  (speed only)
 MAX_ENTRY_GAP = timedelta(minutes=2)       # market not quoting within 2 min of the planned entry -> skip
+REPO_DEFAULT = str(__import__("pathlib").Path(__file__).resolve().parents[3])   # repo root
+
+
+def lab_prices(symbol: str, start, end) -> pd.DataFrame:
+    """M1 bid bars of `symbol` from the research toolkit (scripts/asia_news_lab.py), cut to [start, end]."""
+    import os
+    import sys
+    if "asia_news_lab" in sys.modules:
+        L = sys.modules["asia_news_lab"]
+    else:
+        sys.path.insert(0, os.path.join(os.environ.get("NEWSBOT_REPO", REPO_DEFAULT), "scripts"))
+        import asia_news_lab as L
+    if pd.Timestamp(end) < pd.Timestamp(L.TRAIN[1]):
+        m = L.prices_train(symbol)                 # build period: never touches later data
+    else:
+        m = L._m1(symbol)                          # final_test: the toolkit's loader, cut to the traded span
+    return m[(m.index >= pd.Timestamp(start)) & (m.index <= pd.Timestamp(end))]
+
+
+AUX_PRICES = lab_prices                    # replaceable price source for signal pairs (tests use synthetic bars)
+_AUX: dict = {}
 
 
 def simulate(m1: pd.DataFrame, plan, cost: float, news_mult: float, news_window: int):
@@ -75,21 +103,43 @@ def _releases(calendar):
     return _REL[k]
 
 
+def _aux_bars(sym: str, lo, hi, aux: dict | None) -> pd.DataFrame:
+    if aux is not None and sym in aux:
+        return aux[sym]
+    k = (sym, pd.Timestamp(lo), pd.Timestamp(hi), id(AUX_PRICES))
+    if k not in _AUX:
+        if len(_AUX) > 8:
+            _AUX.clear()
+        _AUX[k] = AUX_PRICES(sym, lo, hi)
+    return _AUX[k]
+
+
 def make_trades(cfg: dict, calendar: pd.DataFrame, m1: pd.DataFrame, cost: float,
-                entry_delay: int | None = None, detail: bool = False) -> pd.DataFrame:
+                entry_delay: int | None = None, detail: bool = False, aux: dict | None = None) -> pd.DataFrame:
     """Strategy for ONE instrument: cfg["symbol"] / cfg["instrument"] decide which releases it trades."""
     c = full_cfg(cfg)
     rels = _releases(calendar)
     lo, hi = m1.index[0], m1.index[-1]
     fp = (len(m1), lo, hi, float(m1.close.iloc[0]), float(m1.close.iloc[-1]), float(m1.high.max()))
     rows, busy_until = [], None
+    react = c["entry"] == "pair_reaction"
     for rel in rels:
         if not (lo <= pd.Timestamp(rel.time) <= hi):
             continue
+        if rel.currency not in c["currencies"]:
+            continue
+        rx = None
+        if react:
+            sp = signal_pair(rel.currency, c)
+            if sp is None:
+                continue
+            rx = reaction_direction(rel, c, _aux_bars(sp[0], lo, hi, aux), int(MAX_ENTRY_GAP.total_seconds() // 60))
+            if rx is None or rx.direction == 0:
+                continue
         key = (fp, rel.time, int(c["stop_atr_tf"]), int(c["stop_atr_n"]))
         if key not in _ATR:
             _ATR[key] = atr(m1, rel.time, int(c["stop_atr_tf"]), int(c["stop_atr_n"]))
-        plan = make_plan(rel, c, None, entry_delay, atr_value=_ATR[key])
+        plan = make_plan(rel, c, None, entry_delay, atr_value=_ATR[key], reaction=rx)
         if plan is None:
             continue
         if busy_until is not None and pd.Timestamp(plan.entry_after) <= busy_until:
@@ -108,6 +158,8 @@ def make_trades(cfg: dict, calendar: pd.DataFrame, m1: pd.DataFrame, cost: float
         if detail:
             row.update(reason=why, entry=fill, exit=px, stop_dist=plan.stop_dist, ccy=rel.currency, kind=rel.kind,
                        release=pd.Timestamp(rel.time))
+            if rx is not None:
+                row.update(pair=rx.pair, pair_pre=rx.pre, pair_post=rx.post)
         rows.append(row)
     if rows:
         return pd.DataFrame(rows)

@@ -1,0 +1,6 @@
+gold      backtest n=16 R= 13.69 | live replay n=16 R= 13.69 | max |dR| 0.000 | MATCH
+nasdaq    backtest n=16 R=  1.77 | live replay n=16 R=  1.77 | max |dR| 0.000 | MATCH
+pair_aud  backtest n=14 R=  9.31 | live replay n=14 R=  9.31 | max |dR| 0.000 | MATCH
+pair_nzd  backtest n= 5 R=  1.09 | live replay n= 5 R=  1.09 | max |dR| 0.000 | MATCH
+pair_jpy  backtest n= 0 R=  0.00 | live replay n= 0 R=  0.00 | max |dR| 0.000 | MATCH
+ALL MATCH

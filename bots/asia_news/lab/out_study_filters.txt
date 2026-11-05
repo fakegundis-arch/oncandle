@@ -1,0 +1,22 @@
+
+final pair-reaction (AUD/NZD, N=2, stop 2, 6 h): n 24 R 4.41
+  with_us    {False: {'count': 12, 'sum': 1.75, 'mean': 0.15}, True: {'count': 12, 'sum': 2.66, 'mean': 0.22}}
+  with_pre6  {False: {'count': 9, 'sum': 1.41, 'mean': 0.16}, True: {'count': 15, 'sum': 3.0, 'mean': 0.2}}
+  atr_hi     {False: {'count': 10, 'sum': 3.23, 'mean': 0.32}, True: {'count': 14, 'sum': 1.19, 'mean': 0.08}}
+  day of week {0: {'count': 1, 'sum': 0.11}, 1: {'count': 5, 'sum': 0.21}, 2: {'count': 12, 'sum': 3.01}, 3: {'count': 6, 'sum': 1.09}}
+
+Nasdaq release-minute momentum (N=1, stop 1, 4 h): n 26 R 8.29
+  with_us    {False: {'count': 13, 'sum': 4.43, 'mean': 0.34}, True: {'count': 13, 'sum': 3.85, 'mean': 0.3}}
+  with_pre6  {False: {'count': 15, 'sum': 4.46, 'mean': 0.3}, True: {'count': 11, 'sum': 3.83, 'mean': 0.35}}
+  atr_hi     {False: {'count': 13, 'sum': 1.28, 'mean': 0.1}, True: {'count': 13, 'sum': 7.0, 'mean': 0.54}}
+  day of week {0: {'count': 1, 'sum': -0.23}, 1: {'count': 6, 'sum': -0.36}, 2: {'count': 12, 'sum': 7.15}, 3: {'count': 6, 'sum': 2.17}, 4: {'count': 1, 'sum': -0.44}}
+
+news sign +3 min (stop 2, 6 h): n 16 R 3.32
+  with_us    {False: {'count': 6, 'sum': 1.52, 'mean': 0.25}, True: {'count': 10, 'sum': 1.8, 'mean': 0.18}}
+  with_pre6  {False: {'count': 7, 'sum': 1.37, 'mean': 0.2}, True: {'count': 9, 'sum': 1.95, 'mean': 0.22}}
+  atr_hi     {False: {'count': 7, 'sum': 2.83, 'mean': 0.4}, True: {'count': 9, 'sum': 0.49, 'mean': 0.05}}
+  day of week {0: {'count': 1, 'sum': 0.11}, 1: {'count': 1, 'sum': 0.34}, 2: {'count': 9, 'sum': 2.14}, 3: {'count': 5, 'sum': 0.72}}
+
+fade the previous US session at the releases: n 29 R -3.35 avgR -0.116 PF 0.57
+
+fade the previous US session at the placebo: n 2718 R 139.22 avgR +0.051 PF 1.24

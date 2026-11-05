@@ -1,0 +1,2 @@
+nasdaq_v2 backtest n=24 R=  4.41 | live replay n=24 R=  4.41 | max |dR| 0.000 | MATCH
+ALL MATCH   (bot/research/check_replay.py bot/LOCKED_NQ.json; trade-by-trade: lab/out/replay_v2_trades.csv)

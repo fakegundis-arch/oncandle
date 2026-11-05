@@ -52,12 +52,24 @@ class ReplayActuals:
 
 
 class ReplayBroker(MT5Broker):
-    """Prices from historical bid M1 bars; ask = bid + cost.  Fills and stop / target checks follow the backtest's
-    rules (entry minute: stop only; stop before target; gaps fill at the open)."""
+    """Prices from historical bid M1 bars; ask = bid + cost (x news_mult from a release minute to news_window minutes
+    after it, as the protocol).  A position keeps the spread it was opened with and a short pays it on its exit (as
+    newsbot.backtest.simulate).  Fills and stop / target checks follow the backtest's rules (entry minute: stop only;
+    stop before target; gaps fill at the open)."""
 
-    def __init__(self, frames: dict, costs: dict, clock: Clock, equity: float = 1000.0):
+    def __init__(self, frames: dict, costs: dict, clock: Clock, equity: float = 1000.0, news_times=(),
+                 news_mult: float = 2.0, news_window: int = 5):
         super().__init__({}, {}, dry_run=True)
         self.frames, self.costs, self.clock, self.eq = frames, costs, clock, equity
+        self.news = sorted(pd.Timestamp(t) for t in news_times)
+        self.news_mult, self.news_window = news_mult, news_window
+
+    def spread(self, sym: str, t: pd.Timestamp) -> float:
+        import bisect
+        i = bisect.bisect_right(self.news, t) - 1                 # latest release at or before t
+        if i >= 0 and t - self.news[i] <= pd.Timedelta(minutes=self.news_window):
+            return self.costs[sym] * self.news_mult
+        return self.costs[sym]
 
     def equity(self) -> float:
         return self.eq
@@ -72,9 +84,9 @@ class ReplayBroker(MT5Broker):
         t = pd.Timestamp(self.clock()).floor("min")
         if t in m.index:
             bid = float(m.open.loc[t])
-            return bid, bid + self.costs[sym], t.to_pydatetime()
+            return bid, bid + self.spread(sym, t), t.to_pydatetime()
         i = m.index.searchsorted(t) - 1
-        return float(m.close.iloc[i]), float(m.close.iloc[i]) + self.costs[sym], m.index[i].to_pydatetime()
+        return float(m.close.iloc[i]), float(m.close.iloc[i]) + self.spread(sym, m.index[i]), m.index[i].to_pydatetime()
 
     def lots_for(self, sym, direction, entry, sl, risk_money):
         return 1.0, abs(entry - sl)
@@ -82,13 +94,18 @@ class ReplayBroker(MT5Broker):
     def open(self, pos: Position):
         self._paper_ticket += 1
         pos.ticket = self._paper_ticket
+        bid, ask, _ = self.tick(pos.symbol)
+        pos.extra["spread"] = ask - bid                       # the trade's spread (a short pays it on its exit)
         return pos
+
+    def _pos_spread(self, pos: Position) -> float:
+        return float(pos.extra.get("spread", self.costs[pos.symbol]))
 
     def is_open(self, pos: Position) -> bool:
         m = self.frames[pos.symbol]
         t0 = pd.Timestamp(pos.opened).floor("min")
         w = m[(m.index >= t0) & (m.index < pd.Timestamp(self.clock()).floor("min"))]
-        c = self.costs[pos.symbol] if pos.direction < 0 else 0.0
+        c = self._pos_spread(pos) if pos.direction < 0 else 0.0
         d = pos.direction
         for t, r in w.iterrows():
             first = t == t0
@@ -111,6 +128,6 @@ class ReplayBroker(MT5Broker):
 
     def close(self, pos: Position, why: str = "time") -> bool:
         bid, ask, t = self.tick(pos.symbol)
-        pos.closed, pos.exit_price, pos.exit_reason = True, (bid if pos.direction > 0 else ask), why
+        pos.closed, pos.exit_price, pos.exit_reason = True, (bid if pos.direction > 0 else bid + self._pos_spread(pos)), why
         pos.extra["exit_time"] = str(t)
         return True

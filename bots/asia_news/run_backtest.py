@@ -3,13 +3,15 @@
 scripts/asia_news_lab.py, with the protocol's pass rules - the bot's own make_trades, so these are the numbers the
 live bot would have produced.
 
-    cd /home/user/oncandle && PYTHONDONTWRITEBYTECODE=1 python <this folder>/run_backtest.py [--locked LOCKED.json]
-                                                                  [--repo /home/user/oncandle] [--trades out.csv]
+    cd <repo> && PYTHONDONTWRITEBYTECODE=1 python <this folder>/run_backtest.py [--locked LOCKED_NQ.json]
+                                                                  [--repo <repo>]        [--trades out.csv]
+--locked LOCKED_NQ.json (default) = the v2 Nasdaq version (pair_reaction); --locked LOCKED.json = the first bot.
 """
 from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -32,8 +34,8 @@ def combined(t: pd.DataFrame, a: str, b: str, risk: float) -> dict:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--locked", default=str(HERE / "LOCKED.json"))
-    ap.add_argument("--repo", default=str(HERE.parents[1]))
+    ap.add_argument("--locked", default=str(HERE / "LOCKED_NQ.json"))
+    ap.add_argument("--repo", default=os.environ.get("NEWSBOT_REPO", str(HERE.parents[1])))
     ap.add_argument("--trades", default="")
     a = ap.parse_args()
     sys.path.insert(0, str(Path(a.repo) / "scripts"))
