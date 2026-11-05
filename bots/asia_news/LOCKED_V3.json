@@ -1,0 +1,72 @@
+{
+ "locked_at_utc": "2026-11-05T13:04:15+00:00",
+ "note": "Nasdaq v3, picked on Jan-Jun 2026 by the rule in research_v3.md (protocol 4) and frozen before asia_news_lab.final_test(tag='nasdaq_v3') and asia_news_lab.exam_2025(tag='nasdaq_v3').",
+ "rules": "FF high-impact AUD / NZD releases 21:45-07:00 UTC, NAS100 quoting at the release minute. Range = NAS100 bid high / low of the release minute .. release + 2 incl. the pre-release close. At release + 3 min: buy stop at range high + 0.05 ATR, sell stop at range low - 0.05 ATR (OCO), valid 60 min. Stop 0.5 x ATR(24 x H1) from the fill, target 3 R, exit 6 h after the fill, Friday 20:00 UTC cap, one position, 10 % risk.",
+ "lab_pick": {
+  "W": 60,
+  "stop": 0.5,
+  "buf": 0.05,
+  "tp_r": 3,
+  "hold": 360
+ },
+ "lab_cfg": {
+  "fam": "brk",
+  "N": 3,
+  "ccys": [
+   "AUD",
+   "NZD"
+  ],
+  "incl_pre": true,
+  "W": 60,
+  "buf": 0.05,
+  "tp_r": 3,
+  "hold": 360,
+  "stop_k": 0.5
+ },
+ "build_jan_jun_2026": {
+  "n": 24,
+  "R": 13.44,
+  "pf": 2.34,
+  "dd": -0.271,
+  "q1": 3.33,
+  "q2": 10.1,
+  "pf2x": 1.36,
+  "pfL": 2.03,
+  "win": 0.58,
+  "ok": true,
+  "pf-top1": 2.0,
+  "pf-top2": 1.7,
+  "pl_n": 2366,
+  "pl_avgR": 0.087,
+  "pl_pf": 1.14,
+  "avgR": 0.56,
+  "p_plc": 0.07
+ },
+ "final_test_entries": {
+  "nasdaq_v3": "NAS100"
+ },
+ "versions": {
+  "nasdaq_v3": {
+   "instrument": "nasdaq",
+   "symbol": "NAS100",
+   "entry": "breakout",
+   "currencies": [
+    "AUD",
+    "NZD"
+   ],
+   "brk_min": 3,
+   "brk_window": 60,
+   "brk_buf_atr": 0.05,
+   "brk_incl_pre": true,
+   "brk_slip": 1.0,
+   "stop_mode": "atr",
+   "stop_atr_tf": 60,
+   "stop_atr_n": 24,
+   "stop_k": 0.5,
+   "target_r": 3.0,
+   "hold_min": 360,
+   "news_mult": 2.0,
+   "news_window": 5
+  }
+ }
+}
