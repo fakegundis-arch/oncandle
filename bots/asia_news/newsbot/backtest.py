@@ -43,10 +43,10 @@ def lab_prices(symbol: str, start, end) -> pd.DataFrame:
     else:
         sys.path.insert(0, os.path.join(os.environ.get("NEWSBOT_REPO", REPO_DEFAULT), "scripts"))
         import asia_news_lab as L
-    if pd.Timestamp(end) < pd.Timestamp(L.TRAIN[1]):
+    if pd.Timestamp(start) >= pd.Timestamp(L.PRICE_FROM) and pd.Timestamp(end) < pd.Timestamp(L.TRAIN[1]):
         m = L.prices_train(symbol)                 # build period: never touches later data
     else:
-        m = L._m1(symbol)                          # final_test: the toolkit's loader, cut to the traded span
+        m = L._m1(symbol)                          # final_test / exam_2025: the toolkit's loader, cut to the span
     return m[(m.index >= pd.Timestamp(start)) & (m.index <= pd.Timestamp(end))]
 
 

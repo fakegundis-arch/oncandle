@@ -13,7 +13,7 @@ PROTOCOL
   * BUILD on January-June 2026 only: calendar_train() and prices_train(symbol). No result for any trade before
     2026-01-01 or after 2026-06-30 may be computed during the build.
   * TEST once on July 1 - October 15 2026 with final_test() after the settings are locked (it refuses a second run).
-  * EXTRA EXAM on 2025 (Jan-Dec), run once afterwards by the coordinator - more events for a small sample.
+  * EXTRA EXAM on 2025 (Jan-Dec), run once afterwards with exam_2025() - more events for a small sample.
   * Money: $1,000, 10% of equity risked per trade, one position per instrument at a time.
   * Jan-Jun pass rules per instrument: >= 15 trades, profit factor >= 1.3, R > 0 in both Jan-Mar and Apr-Jun, profit
     factor >= 1.15 at 2 x costs and with the entry 2 minutes later, max drawdown at 10% better than -35%.
@@ -124,7 +124,8 @@ def passes_train(m: dict, m_2x_cost: dict, m_late: dict) -> dict:
 def final_test(strategies: dict, tag: str = "final_test") -> dict:
     """Run ONCE per tag: strategies = {name: (make_trades, cfg, symbol)}. Returns and saves the Jul-Oct 2026 results at
     the base and 2x costs to results/asia_news/<tag>.json. Refuses to run a tag again. (Tag "final_test" = the first bot,
-    Nov 4 2026; tag "nasdaq_v2" = the Nasdaq rebuild, whose Jul-Oct is a second use of those months.)"""
+    Nov 4 2026; tag "nasdaq_v2" = the Nasdaq rebuild, whose Jul-Oct is a second use of those months; tag
+    "nasdaq_v3" = the 3-minute breakout, a third use.)"""
     f = OUT / f"{tag}.json"
     if f.exists():
         raise RuntimeError("final_test has already been run")
@@ -138,6 +139,29 @@ def final_test(strategies: dict, tag: str = "final_test") -> dict:
         ok = m["n"] >= 8 and m["R"] > 0 and m["pf"] >= 1.3 and m["dd"] > -0.35
         res[name] = dict(symbol=sym, cfg=cfg, test=m, test_2x_cost=m2, success=ok,
                          trades=t1[(t1.entry_time >= TEST[0]) & (t1.entry_time < TEST[1])].astype(str).to_dict("records"))
+    OUT.mkdir(parents=True, exist_ok=True)
+    f.write_text(json.dumps(dict(time=datetime.now(timezone.utc).isoformat(timespec="seconds"), results=res),
+                            indent=1, default=str))
+    return res
+
+
+def exam_2025(strategies: dict, tag: str) -> dict:
+    """The 2025 extra exam, run ONCE per tag after final_test: strategies = {name: (make_trades, cfg, symbol)}.
+    Calendar from 2024-12-01 and M1 bars from 2024-11-01 (warm-up), trades counted Jan 1 - Dec 31 2025, base and 2 x
+    costs; success = R > 0 and PF >= 1.2. Saves results/asia_news/exam2025_<tag>.json and refuses to run a tag again.
+    (Nasdaq v2's exam was run before this function existed: exam2025_nasdaq_v2.json.)"""
+    f = OUT / f"exam2025_{tag}.json"
+    if f.exists():
+        raise RuntimeError("exam_2025 has already been run for this tag")
+    c = _calendar()
+    cal = c[(c.time_utc >= "2024-12-01") & (c.time_utc < EXAM[1])].copy()
+    res = {}
+    for name, (mk, cfg, sym) in strategies.items():
+        m1 = _m1(sym); m1 = m1[(m1.index >= "2024-11-01") & (m1.index < EXAM[1])]
+        t1, t2 = mk(cfg, cal, m1, COST[sym]), mk(cfg, cal, m1, 2 * COST[sym])
+        m, m2 = metrics(t1, *EXAM), metrics(t2, *EXAM)
+        res[name] = dict(symbol=sym, cfg=cfg, exam=m, exam_2x_cost=m2, success=m["R"] > 0 and m["pf"] >= 1.2,
+                         trades=t1[(t1.entry_time >= EXAM[0]) & (t1.entry_time < EXAM[1])].astype(str).to_dict("records"))
     OUT.mkdir(parents=True, exist_ok=True)
     f.write_text(json.dumps(dict(time=datetime.now(timezone.utc).isoformat(timespec="seconds"), results=res),
                             indent=1, default=str))
