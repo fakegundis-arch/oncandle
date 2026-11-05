@@ -1,5 +1,23 @@
 # newsbot - Asian-session high-impact news bot (Python + MetaTrader 5)
 
+## v3: Nasdaq "breakout" version (`nasdaq_v3`, LOCKED_V3.json)
+
+At each Forex Factory high-impact AUD / NZD release (21:45-07:00 UTC) the bot takes NAS100's high / low of the release
+minute and the next 2 minutes (incl. the pre-release close) and at release + 3 min places a **buy stop** 0.05 ATR above
+and a **sell stop** 0.05 ATR below (real MT5 pending orders; one cancels the other; cancelled after 60 min). Stop
+0.5 x ATR(24 x H1) and target 3R from the real fill, exit after 6 h (Friday 20:00 UTC at the latest), 10 % risk.
+Research and protocol: `research_v3.md`; grid `lab/v3_select.py`; tests `tests/test_breakout.py`.
+
+| | Trades | R | PF | Max DD at 10 % | $1,000 -> |
+|---|---|---|---|---|---|
+| Jan-Jun 2026 (built on) | 24 | +13.44 | 2.34 | -27 % | 2,834 |
+| Jul-Oct 2026 (unseen, once) | 15 | -0.28 | 0.97 | -52 % | 808 - **fails** |
+| 2025 (unseen, once) | 50 | -2.67 | 0.91 | -68 % | 490 - **fails** |
+
+> **No demonstrated edge - dry-run only.** To run it: `versions = ["nasdaq_v3"]` and
+> `locked_file = "LOCKED_V3.json"` in config.toml, then `python run_bot.py` (dry-run). The live order path (pending
+> orders, fill detection, re-anchored stop / target) is tested against a fake MetaTrader5 module only.
+
 ## v2: Nasdaq "pair reaction" version (`nasdaq_v2`, LOCKED_NQ.json - the default of this folder)
 
 Built on January-June 2026 only (research: `research_nq.md`, scripts in `lab/`). Rules:

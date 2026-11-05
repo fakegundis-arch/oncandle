@@ -1,0 +1,158 @@
+{
+ "time": "2026-11-05T13:18:38+00:00",
+ "results": {
+  "nasdaq_v3": {
+   "symbol": "NAS100",
+   "cfg": {
+    "instrument": "nasdaq",
+    "symbol": "NAS100",
+    "entry": "breakout",
+    "currencies": [
+     "AUD",
+     "NZD"
+    ],
+    "brk_min": 3,
+    "brk_window": 60,
+    "brk_buf_atr": 0.05,
+    "brk_incl_pre": true,
+    "brk_slip": 1.0,
+    "stop_mode": "atr",
+    "stop_atr_tf": 60,
+    "stop_atr_n": 24,
+    "stop_k": 0.5,
+    "target_r": 3.0,
+    "hold_min": 360,
+    "news_mult": 2.0,
+    "news_window": 5
+   },
+   "test": {
+    "n": 15,
+    "R": -0.2760857174537463,
+    "pf": 0.9749012984132958,
+    "win": 0.26666666666666666,
+    "avg_R": -0.01840571449691642,
+    "usd": 808.2957499342051,
+    "dd": -0.5217030999999999,
+    "max_losing_streak": 7
+   },
+   "test_2x_cost": {
+    "n": 15,
+    "R": -4.276085717453766,
+    "pf": 0.6436595235455196,
+    "win": 0.2,
+    "avg_R": -0.2850723811635844,
+    "usd": 559.5893653390639,
+    "dd": -0.5217031,
+    "max_losing_streak": 7
+   },
+   "success": false,
+   "trades": [
+    {
+     "entry_time": "2026-07-08 02:05:00",
+     "exit_time": "2026-07-08 02:26:00",
+     "dir": "-1",
+     "r": "-1.0",
+     "event": "NZD RATE 2026-07-08 02:00 first 3 min range 29173.42-29211.54 (ATR 126.77): buy stop 29217.88 / sell stop 29167.08, stop 63.38, target 190.15"
+    },
+    {
+     "entry_time": "2026-07-20 22:49:00",
+     "exit_time": "2026-07-20 23:08:00",
+     "dir": "-1",
+     "r": "-1.0",
+     "event": "NZD CPI 2026-07-20 22:45 first 3 min range 28543.97-28562.80 (ATR 123.47): buy stop 28568.97 / sell stop 28537.79, stop 61.74, target 185.21"
+    },
+    {
+     "entry_time": "2026-07-23 01:37:00",
+     "exit_time": "2026-07-23 01:40:00",
+     "dir": "1",
+     "r": "-1.0",
+     "event": "AUD EMP 2026-07-23 01:30 first 3 min range 29041.24-29082.03 (ATR 101.31): buy stop 29087.10 / sell stop 29036.18, stop 50.65, target 151.96"
+    },
+    {
+     "entry_time": "2026-07-29 01:35:00",
+     "exit_time": "2026-07-29 03:52:00",
+     "dir": "-1",
+     "r": "2.999999999999997",
+     "event": "AUD CPI 2026-07-29 01:30 first 3 min range 27805.74-27832.79 (ATR 155.25): buy stop 27840.55 / sell stop 27797.98, stop 77.62, target 232.87"
+    },
+    {
+     "entry_time": "2026-08-04 22:57:00",
+     "exit_time": "2026-08-05 04:57:00",
+     "dir": "1",
+     "r": "1.723914282546198",
+     "event": "NZD EMP 2026-08-04 22:45 first 3 min range 29667.71-29685.42 (ATR 107.10): buy stop 29690.77 / sell stop 29662.35, stop 53.55, target 160.64"
+    },
+    {
+     "entry_time": "2026-08-11 04:35:00",
+     "exit_time": "2026-08-11 06:33:00",
+     "dir": "-1",
+     "r": "3.0000000000000195",
+     "event": "AUD RATE 2026-08-11 04:30 first 3 min range 29738.81-29750.56 (ATR 69.04): buy stop 29754.02 / sell stop 29735.36, stop 34.52, target 103.56"
+    },
+    {
+     "entry_time": "2026-08-20 01:36:00",
+     "exit_time": "2026-08-20 03:35:00",
+     "dir": "1",
+     "r": "-1.0",
+     "event": "AUD EMP 2026-08-20 01:30 first 3 min range 29531.54-29554.21 (ATR 104.48): buy stop 29559.43 / sell stop 29526.32, stop 52.24, target 156.72"
+    },
+    {
+     "entry_time": "2026-08-26 01:36:00",
+     "exit_time": "2026-08-26 03:38:00",
+     "dir": "1",
+     "r": "3.00000000000004",
+     "event": "AUD CPI 2026-08-26 01:30 first 3 min range 29032.08-29049.92 (ATR 79.54): buy stop 29053.90 / sell stop 29028.10, stop 39.77, target 119.32"
+    },
+    {
+     "entry_time": "2026-09-02 01:34:00",
+     "exit_time": "2026-09-02 01:40:00",
+     "dir": "1",
+     "r": "-1.0",
+     "event": "AUD GDP 2026-09-02 01:30 first 3 min range 29059.21-29072.40 (ATR 86.14): buy stop 29076.71 / sell stop 29054.90, stop 43.07, target 129.21"
+    },
+    {
+     "entry_time": "2026-09-02 02:03:00",
+     "exit_time": "2026-09-02 02:20:00",
+     "dir": "-1",
+     "r": "-1.0",
+     "event": "NZD RATE 2026-09-02 02:00 first 3 min range 29017.32-29030.71 (ATR 87.84): buy stop 29035.10 / sell stop 29012.93, stop 43.92, target 131.77"
+    },
+    {
+     "entry_time": "2026-09-16 22:49:00",
+     "exit_time": "2026-09-16 23:17:00",
+     "dir": "-1",
+     "r": "-1.0",
+     "event": "NZD GDP 2026-09-16 22:45 first 3 min range 29047.32-29055.89 (ATR 75.33): buy stop 29059.65 / sell stop 29043.55, stop 37.66, target 112.99"
+    },
+    {
+     "entry_time": "2026-09-24 01:34:00",
+     "exit_time": "2026-09-24 01:46:00",
+     "dir": "1",
+     "r": "-1.0",
+     "event": "AUD EMP 2026-09-24 01:30 first 3 min range 30439.03-30463.56 (ATR 68.12): buy stop 30466.97 / sell stop 30435.62, stop 34.06, target 102.18"
+    },
+    {
+     "entry_time": "2026-09-29 04:34:00",
+     "exit_time": "2026-09-29 05:33:00",
+     "dir": "1",
+     "r": "-1.0",
+     "event": "AUD RATE 2026-09-29 04:30 first 3 min range 30141.98-30153.41 (ATR 100.45): buy stop 30158.43 / sell stop 30136.95, stop 50.22, target 150.67"
+    },
+    {
+     "entry_time": "2026-09-30 01:34:00",
+     "exit_time": "2026-09-30 02:10:00",
+     "dir": "1",
+     "r": "-1.0",
+     "event": "AUD CPI 2026-09-30 01:30 first 3 min range 30351.22-30377.18 (ATR 87.14): buy stop 30381.53 / sell stop 30346.86, stop 43.57, target 130.71"
+    },
+    {
+     "entry_time": "2026-10-15 00:34:00",
+     "exit_time": "2026-10-15 00:55:00",
+     "dir": "1",
+     "r": "-1.0",
+     "event": "AUD EMP 2026-10-15 00:30 first 3 min range 29748.09-29769.69 (ATR 111.44): buy stop 29775.26 / sell stop 29742.51, stop 55.72, target 167.16"
+    }
+   ]
+  }
+ }
+}

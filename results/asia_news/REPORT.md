@@ -85,3 +85,42 @@ other days, and that running the same search on a calendar with no news also fin
   live loop replayed minute by minute over Jan-Jun takes the same 24 trades. Run it in dry-run only
   (`python run_bot.py`, config.toml now points at LOCKED_NQ.json; `locked_file = "LOCKED.json"` runs v1).
 
+## Nasdaq v3 - breakout of the first 3 minutes (built Nov 5 2026)
+
+Brief: v3 on the "breakout of the first 3 minutes" idea from the v2 entry table. Protocol committed before any run
+(`bots/asia_news/research_v3.md`, commit af7e934); settings picked on Jan-Jun 2026 only by a fixed rule (most passing
+neighbours) and locked (`LOCKED_V3.json`, commit 999f36b); the bot code frozen (commit f27553a) before the two
+unseen tests, each run once (`nasdaq_v3.json`, `exam2025_nasdaq_v3.json`).
+
+**Rule:** at each Forex Factory high-impact AUD / NZD release in 21:45-07:00 UTC, take NAS100's high / low of the
+release minute and the next 2 minutes (incl. the close before the release). At release + 3 min place a buy stop
+0.05 ATR above and a sell stop 0.05 ATR below (one cancels the other), valid 60 min. Stop 0.5 x the hourly
+ATR(24), target 3R, out after 6 h, Friday 20:00 UTC at the latest. Real MT5 pending orders in the live bot.
+
+| Nasdaq v3 | Trades | R | PF | Win | Max DD at 10% | $1,000 -> | Rule | Result |
+|---|---|---|---|---|---|---|---|---|
+| Jan-Jun 2026 (built on) | 24 | +13.44 | 2.34 | 58% | -27.1% | $2,834 | build rules | passes (288 settings, 44 pass) |
+| Jul-Oct 2026 (unseen, run once) | 15 | -0.28 | 0.97 | 27% | -52.2% | $808 | >= 8 trades, R > 0, PF >= 1.3, DD > -35% | **fails** |
+| Jul-Oct at 2x cost | 15 | -4.28 | 0.64 | | -52.2% | $560 | | |
+| 2025 (unseen, run once) | 50 | -2.67 | 0.91 | 36% | -68.2% | $490 | R > 0, PF >= 1.2 | **fails** |
+| 2025 at 2x cost | 50 | -3.45 | 0.89 | | -72.2% | $459 | | |
+
+* **No edge.** The win rate dropped from 58% to 27-36% outside the build period; 11 of 15 Jul-Oct trades and 30 of 50
+  2025 trades hit the tight stop. Jul-Oct ended with 7 losses in a row.
+* At 10% risk the tight stop makes losing streaks very costly: -52% to -68% drawdowns on unseen data.
+* The bot itself is sound: its backtest equals the research engine trade for trade, the live loop with pending
+  orders replays Jan-Jun identically (24 / 24 trades), 30 unit tests pass. It stays in `bots/asia_news/` as entry
+  mode "breakout" (`LOCKED_V3.json`), dry-run only.
+* Caveats stated in advance: Jul-Oct 2026 was a third use and 2025 a second use of those months (no v3 setting was
+  chosen on them).
+
+### Nasdaq news bot: all three versions on unseen data
+
+| Version | Entry | Jul-Oct 2026 | 2025 |
+|---|---|---|---|
+| v1 | Forex Factory verdict, +15 min | 11 trades, +3.75R, PF 2.87 | 38 trades, -1.3R, PF 0.90, $785 - fails |
+| v2 | AUDUSD / NZDUSD reaction, +2 min | 13 trades, +2.34R, PF 2.24 | 47 trades, +0.26R, PF 1.02, $942 - fails |
+| v3 | breakout of the first 3 minutes | 15 trades, -0.28R, PF 0.97 - fails | 50 trades, -2.67R, PF 0.91, $490 - fails |
+
+None of the three Asian-news Nasdaq versions holds up over 2025's full year.
+
