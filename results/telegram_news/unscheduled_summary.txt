@@ -1,0 +1,310 @@
+B. unscheduled stories posted by >= 3 channels: 1509
+        channel  stories  first  first_pct  median_behind_s  within_30s_of_first  within_60s
+ financialjuice     1190    645         54              0.0                  891        1020
+WalterBloomberg      868    381         44             21.5                  454         509
+     marketfeed     1477    253         17             11.0                 1306        1344
+    ClashReport      490     67         14            251.5                   86         104
+    markettwits      328     50         15             92.5                   91         127
+        BWEnews       35     21         60              0.0                   28          29
+    WatcherGuru      106     18         17            299.0                   20          23
+   insiderpaper      113     16         14            457.0                   17          17
+      BRICSNews      142     13          9            333.0                   15          18
+         nwsmkr       67     11         16             42.0                   27          37
+        rnintel       86     11         13            383.5                   12          16
+       unfolded       46      9         20             51.5                   20          23
+   TreeNewsFeed       11      8         73              0.0                   10          10
+     IntelSlava       50      5         10            583.5                    6           6
+     disclosetv       28      1          4            446.5                    2           5
+PolymarketIntel        1      0          0           1099.0                    0           0
+  osintdefender        0      0          0              NaN                    0           0
+
+B1. head to head (stories both posted; negative median = the first channel is earlier)
+              a               b  shared  a_first_pct  b_first_pct  median_a_minus_b_s
+ financialjuice WalterBloomberg     687           56           44               -20.0
+ financialjuice      marketfeed    1186           62           37                -6.0
+ financialjuice     ClashReport     342           88           11              -245.5
+ financialjuice     markettwits     234           87           13               -76.0
+ financialjuice     WatcherGuru      35           94            6              -231.0
+ financialjuice    insiderpaper      61           95            5              -486.0
+ financialjuice       BRICSNews      96           98            2              -350.5
+ financialjuice          nwsmkr      31           65           35               -38.0
+ financialjuice         rnintel      54           87           13              -359.0
+ financialjuice      IntelSlava      31           94            6              -583.0
+WalterBloomberg      marketfeed     864           51           49                -2.0
+WalterBloomberg     ClashReport     195           76           24              -167.0
+WalterBloomberg     markettwits     108           64           36               -63.0
+WalterBloomberg     WatcherGuru      31           81           19              -259.0
+WalterBloomberg    insiderpaper      43           84           16              -356.0
+WalterBloomberg       BRICSNews      59           78           22              -204.0
+WalterBloomberg          nwsmkr      29           55           45                -7.0
+WalterBloomberg         rnintel      25           64           36              -236.0
+WalterBloomberg        unfolded      11           27           73                60.0
+WalterBloomberg      IntelSlava      10           60           40               -35.5
+     marketfeed     ClashReport     465           86           14              -242.0
+     marketfeed     markettwits     321           79           21               -78.0
+     marketfeed     WatcherGuru     106           63           35              -151.0
+     marketfeed    insiderpaper      97           89           11              -456.0
+     marketfeed       BRICSNews     129           90           10              -307.0
+     marketfeed          nwsmkr      64           75           25               -40.5
+     marketfeed         rnintel      75           83           17              -359.0
+     marketfeed        unfolded      46           39           61                 8.0
+     marketfeed      IntelSlava      38           87           13              -565.0
+    ClashReport     markettwits      51           39           61                84.0
+    ClashReport     WatcherGuru      15           73           27              -171.0
+    ClashReport    insiderpaper      58           69           31              -219.0
+    ClashReport       BRICSNews      52           46           54                39.5
+    ClashReport          nwsmkr      16           19           81               157.5
+    ClashReport         rnintel      51           65           33              -115.0
+    ClashReport      IntelSlava      26           88           12              -248.5
+    markettwits     WatcherGuru      27           78           22              -141.0
+    markettwits       BRICSNews      19           79           21              -133.0
+    markettwits          nwsmkr      17           29           71                53.0
+    markettwits        unfolded      14            7           93               132.5
+    WatcherGuru    insiderpaper      14           36           64               153.0
+    WatcherGuru          nwsmkr      16           31           69                99.0
+    WatcherGuru        unfolded      21           38           62               130.0
+   insiderpaper       BRICSNews      16           62           38               -94.0
+   insiderpaper         rnintel      18           50           50                48.0
+      BRICSNews         rnintel      14           71           29              -151.0
+      BRICSNews      IntelSlava      12           92            8              -285.0
+         nwsmkr        unfolded      14           50           50                 0.5
+
+B2. market-shaking stories (Sep 15 - Oct 15; calm before, then NAS100 or gold moved >= 2 x a normal 15-min move in the 15 min after the first post): 189
+        channel  stories  first  first_pct  median_behind_s  within_30s_of_first  within_60s
+ financialjuice      155     87         56              0.0                  115         138
+WalterBloomberg      116     51         44             22.0                   60          70
+     marketfeed      188     29         15             11.0                  171         175
+    ClashReport       50      8         16            234.5                    8          10
+        BWEnews        8      7         88              0.0                    8           8
+    markettwits       37      3          8             82.0                    9          12
+    WatcherGuru       11      2         18            198.0                    2           2
+   TreeNewsFeed        1      1        100              0.0                    1           1
+        rnintel        6      1         17            374.0                    1           1
+         nwsmkr        9      0          0             33.0                    4           6
+       unfolded        6      0          0             68.0                    2           2
+      BRICSNews       14      0          0            495.5                    0           0
+   insiderpaper        7      0          0            634.0                    0           0
+     disclosetv        2      0          0            652.5                    0           0
+     IntelSlava        6      0          0            737.5                    0           0
+  osintdefender        0      0          0              NaN                    0           0
+PolymarketIntel        0      0          0              NaN                    0           0
+
+B3. the market-shaking stories, biggest first (moves in units of a normal 15-min move)
+  2026-10-08 16:37:01 NAS -0.6/-14.0 gold -0.8/+1.8 | ECB's President Lagarde told the Euro Finance Chief: There is no sense of broadening  | financialjuice+0s > marketfeed+21s > WalterBloomberg+55s
+  2026-09-23 14:03:47 NAS -5.6/-14.0 gold +1.2/-3.2 | GOLDMAN: DIESEL EXPORT BAN COULD PUSH GASOLINE PRICES HIGHER  Goldman Sachs warns a U | WalterBloomberg+0s > marketfeed+6s > WatcherGuru+425s
+  2026-09-23 14:05:23 NAS -5.2/-12.8 gold +0.0/-2.6 | FED'S BARR SEES MORE RATE HIKES AHEAD (@WalterBloomberg) | WalterBloomberg+0s > financialjuice+9s > marketfeed+16s
+  2026-10-05 13:23:59 NAS +0.8/+10.1 gold +0.4/-2.5 | AggrNews: TREASURY WITHDRAWS PROPOSED CRYPTO SURVEILLANCE RULES TARGETING UNHOSTED WA | BWEnews+0s > unfolded+62s > marketfeed+75s > WalterBloomberg+122s > WatcherGuru+136s
+  2026-10-05 13:29:17 NAS +2.8/+9.9 gold +0.2/-5.0 | Yemeni sources report an attack on an oil refinery in Jeddah - Tasnim News.|FJ | financialjuice+0s > marketfeed+10s > WalterBloomberg+58s
+  2026-09-30 19:48:38 NAS -0.7/-9.5 gold -0.5/-0.4 | FLYDUBAI SAYS ITS FLIGHTS TO AND FROM ISRAEL WILL BE SUSPENDED WHILE THE INVESTIGATIO | marketfeed+0s > insiderpaper+835s > BRICSNews+914s > ClashReport+1031s > IntelSlava+1152s
+  2026-09-21 13:48:07 NAS +13.9/+4.7 gold -0.9/-8.6 | TRUMP WEIGHED STRIKES AGAINST HOUTHIS IN YEMEN BEFORE HOLDING OFF -    ... | marketfeed+0s > WalterBloomberg+75s > ClashReport+624s
+  2026-09-25 15:57:54 NAS +2.4/+8.0 gold +0.9/+4.0 | Trump asked Xi to stop supporting Iran - Axios|FJ | financialjuice+0s > marketfeed+20s > markettwits+239s
+  2026-09-25 14:52:52 NAS -1.4/+7.0 gold +1.9/+1.6 | YIELD ON 10-YEAR TREASURY NOTE HITS FRESH 19-YEAR HIGH AT 5.2297%; LAST UP 5.92 BASIS | WalterBloomberg+0s > marketfeed+4s > WatcherGuru+259s
+  2026-10-12 13:55:59 NAS -1.5/-6.9 gold -1.5/+2.3 | Ukraine’s President Zelenskiy: Russia hit six energy facilities in Ukraine on Monday| | financialjuice+0s > WalterBloomberg+7s > marketfeed+20s
+  2026-09-30 13:52:13 NAS +0.2/+6.9 gold -3.4/+0.0 | TRUMP TO ANNOUNCE 8 NUCLEAR POWER PLANTS FUNDED BY S.KOREA ... | marketfeed+0s > financialjuice+31s > WalterBloomberg+124s
+  2026-10-07 15:02:10 NAS -1.2/+6.0 gold -0.4/-0.4 | US Treasury to buy back up to $6 bln in longer-dated debt Thursday|FJ | financialjuice+0s > WalterBloomberg+10s > marketfeed+20s
+  2026-09-21 12:12:00 NAS +1.5/-3.5 gold +0.4/-5.8 | BESSENT ON IRAN: CAN'T TELL YOU HOW LONG CONFLICT WILL LAST -CNBC (@WalterBloomberg) | WalterBloomberg+0s > marketfeed+18s > financialjuice+49s
+  2026-10-15 13:40:03 NAS +0.7/-5.6 gold +0.6/+1.0 | *IEA AGREES TO COMPLETE RELEASE OF OUTSTANDING 100M BBL OF OIL (@WalterBloomberg) | WalterBloomberg+0s > marketfeed+9s > financialjuice+19s > markettwits+33s
+  2026-10-15 13:40:44 NAS +0.7/-5.6 gold +0.6/+1.0 | IEA seeks to release 20m bbl of diesel as soon as possible.|FJ | financialjuice+0s > marketfeed+12s > WalterBloomberg+20s
+  2026-10-01 17:51:02 NAS +0.2/-5.4 gold -0.7/-3.3 | The US is sending a third aircraft carrier to the Middle East - WSJ|FJ | financialjuice+0s > marketfeed+4s > BRICSNews+87s > markettwits+91s > WalterBloomberg+97s
+  2026-09-23 16:48:47 NAS -3.6/-5.3 gold -1.0/-3.0 | WHITE HOUSE PREPARING PLAN FOR 90-DAY DIESEL EXPORTS BAN ... | marketfeed+0s > financialjuice+144s > ClashReport+528s > WalterBloomberg+649s
+  2026-09-24 10:25:36 NAS -0.6/+3.5 gold -3.3/+5.3 | Saudi civil defence alerts of potential danger in Taif - Statement|FJ | financialjuice+0s > marketfeed+8s > insiderpaper+679s
+  2026-09-22 09:38:09 NAS -0.2/+4.8 gold -0.7/+5.0 | #OOTT | RUSSIA'S OIL EXPORTS FROM BLACK SEA NOVOROSSIYSK PORT ROSE TO 650,000 BARRELS | marketfeed+0s > financialjuice+36s > markettwits+65s
+  2026-09-29 13:31:15 NAS +0.1/-5.0 gold -0.8/+0.7 | UK's PM Burnham: You will see VAT disappear off electricity bill on Thursday.|FJ | financialjuice+0s > marketfeed+8s > ClashReport+171s
+  2026-10-14 14:48:25 NAS -0.9/-2.3 gold +1.8/-4.8 | NOVAK SAYS TWO RUSSIAN OIL REFINERIES ATTACKED TODAY: IFX ... | marketfeed+0s > financialjuice+17s > IntelSlava+891s
+  2026-09-25 12:47:22 NAS +0.2/-3.0 gold +2.4/-4.7 | USTR GREER: CONVERSATIONS WITH CHINA ABOUT EXPORT CONTROLS, NATIONAL SECURITY ARE OFF | WalterBloomberg+0s > marketfeed+6s > financialjuice+12s
+  2026-09-25 12:47:35 NAS +0.2/-3.0 gold +2.4/-4.7 | Trump: Very productive meeting with China's Xi|FJ | financialjuice+0s > marketfeed+27s > WalterBloomberg+37s
+  2026-09-24 14:27:14 NAS +4.3/-2.3 gold -0.3/-4.7 | TRUMP SAYS HE AND XI HAVE MADE TREMENDOUS STRIDES ON ISSUES FACING TWO COUNTRIES (@Wa | WalterBloomberg+0s > marketfeed+17s > financialjuice+31s > ClashReport+140s
+  2026-09-24 14:27:26 NAS +4.3/-2.3 gold -0.3/-4.7 | TRUMP SAYS WORKING TOWARD A MORE BALANCED TRADE RELATIONSHIP (@WalterBloomberg) | WalterBloomberg+0s > marketfeed+7s > financialjuice+37s
+  2026-10-05 15:07:06 NAS +0.6/-0.7 gold -0.5/-4.6 | Trump is going to unveil a plan on red-dyed diesel on Monday - Officials|FJ | financialjuice+0s > marketfeed+11s > WalterBloomberg+78s
+  2026-10-05 15:07:17 NAS +0.6/-0.7 gold -0.5/-4.6 | TRUMP TO EASE USE OF TAX-EXEMPT VARIETY OF DIESEL ... | marketfeed+0s > markettwits+38s > WalterBloomberg+151s
+  2026-09-15 14:37:35 NAS -0.8/-4.6 gold -2.4/-0.4 | Iran says it shot down a third U.S. MQ-1 drone over the Strait of Hormuz today using  | ClashReport+0s > financialjuice+742s > marketfeed+750s
+  2026-09-28 11:58:35 NAS +0.2/+3.9 gold -0.9/+4.5 | ❗️🇺🇸#NVDA #ии #warning  Nvidia разработала защиту от вышедших из-под контроля ИИ-аген | markettwits+0s > financialjuice+514s > marketfeed+534s
+  2026-10-01 13:34:01 NAS -0.6/-4.4 gold -2.4/-2.2 | US asked Europe to release over 1/3 of diesel reserves - Politico|FJ | financialjuice+0s > marketfeed+2s > markettwits+27s
+  2026-10-14 19:04:21 NAS -2.9/+4.4 gold +0.9/+3.9 | NYFED: DESK PLANS TO CONDUCT APPROXIMATELY $14.6 BILLION IN REINVESTMENT PURCHASES BE | WalterBloomberg+0s > marketfeed+13s > financialjuice+37s
+  2026-10-14 19:09:19 NAS -2.9/+4.4 gold -0.1/+4.2 | *FED'S GOOLSBEE: CPI DATA WAS 'DISCOURAGING' ... | marketfeed+0s > financialjuice+2s > WalterBloomberg+81s
+  2026-09-22 17:50:50 NAS +0.3/+2.4 gold +0.9/+4.4 | Trump: Strikes inside russia on refining capacity are a serious hit on the Russians a | financialjuice+0s > marketfeed+23s > ClashReport+127s
+  2026-10-02 12:49:54 NAS +0.7/+4.4 gold -3.4/+2.6 | Netanyahu:  Whoever sent this pilot will pay a very heavy price. | ClashReport+0s > financialjuice+371s > marketfeed+379s
+  2026-09-23 12:24:02 NAS +0.6/+0.7 gold +0.4/-4.3 | BofA's Demare: Q3 will not be as robust in markets as Q2 was|FJ | financialjuice+0s > marketfeed+3s > WalterBloomberg+86s
+  2026-09-22 12:10:14 NAS -2.0/+1.1 gold +0.2/+4.3 | CHINA'S XI UNLIKELY TO BRING BUSINESS DELEGATION TO MEETING WITH TRUMP - SOURCES ... | marketfeed+0s > financialjuice+24s > WalterBloomberg+46s > BRICSNews+975s > ClashReport+1122s
+  2026-10-09 12:38:07 NAS -1.2/-2.2 gold -0.5/-4.3 | Kremlin: Putin-Trump call will be soon - IFX|FJ | financialjuice+0s > marketfeed+11s > WalterBloomberg+90s
+  2026-10-05 04:03:39 NAS -2.0/-1.3 gold -0.7/-4.3 | EU to restrict Ukraine’s access to agricultural subsidies if it joins bloc - FT|FJ | financialjuice+0s > marketfeed+34s > markettwits+134s
+  2026-10-14 18:51:05 NAS +1.0/-4.2 gold -0.1/+0.0 | The US is sending hundreds of troops to Latin America, expanding its fight against dr | financialjuice+0s > marketfeed+0s > WalterBloomberg+271s > ClashReport+453s
+  2026-10-13 15:13:15 NAS +0.6/-4.1 gold -0.9/-3.0 | SAUDI CABINET, CHAIRED BY MBS: YEMEN'S HOUTHIS WILL FACE 'CONSEQUENCES' FOR ITS REPEA | marketfeed+0s > financialjuice+9s > BRICSNews+243s
+  2026-10-06 13:15:49 NAS +0.5/+4.1 gold -0.3/-2.6 | JPMorgan CEO Dimon: Should build data centers where they're wanted|FJ | financialjuice+0s > marketfeed+23s > WalterBloomberg+84s
+  2026-10-14 19:10:20 NAS -2.3/+4.1 gold +0.5/+2.8 | *FED'S GOOLSBEE: KEY TO FOCUS ON TREND OF INFLATION, NOT ONE REPORT ... | marketfeed+0s > financialjuice+16s > WalterBloomberg+106s
+  2026-10-01 00:15:26 NAS -2.0/-2.7 gold -1.2/-4.1 | ❗ U.S. official: Secretary Rubio kicked out the Iranian delegation who had over staye | financialjuice+0s > marketfeed+8s > BRICSNews+898s
+  2026-09-22 14:53:08 NAS -1.2/-0.9 gold -1.0/+4.1 | Trump: Cuba will fall.|FJ | financialjuice+0s > marketfeed+12s > ClashReport+398s > insiderpaper+713s
+  2026-09-15 18:01:05 NAS +1.3/-0.0 gold -0.4/+4.1 | CBO: war in Iran cost us $38 billion in first five months.|FJ | financialjuice+0s > marketfeed+22s > markettwits+302s
+  2026-10-01 17:55:38 NAS -0.5/-4.1 gold -1.4/-1.1 | ⚠️🇮🇷#иран #геополитика #трамп  ТРАМП: Я неоднократно заявлял, что для устранения ИРАН | markettwits+0s > financialjuice+35s > marketfeed+44s > WalterBloomberg+71s > ClashReport+84s
+  2026-10-01 17:55:02 NAS -0.5/-4.1 gold -1.4/-1.1 | ❗ Trump recently told aides he expects to resume iran bombing -  WSJ|FJ | financialjuice+0s > marketfeed+19s > WalterBloomberg+212s
+  2026-09-21 12:15:17 NAS +0.5/-2.5 gold +0.4/-4.1 | BESSENT ON INTEREST RATES: SHOULD COME DOWN AFTER CONFLICT -CNBC (@WalterBloomberg) | WalterBloomberg+0s > marketfeed+17s > financialjuice+26s
+  2026-09-21 12:08:29 NAS +1.3/-2.5 gold +0.5/-4.0 | JUST IN: Michael Saylor's 'Strategy' buys 950 Bitcoin worth $80 million.  @WatcherGur | WatcherGuru+0s > marketfeed+5s > financialjuice+136s
+  2026-10-14 18:01:03 NAS -3.3/+4.0 gold -1.2/+3.9 | Fed Beige Book: Since the prior beige book, two of the twelve Federal Reserve distric | financialjuice+0s > WalterBloomberg+7s > marketfeed+14s
+  2026-09-23 14:29:27 NAS -3.9/+4.0 gold -1.1/+2.4 | Iran's Pezeshkian: Trump should know that threats unite the Iranian nation.|FJ | financialjuice+0s > marketfeed+13s > ClashReport+509s
+  2026-10-01 11:35:02 NAS +0.7/+2.4 gold +2.4/+3.9 | Q: On Iran, are you going to ramp up bombing after the midterms? There have been repo | ClashReport+0s > WalterBloomberg+77s > marketfeed+83s
+  2026-09-25 11:00:31 NAS -0.2/+3.9 gold +2.1/+0.2 | 🌅 Market News Digest [Sep 24–25, 2026 EST]  🔥 Top Stories • U.S.–China reset after Tr | marketfeed+0s > markettwits+628s > BRICSNews+1052s
+  2026-09-24 14:28:01 NAS +3.3/-2.9 gold -0.9/-3.9 | TRUMP SAYS HE AND XI WILL DISCUSS SECURITY, TECHNOLOGY AND ARTIFICIAL INTELLIGENCE (@ | WalterBloomberg+0s > marketfeed+16s > financialjuice+34s > BRICSNews+106s > ClashReport+152s
+  2026-09-21 13:57:34 NAS +9.5/+1.6 gold -0.1/-3.9 | OPENAI AND ANTHROPIC NEARED DEAL TO STRESS-TEST EACH OTHER’S AI - THE INFORMATION (@W | WalterBloomberg+0s > marketfeed+4s > financialjuice+6s
+  2026-09-24 14:29:16 NAS +2.8/-3.4 gold -0.8/-3.9 | Trump on China: If we focus on common interests, we can achieve a lot.|FJ | financialjuice+0s > marketfeed+15s > ClashReport+153s
+  2026-10-12 00:38:44 NAS +0.9/-3.9 gold -1.1/-0.0 | Projectile believed to be a ballistic missile from North Korea seems to have already  | financialjuice+0s > marketfeed+6s > BRICSNews+1120s
+  2026-09-24 14:40:27 NAS -0.3/-3.8 gold -2.4/+0.6 | China’s President Xi: We need to ensure that AI is always under human control.|FJ | financialjuice+0s > marketfeed+5s > ClashReport+149s > insiderpaper+634s
+  2026-10-15 14:29:58 NAS +0.9/+3.8 gold +3.0/+0.1 | *EU BEGINS ASSESSING ADDITIONAL SECTORS FOR CHINA TRADE QUOTAS (@WalterBloomberg) | WalterBloomberg+0s > marketfeed+15s > financialjuice+47s
+  2026-10-14 22:07:59 NAS -1.0/-3.8 gold -0.6/+1.9 | Anthropic revenue climbs to $16.8 billion in Q3: FT|FJ | financialjuice+0s > marketfeed+11s > WalterBloomberg+372s
+  2026-09-24 12:40:33 NAS -2.9/+3.0 gold +0.3/+3.8 | China and EU hold trade talks ahead of the mechanism meeting|FJ | financialjuice+0s > marketfeed+8s > WalterBloomberg+208s
+  2026-10-02 13:23:00 NAS -0.8/-2.7 gold -6.2/+3.8 | WH Sr. Adviser Hassett, on diesel: We have been talking with Europe|FJ | financialjuice+0s > marketfeed+15s > WalterBloomberg+117s
+  2026-09-22 14:54:58 NAS +0.0/-2.4 gold +0.3/+3.7 | Trump: We will build two major military bases in Greenland.|FJ | financialjuice+0s > marketfeed+7s > ClashReport+438s
+  2026-09-22 14:54:24 NAS +0.0/-2.4 gold +0.3/+3.7 | Trump: Cuba is a failed state, freedom will be coming to Cuba.|FJ | financialjuice+0s > marketfeed+11s > ClashReport+415s
+  2026-09-23 17:41:08 NAS +2.3/+3.7 gold +0.3/+2.7 | WHITE HOUSE OFFICIAL SAYS REPORT THAT US IS CONSIDERING A DIESEL EXPORT BAN IS 'FAKE  | WalterBloomberg+0s > marketfeed+11s > financialjuice+59s
+  2026-09-25 14:42:09 NAS +0.4/+3.7 gold +1.2/+2.2 | RUSSIA CAN IMMEDIATELY RESTART 80% OF GRAIN TRADING PORTS IN BLACK SEA AND SEA OF AZO | WalterBloomberg+0s > marketfeed+9s > financialjuice+46s
+  2026-10-05 14:04:56 NAS -1.2/+3.7 gold -0.1/+0.2 | STOCKS OF CRUDE OIL IN THE US STRATEGIC PETROLEUM RESERVE FELL BY ABOUT 767,000 BARRE | WalterBloomberg+0s > marketfeed+19s > financialjuice+24s
+  2026-09-29 20:27:14 NAS +0.1/+0.0 gold +0.3/+3.6 | 🛢🇷🇺#нефть #россия  Россия получила рекордную с начала конфликта на Украине недельную  | markettwits+0s > marketfeed+186s > IntelSlava+1133s
+  2026-09-24 14:52:05 NAS -2.4/-2.9 gold +0.0/-3.6 | YEMEN'S HOUTHIS SAY THEY ATTACKED SAUDI MILITARY SITES IN JAZAN; NO SAUDI CONFIRMATIO | WalterBloomberg+0s > marketfeed+12s > financialjuice+39s
+  2026-09-15 16:13:20 NAS -2.2/+3.6 gold -1.1/+3.0 | JUST IN: 🇺🇸 Senator Lummis says if the Crypto Clarity Act fails today, "we're done, i | WatcherGuru+0s > marketfeed+1s > nwsmkr+829s
+  2026-10-15 14:27:55 NAS -1.0/+3.6 gold +3.7/+0.8 | Houthis fire several missiles at the Presidential Palace complex in Yemen's Aden - Tw | financialjuice+0s > marketfeed+3s > ClashReport+227s
+  2026-09-18 16:06:22 NAS -0.5/+0.1 gold +0.6/+3.6 | A shipment of F-35 parts diverted to HK this summer - Politico. $LMT|FJ | financialjuice+0s > marketfeed+18s > ClashReport+44s
+  2026-09-24 18:05:47 NAS -3.6/+3.6 gold -0.4/+3.0 | WATCH: Netanyahu is booed as he begins his UNGA speech, with many delegations walking | ClashReport+0s > marketfeed+83s > BRICSNews+464s
+  2026-09-18 12:01:26 NAS -0.5/-3.6 gold +1.3/-2.6 | France's Pres. Macron: France was targeted by Russian hybrid attacks in the past few  | financialjuice+0s > marketfeed+21s > insiderpaper+457s
+  2026-10-14 19:13:23 NAS -1.7/+3.5 gold +0.3/+2.5 | FED'S GOOLSBEE: FED MUST PREVENT THE BUILD UP OF OVERHEATING (@WalterBloomberg) | WalterBloomberg+0s > marketfeed+12s > financialjuice+16s
+  2026-10-14 19:03:40 NAS -3.0/+1.9 gold +0.2/+3.5 | MUSK: STARSHIELD SYSTEMS ARE OWNED AND CONTROLLED BY US GOVERNMENT; ANY LIMITS ON SPE | WalterBloomberg+0s > marketfeed+9s > ClashReport+1022s
+  2026-10-14 16:30:16 NAS -0.8/+3.5 gold +0.4/+1.4 | TRUMP: LUTNICK, HAS SECURED AN OFFTAKE COMMITMENT FROM TAIWAN OF BETWEEN 70 TO 80 BLN | WalterBloomberg+0s > marketfeed+14s > financialjuice+24s
+  2026-10-14 16:30:26 NAS -0.8/+3.5 gold +0.4/+1.4 | TRUMP: TAIWAN HAS ALSO AGREED TO INVEST 4.4 BLN DOLLARS IN EQUITY INTO PROJECT (@Walt | WalterBloomberg+0s > marketfeed+4s > financialjuice+61s
+  2026-09-28 16:17:35 NAS +3.7/+3.5 gold +1.4/+2.9 | ❗ US Official to Al Jazeera: We continue a positive discussion with Iran through inte | financialjuice+0s > markettwits+1s > marketfeed+5s
+  2026-09-15 18:00:42 NAS +0.0/+1.2 gold +0.3/+3.5 | CBO: Annual PCE inflation projection now 0.5 ppt higher in Q1 2027.|FJ | financialjuice+0s > marketfeed+16s > WalterBloomberg+197s
+  2026-09-23 15:43:37 NAS -0.1/-3.5 gold -1.2/-0.5 | U.S. TREASURY YIELD ON 10-YEAR TREASURY NOTE HITS 5.081%, HIGHEST SINCE JULY 17, 2007 | WalterBloomberg+0s > marketfeed+25s > markettwits+435s
+  2026-10-07 10:28:00 NAS +0.0/-3.5 gold +0.2/-0.9 | Iran president reiterates country will ‘resist’ enemy - Fars|FJ | financialjuice+0s > marketfeed+4s > WalterBloomberg+121s
+  2026-09-24 14:26:29 NAS +2.6/-1.1 gold -1.3/-3.5 | TRUMP SAYS PROUD OF US, CHINA RELATIONSHIP (@WalterBloomberg) | WalterBloomberg+0s > marketfeed+2s > financialjuice+25s
+  2026-09-15 19:45:07 NAS -0.6/+3.4 gold -0.9/+0.9 | US VP Vance agrees that the war will end after the midterms - NY Post.|FJ | financialjuice+0s > marketfeed+11s > WalterBloomberg+428s
+  2026-10-14 15:55:12 NAS +1.4/-3.4 gold -0.1/-1.5 | ZELENSKIY: IT IS A PITY THAT WE HAVE SOME DIFFICULTIES WITH STARLINK (@WalterBloomber | WalterBloomberg+0s > marketfeed+16s > nwsmkr+33s
+  2026-10-05 14:09:26 NAS +0.5/+3.4 gold +1.9/-1.7 | ❗ Iran Interior Minister heads to doha for talks - ISNA.|FJ | financialjuice+0s > marketfeed+18s > markettwits+72s > WalterBloomberg+109s
+  2026-09-17 07:01:51 NAS +0.5/+3.1 gold +1.2/+3.4 | EU: Canada deal is 'for our common strength’ - Spokesman|FJ | financialjuice+0s > marketfeed+8s > WalterBloomberg+330s
+  2026-10-07 14:20:03 NAS +3.5/-0.2 gold +1.5/+3.4 | MARVELL TECHNOLOGIES CEO MATT MURPHY: IMPLIED DATA CENTER REVENUE COULD TOP $30 BILLI | WalterBloomberg+0s > marketfeed+7s > financialjuice+35s
+  2026-09-25 12:49:10 NAS -2.2/-0.6 gold -0.1/-3.4 | Houthis promise not to target European ships - FT|FJ | financialjuice+0s > marketfeed+1s > markettwits+2s > WalterBloomberg+551s > ClashReport+926s
+  2026-09-17 00:08:32 NAS +0.9/-1.9 gold +0.4/+3.4 | Trump: we're very close to an agreement with Mexico|FJ | financialjuice+0s > marketfeed+7s > ClashReport+633s
+  2026-09-24 14:18:18 NAS -0.3/+1.6 gold -0.5/-3.3 | SAUDI EAST-WEST PIPELINE IS BUILDING UP CRUDE VOLUMES, TANKER LOADING YET TO RESUME A | WalterBloomberg+0s > marketfeed+13s > financialjuice+48s > markettwits+674s
+  2026-09-17 00:42:29 NAS +1.5/-0.4 gold +1.3/-3.3 | United States denies Palestinian President Mahmoud Abbas entry visa for UN General As | financialjuice+0s > marketfeed+11s > ClashReport+185s
+  2026-10-12 13:02:43 NAS +1.3/-0.3 gold -0.4/+3.3 | AMD launches Helion agentic AI rack at rack scale|FJ | financialjuice+0s > marketfeed+16s > markettwits+65s
+  2026-10-14 18:02:51 NAS -2.3/+2.1 gold -0.7/+3.3 | DENMARK FOREIGN MINISTRY:IF THE US WISHES TO EXPLORE THE GREENLANDIC SUBSOIL FOR OIL, | WalterBloomberg+0s > marketfeed+12s > financialjuice+46s
+  2026-09-24 12:44:39 NAS -0.0/+0.9 gold +0.2/+3.3 | Small group of Chinese CEOs arrived in Washington - SCMP|FJ | financialjuice+0s > marketfeed+18s > WalterBloomberg+62s
+  2026-09-22 19:24:54 NAS +0.7/+3.3 gold +0.5/+2.9 | ❗ Iran's conditions for reopening the Strait of Hormuz include immediate lifting of t | financialjuice+0s > marketfeed+5s > ClashReport+355s
+  2026-09-25 12:48:13 NAS -1.4/-1.4 gold +0.6/-3.3 | TRUMP: XI 'SEEMED TO LIKE' CALLING AI SUPER INTELLIGENCE ... | marketfeed+0s > insiderpaper+178s > WatcherGuru+343s
+  2026-09-25 12:48:04 NAS -1.4/-1.4 gold +0.6/-3.3 | TRUMP: TREMENDOUS THINGS WILL BE HAPPENING ... | marketfeed+0s > financialjuice+2s > ClashReport+33s
+  2026-10-07 11:46:47 NAS -0.7/+3.3 gold -0.9/+2.4 | Senior Eurozone official: I do not see contagion from the French bond yield rise so f | financialjuice+0s > WalterBloomberg+16s > marketfeed+19s > markettwits+116s
+  2026-09-24 17:10:22 NAS +0.3/-3.3 gold -1.8/-2.4 | TRUMP TAKES CHINA'S XI INSIDE PRESIDENTIAL HELICOPTER (@WalterBloomberg) | WalterBloomberg+0s > marketfeed+15s > financialjuice+34s
+  2026-09-24 12:38:56 NAS -4.2/+2.3 gold -0.8/+3.2 | TRUMP: GASOLINE PRICES WILL BE COMING DOWN ... | marketfeed+0s > financialjuice+13s > WalterBloomberg+60s > WatcherGuru+198s
+  2026-09-28 11:11:13 NAS +0.1/+3.2 gold -1.9/+1.2 | Google to invest at least $15.2b in Finland over two years - Fox $GOOGL|FJ | financialjuice+0s > marketfeed+11s > markettwits+22s
+  2026-09-15 16:54:58 NAS +1.4/-3.2 gold +0.9/-1.8 | AggrNews: ROBINHOOD EMPLOYEES CHARGED WITH COMMODITIES FRAUD FOR INSIDER TRADING ON H | BWEnews+0s > unfolded+27s > marketfeed+40s > nwsmkr+66s > WatcherGuru+317s
+  2026-10-06 13:37:40 NAS -0.9/+3.2 gold -1.0/-3.1 | Israel warns of attack risk abroad ahead of Oct. 7th anniversary.|FJ | financialjuice+0s > marketfeed+3s > WalterBloomberg+163s
+  2026-10-01 11:06:29 NAS -1.3/-3.2 gold -1.5/-1.4 | Trump sees ramping up bombing Iran after midterms possible - Time|FJ | financialjuice+0s > WalterBloomberg+24s > marketfeed+25s > markettwits+76s
+  2026-09-30 19:37:15 NAS -0.4/-3.2 gold -0.4/+0.3 | Hegseth:  We are launching Fortress America.  Every major military installation in Am | ClashReport+0s > financialjuice+161s > marketfeed+172s
+  2026-09-29 17:12:21 NAS +0.4/+3.2 gold +0.9/-0.0 | The US is looking to Europe to release Diesel from reserves - Politico|FJ | financialjuice+0s > marketfeed+15s > WalterBloomberg+385s
+  2026-10-15 13:09:09 NAS -0.1/-0.6 gold +1.2/+3.1 | WEF could appoint Lagarde next chair as early as November.|FJ | financialjuice+0s > marketfeed+2s > WalterBloomberg+329s > disclosetv+577s
+  2026-09-16 22:29:16 NAS +3.0/+2.6 gold +0.8/+3.1 | *TRUMP: HOPEFULLY TOWARD END OF WAR IN IRAN ... | marketfeed+0s > ClashReport+242s > rnintel+455s
+  2026-10-08 16:15:34 NAS -0.1/+3.1 gold +0.2/+1.9 | BWENEWS: TRUMP: WHITE HOUSE CONSIDERS ANYONE USING TERM ARTIFICIAL INTELLIGENCE INSTE | BWEnews+0s > marketfeed+2s > nwsmkr+9s > WalterBloomberg+91s > ClashReport+281s > insiderpaper+344s > disclosetv+728s > rnintel+772s
+  2026-10-08 16:15:30 NAS -0.1/+3.1 gold +0.2/+1.9 | FED CHAIRMAN WARSH TO SPEAK ON OCTOBER 16 AT IMF -- IMF AGENDA FOR BANGKOK ANNUAL MEE | WalterBloomberg+0s > marketfeed+21s > financialjuice+47s
+  2026-10-13 12:40:20 NAS -1.3/-0.3 gold +0.0/-3.1 | YEMEN'S HOUTHIS WARN EMPLOYEES AND CIVILIANS TO EVACUATE AREAS NEAR ARAMCO OIL FACILI | marketfeed+0s > financialjuice+0s > markettwits+41s
+  2026-09-28 22:02:40 NAS -0.1/+3.1 gold +0.9/+1.7 | OpenAI planned to release model GPT-6.1 Astra in coming days or weeks, aiming for Oct | financialjuice+0s > marketfeed+17s > WatcherGuru+189s
+  2026-09-25 12:05:39 NAS +0.0/-3.1 gold -0.4/-0.2 | $MSTR - STRATEGY PROPOSES DAILY DIVIDENDS ON PREFERRED STOCK  Strategy is seeking sha | WalterBloomberg+0s > marketfeed+7s > unfolded+999s
+  2026-10-15 14:20:58 NAS +1.3/-0.7 gold -1.1/+3.1 | UKRAINE RUNS OUT OF PATRIOT DEFENSE MISSILES, LEAVING IT MORE VULNERABLE TO RUSSIAN A | marketfeed+0s > WalterBloomberg+646s > ClashReport+746s
+  2026-10-14 19:12:35 NAS -1.6/+3.0 gold -0.0/+2.6 | FED'S GOOLSBEE: IS NOT A FAN OF TELEGRAPHING FED MOVES AHEAD OF MEETINGS (@WalterBloo | WalterBloomberg+0s > marketfeed+14s > financialjuice+30s
+  2026-10-12 16:44:13 NAS -0.1/-3.0 gold -0.4/+1.4 | Fed's Hammack: Interest rates need to be higher - Axios|FJ | financialjuice+0s > marketfeed+17s > WalterBloomberg+25s
+  2026-10-05 14:03:04 NAS -1.2/+3.0 gold +2.8/-1.9 | Trump's Top National Security Officials Hold Secret Camp David Meeting on Iran and Ye | financialjuice+0s > marketfeed+10s > ClashReport+177s > WalterBloomberg+198s
+  2026-09-23 10:57:39 NAS +0.9/-3.0 gold -0.6/+0.5 | HSBC raises 2026 year-end Stoxx 600 index target to 680 from 670|FJ | financialjuice+0s > marketfeed+17s > markettwits+82s
+  2026-09-25 10:02:00 NAS -0.6/+1.5 gold +1.2/+3.0 | US FED PLANS TO RAISE BANK OVERSIGHT THRESHOLDS – RTRS CITES SOURCES ... | marketfeed+0s > financialjuice+220s > WalterBloomberg+708s
+  2026-10-09 12:43:23 NAS -2.7/+1.2 gold -1.0/-2.9 | IRGC SAYS FROM NOW ON, ANY VESSELS COMMITTING VIOLATIONS OUTSIDE STRAIT OF HORMUZ WIL | WalterBloomberg+0s > marketfeed+9s > BRICSNews+897s
+  2026-10-12 16:46:15 NAS -1.2/-2.9 gold -0.3/+0.9 | *FED'S HAMMACK SAYS MORE MONETARY POLICY TIGHTENING NEEDED  *FED'S HAMMACK PREFERS SM | WalterBloomberg+0s > marketfeed+15s > financialjuice+68s
+  2026-09-21 18:09:56 NAS +0.5/+2.9 gold +2.1/+0.1 | Trump praises Lockheed Martin - Truth Social. $LMT|FJ | financialjuice+0s > marketfeed+7s > markettwits+76s
+  2026-09-15 13:32:46 NAS -2.4/+2.8 gold -1.4/+2.4 | Libya NOC: Output halted at the Hamada and Al-tahara fields.|FJ | financialjuice+0s > marketfeed+6s > WalterBloomberg+805s
+  2026-09-18 11:15:00 NAS -1.5/-1.3 gold +1.4/-2.8 | NEW: Saudi Aramco has told at least two European refiners they will receive no Saudi  | ClashReport+0s > WalterBloomberg+683s > marketfeed+697s
+  2026-09-24 17:07:59 NAS +1.9/-2.8 gold -0.8/-2.3 | TRUMP: WE HAD A GREAT MEETING (@WalterBloomberg) | WalterBloomberg+0s > marketfeed+7s > financialjuice+16s
+  2026-10-01 16:40:09 NAS +0.3/-2.8 gold -1.7/-0.9 | Trump: Interest rates will hurt our growth.|FJ | financialjuice+0s > marketfeed+9s > WalterBloomberg+663s > ClashReport+924s
+  2026-09-24 12:35:07 NAS -4.4/+2.0 gold -1.3/+2.8 | ECB'S SCHNABEL TO STEP DOWN EARLY TO JOIN IMF, ANNOUNCEMENT IMMINENT, SOURCES SAY (@W | WalterBloomberg+0s > marketfeed+19s > financialjuice+21s
+  2026-09-25 12:50:51 NAS -2.1/+0.2 gold +0.9/-2.8 | USTR GREER: THERE IS STILL A LOT OF STRONG TRADE WITH CANADA  USTR GREER: CANADIANS W | WalterBloomberg+0s > marketfeed+7s > financialjuice+19s
+  2026-10-02 07:54:51 NAS +1.7/+2.8 gold +0.5/+2.6 | US has requested that large European countries release 800,000 kilotons of diesel ove | financialjuice+0s > marketfeed+7s > markettwits+136s
+  2026-10-02 16:06:23 NAS +1.1/-0.3 gold -0.6/+2.8 | ❗ Saudis plan assault on Houthis to break Red Sea chokehold, according to western and | financialjuice+0s > marketfeed+11s > markettwits+110s
+  2026-09-23 12:18:18 NAS -1.7/+2.8 gold +0.6/-2.4 | A Russian Mi-8 military helicopter briefly entered Polish airspace from the Kaliningr | ClashReport+0s > IntelSlava+249s > rnintel+469s
+  2026-09-22 14:50:15 NAS -0.7/-1.9 gold -0.2/+2.7 | Trump: United States and Venezuela together, we have more than 60% of the oil in the  | financialjuice+0s > marketfeed+4s > ClashReport+303s
+  2026-10-12 08:11:54 NAS -1.1/-2.7 gold -1.2/-0.5 | Zelenskiy: if Russia rejects energy truce this winter, Ukraine will respond|FJ | financialjuice+0s > marketfeed+17s > ClashReport+593s
+  2026-10-14 15:19:11 NAS -0.4/-2.7 gold -0.3/+0.8 | FILES LEAKED INCLUDE DETAILED UNRELEASED DEVICE IMAGES, ENGINEERING DATA, SUPPLIER IN | WalterBloomberg+0s > marketfeed+15s > financialjuice+56s
+  2026-10-06 12:50:56 NAS +0.1/+2.7 gold -0.5/+0.1 | Iran Minister: Talks with Qatar emir were ‘constructive’|FJ | financialjuice+0s > marketfeed+15s > WalterBloomberg+96s
+  2026-10-07 11:48:58 NAS +0.4/+2.1 gold -0.7/+2.6 | Senior Eurozone official: France is in a politically complicated place, but it is not | financialjuice+0s > marketfeed+23s > WalterBloomberg+50s
+  2026-09-16 13:02:45 NAS +0.2/+1.5 gold +1.3/+2.6 | $AAPL | APPLE CONSIDERS RETURN TO SERVER MARKET, HAS TALKED WITH NVIDIA TO USE NETWOR | marketfeed+0s > financialjuice+36s > markettwits+190s
+  2026-09-29 19:45:04 NAS -1.1/+2.6 gold -0.0/+2.5 | Trump: We're thinking about a committee of 10 people to watch over AI.|FJ | financialjuice+0s > marketfeed+27s > WalterBloomberg+387s
+  2026-09-30 15:26:32 NAS -0.9/+2.6 gold -3.5/+2.3 | [ Z ]   HYPERLIQUID LABS WILL UNSTAKE $320M OF $HYPE TODAY FOR ITS MONTHLY TEAM UNLOC | marketfeed+0s > nwsmkr+48s > markettwits+188s
+  2026-09-15 14:56:07 NAS -2.5/+2.0 gold +0.3/+2.6 | US Treasury Secretary Bessent: Trump completely aligned with Nvidia's CEO. $NVDA|FJ | financialjuice+0s > marketfeed+12s > WalterBloomberg+77s
+  2026-10-08 15:49:16 NAS -0.8/-2.5 gold -0.6/-1.7 | HEAD OF IRAN'S ATOMIC ENERGY ORGANIZATION: IRAN WILL NOT ABANDON URANIUM ENRICHMENT O | WalterBloomberg+0s > marketfeed+18s > financialjuice+28s
+  2026-10-06 12:46:29 NAS -1.0/+2.5 gold -1.2/-0.1 | TREASURY YIELDS ARE "SCREAMING GOOD VALUE" AFTER RECENT RUN UP, SAYS PIMCO SENIOR ADV | WalterBloomberg+0s > marketfeed+12s > financialjuice+45s
+  2026-09-23 22:15:59 NAS +1.0/-2.4 gold -1.0/-0.2 | *US WEIGHS INITIATIVE TO PROMOTE DOLLAR-BACKED STABLECOIN ABROAD: BBG | TreeNewsFeed+0s > BWEnews+4s > marketfeed+19s > unfolded+947s
+  2026-09-25 16:50:51 NAS -0.7/+1.7 gold -0.9/+2.4 | TRUMP: SCOTT BESSENT WILL NOT BE GOING TO BE SUPER INTELLIGENCE (SI) CZAR.  TRUMP: BE | WalterBloomberg+0s > marketfeed+10s > ClashReport+202s > financialjuice+341s
+  2026-10-06 12:55:33 NAS +0.4/+2.4 gold -1.9/+1.3 | IEA expected to decide details of G7 diesel and oil stock release at board meeting on | financialjuice+0s > marketfeed+10s > WalterBloomberg+240s
+  2026-09-15 15:01:57 NAS -1.7/+0.9 gold -1.1/+2.4 | Meta Launches Meta One Subscription Plans Globally $META|FJ | financialjuice+0s > marketfeed+7s > nwsmkr+522s
+  2026-10-02 11:33:34 NAS +0.7/-2.4 gold -1.5/-0.6 | Saudi Arabia has about 4.5m b/d pipeline flow available for export|FJ | financialjuice+0s > marketfeed+4s > WalterBloomberg+258s
+  2026-10-02 11:33:27 NAS +0.7/-2.4 gold -1.5/-0.6 | Saudi Arabia pumping close to 6m b/d oil on East-West pipeline.|FJ | financialjuice+0s > marketfeed+11s > WalterBloomberg+32s
+  2026-10-07 15:13:23 NAS +4.7/-2.2 gold +1.0/-2.4 | FRANCE CONSIDERS ISSUING MORE SHORTER-TERM DEBT AMID BOND-MARKET TURMOIL (@WalterBloo | WalterBloomberg+0s > marketfeed+20s > financialjuice+21s
+  2026-09-29 16:40:36 NAS -1.6/-1.6 gold -0.4/-2.4 | *FED'S BARR: THERE IS A NEED TO RECALIBRATE POLICY; BASE CASE IS THAT FURTHER POLICY  | marketfeed+0s > financialjuice+37s > WalterBloomberg+43s
+  2026-10-05 19:31:18 NAS +0.4/-2.4 gold +0.9/-0.6 | Trump on FlyDubai plane incident: I think Iran is responsible.|FJ | financialjuice+0s > marketfeed+5s > markettwits+442s
+  2026-10-15 16:11:22 NAS +0.3/-2.3 gold -1.7/+1.0 | AggrNews: https://t.co/Bi7X4SDWRE SEEKS $100 MILLION TO EXPAND ITS CRYPTO BUSINESS: B | BWEnews+0s > unfolded+74s > marketfeed+101s
+  2026-10-14 09:10:49 NAS +0.8/-2.3 gold -0.1/-0.6 | IRGC NAVY: CONTAINER SHIP CARRYING 2,500 CONTAINERS SANK IN SOUTHERN WATERS OF STRAIT | marketfeed+0s > financialjuice+163s > ClashReport+464s > WalterBloomberg+744s
+  2026-09-29 18:37:44 NAS +0.1/+2.3 gold +0.8/+0.0 | Trump on AI: Should be tremendous self-regulation.|FJ | financialjuice+0s > marketfeed+11s > ClashReport+364s
+  2026-09-24 11:25:58 NAS +0.5/-2.3 gold +3.2/-2.0 | Trump on Truth Social: A big day with President Xi of China. Super Intelligence (SI)  | financialjuice+0s > marketfeed+2s > ClashReport+219s > WatcherGuru+747s
+  2026-10-01 17:44:07 NAS +2.1/-2.3 gold +1.4/-2.2 | *FED'S KASHKARI: 'I DON'T HAVE A STRONG VIEW' ABOUT OCTOBER RATE HIKE ... | marketfeed+0s > financialjuice+92s > WalterBloomberg+152s
+  2026-10-02 13:58:19 NAS +1.7/+1.7 gold +1.4/-2.3 | ❗ France’s President Macron: Diesel and crude stocks to be released over 4 months.|FJ | financialjuice+0s > marketfeed+11s > WalterBloomberg+38s
+  2026-09-17 00:47:19 NAS -0.3/-0.7 gold -0.2/+2.3 | Saudi Arabia is running low on missile interceptors as it faces continued attacks fro | ClashReport+0s > marketfeed+66s > rnintel+293s
+  2026-10-09 15:36:46 NAS -1.4/+2.3 gold +0.7/+0.3 | TRUMP ON IRAN: GOING TO BE OVER SOON ONE WAY OR THE OTHER (@WalterBloomberg) | WalterBloomberg+0s > marketfeed+8s > financialjuice+28s
+  2026-10-09 15:36:19 NAS -1.4/+2.3 gold +0.7/+0.3 | TRUMP: BIG ANNOUNCEMENT COMING UP ON DIESEL (@WalterBloomberg) | WalterBloomberg+0s > marketfeed+5s > financialjuice+6s
+  2026-09-25 12:11:18 NAS -0.2/-2.3 gold -0.1/+1.2 | US AMBASSADOR TO CHINA: TRUMP, XI BEGINNING TO DEVELOP RELATIONSHIP OF SOMEWHAT TRUST | WalterBloomberg+0s > marketfeed+12s > financialjuice+67s
+  2026-09-25 12:11:45 NAS -0.2/-2.3 gold -0.1/+1.2 | US AMBASSADOR TO CHINA: TRUMP, XI HAD VERY CANDID, OPEN CONVERSATION - CNBC (@WalterB | WalterBloomberg+0s > marketfeed+14s > financialjuice+23s
+  2026-10-12 13:24:32 NAS -1.4/-2.3 gold +0.9/-0.2 | ZELENSKYY SAYS UKRAINE READY FOR ENERGY TRUCE, NOT SURE PUTIN IS ... | marketfeed+0s > WalterBloomberg+35s > financialjuice+59s > BRICSNews+78s
+  2026-10-06 12:13:23 NAS +1.2/-2.3 gold +1.6/-0.8 | UKMTO TIME LATE REPORT: OUTBOUND OIL TANKER STRUCK BY UNKNOWN PROJECTILE IN STRAIT OF | marketfeed+0s > financialjuice+106s > ClashReport+198s
+  2026-10-12 15:02:58 NAS +0.1/-0.4 gold -0.9/+2.2 | Cisco: Microsoft has moved into production on systems powered by the Cisco Silicon On | financialjuice+0s > marketfeed+7s > markettwits+30s
+  2026-10-06 12:00:40 NAS -0.8/+2.2 gold +0.5/+1.2 | AggrNews: CRYPTO EXCHANGE OKX RAISES AT $25 BILLION FROM STANCHART, CIRCLE: BBG  Aggr | BWEnews+0s > unfolded+25s > nwsmkr+27s > marketfeed+40s > markettwits+134s
+  2026-09-16 23:41:22 NAS +1.3/+2.2 gold +0.2/+0.5 | *TRUMP TO HOLD IRAN TALKS WITH GULF LEADERS NEXT TUESDAY IN NEW YORK  *MEETING WILL F | marketfeed+0s > financialjuice+25s > BRICSNews+291s > ClashReport+475s
+  2026-10-06 10:05:43 NAS -1.2/+2.2 gold -0.8/+0.1 | US, CHINA DISCUSSING RECIPROCAL NUCLEAR SITE VISITS -  CNN ... | marketfeed+0s > markettwits+5s > WalterBloomberg+11s > financialjuice+34s
+  2026-10-08 11:38:58 NAS -0.7/+2.2 gold +0.2/+1.8 | Iran atomic energy chief: We won't back down on enrichment|FJ | financialjuice+0s > marketfeed+8s > WalterBloomberg+142s
+  2026-10-13 22:14:18 NAS -1.4/+2.2 gold -0.6/+0.4 | Saudi-led coalition: missile intercepted and destroyed in Al-Kharj|FJ | financialjuice+0s > marketfeed+7s > IntelSlava+131s
+  2026-09-25 12:14:59 NAS -0.6/-1.4 gold -1.0/+2.2 | US Ambassador to China: US thinks there was China indirect support for Iran.|FJ | financialjuice+0s > marketfeed+17s > BRICSNews+378s
+  2026-09-24 16:51:41 NAS +3.7/+0.6 gold +0.0/-2.2 | OpenAI’s AI tried to breach 4 other targets - NYT.|FJ | financialjuice+0s > marketfeed+11s > WalterBloomberg+20s > markettwits+429s
+  2026-09-24 14:38:08 NAS -0.3/-2.2 gold -1.8/+1.5 | China’s President Xi: There is big room for China-US cooperation.|FJ | financialjuice+0s > marketfeed+10s > ClashReport+195s
+  2026-09-24 14:38:08 NAS -0.3/-2.2 gold -1.8/+1.5 | CHINA'S XI: CHINA'S DOOR IS OPEN, WELCOMES US FIRMS TO INVEST IN CHINA (@WalterBloomb | WalterBloomberg+0s > marketfeed+10s > financialjuice+13s
+  2026-09-24 14:38:36 NAS -0.3/-2.2 gold -1.8/+1.5 | CHINA'S XI: WILLING TO STEP UP COUNTER-NARCOTICS, LAW ENFORCEMENT COOPERATION (@Walte | WalterBloomberg+0s > marketfeed+11s > financialjuice+77s > ClashReport+949s
+  2026-09-21 14:41:58 NAS +1.5/+2.2 gold -0.4/+0.4 | US VP Vance on Iran: Will be further discussion at the UN.|FJ | financialjuice+0s > marketfeed+11s > WalterBloomberg+192s
+  2026-09-24 14:19:30 NAS -0.7/+2.2 gold -2.1/-1.2 | Tree News: *NEW YORK ANNOUNCES LAWSUIT AGAINST POLYMARKET: BBG  Tree News: 纽约州宣布对 Pol | BWEnews+0s > nwsmkr+16s > marketfeed+30s
+  2026-10-13 16:57:22 NAS -1.4/-2.1 gold -2.0/+1.2 | 🇺🇸🇮🇷🇮🇱⚡️- Israeli PM Netanyahu and President Trump discussed an attack on Iran before | rnintel+0s > marketfeed+476s > markettwits+564s > ClashReport+655s
+  2026-10-12 16:55:59 NAS -3.7/+1.1 gold -0.7/+2.1 | Zuckerberg: Introducing Muse Wonder. $META|FJ | financialjuice+0s > marketfeed+16s > WalterBloomberg+572s
+  2026-09-18 08:21:32 NAS +0.8/-1.2 gold -1.0/-2.1 | ATTACKS ON AIR BASE IN SAUDI ARABIA, ITALIAN EUROFIGHTER HIT - ANSA  ... | marketfeed+0s > BRICSNews+527s > ClashReport+1100s
+  2026-09-25 11:55:20 NAS +1.1/-2.1 gold +1.3/-1.3 | CITI SAYS BUY THE NEXT STOCK MARKET PULLBACK  Citi remains overweight U.S. equities a | WalterBloomberg+0s > marketfeed+10s > WatcherGuru+159s
+  2026-09-24 20:12:45 NAS -3.2/-1.0 gold -0.6/-2.1 | AggrNews: BITGET POTENTIALLY HACKED FOR OVER $100M: ONCHAIN https://t.co/e67OneSqNh   | BWEnews+0s > nwsmkr+27s > marketfeed+105s
+  2026-10-02 16:07:21 NAS +1.3/-0.2 gold +0.3/+2.1 | Google raises price of budget Pixel 10A phone by $100 to $599. $GOOGL|FJ | financialjuice+0s > marketfeed+13s > markettwits+282s
+  2026-10-07 10:49:46 NAS -4.0/-1.8 gold +1.1/+2.1 | U.S. 30-YEAR YIELD HITS NEW 24-YEAR HIGH  The 30-year Treasury yield climbed to 5.706 | WalterBloomberg+0s > marketfeed+3s > markettwits+126s
+  2026-09-30 17:31:05 NAS -0.2/+1.3 gold +0.6/-2.1 | ANTHROPIC: CLAUDE FOR GOVERNMENT IS NOW GENERALLY AVAILABLE (@WalterBloomberg) | WalterBloomberg+0s > marketfeed+5s > financialjuice+126s
+  2026-09-30 18:48:51 NAS +0.2/+2.0 gold -0.8/+1.1 | *OPENAI CEO SAM ALTMAN TO SKIP CONGRESS HEARING ON AI: NBC (@WalterBloomberg) | WalterBloomberg+0s > marketfeed+20s > financialjuice+173s
+  2026-10-07 19:42:09 NAS +2.4/+2.0 gold -0.6/-2.0 | UKMTO: A tanker has reported being struck by multiple projectiles|FJ | financialjuice+0s > marketfeed+14s > ClashReport+65s > rnintel+71s > IntelSlava+584s
+  2026-09-22 18:20:26 NAS +2.0/-1.4 gold +1.4/-2.0 | OpenAI introduces GPT-6 Sol & Luna, expanding the GPT-6 universe|FJ | financialjuice+0s > marketfeed+16s > markettwits+75s
+
+C. biggest NAS100 moves in the 15 min after the first post (units of a normal 15-min move)
+  2026-10-08 16:37:01 before -0.6 after15 -14.0 after30 -19.0 | ECB's President Lagarde told the Euro Finance Chief: There is no sense of broade | financialjuice+0s > marketfeed+21s > WalterBloomberg+55s
+  2026-09-23 14:03:47 before -5.6 after15 -14.0 after30 -11.8 | GOLDMAN: DIESEL EXPORT BAN COULD PUSH GASOLINE PRICES HIGHER  Goldman Sachs warn | WalterBloomberg+0s > marketfeed+6s > WatcherGuru+425s
+  2026-09-23 14:05:23 before -5.2 after15 -12.8 after30 -8.8 | FED'S BARR SEES MORE RATE HIKES AHEAD (@WalterBloomberg) | WalterBloomberg+0s > financialjuice+9s > marketfeed+16s
+  2026-10-08 16:38:03 before -3.1 after15 -12.4 after30 -17.6 | ECB's President Lagarde: The ECB has the tools to counter unwarranted market dyn | financialjuice+0s > marketfeed+18s > WalterBloomberg+28s
+  2026-10-08 16:43:42 before -4.4 after15 -12.2 after30 -12.6 | BREAKING - Trump says anyone who does not call AI 'super intelligence' is 'the e | insiderpaper+0s > WatcherGuru+337s > marketfeed+342s
+  2026-09-16 19:02:01 before -11.2 after15 -11.1 after30 -7.5 | *TRADERS PRICE IN ABOUT 50% CHANCE OF FED RATE HIKE IN OCTOBER ... | marketfeed+0s > financialjuice+9s > markettwits+51s
+  2026-10-05 13:23:59 before +0.8 after15 +10.1 after30 +9.9 | AggrNews: TREASURY WITHDRAWS PROPOSED CRYPTO SURVEILLANCE RULES TARGETING UNHOST | BWEnews+0s > unfolded+62s > marketfeed+75s > WalterBloomberg+122s > WatcherGuru+136s
+  2026-10-05 13:29:17 before +2.8 after15 +9.9 after30 +6.8 | Yemeni sources report an attack on an oil refinery in Jeddah - Tasnim News.|FJ | financialjuice+0s > marketfeed+10s > WalterBloomberg+58s
+  2026-09-30 19:48:38 before -0.7 after15 -9.5 after30 -7.2 | FLYDUBAI SAYS ITS FLIGHTS TO AND FROM ISRAEL WILL BE SUSPENDED WHILE THE INVESTI | marketfeed+0s > insiderpaper+835s > BRICSNews+914s > ClashReport+1031s > IntelSlava+1152s
+  2026-09-29 13:28:13 before +2.3 after15 -8.5 after30 -3.4 | UK's PM Burnham: We are reforming the energy market.|FJ | financialjuice+0s > marketfeed+10s > ClashReport+251s
+  2026-09-25 15:57:54 before +2.4 after15 +8.0 after30 +7.0 | Trump asked Xi to stop supporting Iran - Axios|FJ | financialjuice+0s > marketfeed+20s > markettwits+239s
+  2026-10-15 13:42:13 before +3.6 after15 -7.9 after30 +0.5 | IEA SAYS OIL RELEASE ANNOUNCED IN MARCH TO EXCEED 400M BARRELS ... | marketfeed+0s > financialjuice+6s > WalterBloomberg+148s
+
+C. biggest XAUUSD moves in the 15 min after the first post (units of a normal 15-min move)
+  2026-10-07 12:25:49 before -6.1 after15 -14.1 after30 -9.7 | YIELD ON 10-YR U.S. TREASURY NOTES RISES TO HIGHEST SINCE 2002 AT 5.3496% (@Walt | WalterBloomberg+0s > marketfeed+12s > markettwits+63s
+  2026-09-16 19:02:01 before -5.7 after15 -10.9 after30 -6.2 | *TRADERS PRICE IN ABOUT 50% CHANCE OF FED RATE HIKE IN OCTOBER ... | marketfeed+0s > financialjuice+9s > markettwits+51s
+  2026-09-21 13:48:07 before -0.9 after15 -8.6 after30 -4.9 | TRUMP WEIGHED STRIKES AGAINST HOUTHIS IN YEMEN BEFORE HOLDING OFF -    ... | marketfeed+0s > WalterBloomberg+75s > ClashReport+624s
+  2026-09-16 18:39:48 before -7.9 after15 -8.3 after30 -13.4 | *WARSH ASKED ABOUT SUBSEQUENT HIKES: NOT IN THE FORWARD GUIDANCE BUSINESS ... | marketfeed+0s > financialjuice+3s > nwsmkr+48s > WalterBloomberg+103s
+  2026-10-14 12:37:07 before -16.7 after15 -6.9 after30 -9.3 | US TREASURY 2-YEAR YIELD RISES 10 BASIS POINTS ON DAY TO 4.89% ... | marketfeed+0s > WalterBloomberg+51s > markettwits+199s
+  2026-09-16 13:50:10 before -1.9 after15 -6.1 after30 -3.8 | ⬆️🛢🇷🇺#нефть #россия   URALS > $110  это макс с апреля 2026г   на высокой Brent и | markettwits+0s > financialjuice+15s > marketfeed+19s
+  2026-09-16 18:38:46 before -12.1 after15 -6.0 after30 -9.1 | *TRADERS ADD TO BETS ON TWO MORE FED RATE HIKES BY YEAR-END ... | marketfeed+0s > financialjuice+8s > WalterBloomberg+264s
+  2026-09-21 12:12:00 before +0.4 after15 -5.8 after30 -3.1 | BESSENT ON IRAN: CAN'T TELL YOU HOW LONG CONFLICT WILL LAST -CNBC (@WalterBloomb | WalterBloomberg+0s > marketfeed+18s > financialjuice+49s
+  2026-10-08 16:02:39 before -2.2 after15 +5.7 after30 +3.6 | Apple announces October 13th 'Welcome Home’ product launch in NYC. $AAPL|FJ | financialjuice+0s > marketfeed+11s > markettwits+36s > WalterBloomberg+465s
+  2026-09-24 10:25:36 before -3.3 after15 +5.3 after30 +3.8 | Saudi civil defence alerts of potential danger in Taif - Statement|FJ | financialjuice+0s > marketfeed+8s > insiderpaper+679s
+  2026-10-02 12:37:13 before +13.3 after15 -5.3 after30 -4.9 | ❗ Fed-dated swaps no longer price one full rate hike this year.|FJ | financialjuice+0s > marketfeed+16s > nwsmkr+117s > WalterBloomberg+159s
+  2026-10-02 13:38:24 before +3.8 after15 -5.1 after30 -4.6 | WH Sr. Adviser Hassett: The Navy has opened Hormuz and crude is coming through|F | financialjuice+0s > marketfeed+6s > WalterBloomberg+195s
+

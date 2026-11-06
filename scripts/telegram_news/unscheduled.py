@@ -79,6 +79,10 @@ MARKET = re.compile(r"TARIFF|CHINA|\bXI\b|IRAN|ISRAEL|RUSSIA|PUTIN|UKRAINE|ZELEN
                     r"CEASEFIRE|BOMB|ATTACK|TAIWAN|SAUDI|OPEC|CRYPTO|BITCOIN", re.I)
 
 
+DATA = re.compile(r"ACTUAL|\bEST\.|\(EST|FORECAST|CONSENSUS|PREVIOUS|\bPREV\b|ОЖИД|РАНЕЕ|ВПЕРЕДИ|WATCH LIVE|"
+                  r"\bPMI\b|MORTGAGE|BUYBACK|AUCTION|INVENTOR|ЗАПАСЫ")
+
+
 def scheduled_times() -> list[datetime]:
     c = pd.read_csv(ROOT / "data/calendar/ff_calendar.csv", parse_dates=["time_utc"])
     c = c[c.impact.isin(["high", "medium"])]
@@ -114,8 +118,10 @@ def stories(chans: dict[str, pd.DataFrame]) -> list[dict]:
     for c in clusters:
         if len(c["first"]) < 3:
             continue
+        if any(DATA.search(tx.upper()) for _, tx in c["first"].values()):
+            continue                                      # a scheduled data release or a preview, not surprise news
         t0 = c["t0"].to_pydatetime()
-        i = np.searchsorted(np.array(sched, dtype="datetime64[us]"), np.datetime64(t0.replace(tzinfo=None)))
+        i = np.searchsorted(np.array([x.replace(tzinfo=None) for x in sched], dtype="datetime64[us]"), np.datetime64(t0.replace(tzinfo=None), "us"))
         near = [s for s in sched[max(0, i - 3): i + 3] if timedelta(minutes=-15) <= t0 - s <= timedelta(minutes=2)
                 or timedelta(minutes=-2) <= s - t0 <= timedelta(minutes=0)]
         if near:
