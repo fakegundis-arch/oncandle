@@ -1,0 +1,15 @@
+            channel matched    us  median_all  median_us  le10  le30  fastest  slowest
+       TreeNewsFeed    3/40  3/12         3.0        3.0     3     3      2.0      4.0
+            BWEnews    3/40  3/12         4.0        4.0     3     3      4.0      7.0
+             nwsmkr   10/40 10/12        10.0       10.0     6     8      5.0     55.0
+        markettwits   25/40 12/12        12.0       12.0    11    21      3.0    112.0
+        WatcherGuru    7/40  7/12        16.0       16.0     0     5     11.0    263.0
+         marketfeed   40/40 12/12        28.0       22.5     3    21      9.0     74.0
+ BreakingMarketNews   37/40 12/12        29.0       37.0     0    20     25.0    111.0
+     financialjuice   36/40 12/12        31.0       38.0     0    15     26.0    114.0
+    WalterBloomberg   19/40 12/12        35.0       28.0     1     7      9.0    169.0
+      fxstreetforex   35/40 10/12        90.0       62.5     0     1     24.0    724.0
+       insiderpaper    4/40  4/12       246.0      246.0     0     0    141.0    297.0
+           unfolded    4/40  4/12        13.5       13.5     1     4      3.0     14.0
+       brokerexness    0/40  0/12         NaN        NaN     0     0      NaN      NaN
+FXGoldVisionMarkets    0/40  0/12         NaN        NaN     0     0      NaN      NaN

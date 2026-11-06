@@ -1,0 +1,561 @@
+channel,time,ccy,event,delay_s,first_headline
+TreeNewsFeed,2026-09-01 14:00,USD,ISM Manufacturing PMI,,
+TreeNewsFeed,2026-09-02 01:30,AUD,GDP q/q,,
+TreeNewsFeed,2026-09-02 02:00,NZD,Official Cash Rate; RBNZ Monetary Policy Statement,,
+TreeNewsFeed,2026-09-02 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+TreeNewsFeed,2026-09-04 12:30,CAD,Employment Change; Unemployment Rate,,
+TreeNewsFeed,2026-09-04 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+TreeNewsFeed,2026-09-10 12:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+TreeNewsFeed,2026-09-10 12:30,USD,Core PPI m/m; PPI m/m,,
+TreeNewsFeed,2026-09-11 06:00,GBP,GDP m/m,,
+TreeNewsFeed,2026-09-11 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,2.0,U.S. CPI: +3.4% YEAR-OVER-YEAR (EST. +3.4%) U.S. CORE CPI: +2.4% YEAR-OVER-YEAR (EST. +2.4%)
+TreeNewsFeed,2026-09-14 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+TreeNewsFeed,2026-09-16 06:00,GBP,CPI y/y,,
+TreeNewsFeed,2026-09-16 18:00,USD,FOMC Statement; Federal Funds Rate,,
+TreeNewsFeed,2026-09-16 22:45,NZD,GDP q/q,,
+TreeNewsFeed,2026-09-17 11:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+TreeNewsFeed,2026-09-24 01:30,AUD,Employment Change; Unemployment Rate,,
+TreeNewsFeed,2026-09-24 07:30,CHF,SNB Policy Rate,,
+TreeNewsFeed,2026-09-29 04:30,AUD,Cash Rate; RBA Rate Statement,,
+TreeNewsFeed,2026-09-30 01:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+TreeNewsFeed,2026-09-30 12:30,USD,Core PCE Price Index m/m; Final GDP q/q,,
+TreeNewsFeed,2026-10-02 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+TreeNewsFeed,2026-10-09 12:30,CAD,Employment Change; Unemployment Rate,,
+TreeNewsFeed,2026-10-14 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,4.0,U.S. CPI: +3.7% YEAR-OVER-YEAR (EST. +3.6%) U.S. CORE CPI: +2.6% YEAR-OVER-YEAR (EST. +2.5%)
+TreeNewsFeed,2026-10-15 00:30,AUD,Employment Change; Unemployment Rate,,
+TreeNewsFeed,2026-10-15 06:00,GBP,GDP m/m,,
+TreeNewsFeed,2026-10-15 12:30,USD,Core PPI m/m; Core Retail Sales m/m; PPI m/m; Reta,,
+TreeNewsFeed,2026-10-19 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+TreeNewsFeed,2026-10-21 06:00,GBP,CPI y/y,,
+TreeNewsFeed,2026-10-21 21:45,NZD,CPI q/q,,
+TreeNewsFeed,2026-10-28 00:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+TreeNewsFeed,2026-10-28 01:00,NZD,Official Cash Rate; RBNZ Rate Statement,,
+TreeNewsFeed,2026-10-28 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+TreeNewsFeed,2026-10-28 18:00,USD,FOMC Statement; Federal Funds Rate,3.0,FED LEAVES RATES UNCHANGED AT 3.75-4%
+TreeNewsFeed,2026-10-29 12:30,USD,Advance GDP q/q; Core PCE Price Index m/m,,
+TreeNewsFeed,2026-10-29 13:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+TreeNewsFeed,2026-11-03 03:30,AUD,Cash Rate; RBA Monetary Policy Statement; RBA Rate,,
+TreeNewsFeed,2026-11-03 21:45,NZD,Employment Change q/q; Unemployment Rate,,
+TreeNewsFeed,2026-11-05 12:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+TreeNewsFeed,2026-11-06 13:30,CAD,Employment Change; Unemployment Rate,,
+TreeNewsFeed,2026-11-06 13:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+BWEnews,2026-09-01 14:00,USD,ISM Manufacturing PMI,,
+BWEnews,2026-09-02 01:30,AUD,GDP q/q,,
+BWEnews,2026-09-02 02:00,NZD,Official Cash Rate; RBNZ Monetary Policy Statement,,
+BWEnews,2026-09-02 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+BWEnews,2026-09-04 12:30,CAD,Employment Change; Unemployment Rate,,
+BWEnews,2026-09-04 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+BWEnews,2026-09-10 12:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+BWEnews,2026-09-10 12:30,USD,Core PPI m/m; PPI m/m,,
+BWEnews,2026-09-11 06:00,GBP,GDP m/m,,
+BWEnews,2026-09-11 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,4.0,Tree News: U.S. CPI: +3.4% YEAR-OVER-YEAR (EST. +3.4%) U.S. CORE CPI: +2.4% YEAR-OVER-YEAR (EST. +2.
+BWEnews,2026-09-14 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+BWEnews,2026-09-16 06:00,GBP,CPI y/y,,
+BWEnews,2026-09-16 18:00,USD,FOMC Statement; Federal Funds Rate,,
+BWEnews,2026-09-16 22:45,NZD,GDP q/q,,
+BWEnews,2026-09-17 11:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+BWEnews,2026-09-24 01:30,AUD,Employment Change; Unemployment Rate,,
+BWEnews,2026-09-24 07:30,CHF,SNB Policy Rate,,
+BWEnews,2026-09-29 04:30,AUD,Cash Rate; RBA Rate Statement,,
+BWEnews,2026-09-30 01:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+BWEnews,2026-09-30 12:30,USD,Core PCE Price Index m/m; Final GDP q/q,,
+BWEnews,2026-10-02 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+BWEnews,2026-10-09 12:30,CAD,Employment Change; Unemployment Rate,,
+BWEnews,2026-10-14 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,7.0,Tree News: U.S. CPI: +3.7% YEAR-OVER-YEAR (EST. +3.6%) U.S. CORE CPI: +2.6% YEAR-OVER-YEAR (EST. +2.
+BWEnews,2026-10-15 00:30,AUD,Employment Change; Unemployment Rate,,
+BWEnews,2026-10-15 06:00,GBP,GDP m/m,,
+BWEnews,2026-10-15 12:30,USD,Core PPI m/m; Core Retail Sales m/m; PPI m/m; Reta,,
+BWEnews,2026-10-19 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+BWEnews,2026-10-21 06:00,GBP,CPI y/y,,
+BWEnews,2026-10-21 21:45,NZD,CPI q/q,,
+BWEnews,2026-10-28 00:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+BWEnews,2026-10-28 01:00,NZD,Official Cash Rate; RBNZ Rate Statement,,
+BWEnews,2026-10-28 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+BWEnews,2026-10-28 18:00,USD,FOMC Statement; Federal Funds Rate,4.0,Tree News: FED LEAVES RATES UNCHANGED AT 3.75-4%  Tree News: 美联储维持利率不变在 3.75%-4%  ———————————— 2026-
+BWEnews,2026-10-29 12:30,USD,Advance GDP q/q; Core PCE Price Index m/m,,
+BWEnews,2026-10-29 13:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+BWEnews,2026-11-03 03:30,AUD,Cash Rate; RBA Monetary Policy Statement; RBA Rate,,
+BWEnews,2026-11-03 21:45,NZD,Employment Change q/q; Unemployment Rate,,
+BWEnews,2026-11-05 12:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+BWEnews,2026-11-06 13:30,CAD,Employment Change; Unemployment Rate,,
+BWEnews,2026-11-06 13:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+nwsmkr,2026-09-01 14:00,USD,ISM Manufacturing PMI,,
+nwsmkr,2026-09-02 01:30,AUD,GDP q/q,,
+nwsmkr,2026-09-02 02:00,NZD,Official Cash Rate; RBNZ Monetary Policy Statement,,
+nwsmkr,2026-09-02 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+nwsmkr,2026-09-04 12:30,CAD,Employment Change; Unemployment Rate,,
+nwsmkr,2026-09-04 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+nwsmkr,2026-09-10 12:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+nwsmkr,2026-09-10 12:30,USD,Core PPI m/m; PPI m/m,25.0,U.S. PPI: +5.4% YEAR-OVER-YEAR (EST. +5.3%) U.S. CORE PPI: +4.6% YEAR-OVER-YEAR (EST. +4.6%) U.S. PP
+nwsmkr,2026-09-11 06:00,GBP,GDP m/m,,
+nwsmkr,2026-09-11 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,6.0,#CPI  +3.4%  U.S. CPI: +0.4% MONTH-OVER-MONTH (EST. +0.4%) U.S. CORE CPI: +0.3% MONTH-OVER-MONTH (ES
+nwsmkr,2026-09-14 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+nwsmkr,2026-09-16 06:00,GBP,CPI y/y,,
+nwsmkr,2026-09-16 18:00,USD,FOMC Statement; Federal Funds Rate,10.0,FED RAISES RATES 25 BPS TO 3.75%-4.00%  —— RU | BigLiquid | Pro Channel
+nwsmkr,2026-09-16 22:45,NZD,GDP q/q,,
+nwsmkr,2026-09-17 11:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+nwsmkr,2026-09-24 01:30,AUD,Employment Change; Unemployment Rate,,
+nwsmkr,2026-09-24 07:30,CHF,SNB Policy Rate,,
+nwsmkr,2026-09-29 04:30,AUD,Cash Rate; RBA Rate Statement,,
+nwsmkr,2026-09-30 01:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+nwsmkr,2026-09-30 12:30,USD,Core PCE Price Index m/m; Final GDP q/q,38.0,US 2Q GDP RISES ANNUALIZED 2.2% Q/Q; EST. +1.5%  —— RU | BigLiquid | Pro Channel
+nwsmkr,2026-10-02 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,24.0,US SEPT. NONFARM PAYROLLS RISE 29K M/M; EST. +90K  US SEPT. UNEMPLOYMENT RATE 4.2%; EST. 4.1%
+nwsmkr,2026-10-09 12:30,CAD,Employment Change; Unemployment Rate,,
+nwsmkr,2026-10-14 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,6.0,#CPI  +3.7%  U.S. CORE CPI: +2.6% YEAR-OVER-YEAR (EST. +2.5%)
+nwsmkr,2026-10-15 00:30,AUD,Employment Change; Unemployment Rate,,
+nwsmkr,2026-10-15 06:00,GBP,GDP m/m,,
+nwsmkr,2026-10-15 12:30,USD,Core PPI m/m; Core Retail Sales m/m; PPI m/m; Reta,10.0,U.S. PPI: +6.3% YEAR-OVER-YEAR (EST. +5.3%) U.S. CORE PPI: +5% YEAR-OVER-YEAR (EST. +4.4%)  —— U.S. 
+nwsmkr,2026-10-19 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+nwsmkr,2026-10-21 06:00,GBP,CPI y/y,,
+nwsmkr,2026-10-21 21:45,NZD,CPI q/q,,
+nwsmkr,2026-10-28 00:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+nwsmkr,2026-10-28 01:00,NZD,Official Cash Rate; RBNZ Rate Statement,,
+nwsmkr,2026-10-28 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+nwsmkr,2026-10-28 18:00,USD,FOMC Statement; Federal Funds Rate,5.0,FED LEAVES RATES UNCHANGED AT 3.75-4%  https://www.federalreserve.gov/monetarypolicy/files/monetary2
+nwsmkr,2026-10-29 12:30,USD,Advance GDP q/q; Core PCE Price Index m/m,55.0,US 3Q GDP RISES ANNUALIZED 3.4% Q/Q; EST. +3.2%  —— RU | BigLiquid | Pro Channel
+nwsmkr,2026-10-29 13:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+nwsmkr,2026-11-03 03:30,AUD,Cash Rate; RBA Monetary Policy Statement; RBA Rate,,
+nwsmkr,2026-11-03 21:45,NZD,Employment Change q/q; Unemployment Rate,,
+nwsmkr,2026-11-05 12:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+nwsmkr,2026-11-06 13:30,CAD,Employment Change; Unemployment Rate,,
+nwsmkr,2026-11-06 13:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,9.0,"U.S. OCTOBER NONFARM PAYROLLS +165,000 (CONSENSUS +65,000) VS SEPTEMBER +60,000 (PREV +29,000), AUGU"
+markettwits,2026-09-01 14:00,USD,ISM Manufacturing PMI,5.0,❗️🇺🇸#сша #экономика #отчетность  США -ISM Manufacturing PMI (авг) = 54.6 (ранее 55.6)
+markettwits,2026-09-02 01:30,AUD,GDP q/q,,
+markettwits,2026-09-02 02:00,NZD,Official Cash Rate; RBNZ Monetary Policy Statement,,
+markettwits,2026-09-02 13:45,CAD,BOC Rate Statement; Overnight Rate,8.0,❗️🇨🇦#дкп #канада #цб  КАНАДА - СТАВКА ЦБ = 2.25% (ОЖИД 2.25% / РАНЕЕ 2.25%)  ЦБ: проинфляционные рис
+markettwits,2026-09-04 12:30,CAD,Employment Change; Unemployment Rate,,
+markettwits,2026-09-04 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,8.0,🔥🇺🇸#nonfarms #экономика #сша #отчетность  США - NON-FARM PAYROLLS (авг) = +162 ТЫС  (ожид +55 тыс / 
+markettwits,2026-09-10 12:15,EUR,Main Refinancing Rate; Monetary Policy Statement,7.0,❗️🇪🇺#дкп #европа #цб  ЕВРОЗОНА – СТАВКА ЦБ = 2.65% (ожид 2.65% / ранее 2.4%)  Deposit Facility Rate 
+markettwits,2026-09-10 12:30,USD,Core PPI m/m; PPI m/m,17.0,"❗️🇺🇸#инфляция #сша #отчетность  США  - ПРОМИНФЛЯЦИЯ PPI (авг)  м/м = +0.4% (ожид +0.3% / ранее +0,1%"
+markettwits,2026-09-11 06:00,GBP,GDP m/m,,
+markettwits,2026-09-11 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,17.0,🔥🇺🇸#инфляция #сша #отчетность #экономика  США - ПОТРЕБИНФЛЯЦИЯ CPI (авг)  м/м = +0.4% (ожид +0.4% / 
+markettwits,2026-09-14 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,55.0,❗️🇨🇦#канада #инфляция #отчетность  КАНАДА  - ПОТРЕБИНФЛЯЦИЯ CPI (авг)   м/м = -0.1% (ожид -0.1% / ра
+markettwits,2026-09-16 06:00,GBP,CPI y/y,,
+markettwits,2026-09-16 18:00,USD,FOMC Statement; Federal Funds Rate,3.0,🔥🇺🇸#FOMC #дкп #цб #сша  FOMC - СТАВКА ФРС = 4%  (ОЖИД 3.75% / РАНЕЕ 3.75%)  ФРС: решение о повышении
+markettwits,2026-09-16 22:45,NZD,GDP q/q,,
+markettwits,2026-09-17 11:00,GBP,Monetary Policy Summary; Official Bank Rate,3.0,❗️🇬🇧#дкп #британия #цб  БРИТАНИЯ - СТАВКА ЦБ = 3.75% (ОЖИД 3.75% / РАНЕЕ 3.75%)  ЦБ: риски инфляции 
+markettwits,2026-09-24 01:30,AUD,Employment Change; Unemployment Rate,,
+markettwits,2026-09-24 07:30,CHF,SNB Policy Rate,112.0,❗️🇨🇭#дкп #швейцария #цб ШВЕЙЦАРИЯ - СТАВКА ЦБ = 0%  (ОЖИД 0% / РАНЕЕ 0%)  ЦБ готов проводить интерве
+markettwits,2026-09-29 04:30,AUD,Cash Rate; RBA Rate Statement,79.0,🔥🇦🇺#дкп #австралия #цб  АВСТРАЛИЯ - СТАВКА ЦБ = 4.6%  (ожид 4.6% / ранее 4.35%)  ЦБ Австралии: инфля
+markettwits,2026-09-30 01:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+markettwits,2026-09-30 12:30,USD,Core PCE Price Index m/m; Final GDP q/q,17.0,❗️🇺🇸#сша #экономика #отчетность  США – ВВП (2КВ 2026Г) = +2.2% КВ/КВ (ОЖИД +1.5% / РАНЕЕ +2.1%)
+markettwits,2026-10-02 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,10.0,🔥🇺🇸#nonfarms #экономика #сша #отчетность  США - NON-FARM PAYROLLS (сент) = +29 ТЫС  (ожид +89 тыс / 
+markettwits,2026-10-09 12:30,CAD,Employment Change; Unemployment Rate,,
+markettwits,2026-10-14 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,27.0,🔥🇺🇸#инфляция #сша #отчетность #экономика  США - ПОТРЕБИНФЛЯЦИЯ CPI (сент)  м/м = +0.6% (ожид +0.6% /
+markettwits,2026-10-15 00:30,AUD,Employment Change; Unemployment Rate,,
+markettwits,2026-10-15 06:00,GBP,GDP m/m,17.0,❗️🇬🇧#экономика #британия #отчетность  Британия – ВВП (авг) м/м = +0.1% (ожид -0.1% / ранее +0.4%) г/
+markettwits,2026-10-15 12:30,USD,Core PPI m/m; Core Retail Sales m/m; PPI m/m; Reta,17.0,"❗️🇺🇸#инфляция #сша #отчетность  США  - ПРОМИНФЛЯЦИЯ PPI (сент)  м/м = +1.3% (ожид +0.6% / ранее +0,4"
+markettwits,2026-10-19 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,16.0,❗️🇨🇦#канада #инфляция #отчетность  КАНАДА  - ПОТРЕБИНФЛЯЦИЯ CPI (сент)   м/м = +0.1% (ожид +0.2% / р
+markettwits,2026-10-21 06:00,GBP,CPI y/y,26.0,❗️🇬🇧#инфляция #британия #отчетность  БРИТАНИЯ - ПОТРЕБИНФЛЯЦИЯ CPI (сент)  м/м = +0.4% (ожид +0.3% /
+markettwits,2026-10-21 21:45,NZD,CPI q/q,,
+markettwits,2026-10-28 00:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+markettwits,2026-10-28 01:00,NZD,Official Cash Rate; RBNZ Rate Statement,,
+markettwits,2026-10-28 13:45,CAD,BOC Rate Statement; Overnight Rate,4.0,❗️🇨🇦#дкп #канада #цб  КАНАДА - СТАВКА ЦБ = 2.5% (ОЖИД 2.5% / РАНЕЕ 2.25%)  ЦБ: возможно понадобится 
+markettwits,2026-10-28 18:00,USD,FOMC Statement; Federal Funds Rate,3.0,🔥🇺🇸#FOMC #дкп #цб #сша  FOMC - СТАВКА ФРС = 4%  (ОЖИД 4% / РАНЕЕ 4%)  ФРС: инфляция все еще повышена
+markettwits,2026-10-29 12:30,USD,Advance GDP q/q; Core PCE Price Index m/m,12.0,❗️🇺🇸#сша #экономика #отчетность  США – ВВП (2КВ 2026Г) = +3.4% КВ/КВ (ОЖИД +3.2% / РАНЕЕ +2.2%)
+markettwits,2026-10-29 13:15,EUR,Main Refinancing Rate; Monetary Policy Statement,4.0,🔥🇪🇺#дкп #европа #цб  ЕВРОЗОНА– СТАВКА ЦБ = 2.65% (ожид 2.65% / ранее 2.65%)  Deposit Facility Rate  
+markettwits,2026-11-03 03:30,AUD,Cash Rate; RBA Monetary Policy Statement; RBA Rate,52.0,❗️🇦🇺#дкп #австралия #цб  АВСТРАЛИЯ - СТАВКА ЦБ = 4.85%  (ожид 4.85% / ранее 4.6%)  ЦБ  повысил прогн
+markettwits,2026-11-03 21:45,NZD,Employment Change q/q; Unemployment Rate,,
+markettwits,2026-11-05 12:00,GBP,Monetary Policy Summary; Official Bank Rate,4.0,❗️🇬🇧#дкп #британия #цб  БРИТАНИЯ - СТАВКА ЦБ = 4% (ОЖИД 4% / РАНЕЕ 3.75%)  ⚠️ЦБ: скорее всего понадо
+markettwits,2026-11-06 13:30,CAD,Employment Change; Unemployment Rate,,
+markettwits,2026-11-06 13:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,12.0,🔥🇺🇸#nonfarms #экономика #сша #отчетность  США - NON-FARM PAYROLLS (окт) = +165 ТЫС  (ожид +65 тыс / 
+WatcherGuru,2026-09-01 14:00,USD,ISM Manufacturing PMI,,
+WatcherGuru,2026-09-02 01:30,AUD,GDP q/q,,
+WatcherGuru,2026-09-02 02:00,NZD,Official Cash Rate; RBNZ Monetary Policy Statement,,
+WatcherGuru,2026-09-02 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+WatcherGuru,2026-09-04 12:30,CAD,Employment Change; Unemployment Rate,,
+WatcherGuru,2026-09-04 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,263.0,"BREAKING: 🇺🇸 US economy adds 162,000 jobs in August, higher than expectations.  US unemployment rate"
+WatcherGuru,2026-09-10 12:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+WatcherGuru,2026-09-10 12:30,USD,Core PPI m/m; PPI m/m,16.0,"JUST IN: 🇺🇸 US PPI rises to 5.4%, higher than expectations.  @WatcherGuru"
+WatcherGuru,2026-09-11 06:00,GBP,GDP m/m,,
+WatcherGuru,2026-09-11 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,11.0,BREAKING: 🇺🇸 US inflation remains at 3.4%.  @WatcherGuru
+WatcherGuru,2026-09-14 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+WatcherGuru,2026-09-16 06:00,GBP,CPI y/y,,
+WatcherGuru,2026-09-16 18:00,USD,FOMC Statement; Federal Funds Rate,,
+WatcherGuru,2026-09-16 22:45,NZD,GDP q/q,,
+WatcherGuru,2026-09-17 11:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+WatcherGuru,2026-09-24 01:30,AUD,Employment Change; Unemployment Rate,,
+WatcherGuru,2026-09-24 07:30,CHF,SNB Policy Rate,,
+WatcherGuru,2026-09-29 04:30,AUD,Cash Rate; RBA Rate Statement,,
+WatcherGuru,2026-09-30 01:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+WatcherGuru,2026-09-30 12:30,USD,Core PCE Price Index m/m; Final GDP q/q,,
+WatcherGuru,2026-10-02 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,240.0,"JUST IN: 🇺🇸 US economy adds 29,000 jobs in September, lower than expectations.  US unemployment rate"
+WatcherGuru,2026-10-09 12:30,CAD,Employment Change; Unemployment Rate,,
+WatcherGuru,2026-10-14 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,14.0,"BREAKING: 🇺🇸 US inflation rises to 3.7%, higher than expectations.  @WatcherGuru"
+WatcherGuru,2026-10-15 00:30,AUD,Employment Change; Unemployment Rate,,
+WatcherGuru,2026-10-15 06:00,GBP,GDP m/m,,
+WatcherGuru,2026-10-15 12:30,USD,Core PPI m/m; Core Retail Sales m/m; PPI m/m; Reta,15.0,"JUST IN: 🇺🇸 US PPI rises to 6.3%, higher than expectations.  @WatcherGuru"
+WatcherGuru,2026-10-19 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+WatcherGuru,2026-10-21 06:00,GBP,CPI y/y,,
+WatcherGuru,2026-10-21 21:45,NZD,CPI q/q,,
+WatcherGuru,2026-10-28 00:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+WatcherGuru,2026-10-28 01:00,NZD,Official Cash Rate; RBNZ Rate Statement,,
+WatcherGuru,2026-10-28 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+WatcherGuru,2026-10-28 18:00,USD,FOMC Statement; Federal Funds Rate,,
+WatcherGuru,2026-10-29 12:30,USD,Advance GDP q/q; Core PCE Price Index m/m,,
+WatcherGuru,2026-10-29 13:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+WatcherGuru,2026-11-03 03:30,AUD,Cash Rate; RBA Monetary Policy Statement; RBA Rate,,
+WatcherGuru,2026-11-03 21:45,NZD,Employment Change q/q; Unemployment Rate,,
+WatcherGuru,2026-11-05 12:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+WatcherGuru,2026-11-06 13:30,CAD,Employment Change; Unemployment Rate,,
+WatcherGuru,2026-11-06 13:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,27.0,"JUST IN: 🇺🇸 US economy adds 165,000 jobs in October, higher than expectations.  US unemployment rate"
+marketfeed,2026-09-01 14:00,USD,ISM Manufacturing PMI,19.0,*US AUG. ISM MANUFACTURING INDEX FALLS TO 54.6; EST. 55.2 ...
+marketfeed,2026-09-02 01:30,AUD,GDP q/q,27.0,*AUSTRALIA 2Q GDP RISES 0.4% Q/Q; EST. 0.3% ...
+marketfeed,2026-09-02 02:00,NZD,Official Cash Rate; RBNZ Monetary Policy Statement,74.0,"RBNZ RAISES OFFICIAL CASH RATE BY 25BPS, AS EXPECTED ..."
+marketfeed,2026-09-02 13:45,CAD,BOC Rate Statement; Overnight Rate,32.0,BOC KEY RATE UNCHANGEDAT 2.25%; AS EXPECTED  ...
+marketfeed,2026-09-04 12:30,CAD,Employment Change; Unemployment Rate,20.0,"*CANADA LOSES 41.7K JOBS IN AUG., EST. +15.0K ..."
+marketfeed,2026-09-04 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,21.0,*US AUG. UNEMPLOYMENT RATE 4.1%; EST. 4.1% ...
+marketfeed,2026-09-10 12:15,EUR,Main Refinancing Rate; Monetary Policy Statement,22.0,*ECB RAISES DEPOSIT FACILITY RATE BY 25BPS TO 2.50%; EST. 2.50% ...
+marketfeed,2026-09-10 12:30,USD,Core PPI m/m; PPI m/m,23.0,*US AUG. PRODUCER PRICES RISE 5.4% Y/Y; EST. +5.3% ...
+marketfeed,2026-09-11 06:00,GBP,GDP m/m,23.0,*UK JULY GDP RISES 0.4% M/M; EST. 0% ...
+marketfeed,2026-09-11 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,20.0,*US AUG. CORE CPI RISES 0.3% M/M; EST. +0.2% ...
+marketfeed,2026-09-14 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,60.0,"*CANADA INFLATION HOLDS AT 3.0% Y/Y IN AUGUST, MATCHES EST. ..."
+marketfeed,2026-09-16 06:00,GBP,CPI y/y,21.0,*UK AUG. CORE CPI RISES 2.6% Y/Y; EST. +2.6% ...
+marketfeed,2026-09-16 18:00,USD,FOMC Statement; Federal Funds Rate,15.0,FED RAISES RATES 25 BPS TO 3.75%-4.00% TARGET RANGE ...
+marketfeed,2026-09-16 22:45,NZD,GDP q/q,16.0,*NZ 2Q GDP RISES 0.2% Q/Q; EST. +0.1% ...
+marketfeed,2026-09-17 11:00,GBP,Monetary Policy Summary; Official Bank Rate,9.0,BOE INTEREST RATE DECISION (SEP) ACTUAL: 3.75% VS 3.75% PREVIOUS; EST 3.75% ...
+marketfeed,2026-09-24 01:30,AUD,Employment Change; Unemployment Rate,9.0,"*AUSTRALIA AUG. EMPLOYMENT RISES 39,500 M/M; EST. 20,000 ..."
+marketfeed,2026-09-24 07:30,CHF,SNB Policy Rate,37.0,SWISS NATIONAL BANK KEEPS INTEREST RATE UNCHANGED AT 0.00 PCT ...
+marketfeed,2026-09-29 04:30,AUD,Cash Rate; RBA Rate Statement,47.0,"🔴 ⚠️ BREAKING: RBA CASH RATE ACTUAL 4.6% (FORECAST 4.6%, PREVIOUS 4.35%) $MACRO ..."
+marketfeed,2026-09-30 01:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,34.0,"🔴 ⚠️ BREAKING: AUSTRALIAN CPI YOY NSA ACTUAL 4% (FORECAST 4.1%, PREVIOUS 3.5%) $MACRO ..."
+marketfeed,2026-09-30 12:30,USD,Core PCE Price Index m/m; Final GDP q/q,28.0,US FINAL Q2 GDP +2.2% (CONSENSUS +1.5%)  US FINAL Q2 PCE PRICE INDEX +5.0%  US FINAL Q2 CORE PCE +3.
+marketfeed,2026-10-02 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,28.0,"🇺🇸US JOBS REPORT (SEPT.)🇺🇸  NFP: 29K (EXP. 90K, PREV. 162K, REV. 133K)    UNEMPLOYMENT RATE: 4.2% (E"
+marketfeed,2026-10-09 12:30,CAD,Employment Change; Unemployment Rate,36.0,"🔴 CANADIAN UNEMPLOYMENT RATE ACTUAL 6.5% (FORECAST 6.5%, PREVIOUS 6.4%) $MACRO ..."
+marketfeed,2026-10-14 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,22.0,"BREAKING: 🇺🇸 US INFLATION RISES TO 3.7%, HIGHER THAN EXPECTATIONS. ..."
+marketfeed,2026-10-15 00:30,AUD,Employment Change; Unemployment Rate,44.0,"AUSTRALIAN FULL TIME EMPLOYMENT CHG. ACTUAL 34.4K (FORECAST -, PREVIOUS -6.3K) $MACRO ..."
+marketfeed,2026-10-15 06:00,GBP,GDP m/m,35.0,"🔴 UK GDP ESTIMATE 3M/3M ACTUAL 0.7% (FORECAST 0.5%, PREVIOUS 0.4%) $MACRO ..."
+marketfeed,2026-10-15 12:30,USD,Core PPI m/m; Core Retail Sales m/m; PPI m/m; Reta,25.0,"JUST IN: 🇺🇸 US PPI RISES TO 6.3%, HIGHER THAN EXPECTATIONS. ..."
+marketfeed,2026-10-19 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,38.0,"CANADIAN CPI MEDIAN ACTUAL 1.9% (FORECAST 2%, PREVIOUS 2.0%) $MACRO ..."
+marketfeed,2026-10-21 06:00,GBP,CPI y/y,53.0,"UK SERVICES CPI YOY ACTUAL 3.7% (FORECAST 3.6%, PREVIOUS 3.4%) $MACRO ..."
+marketfeed,2026-10-21 21:45,NZD,CPI q/q,35.0,"NEW ZEALAND CPI YOY ACTUAL 3.7% (FORECAST 3.8%, PREVIOUS 4.1%) $MACRO ..."
+marketfeed,2026-10-28 00:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,34.0,"🔴 AUSTRALIAN CPI YOY NSA ACTUAL 4.3% (FORECAST 4.2%, PREVIOUS 4%) $MACRO ..."
+marketfeed,2026-10-28 01:00,NZD,Official Cash Rate; RBNZ Rate Statement,51.0,"RBNZ KEEPS OFFICIAL CASH RATE AT 2.75%, UNCHANGED ..."
+marketfeed,2026-10-28 13:45,CAD,BOC Rate Statement; Overnight Rate,17.0,BANK OF CANADA RAISES KEY RATE BY 25BP TO 2.50%; AS EXPECTED ...
+marketfeed,2026-10-28 18:00,USD,FOMC Statement; Federal Funds Rate,10.0,*FED LEAVES INTEREST RATE UNCHANGED ...
+marketfeed,2026-10-29 12:30,USD,Advance GDP q/q; Core PCE Price Index m/m,26.0,US ADVANCE Q3 GDP +3.4% (CONSENSUS +3.2%) ...
+marketfeed,2026-10-29 13:15,EUR,Main Refinancing Rate; Monetary Policy Statement,31.0,ECB INTEREST RATE DECISION (OCT) ACTUAL: 2.65% VS 2.65% PREVIOUS; EST 2.65% ...
+marketfeed,2026-11-03 03:30,AUD,Cash Rate; RBA Monetary Policy Statement; RBA Rate,40.0,"RBA RAISES CASH RATE TARGET BY 25BPS TO 4.85%, AS EXPECTED ..."
+marketfeed,2026-11-03 21:45,NZD,Employment Change q/q; Unemployment Rate,41.0,"🔴 NEW ZEALAND UNEMPLOYMENT RATE ACTUAL 5.7% (FORECAST 5.5%, PREVIOUS 5.6%) $MACRO ..."
+marketfeed,2026-11-05 12:00,GBP,Monetary Policy Summary; Official Bank Rate,20.0,BOE INTEREST RATE DECISION (NOV) ACTUAL: 4.0% VS 3.75% PREVIOUS; EST 4.0% ...
+marketfeed,2026-11-06 13:30,CAD,Employment Change; Unemployment Rate,41.0,"🔴 CANADIAN UNEMPLOYMENT RATE ACTUAL 6.7% (FORECAST 6.5%, PREVIOUS 6.5%) $MACRO ..."
+marketfeed,2026-11-06 13:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,37.0,"JUST IN: 🇺🇸 US ECONOMY ADDS 165,000 JOBS IN OCTOBER, HIGHER THAN EXPECTATIONS.  US UNEMPLOYMENT RATE"
+BreakingMarketNews,2026-09-01 14:00,USD,ISM Manufacturing PMI,31.0,"US ISM MFG. EMPLOYMENT INDEX ACTUAL 51.2 (FORECAST 52.5, PREVIOUS 52.8) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-09-02 01:30,AUD,GDP q/q,,
+BreakingMarketNews,2026-09-02 02:00,NZD,Official Cash Rate; RBNZ Monetary Policy Statement,,
+BreakingMarketNews,2026-09-02 13:45,CAD,BOC Rate Statement; Overnight Rate,32.0,"🔴 ⚠️ BREAKING: BOC RATE DECISION ACTUAL 2.25% (FORECAST 2.25%, PREVIOUS 2.25%) $MACRO (@BreakingMark"
+BreakingMarketNews,2026-09-04 12:30,CAD,Employment Change; Unemployment Rate,25.0,"🔴 CANADIAN UNEMPLOYMENT RATE ACTUAL 6.4% (FORECAST 6.4%, PREVIOUS 6.4%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-09-04 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,50.0,"🔴 US UNEMPLOYMENT RATE ACTUAL 4.1% (FORECAST 4.1%, PREVIOUS 4.1%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-09-10 12:15,EUR,Main Refinancing Rate; Monetary Policy Statement,27.0,"🔴 ⚠️ BREAKING: ECB DEPOSIT RATE ACTUAL 2.5% (FORECAST 2.5%, PREVIOUS 2.25%) $MACRO (@BreakingMarketN"
+BreakingMarketNews,2026-09-10 12:30,USD,Core PPI m/m; PPI m/m,33.0,"🔴 ⚠️ BREAKING: US PPI YOY ACTUAL 5.4% (FORECAST 5.3%, PREVIOUS 4.7%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-09-11 06:00,GBP,GDP m/m,34.0,"🔴 UK GDP ESTIMATE 3M/3M ACTUAL 0.4% (FORECAST 0.3%, PREVIOUS 0.4%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-09-11 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,27.0,"🔴 ⚠️ BREAKING: US CPI MOM ACTUAL 0.4% (FORECAST 0.4%, PREVIOUS 0.1%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-09-14 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,55.0,"CANADIAN CPI MEDIAN ACTUAL 2% (FORECAST 2%, PREVIOUS 2.0%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-09-16 06:00,GBP,CPI y/y,32.0,"🔴 ⚠️ BREAKING: UK CPI YOY ACTUAL 3.1% (FORECAST 3.1%, PREVIOUS 2.9%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-09-16 18:00,USD,FOMC Statement; Federal Funds Rate,36.0,"Fed: Job gains have kept pace with the workforce, unemployment rate has changed little. (@BreakingMa"
+BreakingMarketNews,2026-09-16 22:45,NZD,GDP q/q,28.0,"NEW ZEALAND GDP YOY ACTUAL 2.6% (FORECAST 2.2%, PREVIOUS 1.5%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-09-17 11:00,GBP,Monetary Policy Summary; Official Bank Rate,29.0,"🔴 ⚠️ BREAKING: BOE BANK RATE ACTUAL 3.75% (FORECAST 3.75%, PREVIOUS 3.75%) $MACRO (@BreakingMarketNe"
+BreakingMarketNews,2026-09-24 01:30,AUD,Employment Change; Unemployment Rate,28.0,"🔴 ⚠️ BREAKING: AUSTRALIAN EMPLOYMENT CHANGE ACTUAL 39.5K (FORECAST 20K, PREVIOUS -15.8K) $MACRO (@Br"
+BreakingMarketNews,2026-09-24 07:30,CHF,SNB Policy Rate,,
+BreakingMarketNews,2026-09-29 04:30,AUD,Cash Rate; RBA Rate Statement,29.0,"🔴 ⚠️ BREAKING: RBA CASH RATE ACTUAL 4.6% (FORECAST 4.6%, PREVIOUS 4.35%) $MACRO (@BreakingMarketNews"
+BreakingMarketNews,2026-09-30 01:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,26.0,"🔴 ⚠️ BREAKING: AUSTRALIAN CPI YOY NSA ACTUAL 4% (FORECAST 4.1%, PREVIOUS 3.5%) $MACRO (@BreakingMark"
+BreakingMarketNews,2026-09-30 12:30,USD,Core PCE Price Index m/m; Final GDP q/q,38.0,"🔴 US GDP QOQ FINAL ACTUAL 2.2% (FORECAST 1.5%, PREVIOUS 1.5%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-10-02 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,40.0,"US PRIVATE PAYROLLS ACTUAL 46K (FORECAST 81K, PREVIOUS 127K) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-10-09 12:30,CAD,Employment Change; Unemployment Rate,26.0,"🔴 CANADIAN UNEMPLOYMENT RATE ACTUAL 6.5% (FORECAST 6.5%, PREVIOUS 6.4%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-10-14 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,31.0,"🔴 US CORE CPI YOY ACTUAL 2.6% (FORECAST 2.5%, PREVIOUS 2.4%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-10-15 00:30,AUD,Employment Change; Unemployment Rate,27.0,"AUSTRALIAN FULL TIME EMPLOYMENT CHG. ACTUAL 34.4K (FORECAST -, PREVIOUS -6.3K) $MACRO (@BreakingMark"
+BreakingMarketNews,2026-10-15 06:00,GBP,GDP m/m,26.0,"🔴 UK GDP ESTIMATE 3M/3M ACTUAL 0.7% (FORECAST 0.5%, PREVIOUS 0.4%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-10-15 12:30,USD,Core PPI m/m; Core Retail Sales m/m; PPI m/m; Reta,30.0,"🔴 US RETAIL SALES MOM ACTUAL 0.8% (FORECAST 0.3%, PREVIOUS 1.2%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-10-19 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,25.0,"CANADIAN CPI MEDIAN ACTUAL 1.9% (FORECAST 2%, PREVIOUS 2.0%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-10-21 06:00,GBP,CPI y/y,47.0,"UK SERVICES CPI YOY ACTUAL 3.7% (FORECAST 3.6%, PREVIOUS 3.4%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-10-21 21:45,NZD,CPI q/q,28.0,"NEW ZEALAND CPI YOY ACTUAL 3.7% (FORECAST 3.8%, PREVIOUS 4.1%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-10-28 00:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,25.0,"🔴 AUSTRALIAN CPI YOY NSA ACTUAL 4.3% (FORECAST 4.2%, PREVIOUS 4%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-10-28 01:00,NZD,Official Cash Rate; RBNZ Rate Statement,111.0,Reserve Bank of New Zealand sets official cash rate at 2.75% (@BreakingMarketNews)
+BreakingMarketNews,2026-10-28 13:45,CAD,BOC Rate Statement; Overnight Rate,27.0,"🔴 ⚠️ BREAKING: BOC RATE DECISION ACTUAL 2.5% (FORECAST 2.5%, PREVIOUS 2.25%) $MACRO (@BreakingMarket"
+BreakingMarketNews,2026-10-28 18:00,USD,FOMC Statement; Federal Funds Rate,47.0,"🔴 Fed: The vote in favor of the policy was 10-2, with Governor Cook and Hammack dissenting in favor "
+BreakingMarketNews,2026-10-29 12:30,USD,Advance GDP q/q; Core PCE Price Index m/m,53.0,"US CORE PCE PRICES ADVANCE ACTUAL 2.5% (FORECAST 2.4%, PREVIOUS 3.3%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-10-29 13:15,EUR,Main Refinancing Rate; Monetary Policy Statement,28.0,"🔴 ECB INTEREST RATE ACTUAL 2.65% (FORECAST 2.65%, PREVIOUS 2.65%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-11-03 03:30,AUD,Cash Rate; RBA Monetary Policy Statement; RBA Rate,28.0,"Rba: Business loans stay robust, bank credit remains accessible (@BreakingMarketNews)"
+BreakingMarketNews,2026-11-03 21:45,NZD,Employment Change q/q; Unemployment Rate,26.0,"🔴 NEW ZEALAND UNEMPLOYMENT RATE ACTUAL 5.7% (FORECAST 5.5%, PREVIOUS 5.6%) $MACRO (@BreakingMarketNe"
+BreakingMarketNews,2026-11-05 12:00,GBP,Monetary Policy Summary; Official Bank Rate,29.0,"🔴 ⚠️ BREAKING: BOE BANK RATE ACTUAL 4% (FORECAST 4%, PREVIOUS 3.75%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-11-06 13:30,CAD,Employment Change; Unemployment Rate,31.0,"🔴 CANADIAN UNEMPLOYMENT RATE ACTUAL 6.7% (FORECAST 6.5%, PREVIOUS 6.5%) $MACRO (@BreakingMarketNews)"
+BreakingMarketNews,2026-11-06 13:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,56.0,"🔴 ⚠️ BREAKING: US NONFARM PAYROLLS ACTUAL 165K (FORECAST 70K, PREVIOUS 29K) $MACRO (@BreakingMarketN"
+financialjuice,2026-09-01 14:00,USD,ISM Manufacturing PMI,32.0,"US ISM MFG. EMPLOYMENT INDEX ACTUAL 51.2 (FORECAST 52.5, PREVIOUS 52.8) $MACRO|FJ"
+financialjuice,2026-09-02 01:30,AUD,GDP q/q,,
+financialjuice,2026-09-02 02:00,NZD,Official Cash Rate; RBNZ Monetary Policy Statement,,
+financialjuice,2026-09-02 13:45,CAD,BOC Rate Statement; Overnight Rate,33.0,"‼ BREAKING: BOC RATE DECISION ACTUAL 2.25% (FORECAST 2.25%, PREVIOUS 2.25%) $MACRO|FJ"
+financialjuice,2026-09-04 12:30,CAD,Employment Change; Unemployment Rate,26.0,"❗ CANADIAN UNEMPLOYMENT RATE ACTUAL 6.4% (FORECAST 6.4%, PREVIOUS 6.4%) $MACRO|FJ"
+financialjuice,2026-09-04 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,51.0,"❗ US UNEMPLOYMENT RATE ACTUAL 4.1% (FORECAST 4.1%, PREVIOUS 4.1%) $MACRO|FJ"
+financialjuice,2026-09-10 12:15,EUR,Main Refinancing Rate; Monetary Policy Statement,29.0,"‼ BREAKING: ECB DEPOSIT RATE ACTUAL 2.5% (FORECAST 2.5%, PREVIOUS 2.25%) $MACRO|FJ"
+financialjuice,2026-09-10 12:30,USD,Core PPI m/m; PPI m/m,35.0,"‼ BREAKING: US PPI YOY ACTUAL 5.4% (FORECAST 5.3%, PREVIOUS 4.7%) $MACRO|FJ"
+financialjuice,2026-09-11 06:00,GBP,GDP m/m,,
+financialjuice,2026-09-11 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,28.0,"‼ BREAKING: US CPI MOM ACTUAL 0.4% (FORECAST 0.4%, PREVIOUS 0.1%) $MACRO|FJ"
+financialjuice,2026-09-14 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,57.0,"CANADIAN CPI MEDIAN ACTUAL 2% (FORECAST 2%, PREVIOUS 2.0%) $MACRO|FJ"
+financialjuice,2026-09-16 06:00,GBP,CPI y/y,34.0,"‼ BREAKING: UK CPI YOY ACTUAL 3.1% (FORECAST 3.1%, PREVIOUS 2.9%) $MACRO|FJ"
+financialjuice,2026-09-16 18:00,USD,FOMC Statement; Federal Funds Rate,37.0,"Fed: Job gains have kept pace with the workforce, unemployment rate has changed little.|FJ"
+financialjuice,2026-09-16 22:45,NZD,GDP q/q,29.0,"NEW ZEALAND GDP YOY ACTUAL 2.6% (FORECAST 2.2%, PREVIOUS 1.5%) $MACRO|FJ"
+financialjuice,2026-09-17 11:00,GBP,Monetary Policy Summary; Official Bank Rate,30.0,"‼ BREAKING: BOE BANK RATE ACTUAL 3.75% (FORECAST 3.75%, PREVIOUS 3.75%) $MACRO|FJ"
+financialjuice,2026-09-24 01:30,AUD,Employment Change; Unemployment Rate,30.0,"‼ BREAKING: AUSTRALIAN EMPLOYMENT CHANGE ACTUAL 39.5K (FORECAST 20K, PREVIOUS -15.8K) $MACRO|FJ"
+financialjuice,2026-09-24 07:30,CHF,SNB Policy Rate,,
+financialjuice,2026-09-29 04:30,AUD,Cash Rate; RBA Rate Statement,31.0,"‼ BREAKING: RBA CASH RATE ACTUAL 4.6% (FORECAST 4.6%, PREVIOUS 4.35%) $MACRO|FJ"
+financialjuice,2026-09-30 01:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,27.0,"‼ BREAKING: AUSTRALIAN CPI YOY NSA ACTUAL 4% (FORECAST 4.1%, PREVIOUS 3.5%) $MACRO|FJ"
+financialjuice,2026-09-30 12:30,USD,Core PCE Price Index m/m; Final GDP q/q,39.0,"❗ US GDP QOQ FINAL ACTUAL 2.2% (FORECAST 1.5%, PREVIOUS 1.5%) $MACRO|FJ"
+financialjuice,2026-10-02 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,40.0,"US PRIVATE PAYROLLS ACTUAL 46K (FORECAST 81K, PREVIOUS 127K) $MACRO|FJ"
+financialjuice,2026-10-09 12:30,CAD,Employment Change; Unemployment Rate,26.0,"❗ CANADIAN UNEMPLOYMENT RATE ACTUAL 6.5% (FORECAST 6.5%, PREVIOUS 6.4%) $MACRO|FJ"
+financialjuice,2026-10-14 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,31.0,"❗ US CORE CPI YOY ACTUAL 2.6% (FORECAST 2.5%, PREVIOUS 2.4%) $MACRO|FJ"
+financialjuice,2026-10-15 00:30,AUD,Employment Change; Unemployment Rate,29.0,"AUSTRALIAN FULL TIME EMPLOYMENT CHG. ACTUAL 34.4K (FORECAST -, PREVIOUS -6.3K) $MACRO|FJ"
+financialjuice,2026-10-15 06:00,GBP,GDP m/m,27.0,"❗ UK GDP ESTIMATE 3M/3M ACTUAL 0.7% (FORECAST 0.5%, PREVIOUS 0.4%) $MACRO|FJ"
+financialjuice,2026-10-15 12:30,USD,Core PPI m/m; Core Retail Sales m/m; PPI m/m; Reta,31.0,"❗ US RETAIL SALES MOM ACTUAL 0.8% (FORECAST 0.3%, PREVIOUS 1.2%) $MACRO|FJ"
+financialjuice,2026-10-19 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,26.0,"CANADIAN CPI MEDIAN ACTUAL 1.9% (FORECAST 2%, PREVIOUS 2.0%) $MACRO|FJ"
+financialjuice,2026-10-21 06:00,GBP,CPI y/y,48.0,"UK SERVICES CPI YOY ACTUAL 3.7% (FORECAST 3.6%, PREVIOUS 3.4%) $MACRO|FJ"
+financialjuice,2026-10-21 21:45,NZD,CPI q/q,31.0,"NEW ZEALAND CPI YOY ACTUAL 3.7% (FORECAST 3.8%, PREVIOUS 4.1%) $MACRO|FJ"
+financialjuice,2026-10-28 00:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,26.0,"❗ AUSTRALIAN CPI YOY NSA ACTUAL 4.3% (FORECAST 4.2%, PREVIOUS 4%) $MACRO|FJ"
+financialjuice,2026-10-28 01:00,NZD,Official Cash Rate; RBNZ Rate Statement,114.0,Reserve Bank of New Zealand sets official cash rate at 2.75%|FJ
+financialjuice,2026-10-28 13:45,CAD,BOC Rate Statement; Overnight Rate,32.0,"‼ BREAKING: BOC RATE DECISION ACTUAL 2.5% (FORECAST 2.5%, PREVIOUS 2.25%) $MACRO|FJ"
+financialjuice,2026-10-28 18:00,USD,FOMC Statement; Federal Funds Rate,48.0,"❗ Fed: The vote in favor of the policy was 10-2, with Governor Cook and Hammack dissenting in favor "
+financialjuice,2026-10-29 12:30,USD,Advance GDP q/q; Core PCE Price Index m/m,53.0,"US CORE PCE PRICES ADVANCE ACTUAL 2.5% (FORECAST 2.4%, PREVIOUS 3.3%) $MACRO|FJ"
+financialjuice,2026-10-29 13:15,EUR,Main Refinancing Rate; Monetary Policy Statement,31.0,"❗ ECB INTEREST RATE ACTUAL 2.65% (FORECAST 2.65%, PREVIOUS 2.65%) $MACRO|FJ"
+financialjuice,2026-11-03 03:30,AUD,Cash Rate; RBA Monetary Policy Statement; RBA Rate,29.0,"Rba: Business loans stay robust, bank credit remains accessible|FJ"
+financialjuice,2026-11-03 21:45,NZD,Employment Change q/q; Unemployment Rate,26.0,"❗ NEW ZEALAND UNEMPLOYMENT RATE ACTUAL 5.7% (FORECAST 5.5%, PREVIOUS 5.6%) $MACRO|FJ"
+financialjuice,2026-11-05 12:00,GBP,Monetary Policy Summary; Official Bank Rate,29.0,"‼ BREAKING: BOE BANK RATE ACTUAL 4% (FORECAST 4%, PREVIOUS 3.75%) $MACRO|FJ"
+financialjuice,2026-11-06 13:30,CAD,Employment Change; Unemployment Rate,31.0,"❗ CANADIAN UNEMPLOYMENT RATE ACTUAL 6.7% (FORECAST 6.5%, PREVIOUS 6.5%) $MACRO|FJ"
+financialjuice,2026-11-06 13:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,56.0,"‼ BREAKING: US NONFARM PAYROLLS ACTUAL 165K (FORECAST 70K, PREVIOUS 29K) $MACRO|FJ"
+WalterBloomberg,2026-09-01 14:00,USD,ISM Manufacturing PMI,41.0,*US AUG. ISM MANUFACTURING INDEX FALLS TO 54.6; EST. 55.2 (@WalterBloomberg)
+WalterBloomberg,2026-09-02 01:30,AUD,GDP q/q,,
+WalterBloomberg,2026-09-02 02:00,NZD,Official Cash Rate; RBNZ Monetary Policy Statement,,
+WalterBloomberg,2026-09-02 13:45,CAD,BOC Rate Statement; Overnight Rate,71.0,*BOC LEAVES KEY INTEREST RATE AT 2.25%; EST. 2.25% (@WalterBloomberg)
+WalterBloomberg,2026-09-04 12:30,CAD,Employment Change; Unemployment Rate,,
+WalterBloomberg,2026-09-04 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,22.0,US LABOR AUG NONFARM PAYROLLS +162K; CONSENSUS +53K (@WalterBloomberg)
+WalterBloomberg,2026-09-10 12:15,EUR,Main Refinancing Rate; Monetary Policy Statement,35.0,ECB SAYS INTEREST RATES ECB DECIDED TO RAISE THREE INTEREST RATES BY 25 BASIS POINTS (@WalterBloombe
+WalterBloomberg,2026-09-10 12:30,USD,Core PPI m/m; PPI m/m,34.0,*US AUG. PRODUCER PRICES RISE 5.4% Y/Y; EST. +5.3% (@WalterBloomberg)
+WalterBloomberg,2026-09-11 06:00,GBP,GDP m/m,,
+WalterBloomberg,2026-09-11 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,51.0,*US AUG. CORE CPI RISES 0.3% M/M; EST. +0.2% (@WalterBloomberg)
+WalterBloomberg,2026-09-14 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,72.0,"*CANADA INFLATION HOLDS AT 3.0% Y/Y IN AUGUST, MATCHES EST. (@WalterBloomberg)"
+WalterBloomberg,2026-09-16 06:00,GBP,CPI y/y,,
+WalterBloomberg,2026-09-16 18:00,USD,FOMC Statement; Federal Funds Rate,13.0,FED RAISES RATES 25 BPS TO 3.75%-4.00% TARGET RANGE (@WalterBloomberg)
+WalterBloomberg,2026-09-16 22:45,NZD,GDP q/q,,
+WalterBloomberg,2026-09-17 11:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+WalterBloomberg,2026-09-24 01:30,AUD,Employment Change; Unemployment Rate,,
+WalterBloomberg,2026-09-24 07:30,CHF,SNB Policy Rate,,
+WalterBloomberg,2026-09-29 04:30,AUD,Cash Rate; RBA Rate Statement,,
+WalterBloomberg,2026-09-30 01:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+WalterBloomberg,2026-09-30 12:30,USD,Core PCE Price Index m/m; Final GDP q/q,25.0,US FINAL Q2 GDP +2.2% (CONSENSUS +1.5%)  US FINAL Q2 PCE PRICE INDEX +5.0%  US FINAL Q2 CORE PCE +3.
+WalterBloomberg,2026-10-02 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,25.0,US LABOR SEP NONFARM PAYROLLS +29K; CONSENSUS +84K (@WalterBloomberg)
+WalterBloomberg,2026-10-09 12:30,CAD,Employment Change; Unemployment Rate,87.0,"CANADA LOSES 68,300 JOBS IN SEPTEMBER, FAR WORSE THAN EXPECTED  Canada's economy shed 68,300 jobs in"
+WalterBloomberg,2026-10-14 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,31.0,"U.S. INFLATION SURGES TO 3.7%, BEATING EXPECTATIONS  September CPI rose 0.6% MoM, matching forecasts"
+WalterBloomberg,2026-10-15 00:30,AUD,Employment Change; Unemployment Rate,,
+WalterBloomberg,2026-10-15 06:00,GBP,GDP m/m,,
+WalterBloomberg,2026-10-15 12:30,USD,Core PPI m/m; Core Retail Sales m/m; PPI m/m; Reta,133.0,*US SEPT. PRODUCER PRICES RISE 6.3% Y/Y; EST. +5.4%   *US SEPT. PRODUCER PRICES RISE 1.3% M/M; EST. 
+WalterBloomberg,2026-10-19 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,116.0,"CANADA INFLATION RISES TO 3.1%, BUT CORE PRESSURES EASE  Canada's annual inflation accelerated to 3."
+WalterBloomberg,2026-10-21 06:00,GBP,CPI y/y,,
+WalterBloomberg,2026-10-21 21:45,NZD,CPI q/q,,
+WalterBloomberg,2026-10-28 00:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+WalterBloomberg,2026-10-28 01:00,NZD,Official Cash Rate; RBNZ Rate Statement,,
+WalterBloomberg,2026-10-28 13:45,CAD,BOC Rate Statement; Overnight Rate,169.0,BANK OF CANADA RAISES GROWTH AND INFLATION FORECASTS  The Bank of Canada raised its 2026 GDP growth 
+WalterBloomberg,2026-10-28 18:00,USD,FOMC Statement; Federal Funds Rate,9.0,*FED LEAVES INTEREST RATE UNCHANGED (@WalterBloomberg)
+WalterBloomberg,2026-10-29 12:30,USD,Advance GDP q/q; Core PCE Price Index m/m,20.0,US ADVANCE Q3 GDP +3.4% (CONSENSUS +3.2%) (@WalterBloomberg)
+WalterBloomberg,2026-10-29 13:15,EUR,Main Refinancing Rate; Monetary Policy Statement,14.0,ECB SAYS LEAVES INTEREST RATE ON DEPOSIT FACILITY UNCHANGED AT 2.50% (REUTERS POLL 2.50%) (@WalterBl
+WalterBloomberg,2026-11-03 03:30,AUD,Cash Rate; RBA Monetary Policy Statement; RBA Rate,,
+WalterBloomberg,2026-11-03 21:45,NZD,Employment Change q/q; Unemployment Rate,,
+WalterBloomberg,2026-11-05 12:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+WalterBloomberg,2026-11-06 13:30,CAD,Employment Change; Unemployment Rate,,
+WalterBloomberg,2026-11-06 13:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,61.0,"US JOBS REPORT SMASHES EXPECTATIONS  US employers added 165,000 jobs in October, nearly triple the 5"
+fxstreetforex,2026-09-01 14:00,USD,ISM Manufacturing PMI,,
+fxstreetforex,2026-09-02 01:30,AUD,GDP q/q,102.0,0.4%: Australia Q2 GDP beats estimates  Australia’s Gross Domestic Product (GDP) rose 0.4% QoQ in th
+fxstreetforex,2026-09-02 02:00,NZD,Official Cash Rate; RBNZ Monetary Policy Statement,24.0,Breaking: RBNZ hikes interest rate to 2.75% as expected  The Reserve Bank of New Zealand (RBNZ) rais
+fxstreetforex,2026-09-02 13:45,CAD,BOC Rate Statement; Overnight Rate,37.0,"Breaking: Bank of Canada keeps its rate at 2.25%, as expected  The Bank of Canada (BoC) left its pol"
+fxstreetforex,2026-09-04 12:30,CAD,Employment Change; Unemployment Rate,,
+fxstreetforex,2026-09-04 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,60.0,Breaking: US Nonfarm Payrolls rise by 162K in August vs. 56K expected  Nonfarm Payrolls (NFP) in the
+fxstreetforex,2026-09-10 12:15,EUR,Main Refinancing Rate; Monetary Policy Statement,35.0,Breaking: European Central Bank raises key rates by 25 bps as expected  The European Central Bank (E
+fxstreetforex,2026-09-10 12:30,USD,Core PPI m/m; PPI m/m,724.0,US headline Producer Prices rose by 5.4% in August   US Producer Prices rose 5.4% in August from a y
+fxstreetforex,2026-09-11 06:00,GBP,GDP m/m,141.0,"United Kingdom GDP grows by 0.4% MoM in July, vs. 0% expected  The UK Gross Domestic Product (GDP) g"
+fxstreetforex,2026-09-11 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,65.0,Breaking: US CPI inflation stays unchanged at 3.4% in August as expected  Annual inflation in the Un
+fxstreetforex,2026-09-14 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,236.0,"Breaking: Canada hedline CPI rose 3.0% YoY in August  Canada’s inflation held its pace in August, wi"
+fxstreetforex,2026-09-16 06:00,GBP,CPI y/y,61.0,"Breaking: United Kingdom CPI inflation climbs to 3.1% YoY in August, as expected  The United Kingdom"
+fxstreetforex,2026-09-16 18:00,USD,FOMC Statement; Federal Funds Rate,55.0,"Breaking: Federal Reserve raises interest rates to 3.75%-4.00%  At its September meeting, the Federa"
+fxstreetforex,2026-09-16 22:45,NZD,GDP q/q,107.0,0.2%: New Zealand’s Gross Domestic Product grows more than expected in Q2  New Zealand's Gross Domes
+fxstreetforex,2026-09-17 11:00,GBP,Monetary Policy Summary; Official Bank Rate,64.0,"Breaking: Bank of England keeps its policy rate at 3.75%  At its September meeting, the Bank of Engl"
+fxstreetforex,2026-09-24 01:30,AUD,Employment Change; Unemployment Rate,69.0,"Breaking: Australia’s Unemployment Rate climbs to 4.6% in August, vs 4.5% expected  Australia’s Unem"
+fxstreetforex,2026-09-24 07:30,CHF,SNB Policy Rate,177.0,SNB leaves interest rates unchanged at 0%  Swiss National Bank (SNB) leaves its key policy rates unc
+fxstreetforex,2026-09-29 04:30,AUD,Cash Rate; RBA Rate Statement,32.0,"Breaking: RBA raises interest rate by 25 bps to 4.60%, as expected  The Reserve Bank of Australia (R"
+fxstreetforex,2026-09-30 01:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,448.0,"Breaking: Australia’s CPI inflation rises to 4.0% YoY in August, as expected  Australia’s Consumer P"
+fxstreetforex,2026-09-30 12:30,USD,Core PCE Price Index m/m; Final GDP q/q,300.0,Breaking: US core PCE inflation stays unchanged at 3% in August vs. 3.3% expected  Annual inflation 
+fxstreetforex,2026-10-02 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,34.0,Breaking: US Nonfarm Payrolls rise by 29K in September vs. 90K expected  Nonfarm Payrolls (NFP) in t
+fxstreetforex,2026-10-09 12:30,CAD,Employment Change; Unemployment Rate,81.0,Breaking: Canada Unemployment Rate rises to 6.5% in September as expected  The Unemployment Rate in 
+fxstreetforex,2026-10-14 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,138.0,Breaking: US Consumer Price Index rose to 3.7% YoY in September  The United States had an annual inf
+fxstreetforex,2026-10-15 00:30,AUD,Employment Change; Unemployment Rate,90.0,"Breaking: Australia’s Unemployment Rate climbs to 4.7% in September, vs 4.6% expected  Australia’s U"
+fxstreetforex,2026-10-15 06:00,GBP,GDP m/m,173.0,0.1%: United Kingdom GDP grows by faster than expected in August   The UK Gross Domestic Product (GD
+fxstreetforex,2026-10-15 12:30,USD,Core PPI m/m; Core Retail Sales m/m; PPI m/m; Reta,,
+fxstreetforex,2026-10-19 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,103.0,Breaking: Canada headline CPI came in at 3.1% YoY in September  Canada’s inflation picked up pace in
+fxstreetforex,2026-10-21 06:00,GBP,CPI y/y,73.0,"Breaking: United Kingdom CPI inflation jumps to 3.5% YoY in September, vs. 3.4% expected  The United"
+fxstreetforex,2026-10-21 21:45,NZD,CPI q/q,458.0,"New Zealand's CPI inflation eases to 3.7% YoY in Q3, vs 3.8% expected  New Zealand's third-quarter C"
+fxstreetforex,2026-10-28 00:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,90.0,"Breaking: Australia’s CPI inflation eases to 3.9% YoY in September, vs. 4.2% expected  Australia’s C"
+fxstreetforex,2026-10-28 01:00,NZD,Official Cash Rate; RBNZ Rate Statement,143.0,"Breaking: RBNZ holds interest rate steady at 2.75%, surprising markets  The Reserve Bank of New Zeal"
+fxstreetforex,2026-10-28 13:45,CAD,BOC Rate Statement; Overnight Rate,268.0,Breaking: Bank of Canada hikes policy rate by 25 bps to 2.5% as expected  The Bank of Canada (BoC) h
+fxstreetforex,2026-10-28 18:00,USD,FOMC Statement; Federal Funds Rate,37.0,"Breaking: Federal Reserve keeps interest rates on hold, as expected  At its October meeting, the Fed"
+fxstreetforex,2026-10-29 12:30,USD,Advance GDP q/q; Core PCE Price Index m/m,182.0,Breaking: US Headline PCE rose by 3.6% YoY in September  The United States had an annual inflation r
+fxstreetforex,2026-10-29 13:15,EUR,Main Refinancing Rate; Monetary Policy Statement,41.0,"Breaking: European Central Bank leaves key rates unchanged in October, as expected  The European Cen"
+fxstreetforex,2026-11-03 03:30,AUD,Cash Rate; RBA Monetary Policy Statement; RBA Rate,76.0,"Breaking: RBA hikes interest rate by 25 bps to 4.85% in November, as expected  The Reserve Bank of A"
+fxstreetforex,2026-11-03 21:45,NZD,Employment Change q/q; Unemployment Rate,,
+fxstreetforex,2026-11-05 12:00,GBP,Monetary Policy Summary; Official Bank Rate,93.0,"Breaking: Bank of England raises interest by 25 bps to 4%, as expected  The Bank of England (BoE) an"
+fxstreetforex,2026-11-06 13:30,CAD,Employment Change; Unemployment Rate,,
+fxstreetforex,2026-11-06 13:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,60.0,Breaking: US Nonfarm Payrolls rise by 165K in October vs. 65K expected  Nonfarm Payrolls (NFP) in th
+insiderpaper,2026-09-01 14:00,USD,ISM Manufacturing PMI,,
+insiderpaper,2026-09-02 01:30,AUD,GDP q/q,,
+insiderpaper,2026-09-02 02:00,NZD,Official Cash Rate; RBNZ Monetary Policy Statement,,
+insiderpaper,2026-09-02 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+insiderpaper,2026-09-04 12:30,CAD,Employment Change; Unemployment Rate,,
+insiderpaper,2026-09-04 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,141.0,"BREAKING: US adds 162,000 new jobs in August, beating expectations  @INSIDERPAPER"
+insiderpaper,2026-09-10 12:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+insiderpaper,2026-09-10 12:30,USD,Core PPI m/m; PPI m/m,,
+insiderpaper,2026-09-11 06:00,GBP,GDP m/m,,
+insiderpaper,2026-09-11 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,,
+insiderpaper,2026-09-14 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+insiderpaper,2026-09-16 06:00,GBP,CPI y/y,,
+insiderpaper,2026-09-16 18:00,USD,FOMC Statement; Federal Funds Rate,235.0,BREAKING: Fed raises interest rates by 25 basis points over high inflation  US Fed projects one more
+insiderpaper,2026-09-16 22:45,NZD,GDP q/q,,
+insiderpaper,2026-09-17 11:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+insiderpaper,2026-09-24 01:30,AUD,Employment Change; Unemployment Rate,,
+insiderpaper,2026-09-24 07:30,CHF,SNB Policy Rate,,
+insiderpaper,2026-09-29 04:30,AUD,Cash Rate; RBA Rate Statement,,
+insiderpaper,2026-09-30 01:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+insiderpaper,2026-09-30 12:30,USD,Core PCE Price Index m/m; Final GDP q/q,,
+insiderpaper,2026-10-02 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+insiderpaper,2026-10-09 12:30,CAD,Employment Change; Unemployment Rate,,
+insiderpaper,2026-10-14 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,257.0,BREAKING: US consumer inflation rises more than expected to 3.7% in September - govt  @insiderpaper
+insiderpaper,2026-10-15 00:30,AUD,Employment Change; Unemployment Rate,,
+insiderpaper,2026-10-15 06:00,GBP,GDP m/m,,
+insiderpaper,2026-10-15 12:30,USD,Core PPI m/m; Core Retail Sales m/m; PPI m/m; Reta,,
+insiderpaper,2026-10-19 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+insiderpaper,2026-10-21 06:00,GBP,CPI y/y,,
+insiderpaper,2026-10-21 21:45,NZD,CPI q/q,,
+insiderpaper,2026-10-28 00:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+insiderpaper,2026-10-28 01:00,NZD,Official Cash Rate; RBNZ Rate Statement,,
+insiderpaper,2026-10-28 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+insiderpaper,2026-10-28 18:00,USD,FOMC Statement; Federal Funds Rate,297.0,"JUST IN - US Fed holds interest rates steady, says committed to fighting inflation  Two of Fed's 12-"
+insiderpaper,2026-10-29 12:30,USD,Advance GDP q/q; Core PCE Price Index m/m,,
+insiderpaper,2026-10-29 13:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+insiderpaper,2026-11-03 03:30,AUD,Cash Rate; RBA Monetary Policy Statement; RBA Rate,,
+insiderpaper,2026-11-03 21:45,NZD,Employment Change q/q; Unemployment Rate,,
+insiderpaper,2026-11-05 12:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+insiderpaper,2026-11-06 13:30,CAD,Employment Change; Unemployment Rate,,
+insiderpaper,2026-11-06 13:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+unfolded,2026-09-01 14:00,USD,ISM Manufacturing PMI,,
+unfolded,2026-09-02 01:30,AUD,GDP q/q,,
+unfolded,2026-09-02 02:00,NZD,Official Cash Rate; RBNZ Monetary Policy Statement,,
+unfolded,2026-09-02 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+unfolded,2026-09-04 12:30,CAD,Employment Change; Unemployment Rate,,
+unfolded,2026-09-04 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+unfolded,2026-09-10 12:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+unfolded,2026-09-10 12:30,USD,Core PPI m/m; PPI m/m,,
+unfolded,2026-09-11 06:00,GBP,GDP m/m,,
+unfolded,2026-09-11 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,14.0,U.S. CPI: +3.4% YOY (EST. +3.4%) U.S. CORE CPI: +2.4% YOY (EST. +2.4%)
+unfolded,2026-09-14 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+unfolded,2026-09-16 06:00,GBP,CPI y/y,,
+unfolded,2026-09-16 18:00,USD,FOMC Statement; Federal Funds Rate,14.0,FED HIKES BY 25 BPS | AI comment
+unfolded,2026-09-16 22:45,NZD,GDP q/q,,
+unfolded,2026-09-17 11:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+unfolded,2026-09-24 01:30,AUD,Employment Change; Unemployment Rate,,
+unfolded,2026-09-24 07:30,CHF,SNB Policy Rate,,
+unfolded,2026-09-29 04:30,AUD,Cash Rate; RBA Rate Statement,,
+unfolded,2026-09-30 01:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+unfolded,2026-09-30 12:30,USD,Core PCE Price Index m/m; Final GDP q/q,,
+unfolded,2026-10-02 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+unfolded,2026-10-09 12:30,CAD,Employment Change; Unemployment Rate,,
+unfolded,2026-10-14 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,13.0,U.S. CPI: +3.7% YOY (EST. +3.6%) U.S. CORE CPI: +2.6% YOY (EST. +2.5%)
+unfolded,2026-10-15 00:30,AUD,Employment Change; Unemployment Rate,,
+unfolded,2026-10-15 06:00,GBP,GDP m/m,,
+unfolded,2026-10-15 12:30,USD,Core PPI m/m; Core Retail Sales m/m; PPI m/m; Reta,,
+unfolded,2026-10-19 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+unfolded,2026-10-21 06:00,GBP,CPI y/y,,
+unfolded,2026-10-21 21:45,NZD,CPI q/q,,
+unfolded,2026-10-28 00:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+unfolded,2026-10-28 01:00,NZD,Official Cash Rate; RBNZ Rate Statement,,
+unfolded,2026-10-28 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+unfolded,2026-10-28 18:00,USD,FOMC Statement; Federal Funds Rate,3.0,FED: no changes in rates. | AI comment
+unfolded,2026-10-29 12:30,USD,Advance GDP q/q; Core PCE Price Index m/m,,
+unfolded,2026-10-29 13:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+unfolded,2026-11-03 03:30,AUD,Cash Rate; RBA Monetary Policy Statement; RBA Rate,,
+unfolded,2026-11-03 21:45,NZD,Employment Change q/q; Unemployment Rate,,
+unfolded,2026-11-05 12:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+unfolded,2026-11-06 13:30,CAD,Employment Change; Unemployment Rate,,
+unfolded,2026-11-06 13:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+brokerexness,2026-09-01 14:00,USD,ISM Manufacturing PMI,,
+brokerexness,2026-09-02 01:30,AUD,GDP q/q,,
+brokerexness,2026-09-02 02:00,NZD,Official Cash Rate; RBNZ Monetary Policy Statement,,
+brokerexness,2026-09-02 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+brokerexness,2026-09-04 12:30,CAD,Employment Change; Unemployment Rate,,
+brokerexness,2026-09-04 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+brokerexness,2026-09-10 12:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+brokerexness,2026-09-10 12:30,USD,Core PPI m/m; PPI m/m,,
+brokerexness,2026-09-11 06:00,GBP,GDP m/m,,
+brokerexness,2026-09-11 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,,
+brokerexness,2026-09-14 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+brokerexness,2026-09-16 06:00,GBP,CPI y/y,,
+brokerexness,2026-09-16 18:00,USD,FOMC Statement; Federal Funds Rate,,
+brokerexness,2026-09-16 22:45,NZD,GDP q/q,,
+brokerexness,2026-09-17 11:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+brokerexness,2026-09-24 01:30,AUD,Employment Change; Unemployment Rate,,
+brokerexness,2026-09-24 07:30,CHF,SNB Policy Rate,,
+brokerexness,2026-09-29 04:30,AUD,Cash Rate; RBA Rate Statement,,
+brokerexness,2026-09-30 01:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+brokerexness,2026-09-30 12:30,USD,Core PCE Price Index m/m; Final GDP q/q,,
+brokerexness,2026-10-02 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+brokerexness,2026-10-09 12:30,CAD,Employment Change; Unemployment Rate,,
+brokerexness,2026-10-14 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,,
+brokerexness,2026-10-15 00:30,AUD,Employment Change; Unemployment Rate,,
+brokerexness,2026-10-15 06:00,GBP,GDP m/m,,
+brokerexness,2026-10-15 12:30,USD,Core PPI m/m; Core Retail Sales m/m; PPI m/m; Reta,,
+brokerexness,2026-10-19 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+brokerexness,2026-10-21 06:00,GBP,CPI y/y,,
+brokerexness,2026-10-21 21:45,NZD,CPI q/q,,
+brokerexness,2026-10-28 00:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+brokerexness,2026-10-28 01:00,NZD,Official Cash Rate; RBNZ Rate Statement,,
+brokerexness,2026-10-28 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+brokerexness,2026-10-28 18:00,USD,FOMC Statement; Federal Funds Rate,,
+brokerexness,2026-10-29 12:30,USD,Advance GDP q/q; Core PCE Price Index m/m,,
+brokerexness,2026-10-29 13:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+brokerexness,2026-11-03 03:30,AUD,Cash Rate; RBA Monetary Policy Statement; RBA Rate,,
+brokerexness,2026-11-03 21:45,NZD,Employment Change q/q; Unemployment Rate,,
+brokerexness,2026-11-05 12:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+brokerexness,2026-11-06 13:30,CAD,Employment Change; Unemployment Rate,,
+brokerexness,2026-11-06 13:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+FXGoldVisionMarkets,2026-09-01 14:00,USD,ISM Manufacturing PMI,,
+FXGoldVisionMarkets,2026-09-02 01:30,AUD,GDP q/q,,
+FXGoldVisionMarkets,2026-09-02 02:00,NZD,Official Cash Rate; RBNZ Monetary Policy Statement,,
+FXGoldVisionMarkets,2026-09-02 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+FXGoldVisionMarkets,2026-09-04 12:30,CAD,Employment Change; Unemployment Rate,,
+FXGoldVisionMarkets,2026-09-04 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+FXGoldVisionMarkets,2026-09-10 12:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+FXGoldVisionMarkets,2026-09-10 12:30,USD,Core PPI m/m; PPI m/m,,
+FXGoldVisionMarkets,2026-09-11 06:00,GBP,GDP m/m,,
+FXGoldVisionMarkets,2026-09-11 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,,
+FXGoldVisionMarkets,2026-09-14 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+FXGoldVisionMarkets,2026-09-16 06:00,GBP,CPI y/y,,
+FXGoldVisionMarkets,2026-09-16 18:00,USD,FOMC Statement; Federal Funds Rate,,
+FXGoldVisionMarkets,2026-09-16 22:45,NZD,GDP q/q,,
+FXGoldVisionMarkets,2026-09-17 11:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+FXGoldVisionMarkets,2026-09-24 01:30,AUD,Employment Change; Unemployment Rate,,
+FXGoldVisionMarkets,2026-09-24 07:30,CHF,SNB Policy Rate,,
+FXGoldVisionMarkets,2026-09-29 04:30,AUD,Cash Rate; RBA Rate Statement,,
+FXGoldVisionMarkets,2026-09-30 01:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+FXGoldVisionMarkets,2026-09-30 12:30,USD,Core PCE Price Index m/m; Final GDP q/q,,
+FXGoldVisionMarkets,2026-10-02 12:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
+FXGoldVisionMarkets,2026-10-09 12:30,CAD,Employment Change; Unemployment Rate,,
+FXGoldVisionMarkets,2026-10-14 12:30,USD,CPI m/m; CPI y/y; Core CPI m/m; Core CPI y/y,,
+FXGoldVisionMarkets,2026-10-15 00:30,AUD,Employment Change; Unemployment Rate,,
+FXGoldVisionMarkets,2026-10-15 06:00,GBP,GDP m/m,,
+FXGoldVisionMarkets,2026-10-15 12:30,USD,Core PPI m/m; Core Retail Sales m/m; PPI m/m; Reta,,
+FXGoldVisionMarkets,2026-10-19 12:30,CAD,CPI m/m; Median CPI y/y; Trimmed CPI y/y,,
+FXGoldVisionMarkets,2026-10-21 06:00,GBP,CPI y/y,,
+FXGoldVisionMarkets,2026-10-21 21:45,NZD,CPI q/q,,
+FXGoldVisionMarkets,2026-10-28 00:30,AUD,CPI m/m; CPI y/y; Trimmed Mean CPI m/m,,
+FXGoldVisionMarkets,2026-10-28 01:00,NZD,Official Cash Rate; RBNZ Rate Statement,,
+FXGoldVisionMarkets,2026-10-28 13:45,CAD,BOC Rate Statement; Overnight Rate,,
+FXGoldVisionMarkets,2026-10-28 18:00,USD,FOMC Statement; Federal Funds Rate,,
+FXGoldVisionMarkets,2026-10-29 12:30,USD,Advance GDP q/q; Core PCE Price Index m/m,,
+FXGoldVisionMarkets,2026-10-29 13:15,EUR,Main Refinancing Rate; Monetary Policy Statement,,
+FXGoldVisionMarkets,2026-11-03 03:30,AUD,Cash Rate; RBA Monetary Policy Statement; RBA Rate,,
+FXGoldVisionMarkets,2026-11-03 21:45,NZD,Employment Change q/q; Unemployment Rate,,
+FXGoldVisionMarkets,2026-11-05 12:00,GBP,Monetary Policy Summary; Official Bank Rate,,
+FXGoldVisionMarkets,2026-11-06 13:30,CAD,Employment Change; Unemployment Rate,,
+FXGoldVisionMarkets,2026-11-06 13:30,USD,Average Hourly Earnings m/m; Non-Farm Employment C,,
