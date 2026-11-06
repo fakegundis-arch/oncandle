@@ -192,16 +192,41 @@ def main():
             rec[f"{s}_path"] = {k: round(v, 2) for k, v in pp.items()}
         crow.append(rec)
     C = pd.DataFrame(crow)
-    big = C[(C.NAS100_after15.abs() >= 2) | (C.XAUUSD_after15.abs() >= 2)] if len(C) else C
-    BB = channel_table(st, chans, keep=set(big.t0)) if len(big) else pd.DataFrame()
+    # market-shaking = calm in the 15 min before the first post (< 1.5 x normal) and >= 2 x normal in the 15 min after
+    shake = C[((C.NAS100_after15.abs() >= 2) & (C.NAS100_before15.abs() < 1.5)) |
+              ((C.XAUUSD_after15.abs() >= 2) & (C.XAUUSD_before15.abs() < 1.5))] if len(C) else C
+    BB = channel_table(st, chans, keep=set(shake.t0)) if len(shake) else pd.DataFrame()
+
+    # head-to-head: on the stories both channels posted, who was earlier and by how much
+    main_ch = [ch for ch in B[B.stories >= 40].channel]
+    h2h = []
+    for i, a in enumerate(main_ch):
+        for b in main_ch[i + 1:]:
+            d = [(c["first"][a][0] - c["first"][b][0]).total_seconds() for c in st if a in c["first"] and b in c["first"]]
+            if len(d) < 10:
+                continue
+            d = pd.Series(d)
+            h2h.append(dict(a=a, b=b, shared=len(d), a_first_pct=round(100 * (d < 0).mean()),
+                            b_first_pct=round(100 * (d > 0).mean()), median_a_minus_b_s=d.median()))
+    HH = pd.DataFrame(h2h)
 
     OUT.mkdir(parents=True, exist_ok=True)
     S.to_csv(OUT / "unscheduled_stories.csv", index=False)
     C.to_csv(OUT / "unscheduled_market.csv", index=False)
+    HH.to_csv(OUT / "unscheduled_head_to_head.csv", index=False)
     with open(OUT / "unscheduled_summary.txt", "w") as fh:
         fh.write(f"B. unscheduled stories posted by >= 3 channels: {len(S)}\n{B.to_string(index=False)}\n\n")
-        fh.write(f"B2. market-moving stories only (Sep 15 - Oct 15; NAS100 or gold moved >= 2 x a normal 15-min move in "
-                 f"the 15 min after the first post): {len(big)}\n{BB.to_string(index=False)}\n\n")
+        fh.write(f"B1. head to head (stories both posted; negative median = the first channel is earlier)\n"
+                 f"{HH.to_string(index=False)}\n\n")
+        fh.write(f"B2. market-shaking stories (Sep 15 - Oct 15; calm before, then NAS100 or gold moved >= 2 x a normal "
+                 f"15-min move in the 15 min after the first post): {len(shake)}\n{BB.to_string(index=False)}\n\n")
+        fh.write("B3. the market-shaking stories, biggest first (moves in units of a normal 15-min move)\n")
+        if len(shake):
+            sh = shake.assign(a=shake[["NAS100_after15", "XAUUSD_after15"]].abs().max(axis=1)).sort_values("a", ascending=False)
+            for r in sh.itertuples():
+                fh.write(f"  {r.t0:%Y-%m-%d %H:%M:%S} NAS {r.NAS100_before15:+.1f}/{r.NAS100_after15:+.1f} "
+                         f"gold {r.XAUUSD_before15:+.1f}/{r.XAUUSD_after15:+.1f} | {r.text[:85]} | {r.order[:170]}\n")
+        fh.write("\n")
         for s in ("NAS100", "XAUUSD"):
             if not len(C):
                 break
