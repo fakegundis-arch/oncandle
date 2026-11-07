@@ -92,10 +92,10 @@ def _check(month: str):
 
 def load_binance(upto: str) -> dict:
     """regular 1-second grid from START to `upto` (exclusive): close (carried forward), taker buy / sell qty."""
-    parts = []
-    for m in _months(START, upto):
+    ms = _months(START, upto)
+    for m in ms:
         _check(m)
-        parts.append(dict(np.load(BIN / "binance_1s" / f"{m}.npz")))
+    parts = [dict(np.load(BIN / "binance_1s" / f"{m}.npz")) for m in ms]
     z = {k: np.concatenate([p[k] for p in parts]) for k in ("t", "c", "bq", "sq")}
     t0, t1 = int(pd.Timestamp(START, tz="UTC").timestamp()), int(pd.Timestamp(upto, tz="UTC").timestamp())
     keep = (z["t"] >= t0) & (z["t"] < t1)
@@ -110,10 +110,10 @@ def load_binance(upto: str) -> dict:
 
 
 def load_exness(upto: str) -> dict:
-    parts = []
-    for m in _months(START, upto):
+    ms = _months(START, upto)
+    for m in ms:
         _check(m)
-        parts.append(dict(np.load(EXN / f"{m}.npz")))
+    parts = [dict(np.load(EXN / f"{m}.npz")) for m in ms]
     tk = {k: np.concatenate([p[k] for p in parts]) for k in parts[0]}
     t1 = int(pd.Timestamp(upto, tz="UTC").timestamp())
     keep = tk["t"] < t1
@@ -130,9 +130,10 @@ def load_metrics(upto: str) -> pd.DataFrame:
 
 
 def load_depth(upto: str) -> pd.DataFrame:
-    parts = []
     for mo in _months(START, upto):
         _check(mo)
+    parts = []
+    for mo in _months(START, upto):
         f = BIN / "bookdepth" / f"{mo}.parquet"
         if f.exists():
             parts.append(pd.read_parquet(f))
@@ -251,7 +252,7 @@ class Market:
         nb = int((np.log(400000.0) - lo_b) / step) + 1
         L, S = np.zeros(nb), np.zeros(nb)
         bin_of = lambda p: np.clip(((np.log(p) - lo_b) / step).astype(int), 0, nb - 1)
-        res = {f"{w}_{d}": np.full(len(ts), np.nan) for w in ("L", "S") for d in (0.5, 1, 2)}
+        res = {f"{w}_{d:g}": np.full(len(ts), np.nan) for w in ("L", "S") for d in (0.5, 1, 2)}
         for r in range(1, len(ts)):
             if not ok[r] or ts[r] - ts[r - 1] != 300:
                 continue
@@ -272,14 +273,14 @@ class Market:
                     S[bin_of(np.array([vwap * (1 + 1 / lev - MM)]))[0]] += d_oi * w
             p = self.c[b]
             for d in (0.5, 1, 2):
-                res[f"L_{d}"][r] = L[bin_of(np.array([p * (1 - d / 100)]))[0]: bin_of(np.array([p]))[0] + 1].sum()
-                res[f"S_{d}"][r] = S[bin_of(np.array([p]))[0]: bin_of(np.array([p * (1 + d / 100)]))[0] + 1].sum()
+                res[f"L_{d:g}"][r] = L[bin_of(np.array([p * (1 - d / 100)]))[0]: bin_of(np.array([p]))[0] + 1].sum()
+                res[f"S_{d:g}"][r] = S[bin_of(np.array([p]))[0]: bin_of(np.array([p * (1 + d / 100)]))[0] + 1].sum()
         self._map = (ts, oi, res)
         return self._map
 
     def events_C(self, d, q, s, dirn):
         ts, oi, res = self.liq_map()
-        Lv, Sv = res[f"L_{d}"], res[f"S_{d}"]
+        Lv, Sv = res[f"L_{float(d):g}"], res[f"S_{float(d):g}"]
         with np.errstate(divide="ignore", invalid="ignore"):
             up = (Sv >= q * Lv) & (Sv >= s / 100 * oi)
             dn = (Lv >= q * Sv) & (Lv >= s / 100 * oi)
