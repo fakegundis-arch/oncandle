@@ -165,3 +165,29 @@ live 1 min, stop at the other level, out after 30 min, war / energy headlines: 1
 Reading: a straddle does not need to know the direction, but it pays the spread plus slippage on every fill and is
 triggered by noise as often as by real moves. After these headlines the move that would carry a straddle has mostly
 happened already (the wires were faster), so the triggers that follow are as likely to reverse as to continue.
+
+# Fixed-distance straddle - the user's design (Nov 7 2026)
+
+When the bot reads a tradable FinancialJuice / Walter Bloomberg headline: buy stop at the price + p, sell stop at the
+price - p (gold at 4,670 with p = $5: 4,675 / 4,665), one cancels the other. p is a percent of the price:
+0.05 / 0.10 / 0.15 / 0.20 / 0.30 / 0.45 % (about $2.3 / 4.7 / 7.0 / 9.3 / 14 / 21 on gold at 4,670; 13 / 26 / 39 / 51 /
+77 / 116 points on Nasdaq at 25,670). Same fills (+1 spread slippage), stress test, both-legs rule and flat-before-close
+as the straddle above. 1,296 settings per market. Protocol `scripts/telegram_news/straddle_fixed_lab.py` (committed
+before any result); built on Jan-Jun 2026, one run on Jul-Oct 2026.
+
+Jan-Jun: gold 0 of 1,296 settings passed (median PF 0.87; 217 made money; best distance ~0.2 %); Nasdaq 1 of 1,296
+(median PF 0.79; wider was better).
+
+| | Jan-Jun 2026 (built on) | Jul-Oct 2026 (unseen, run once) |
+|---|---|---|
+| **Nasdaq pick** (0.45 % ~ 116 pts each side, orders 5 min, stop at the start price, 1R target, 5 min hold, all headlines) | 46 trades, +3.6R, PF 1.40, DD -23%, $1,328 | **10 trades, -1.5R, PF 0.34, $853 - fails** (too few trades, loses) |
+| **Gold, info-only** (0.10 % ~ $4.7 each side, orders 1 min, stop at the other order, 2R target, 30 min hold, war / energy headlines) - did NOT pass the build rules | 762 trades, +57.5R, PF 1.14, win 40%; at 10% risk wiped out (-100%); at 2% $2,437 (-47%); at 1% $1,665 (-27%) | **145 trades, +22.5R, PF 1.35, win 49%; at 10% $3,631 after a -73% drawdown; at 2% $1,506 (-21%); at 1% $1,239 (-11%)**; stress +14.4R, PF 1.21 |
+
+The gold result is the first positive unseen result of the news bots, but it is not a validated edge:
+* it was the best of 1,296 settings and failed the build rules (10% risk wiped the account out in Jan-Jun);
+* its Jul-Oct profit is concentrated: July +18.8R (+12R on Jul 7-8 alone); Aug-Oct +3.6R on 105 trades; without its
+  10 best trades +2.4R;
+* gold moved less after headlines in Jul-Oct: 36 trades a month vs 127 in Jan-Jun, with as many headlines;
+* Jul-Oct had already served as the test of the earlier news bots (not of this design).
+Next honest step: an untouched period (2025) and a forward test on a demo account, at 1-2% risk.
+Results: `straddle_fixed_test.json`, `straddle_fixed_gold_info_test.json`, grids `straddle_fixed_grid_*.csv`.
