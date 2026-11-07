@@ -1,0 +1,62 @@
+{
+ "locked_at_utc": "2026-11-07T04:40:18+00:00",
+ "note": "Picked on Jan-Jun 2026 by the newsbot_lab.py rule (corrected grid, commit a95e916), frozen before final_test on Jul-Oct 2026. 'secondary' was declared before the reveal: the highest-R gold config of the Jan-Jun grid, which fails the 10% drawdown and stress rules; reported at 10% and at 1% risk.",
+ "picks": {
+  "gold": {
+   "fam": "LEXMOM",
+   "L": 30,
+   "k": 0.0,
+   "H": 300,
+   "m": 8,
+   "r": 2,
+   "topics": "FED"
+  },
+  "nasdaq": {
+   "fam": "MOM",
+   "L": 10,
+   "k": 2.0,
+   "H": 300,
+   "m": 8,
+   "r": 2,
+   "topics": "FED"
+  }
+ },
+ "build_jan_jun": {
+  "gold": {
+   "n": 99,
+   "R": 6.62,
+   "pf": 1.39,
+   "dd": -0.266,
+   "usd": 1650,
+   "stress_pf": 1.4,
+   "nb_pass": 0.0
+  },
+  "nasdaq": {
+   "n": 40,
+   "R": 12.4,
+   "pf": 2.35,
+   "dd": -0.17,
+   "usd": 2900,
+   "stress_pf": 1.88,
+   "nb_pass": 0.125
+  },
+  "secondary_gold": {
+   "n": 1218,
+   "R": 198.0,
+   "pf": 1.24,
+   "dd": -0.99996,
+   "stress_pf": 1.1
+  }
+ },
+ "secondary": {
+  "gold": {
+   "fam": "MOM",
+   "L": 60,
+   "k": 2.0,
+   "H": 1800,
+   "m": 4,
+   "r": 0,
+   "topics": "GEO+ENERGY"
+  }
+ }
+}
