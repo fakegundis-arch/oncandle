@@ -299,3 +299,20 @@ The extra trades lose: with the 30-min exit, the 122 Jan-Jun and 58 Jul-Oct trad
 add -26.0R and -4.5R. They come in bursts during the same story, all following the same move, so they win and lose
 together; at 10% each, several open trades put 40-180 % of the balance at risk at once (beyond 100 % the broker would
 stop the account out).
+
+## Gold ❗ direct order: 1R / 2R / 3R targets (Nov 7 2026)
+
+Stop $10, target $10 / $20 / $30 (`scripts/telegram_news/bang_targets.py`, results `bang_targets_results.json`).
+R totals, Jan-Jun / Jul-Oct; $1,000 at 10 % risk at the end of Jul-Oct.
+
+| Version | Exit | 1R | 2R | 3R |
+|---|---|---|---|---|
+| Every ❗ post, multiple trades | 30 min | -33.0 / -0.1R, $247 | +8.4 / -22.2R, $19 | +32.4 / -32.3R, $4 |
+| Every ❗ post, multiple trades | stop / target only | -34.3 / +4.1R, $224 | +31.2 / -24.0R, $4 | +25.5 / -77.1R, wiped out |
+| First of story, one at a time | 30 min | -7.1 / +9.4R, $1,343 (PF 1.13) | +19.9 / +13.5R, $1,784 (PF 1.19) | **+20.1 / +15.4R, $2,138 (PF 1.23, DD -65%)** |
+| First of story, one at a time | stop / target only | -18.7 / +9.8R, $1,014 | +22.8 / +8.4R, $552 | -10.8 / -13.1R, $66 |
+
+The every-❗ multiple-trade bot loses on Jul-Oct or ends near $0 at 10 % risk with every target. Best is still one trade
+at a time with the 30-min exit; 3R edges 2R (Jul-Oct +15.4R vs +13.5R, stress PF 1.18 vs 1.14) because the 30-min
+timer closes most trades before either target, so the targets change only a few trades. Choosing 3R after seeing
+Jul-Oct is a choice made on the test months, so Jul-Oct no longer counts as unseen for it.
