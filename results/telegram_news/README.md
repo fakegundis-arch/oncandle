@@ -361,3 +361,35 @@ The $10-stop direct order from the section above, by risk (first of story, follo
 
 It made money in R in both periods, but at 10 % risk Jan-Jun ends below $1,000 with a -97 / -98 % drawdown, because
 the losses come in runs; with stress costs it loses on Jan-Jun.
+
+## Two search agents, from scratch: goal $200k from $1,000 at 10 % risk (Nov 7 2026)
+
+Two independent agents built bots on a copy of the data that ENDS on 2026-06-30 (`scripts/telegram_news/agents/
+make_sandbox.py`; Jul-Oct 2026 and all earlier results hidden from them), with fixed fill / exit / cost / account rules
+(`agents/common.py`: act at post + 2 s, real bid / ask + 1 spread, stop fixed at entry, stop before target, flat
+before the daily break, 10 % risk per trade, at most 30 % open; stress 5 s late, 2 spreads in, 1 more out; checked to
+match the earlier engine trade for trade).  Each delivered up to 3 frozen versions; the lead audited the code for
+look-ahead, reproduced Jan-Jun exactly on both data folders, then ran each version ONCE on Jul-Oct 2026
+(`agents/final_check.py`, results `agent_alpha_test.json`, `agent_beta_test.json`).
+
+* **alpha** (headline text; `agents/alpha/REPORT.md`): ~16.8 M combinations.  Best search-period rule $1,000 ->
+  $819k, but the same search on fake signals found up to $637k; walk-forward picking lost 95 %; learned word
+  direction had no out-of-sample value.  Its reading: FJ / WB post 30-100 s after the market has moved.
+* **beta** (price reaction; `agents/beta/REPORT.md`): ~650 M real + 2.9 G fake combinations.  Best search-period
+  $200k, fakes $35k-$414k.  Found that gold keeps drifting after posts that land during a sharp gold move with a quote
+  burst and Nasdaq moving too.
+
+Jul 1 - Oct 31 2026, $1,000 at 10 % risk (one run each):
+
+| Agent | Version | Jan-Jun 2026 at 10 % | Jul-Oct trades | R | PF | stress PF | Jul-Oct at 10 % | at 2 % | Jan-Oct at 10 % |
+|---|---|---|---|---|---|---|---|---|---|
+| beta | gold shock, pullback limit | $58,607 (-64 %) | 92 | +6.8 | 1.11 | 1.12 | $435 (-93 %) | $1,007 | $25,518 |
+| beta | gold shock, pullback + trailing stop | $24,861 (-60 %) | 92 | +6.1 | 1.11 | 1.05 | $364 (-92 %) | $1,021 | $9,042 |
+| beta | gold shock, market order | $9,764 (-80 %) | 105 | +16.5 | 1.25 | 1.12 | $904 (-84 %) | $1,181 | $8,830 |
+| alpha | sell gold after 🚨 + Iran | $57,097 (-69 %) | 3 | +5.1 | 3.54 | 3.15 | $1,383 (-19 %) | $1,096 | $78,988 |
+| alpha | fade bursts, European morning | $1,762 (-90 %) | 232 | -25.1 | 0.83 | 0.73 | $7 (-100 %) | $542 | $13 |
+| alpha | urgent headline after a quiet minute, follow | $2,802 (-94 %) | 127 | +16.5 | 1.23 | 1.02 | $1,460 (-82 %) | $1,317 | $4,091 |
+
+No version comes near $200k.  Four of six made money in R on Jul-Oct, but with PF 1.1-1.25 the 10 % risk turns that
+into a loss or a -82 to -93 % drawdown.  The 🚨 + Iran short traded only 3 times in Jul-Oct (the headlines stopped); its
+Jan-Oct $78,988 comes from Mar-Apr 2026, inside its search period, when gold fell during the Iran war.
