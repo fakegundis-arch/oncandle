@@ -92,3 +92,31 @@ strategy wants to use. Limits: "first" means first among these Telegram channels
 terminals, officials' own accounts are earlier); the price check is at 1-minute resolution, so a move that starts in the
 same minute as the first post is not separated; story matching is by shared words, so Russian-language channels are
 undercounted.
+
+# Backtest: a bot trading FinancialJuice + Walter Bloomberg headlines on gold and Nasdaq (Nov 7 2026)
+
+Protocol and engine: `scripts/telegram_news/newsbot_lab.py` (committed before any run), grid `newsbot_build.py`.
+* Posts: 47,687 FinancialJuice + 16,035 Walter Bloomberg posts, Jan 1 - Oct 31 2026. Tradable = surprise headlines only
+  (no scheduled data / previews, nothing from 2 min before to 15 min after a calendar release or 60 min after the start
+  of a speech / press conference, first post of a story, topic: war / energy / Fed officials / trade / politics / China).
+* Prices: Exness's own tick history (XAUUSDm, USTECm), one-second bid / ask - real spreads, including news widening.
+* Bot: sees the post 2 s after it appears, market order at the real ask / bid; stress test 5 s + one spread slippage.
+  Direction from price momentum, its fade, the headline's words, or words + momentum. $1,000, 10 % risk per trade.
+* Built on Jan-Jun 2026 (4,680 settings per instrument), tested once on Jul-Oct 2026.
+* Two bugs were found and fixed before the test (whole-word matching; the calendar window was inverted, which let
+  scheduled FOMC posts in); the first grid's picks were discarded (commits 78b3cc7, a95e916).
+
+Jan-Jun: almost everything loses - median profit factor 0.67-0.90 per direction family; only 4 gold and 2 Nasdaq
+settings out of 4,680 passed the build rules (what chance alone produces in a search this size).
+
+| Locked bot (picked on Jan-Jun) | Jan-Jun (built on) | Jul-Oct 2026 (unseen, run once) | Jul-Oct at 5 s + slippage |
+|---|---|---|---|
+| Gold: headline words + momentum agree, Fed-official headlines, 5 min hold | 99 trades, +6.6R, PF 1.39, -27%, $1,650 | **85 trades, -6.8R, PF 0.67, -62%, $446 - fails** | -9.6R, PF 0.56, $338 |
+| Nasdaq: momentum, Fed-official headlines, 5 min hold | 40 trades, +12.4R, PF 2.35, -17%, $2,900 | **33 trades, -4.4R, PF 0.63, -51%, $597 - fails** | -8.1R, PF 0.40, $412 |
+| Secondary (declared before the test): gold momentum after war / energy headlines, 30 min hold | 1,218 trades, +198R, PF 1.24, but -100% at 10% risk | **844 trades, -126R, PF 0.80: account wiped out at 10%; at 1% risk $239 (-85%)** | -209R, PF 0.68 |
+
+Reading: no version holds up on unseen months. Jan-Jun's best patterns were the lucky few of 4,680 tries; Jul-Oct
+lost in 10 of the 12 instrument-months. By the time these channels post (seconds after the wires), the first reaction
+is already in the price; what follows is as likely to reverse as to continue. Tight stops do not protect in news
+spikes: the secondary's worst trade lost 17.7x its planned risk when gold gapped through the stop. Results:
+`newsbot_test.json`, `newsbot_secondary_test.json`, grids `newsbot_grid_*.csv`, build log `newsbot_build.txt`.
