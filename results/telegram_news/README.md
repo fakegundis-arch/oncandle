@@ -316,3 +316,48 @@ The every-❗ multiple-trade bot loses on Jul-Oct or ends near $0 at 10 % risk w
 at a time with the 30-min exit; 3R edges 2R (Jul-Oct +15.4R vs +13.5R, stress PF 1.18 vs 1.14) because the 30-min
 timer closes most trades before either target, so the targets change only a few trades. Choosing 3R after seeing
 Jul-Oct is a choice made on the test months, so Jul-Oct no longer counts as unseen for it.
+
+## Gold ❗ with smaller dollar stops, lot sized to 10 % risk (Nov 7 2026)
+
+The user's idea: a smaller gold move ($10-15) with a bigger lot, still 10 % risk per trade.  The lot is always
+10 % of the balance / (stop $ x 100 oz): at $1,000, a $3 stop = 0.33 lot, $5 = 0.20, $10 = 0.10, $15 = 0.06-0.07.
+Protocol `scripts/telegram_news/gold_tune_lab.py` (committed before any result), grid `gold_tune_build.py`.
+
+* 9,984 settings on Jan-Jun: 13 entries (7 direct-order rules, straddles $3 / $5 / $8 live 60 / 120 s) x stop $3-15 x
+  target $5-20 x exit (5 / 15 / 30 min, stop / target only) x first-of-story or every ❗ post x all topics or war / oil.
+  Stress: read 5 s late, +2 spreads on entry and 1 more on exit.
+* **Nothing passes** (`gold_tune_build.txt`).  41 pass every rule except the -35 % drawdown rule; their drawdowns at
+  10 % were -42 % to -89 %.
+* **Smaller stops are worse.**  Median PF by stop, Jan-Jun: $3 0.89, $5 0.91, $8 0.93, $10 0.98, $15 1.00 (Jul-Oct:
+  0.95, 0.95, 0.96, 0.96, 1.04).  The win rate falls with the stop (positive settings: $3 24 %, $5 31 %, $10 49 %,
+  $15 55 %), so losing runs get longer: on the direct order, the longest Jan-Jun losing run was 27 trades with a $3
+  stop (10 % risk: $1,000 -> $58), 15 with $5, 10 with $10.
+* The user's own version (direct, follow the last 30 s, out after 30 min) with stop $3-6 and target $10-15: Jan-Jun
+  -28R to -60R, $1,000 -> under $1 at 10 %; Jul-Oct +9R to +27R but drawdowns -68 % to -97 %.
+
+Jul-Oct, run once, three information-only settings declared before the run (`gold_tune_pick.json`,
+`gold_tune_test.json`):
+
+| | Setting | Jul-Oct trades | R | PF | $1,000 at 10 % | 2 % | 1 % |
+|---|---|---|---|---|---|---|---|
+| A (highest Jan-Jun R) | direct, last 10 s, stop $4, target $20, stop / target only, every ❗ | 289 | +12.7 | 1.06 | $16 (-100 %) | $1,002 | $1,065 |
+| B (pick rule without the drawdown rule) | straddle $3 live 60 s, stop $12, target $20, stop / target only, every ❗, war / oil | 52 | -6.0 | 0.81 | $387 | $874 | $938 |
+| C (B with target <= $15) | direct, last 60 s, stop $15, target $15, stop / target only, first of story | 171 | -6.8 | 0.91 | $255 | $850 | $928 |
+
+None succeeds.  After that run the whole grid was also run on Jul-Oct, descriptive only (`gold_tune_after.py`,
+`gold_tune_after.csv`): Jan-Jun ranks predict Jul-Oct only weakly (rank correlation 0.26); of the 100 best Jan-Jun
+settings 35 made money on Jul-Oct.  65 settings had PF >= 1.2 in both periods (mostly the $3, 60-s straddle with a $10-15
+stop on war / oil headlines), but none of them keeps stress PF >= 1.15 in Jan-Jun (`gold_tune_both_periods.csv`), and
+they were found by looking at Jul-Oct, so they are leads for a forward test only.
+
+The $10-stop direct order from the section above, by risk (first of story, follow the last 30 s, out after 30 min):
+
+| Target | Period | R | PF | stress PF | 10 % | 5 % | 3 % | 2 % |
+|---|---|---|---|---|---|---|---|---|
+| $20 (2R) | Jan-Jun | +19.9 | 1.11 | 0.92 | $734 (-97 %) | $1,506 (-80 %) | $1,469 (-60 %) | $1,354 (-44 %) |
+| | Jul-Oct | +13.5 | 1.19 | 1.06 | $1,784 (-65 %) | $1,615 (-39 %) | $1,396 (-25 %) | $1,269 (-17 %) |
+| $30 (3R) | Jan-Jun | +20.1 | 1.11 | 0.91 | $556 (-98 %) | $1,393 (-80 %) | $1,428 (-60 %) | $1,338 (-45 %) |
+| | Jul-Oct | +15.4 | 1.23 | 1.09 | $2,138 (-65 %) | $1,770 (-39 %) | $1,477 (-25 %) | $1,318 (-17 %) |
+
+It made money in R in both periods, but at 10 % risk Jan-Jun ends below $1,000 with a -97 / -98 % drawdown, because
+the losses come in runs; with stress costs it loses on Jan-Jun.
