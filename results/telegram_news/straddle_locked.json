@@ -1,0 +1,15 @@
+{
+ "declared_at_utc": "2026-11-07T07:27:16+00:00",
+ "note": "No straddle setting passed the Jan-Jun rules (gold 0 / 2,592, nasdaq 0 / 2,592), so there is no protocol pick. Information-only check, declared before running: the highest-R gold straddle of the Jan-Jun grid (1,364 trades, +63.0R, PF 1.08, stress PF 0.96, wiped out at 10% risk), run once on Jul-Oct 2026.",
+ "info_check": {
+  "gold": {
+   "d": 3.0,
+   "ref": "pre30",
+   "W": 60,
+   "stop": "opp",
+   "r": 0,
+   "H": 1800,
+   "topics": "GEO+ENERGY"
+  }
+ }
+}
