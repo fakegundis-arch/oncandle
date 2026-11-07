@@ -11,7 +11,8 @@ DATA
 
 TRADABLE POST (fixed rules, all known at post time)
   1. from either channel; not a scheduled data release or a preview (DATA regex);
-  2. not from 2 min before to 15 min after a high / medium impact calendar event (data/calendar/ff_calendar.csv);
+  2. not from 2 min before to 15 min after a high / medium impact calendar event (data/calendar/ff_calendar.csv), or
+     60 min after the start of a speech / testimony / press conference (fix of Nov 7, see below);
   3. the first post of its story: no post of either channel sharing >= 3 distinctive words (>= 50 % of the smaller
      set) in the previous 20 minutes;
   4. matches a topic: GEO (war, attacks, Iran / Israel / Russia / Ukraine / Taiwan, Hormuz ...), ENERGY (oil, OPEC,
@@ -41,6 +42,11 @@ RULES
   * Pick (per instrument): among passing configs the one with the highest share of passing neighbours (one knob moved
     one step); ties -> shallower drawdown -> higher R.  No passing config -> that instrument is not traded.
   * Jul-Oct success (per instrument, stated in advance): >= 20 trades, R > 0, PF >= 1.3, max drawdown better than -35 %.
+
+FIX (Nov 7, before any Jul-Oct result): the first Jan-Jun grid had rule 2 inverted in code (it dropped posts from 15
+min BEFORE to 2 min after each event, so FOMC statement lines and other scheduled-event posts were traded).  Fixed;
+speeches / press conferences now block 60 min; daily rate publications (effective fed funds, SOFR, reverse repo) count
+as scheduled data.  The grid was re-run on Jan-Jun; the first run's picks were discarded.
 """
 from __future__ import annotations
 
@@ -66,7 +72,8 @@ GRID = dict(fam=["MOM", "FADE", "LEX", "LEXMOM"], L=[10, 30, 60], k=[0.0, 0.5, 1
             m=[2, 4, 8], r=[0, 1, 2], topics=["ALL", "GEO+ENERGY", "FED", "TRADE+POLITICS+CHINA"])
 
 DATA = re.compile(r"ACTUAL|\bEST\.|\(EST|FORECAST|CONSENSUS|PREVIOUS|\bPREV\b|WATCH LIVE|\bPMI\b|MORTGAGE|BUYBACK|"
-                  r"AUCTION|INVENTOR|CALENDAR|PREVIEW|AHEAD OF|COMING UP|DUE AT|DUE OUT", re.I)
+                  r"AUCTION|INVENTOR|CALENDAR|PREVIEW|AHEAD OF|COMING UP|DUE AT|DUE OUT|EFFECTIVE FED FUNDS|"
+                  r"\bSOFR\b|REVERSE REPO|\bRRP\b", re.I)
 def W(*terms: str) -> str:
     """Whole-word alternation; a term ending in '*' is a word START (e.g. ESCALAT* matches ESCALATION)."""
     return "|".join(rf"\b{t[:-1]}" if t.endswith("*") else rf"\b{t}\b" for t in terms)
@@ -149,10 +156,14 @@ def load_posts(a: str, b: str) -> pd.DataFrame:
     return d
 
 
-def scheduled_times() -> np.ndarray:
+def scheduled_times() -> tuple[np.ndarray, np.ndarray]:
+    """(event times, seconds after each event during which posts are not tradable): 15 min after a release, 60 min
+    after the start of a speech / testimony / press conference (they run about an hour)."""
     c = pd.read_csv(ROOT / "data/calendar/ff_calendar.csv", parse_dates=["time_utc"])
-    c = c[c.impact.isin(["high", "medium"])]
-    return np.sort(c.time_utc.values.astype("datetime64[s]").astype(np.int64))
+    c = c[c.impact.isin(["high", "medium"])].sort_values("time_utc")
+    t = c.time_utc.values.astype("datetime64[s]").astype(np.int64)
+    after = np.where(c.name.str.contains("Speaks|Press Conference|Testifies|Hearing", regex=True), 3600, 900)
+    return t, after
 
 
 def topics_of(text: str) -> list[str]:
@@ -172,7 +183,7 @@ def lex_dir(text: str) -> tuple[int, int]:
 
 def tradable(posts: pd.DataFrame) -> pd.DataFrame:
     """Rules 1-4 of the protocol (rule 5, the quote check, is applied in the engine)."""
-    sched = scheduled_times()
+    sched, after = scheduled_times()
     ts = posts.t.values.astype("datetime64[s]").astype(np.int64)
     keep, recent = [], []
     for i, p in enumerate(posts.itertuples()):
@@ -184,7 +195,8 @@ def tradable(posts: pd.DataFrame) -> pd.DataFrame:
         if dup or DATA.search(p.clean):
             continue
         j = np.searchsorted(sched, t)
-        if any(-900 <= t - s <= 120 for s in sched[max(0, j - 3): j + 3]):
+        lo = max(0, j - 40)
+        if any(-120 <= t - s <= a for s, a in zip(sched[lo: j + 3], after[lo: j + 3])):   # 2 min before .. after
             continue
         tp = topics_of(p.clean)
         if not tp:
