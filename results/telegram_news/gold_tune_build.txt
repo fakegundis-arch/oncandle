@@ -1,0 +1,31 @@
+triggers Jan-Jun: story 879 (165 in calendar windows), every 985
+9984 settings, 0 pass; median PF 0.94; 3364 made money
+  median PF by stop  : 3: 0.89, 4: 0.92, 5: 0.91, 6: 0.92, 8: 0.93, 10: 0.98, 12: 0.99, 15: 1.00
+  median PF by target: 5: 0.87, 7.5: 0.92, 10: 0.93, 12.5: 0.95, 15: 0.97, 20: 1.03
+  median PF by H     : 300: 0.91, 900: 0.92, 1800: 0.96, None (stop / target only): 0.97
+  median PF by trig  : story: 0.94, every: 0.93
+  median PF by topics: ANY: 0.93, GEO+ENERGY: 0.95
+  median PF by entry: direct MOM L10 k0.0: 1.00, direct MOM L30 k0.0: 0.87, direct MOM L60 k0.0: 0.94, direct MOM L30 k0.5: 0.96, direct MOM L30 k1.0: 0.95, direct FADE L30 k0.0: 0.76, direct LEXMOM: 0.70, straddle $3 live 60 s: 1.02, straddle $3 live 120 s: 0.95, straddle $5 live 60 s: 0.97, straddle $5 live 120 s: 0.85, straddle $8 live 60 s: 1.29, straddle $8 live 120 s: 1.01
+
+best 15 by R:
+                                                                                                   desc   n         R       pf      win        dd          usd       h1R        h2R  stress_pf  nb_pass
+       direct MOM L10 k0.0, stop $4, target $20 (5.00R), stop / target only, triggers every, topics ANY 553 81.956750 1.188448 0.211573 -0.999801    27.514614 85.135500  -3.178750   0.865626      0.0
+direct MOM L10 k0.0, stop $3, target $20 (6.67R), stop / target only, triggers every, topics GEO+ENERGY 423 77.066667 1.221355 0.177305 -0.999614    24.421350 53.511333  23.555333   0.946234      0.0
+       direct MOM L10 k0.0, stop $4, target $15 (3.75R), stop / target only, triggers every, topics ANY 574 76.947250 1.179815 0.252613 -0.999704   125.364544 72.051000   4.896250   0.848570      0.0
+       direct MOM L10 k0.0, stop $5, target $20 (4.00R), stop / target only, triggers every, topics ANY 530 75.099400 1.190323 0.247170 -0.988892   161.200078 48.592800  26.506600   0.918337      0.0
+direct MOM L10 k0.0, stop $5, target $20 (4.00R), stop / target only, triggers every, topics GEO+ENERGY 394 71.925600 1.249427 0.258883 -0.979698  1124.511170 38.149200  33.776400   0.958376      0.0
+direct MOM L10 k0.0, stop $6, target $20 (3.33R), stop / target only, triggers every, topics GEO+ENERGY 380 71.507833 1.271846 0.297368 -0.970924  3666.693147 39.346333  32.161500   1.048993      0.0
+direct MOM L10 k0.0, stop $4, target $20 (5.00R), stop / target only, triggers every, topics GEO+ENERGY 409 70.758000 1.222172 0.220049 -0.998957   175.474045 67.310250   3.447750   0.933963      0.0
+       direct MOM L10 k0.0, stop $3, target $15 (5.00R), stop / target only, triggers story, topics ANY 466 70.748000 1.191759 0.208155 -0.999681    48.962915 70.729333   0.018667   0.861137      0.0
+       direct MOM L10 k0.0, stop $3, target $15 (5.00R), stop / target only, triggers every, topics ANY 602 70.205333 1.145317 0.197674 -0.999957     2.878275 56.698667  13.506667   0.865640      0.0
+      direct MOM L60 k0.0, stop $10, target $20 (2.00R), stop / target only, triggers story, topics ANY 359 68.987400 1.344724 0.426184 -0.735723 33865.015891 30.847100  38.140300   1.142262      0.0
+       direct MOM L10 k0.0, stop $4, target $15 (3.75R), stop / target only, triggers story, topics ANY 456 68.290500 1.203030 0.260965 -0.998663   394.578536 70.339000  -2.048500   0.862596      0.0
+      direct MOM L60 k0.0, stop $12, target $20 (1.67R), stop / target only, triggers story, topics ANY 338 68.072667 1.400736 0.476331 -0.654024 64673.080392 34.495583  33.577083   1.226947      0.0
+direct MOM L10 k0.0, stop $3, target $20 (6.67R), stop / target only, triggers story, topics GEO+ENERGY 359 66.797000 1.227212 0.181058 -0.998975    51.378296 40.873000  25.924000   0.910258      0.0
+       direct MOM L10 k0.0, stop $6, target $20 (3.33R), stop / target only, triggers every, topics ANY 512 66.337500 1.182698 0.281250 -0.986205   362.799335 44.127333  22.210167   0.987314      0.0
+       direct MOM L10 k0.0, stop $4, target $20 (5.00R), stop / target only, triggers story, topics ANY 442 66.100500 1.191404 0.217195 -0.999411    65.375484 81.163500 -15.063000   0.858673      0.0
+
+NO SETTING PASSES - info-only Jul-Oct run of the highest-R: direct MOM L10 k0.0, stop $4, target $20.0 (5.00R), stop / target only, triggers every, topics ANY
+
+No setting passes every rule; 41 pass every rule except the -35 % drawdown rule (their drawdowns at 10 % risk: -42 % to -89 %).
+Declared information-only Jul-Oct runs (gold_tune_pick.json): A highest R (pre-registered), B pick rule without the drawdown rule, C = B with target <= $15.

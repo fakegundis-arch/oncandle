@@ -1,0 +1,29 @@
+{
+ "note": "Declared after the Jan-Jun grid, BEFORE any Jul-Oct run. No setting passed every rule (all fail the -35 % drawdown rule at 10 % risk). A = the pre-registered information-only run (highest Jan-Jun R). B = the pre-registered pick rule (plateau, then drawdown, then R) applied with the drawdown rule dropped. C = B restricted to targets <= $15 (the user's $10-15 idea). All three are information-only.",
+ "runs": {
+  "A_highest_R": {
+   "entry": 0,
+   "stop": 4,
+   "target": 20,
+   "H": null,
+   "trig": "every",
+   "topics": "ANY"
+  },
+  "B_relaxed_pick": {
+   "entry": 7,
+   "stop": 12,
+   "target": 20,
+   "H": null,
+   "trig": "every",
+   "topics": "GEO+ENERGY"
+  },
+  "C_relaxed_pick_target_le_15": {
+   "entry": 2,
+   "stop": 15,
+   "target": 15,
+   "H": null,
+   "trig": "story",
+   "topics": "ANY"
+  }
+ }
+}

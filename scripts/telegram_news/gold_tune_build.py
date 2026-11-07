@@ -55,8 +55,9 @@ def main():
            f"every {len(sets['every'])}",
            f"{len(df)} settings, {int(df.ok.sum())} pass; median PF {df.pf.median():.2f}; {int((df.R > 0).sum())} made money"]
     for k in ["stop", "target", "H", "trig", "topics"]:
-        txt.append(f"  median PF by {k:6s}: " + ", ".join(f"{v}: {df[df[k].astype(str) == str(v)].pf.median():.2f}"
-                                                          for v in G.GRID[k]))
+        col = df[k].fillna(0) if k == "H" else df[k]
+        txt.append(f"  median PF by {k:6s}: " + ", ".join(
+            f"{v}: {df[(col == (v or 0)) if k in ('stop', 'target', 'H') else (col == v)].pf.median():.2f}" for v in G.GRID[k]))
     ent = df.groupby("entry").pf.median()
     txt.append("  median PF by entry: " + ", ".join(f"{G.describe(dict(entry=e, stop=10, target=20, H=1800, trig='story', topics='ANY')).split(',')[0]}: {v:.2f}"
                                                      for e, v in ent.items()))
