@@ -126,6 +126,8 @@ def load_metrics(upto: str) -> pd.DataFrame:
     m = pd.read_csv(BIN / "metrics.csv.gz", parse_dates=["create_time"])
     m = m[m.create_time < pd.Timestamp(upto)].reset_index(drop=True)
     m["ts"] = m.create_time.astype("datetime64[s]").astype("int64")
+    # Binance occasionally publishes 0 open interest (8 rows on 2026-10-15): treat as missing, never as a -100 % drop
+    m.loc[~(m.sum_open_interest > 0), "sum_open_interest"] = np.nan
     return m
 
 
