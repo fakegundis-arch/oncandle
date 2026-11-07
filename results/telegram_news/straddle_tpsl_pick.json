@@ -1,0 +1,20 @@
+{
+ "gold": {
+  "pick": {
+   "dist": 8,
+   "stop": "half",
+   "r": 1,
+   "topics": "FED",
+   "channel": "WB"
+  }
+ },
+ "nasdaq": {
+  "info_only": {
+   "dist": 40,
+   "stop": "opp",
+   "r": 3,
+   "topics": "FED",
+   "channel": "both"
+  }
+ }
+}

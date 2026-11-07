@@ -1,0 +1,42 @@
+{
+ "locked_at_utc": "2026-11-07T08:00:56+00:00",
+ "note": "2-minute TP / SL straddle picked on Jan-Jun 2026 (straddle_tpsl_lab.py), frozen before the one Jul-Oct run. Gold: the only passing setting (1 of 1,080). Nasdaq: none passed -> info-only run of its highest-R setting (declared in the protocol).",
+ "pick": {
+  "gold": {
+   "dist": 8,
+   "stop": "half",
+   "r": 1,
+   "topics": "FED",
+   "channel": "WB"
+  }
+ },
+ "info_only": {
+  "nasdaq": {
+   "dist": 40,
+   "stop": "opp",
+   "r": 3,
+   "topics": "FED",
+   "channel": "both"
+  }
+ },
+ "build_jan_jun": {
+  "gold": {
+   "n": 52,
+   "R": 11.37,
+   "pf": 1.54,
+   "win": 0.6,
+   "dd": -0.307,
+   "usd": 2371,
+   "stress_pf": 1.15
+  },
+  "nasdaq_info": {
+   "n": 53,
+   "R": 17.19,
+   "pf": 1.56,
+   "win": 0.38,
+   "dd": -0.731,
+   "usd": 2759,
+   "stress_pf": 1.3
+  }
+ }
+}
