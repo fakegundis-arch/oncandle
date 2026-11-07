@@ -1,0 +1,80 @@
+{
+ "real": {
+  "settings": 20736,
+  "passing": 7,
+  "passing_no_dd": 83,
+  "best_R_no_dd": 112.19821031543572,
+  "best_R_n40": 128.58130129255764,
+  "best_usd_n40": 571461.1097814671
+ },
+ "fake1": {
+  "settings": 20736,
+  "passing": 0,
+  "passing_no_dd": 0,
+  "best_R_no_dd": null,
+  "best_R_n40": 21.11066680798521,
+  "best_usd_n40": 1573.1189346768335
+ },
+ "fake2": {
+  "settings": 20736,
+  "passing": 0,
+  "passing_no_dd": 0,
+  "best_R_no_dd": null,
+  "best_R_n40": 50.73216776791457,
+  "best_usd_n40": 2542.589843971207
+ },
+ "fake3": {
+  "settings": 20736,
+  "passing": 0,
+  "passing_no_dd": 0,
+  "best_R_no_dd": null,
+  "best_R_n40": 32.86272237778724,
+  "best_usd_n40": 1515.703540486313
+ }
+}
+
+family A: 3456 settings, median PF 0.45, 37 with R > 0, 0 pass, 0 pass without the drawdown rule
+                                                                     desc   n          R       pf      win        dd         usd       h1R       h2R  stress_pf  nb_pass  nb_pass_nodd
+A: W=10, k=8, m=3, depth=thin; stop 5 vol, target nanR, out after 240 min 243 128.581301 1.665173 0.205761 -0.961773 3376.702413 56.677455 71.903846   0.854362      0.0           0.0
+A: W=30, k=4, m=3, depth=thin; stop 5 vol, target nanR, out after 240 min 258 108.286902 1.531836 0.213178 -0.993176  747.339786 64.382857 43.904045   0.948495      0.0           0.0
+A: W=10, k=8, m=2, depth=thin; stop 5 vol, target nanR, out after 240 min 357  84.628587 1.291868 0.193277 -0.999885    7.192106 63.134049 21.494538   0.721843      0.0           0.0
+A: W=30, k=4, m=2, depth=thin; stop 5 vol, target nanR, out after 240 min 345  51.886995 1.187218 0.202899 -0.999840    4.811023 57.900671 -6.013675   0.839107      0.0           0.0
+A: W=30, k=2, m=3, depth=thin; stop 5 vol, target nanR, out after 240 min 529  46.901408 1.107712 0.181474 -0.999991    0.016762 52.127193 -5.225785   0.693370      0.0           0.0
+
+family B: 10368 settings, median PF 0.44, 0 with R > 0, 0 pass, 0 pass without the drawdown rule
+                                                                            desc  n         R       pf      win        dd        usd      h1R       h2R  stress_pf  nb_pass  nb_pass_nodd
+ B: W=180, k=8, m=5, D=15, depth=thin; stop 2 vol, target 2.0R, out after 60 min 56 -3.555524 0.910416 0.321429 -0.778864 405.640850 1.744227 -5.299751   0.243664      0.0           0.0
+B: W=180, k=8, m=5, D=15, depth=thin; stop 2 vol, target 2.0R, out after 240 min 56 -3.555524 0.910416 0.321429 -0.778864 405.640850 1.744227 -5.299751   0.243664      0.0           0.0
+ B: W=180, k=8, m=2, D=15, depth=thin; stop 2 vol, target 2.0R, out after 15 min 58 -3.837962 0.905867 0.327586 -0.781393 391.468387 1.458637 -5.296599   0.252115      0.0           0.0
+ B: W=180, k=8, m=5, D=15, depth=thin; stop 2 vol, target 2.0R, out after 15 min 56 -3.841114 0.903220 0.321429 -0.778864 395.996378 1.458637 -5.299751   0.243664      0.0           0.0
+ B: W=180, k=8, m=3, D=15, depth=thin; stop 2 vol, target 2.0R, out after 60 min 57 -4.637905 0.886247 0.315789 -0.802799 361.735057 1.744227 -6.382132   0.237845      0.0           0.0
+
+family C: 4608 settings, median PF 0.42, 65 with R > 0, 0 pass, 0 pass without the drawdown rule
+                                                                                      desc   n         R       pf      win        dd       usd       h1R        h2R  stress_pf  nb_pass  nb_pass_nodd
+C: d=1.0, q=1.5, s=0.5, dir=toward, depth=thin; stop 5 vol, target nanR, out after 240 min 437 44.714445 1.122179 0.169336 -0.999995  0.032552 79.458279 -34.743834   0.530647      0.0           0.0
+C: d=2.0, q=3.0, s=0.5, dir=toward, depth=thin; stop 5 vol, target nanR, out after 240 min 458 33.576943 1.091733 0.203057 -0.999946  0.086506 36.328557  -2.751615   0.663028      0.0           0.0
+C: d=2.0, q=3.0, s=2.0, dir=toward, depth=thin; stop 5 vol, target nanR, out after 240 min 422 28.291100 1.082978 0.194313 -0.999940  0.096296 31.156426  -2.865325   0.633867      0.0           0.0
+C: d=0.5, q=1.5, s=2.0, dir=toward, depth=none; stop 5 vol, target nanR, out after 240 min 208 14.221094 1.087025 0.206731 -0.997134 22.872535 13.838417   0.382677   0.826034      0.0           0.0
+C: d=0.5, q=3.0, s=2.0, dir=toward, depth=none; stop 5 vol, target nanR, out after 240 min 208 14.221094 1.087025 0.206731 -0.997134 22.872535 13.838417   0.382677   0.826034      0.0           0.0
+
+family D: 2304 settings, median PF 0.84, 994 with R > 0, 7 pass, 83 pass without the drawdown rule
+                                                                               desc   n          R       pf      win        dd           usd       h1R       h2R  stress_pf  nb_pass  nb_pass_nodd
+ D: x=0.3, y=0.3, dir=follow, depth=none; stop 2 vol, target nanR, out after 15 min 199 112.198210 1.848022 0.326633 -0.897486 177249.791303 60.945893 51.252318   1.370405      0.0      0.666667
+D: x=0.3, y=0.3, dir=follow, depth=none; stop 2 vol, target 4.0R, out after 240 min 209 109.643213 1.747613 0.306220 -0.805073 441444.586690 64.754896 44.888317   1.259578      0.0      0.444444
+ D: x=0.3, y=0.3, dir=follow, depth=none; stop 2 vol, target 4.0R, out after 15 min 212 106.358306 1.782228 0.358491 -0.759643 553969.035037 59.566567 46.791739   1.275135      0.0      0.500000
+ D: x=0.3, y=0.3, dir=follow, depth=none; stop 2 vol, target 4.0R, out after 60 min 209 105.805963 1.726401 0.311005 -0.805073 336966.540604 62.534369 43.271594   1.239972      0.0      0.600000
+ D: x=0.3, y=0.3, dir=follow, depth=none; stop 1 vol, target nanR, out after 15 min 207  99.422927 1.568377 0.183575 -0.994013   1413.087677 79.829247 19.593680   0.769353      0.0      0.250000
+
+PICK (all rules): D: x=0.7, y=0.3, dir=follow, depth=none; stop 5 vol, target 2.0R, out after 5 min
+  Jan-Jun: 51 trades, R +19.5, PF 2.41, DD -30%, $1,000 -> $5,262, stress PF 1.47
+  luck: best fake R (rules except drawdown) [None, None, None]; beats every fake: True
+
+Top 15 by the pick rule:
+                                                                              desc  n         R       pf      win        dd         usd       h1R       h2R  stress_pf  nb_pass  nb_pass_nodd
+ D: x=0.7, y=0.3, dir=follow, depth=none; stop 5 vol, target 2.0R, out after 5 min 51 19.533677 2.412851 0.607843 -0.296263 5261.906761  6.577351 12.956326   1.470522 0.222222      0.444444
+ D: x=0.3, y=0.7, dir=follow, depth=none; stop 5 vol, target 2.0R, out after 5 min 42 15.254632 2.296426 0.619048 -0.310111 3607.875171 10.787082  4.467550   1.847537 0.222222      0.444444
+ D: x=0.3, y=0.7, dir=follow, depth=none; stop 5 vol, target 4.0R, out after 5 min 41 13.790534 2.080197 0.585366 -0.330011 2941.531877  8.507672  5.282863   1.693694 0.222222      0.555556
+ D: x=0.3, y=0.7, dir=follow, depth=none; stop 5 vol, target 1.0R, out after 5 min 43  7.766492 1.621139 0.604651 -0.323839 1877.370934  4.955624  2.810868   1.304746 0.125000      0.250000
+ D: x=0.3, y=0.7, dir=follow, depth=none; stop 5 vol, target nanR, out after 5 min 41 12.874267 2.008427 0.585366 -0.330011 2737.163324  7.591404  5.282863   1.538793 0.125000      0.500000
+ D: x=0.7, y=0.3, dir=follow, depth=none; stop 3 vol, target 2.0R, out after 5 min 51 22.110419 2.051982 0.529412 -0.318692 5701.297117  9.732961 12.377459   1.314043 0.100000      0.400000
+D: x=0.7, y=0.3, dir=follow, depth=none; stop 5 vol, target 2.0R, out after 15 min 51 20.326161 2.074792 0.549020 -0.336717 5105.802589 11.987049  8.339112   1.401516 0.100000      0.500000

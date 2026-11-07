@@ -104,7 +104,7 @@ def neighbours(row, okd):
     g = {**Q.FAMILIES[fam], **Q.EXITS}
     out = []
     for k, vals in g.items():
-        i = vals.index(row[k])
+        i = next(n for n, v in enumerate(vals) if canon(v) == canon(row[k]))
         for j in (i - 1, i + 1):
             if 0 <= j < len(vals):
                 out.append(okd.get(key({**row, k: vals[j]}), False))
@@ -127,6 +127,15 @@ def key(r):
 def main():
     global MK, TK
     t0 = time.time()
+    if sys.argv[1:] == ["pick"]:                    # all four grids are saved: only make the pick
+        summary = {}
+        for tag in ["real", "fake1", "fake2", "fake3"]:
+            df = pd.read_csv(Q.OUT / f"grid_{tag}.csv")
+            nodd = df[df.ok_nodd]
+            summary[tag] = dict(settings=len(df), passing=int(df.ok.sum()), passing_no_dd=int(len(nodd)),
+                                best_R_no_dd=float(nodd.R.max()) if len(nodd) else None,
+                                best_R_n40=float(df[df.n >= 40].R.max()), best_usd_n40=float(df[df.n >= 40].usd.max()))
+        return pick(summary)
     MK = Q.Market(Q.BUILD[1])
     TK = Q.load_exness(Q.BUILD[1])
     MK.liq_map()
@@ -157,6 +166,10 @@ def main():
                             best_R_no_dd=float(nodd.R.max()) if len(nodd) else None,
                             best_R_n40=float(df[df.n >= 40].R.max()), best_usd_n40=float(df[df.n >= 40].usd.max()))
         print(tag, summary[tag], f"{time.time() - t0:.0f}s", flush=True)
+    pick(summary)
+
+
+def pick(summary):
     df = pd.read_csv(Q.OUT / "grid_real.csv")
     df["target"] = df.target.astype(object).where(df.target.notna(), None)
     for c in ("target",):

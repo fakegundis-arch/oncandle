@@ -1,0 +1,52 @@
+{
+ "rule": "all rules",
+ "pick": {
+  "fam": "D",
+  "x": 0.7,
+  "y": 0.3,
+  "dir": "follow",
+  "depth": "none",
+  "stop": 5,
+  "target": 2,
+  "H": 300
+ },
+ "desc": "D: x=0.7, y=0.3, dir=follow, depth=none; stop 5 vol, target 2.0R, out after 5 min",
+ "build": {
+  "n": 51,
+  "R": 19.53367738921302,
+  "pf": 2.41285138237651,
+  "dd": -0.2962631910862144,
+  "usd": 5261.906761333677,
+  "stress_pf": 1.470521650243555
+ },
+ "luck": {
+  "best_fake_R_no_dd": [
+   null,
+   null,
+   null
+  ],
+  "pick_beats_every_fake": true
+ },
+ "info_only_highest_usd_no_dd": {
+  "cfg": {
+   "fam": "D",
+   "x": 0.3,
+   "y": 0.3,
+   "dir": "follow",
+   "depth": "none",
+   "stop": 2,
+   "target": 4,
+   "H": 300
+  },
+  "desc": "D: x=0.3, y=0.3, dir=follow, depth=none; stop 2 vol, target 4R, out after 5 min",
+  "build": {
+   "n": 216,
+   "R": 97.86893172784396,
+   "pf": 1.8458775172023856,
+   "dd": -0.6438244591942601,
+   "usd": 571461.1097814671,
+   "stress_pf": 1.2476664333418477
+  },
+  "note": "declared after the Jan-Jun grid and BEFORE the Jul-Oct test: information only, not the pick"
+ }
+}
