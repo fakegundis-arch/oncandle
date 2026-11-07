@@ -138,3 +138,30 @@ Chart: `secondary_performance.png`; every trade with its headline: `secondary_tr
 Engine flaw found here (it does not change the verdict): the backtest had no "flat before the market closes" rule, so
 17 trades opened late on Fridays or just before the daily break were held to the reopen (up to 49 hours) - they hold the
 best (+24R) and the worst (-17.7R) trades. Without them: Jan-Jun +142R (PF 1.18), Jul-Oct -119.5R (PF 0.81).
+
+# Straddle version (Nov 7 2026)
+
+Protocol and engine: `scripts/telegram_news/straddle_lab.py` (committed before any run), grid `straddle_build.py`.
+When the bot reads a tradable FinancialJuice / Walter Bloomberg headline (same rules as above) it places a buy stop
+above and a sell stop below the price, one cancels the other. Fills at the level or worse plus one spread of
+slippage (stress: two, read 5 s late); the worse leg when both trigger in one second; flat before the daily / weekend
+close. 2,592 settings per market: offset 0.5 / 1 / 2 / 3 x the typical 1-minute move, around the current price or the
+price 30 s before the post, orders live 1 / 5 / 15 min, stop at the other level or 2 / 4 x the typical move, target
+none / 1R / 2R, out after 5 / 15 / 30 min, four topic groups.
+
+| Jan-Jun 2026 (built on) | Gold | Nasdaq |
+|---|---|---|
+| Settings passing the build rules | **0 of 2,592** | **0 of 2,592** |
+| Settings that made money at all | 7 | 0 |
+| Typical profit factor | 0.72 | 0.53 |
+| Typical result per trade | -0.11 to -0.24R (wider straddles lose less) | -0.24 to -0.41R |
+
+No setting passed, so there is no straddle bot to trade. Information-only check, declared before running
+(`straddle_locked.json`): the best gold straddle of Jan-Jun (offset 3x, around the price 30 s before the post, orders
+live 1 min, stop at the other level, out after 30 min, war / energy headlines: 1,364 trades, +63R, PF 1.08, wiped out at
+10% risk) on Jul-Oct 2026: **988 trades, -90.6R, PF 0.85, win 33%; wiped out at 10% risk; $362 at 1%, $618 at 0.5%**
+(stress: -160R, PF 0.76). Every month lost. `straddle_best_gold_info_test.json`.
+
+Reading: a straddle does not need to know the direction, but it pays the spread plus slippage on every fill and is
+triggered by noise as often as by real moves. After these headlines the move that would carry a straddle has mostly
+happened already (the wires were faster), so the triggers that follow are as likely to reverse as to continue.
