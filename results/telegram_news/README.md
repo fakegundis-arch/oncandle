@@ -210,3 +210,24 @@ highest-R setting (Fed headlines, orders live 1 min, stop back at the start pric
 
 It loses on the unseen months (Jul -8.5R, Aug -6.4R, Sep -2.0R, Oct +6.5R). `straddle_nas30_info_test.json`,
 grid `straddle_nas30_grid.csv`.
+
+# 2-minute straddle with take-profit / stop-loss exits - the user's design (Nov 7 2026)
+
+When the bot reads a tradable FinancialJuice / Walter Bloomberg headline: buy stop `dist` above and sell stop `dist`
+below the price, **live 2 minutes**, one cancels the other; the trade ends **only at its stop loss or take profit
+(1R / 2R / 3R)**, plus one safety rule - still open at the daily break / weekend -> closed just before. Same fills (+1
+spread), stress test and one-at-a-time rule as above. 1,080 settings per market: distance (gold $2-20, Nasdaq 10-100
+points), stop (at the other order / back at the start / half the distance), target, topics, channel (both / FJ / WB).
+Protocol `scripts/telegram_news/straddle_tpsl_lab.py` (committed before any result).
+
+Jan-Jun 2026: gold **1 of 1,080** passed (median PF 0.88; best distance $8, median PF 1.00); Nasdaq **0 of 1,080**
+(median PF 0.78; only 100 points had a median PF above 1).
+
+| | Jan-Jun 2026 (built on) | Jul-Oct 2026 (unseen, run once) |
+|---|---|---|
+| **Gold pick** (+/-$8, stop $4, TP 1R, Fed headlines, Walter Bloomberg only) | 52 trades, +11.4R, PF 1.54, win 60%, DD -31%, $1,000 -> $2,371 | **2 trades, 0R - fails** (needs 20) |
+| **Nasdaq, info-only** (+/-40 pts, stop at the other order = 80 pts, TP 3R, Fed headlines) | 53 trades, +17.2R, PF 1.56, DD -73%, $2,759 | **24 trades, -12.7R, PF 0.27, win 25%; $1,000 -> $245 (-78%)** |
+
+Why the gold pick stopped trading: after Walter Bloomberg's Fed headlines gold moved $8+ within 2 minutes 15.4% of the
+time in Jan-Jun (63 of 409) but 0.9% in Jul-Oct (2 of 214); the median 2-minute move fell from $3.76 to $2.42. The
+setting fitted a volatile half-year. Results: `straddle_tpsl_test.json`, `straddle_tpsl_nasdaq_info_test.json`.
