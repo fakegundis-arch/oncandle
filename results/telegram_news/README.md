@@ -276,3 +276,26 @@ Same settings, exits only at the stop or the 2R target (closed before the daily 
 Without the timer the direct order wins less often (38-39%) and loses its Jul-Oct edge (PF 1.19 -> 1.08); at 10% risk
 it ends below $1,000 in both periods despite a positive R total, because the losing streaks (up to 14 in a row)
 compound. The straddle is about break-even on Jul-Oct either way.
+
+## Gold ❗ direct order with multiple open positions (Nov 7 2026)
+
+Every ❗ trigger opens its own trade even while others are open (`scripts/telegram_news/bang_multi.py`, results
+`bang_multi_results.json`). Same trade (follow the 30-s move, stop $10, target $20), each risking 10 % of the balance
+at its entry. "First of story" = the triggers used before; "every" = every ❗ post without $MACRO.
+
+| Version | Period | Trades | R | PF | $1,000 at 10% (worst drop) | Most open at once / most of the balance at risk | $1,000 at 1% |
+|---|---|---|---|---|---|---|---|
+| One at a time (before), 30-min exit | Jan-Jun / Jul-Oct | 417 / 229 | +19.9 / +13.5 | 1.11 / 1.19 | $734 / $1,784 (-65%) | 1 / 10% | - / $1,135 |
+| Multiple, first of story, 30-min exit | Jan-Jun | 539 | -6.1 | 0.98 | $20 (-100%) | 4 / 40% | $908 |
+| | Jul-Oct | 287 | +9.0 | 1.10 | $952 (-67%) | 4 / 40% | $1,083 |
+| Multiple, first of story, stop / target only | Jan-Jun | 539 | -5.7 | 0.98 | $3 (-100%) | 7 / 71% | $896 |
+| | Jul-Oct | 287 | +2.1 | 1.01 | $162 (-94%) | 6 / 60% | $1,000 |
+| Multiple, every ❗ post, 30-min exit | Jan-Jun | 795 | +8.4 | 1.02 | $8 (-100%) | 12 / 180% | $1,021 |
+| | Jul-Oct | 432 | -22.2 | 0.87 | $19 (-99%) | 5 / 50% | $787 |
+| Multiple, every ❗ post, stop / target only | Jan-Jun | 795 | +31.2 | 1.06 | $4 (-100%) | 13 / 161% | $1,238 |
+| | Jul-Oct | 432 | -24.0 | 0.90 | $4 (-100%) | 6 / 60% | $761 |
+
+The extra trades lose: with the 30-min exit, the 122 Jan-Jun and 58 Jul-Oct trades that the one-at-a-time bot skipped
+add -26.0R and -4.5R. They come in bursts during the same story, all following the same move, so they win and lose
+together; at 10% each, several open trades put 40-180 % of the balance at risk at once (beyond 100 % the broker would
+stop the account out).
