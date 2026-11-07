@@ -2,7 +2,9 @@
 oldest, back to a start date.  One JSON line per post: id, time (UTC, to the second), text, links, views.
 Resumable: an existing file is extended back from its oldest post.
 
-usage: python3 -I scripts/telegram_news/tg_history.py <since YYYY-MM-DD> <outdir> <channel> [...]"""
+usage: python3 -I scripts/telegram_news/tg_history.py <since YYYY-MM-DD> <outdir> <channel> [...]
+A channel can be given as name@before_id@tag to download one id range in parallel into <name>__<tag>.jsonl
+(merge the parts afterwards)."""
 import html
 import json
 import re
@@ -44,9 +46,9 @@ def parse(page: str) -> list[dict]:
     return out
 
 
-def scrape(ch: str, since: datetime, outdir: Path, pause: float = 0.5):
-    f = outdir / f"{ch}.jsonl"
-    seen, oldest = set(), None
+def scrape(ch: str, since: datetime, outdir: Path, pause: float = 0.5, start_before: int | None = None, tag: str = ""):
+    f = outdir / (f"{ch}__{tag}.jsonl" if tag else f"{ch}.jsonl")
+    seen, oldest = set(), start_before
     if f.exists():
         for line in f.read_text().splitlines():
             p = json.loads(line)
@@ -78,4 +80,5 @@ if __name__ == "__main__":
     out = Path(sys.argv[2])
     out.mkdir(parents=True, exist_ok=True)
     for c in sys.argv[3:]:
-        scrape(c, since, out)
+        name, *rest = c.split("@")
+        scrape(name, since, out, start_before=int(rest[0]) if rest else None, tag=rest[1] if len(rest) > 1 else "")
