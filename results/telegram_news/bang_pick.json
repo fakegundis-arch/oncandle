@@ -1,0 +1,82 @@
+{
+ "user": {
+  "gold_straddle": {
+   "dist": 5,
+   "W": 60,
+   "stop": "opp",
+   "r": 2,
+   "H": 1800,
+   "topics": "ANY",
+   "cal": "excl"
+  },
+  "gold_direct": {
+   "dir": 3,
+   "stop_abs": 10,
+   "r": 2,
+   "H": 1800,
+   "topics": "ANY",
+   "cal": "excl"
+  },
+  "nasdaq_straddle": {
+   "dist": 40,
+   "W": 120,
+   "stop": "opp",
+   "r": 3,
+   "H": null,
+   "topics": "ANY",
+   "cal": "excl"
+  },
+  "nasdaq_direct": {
+   "dir": 3,
+   "stop_abs": 80,
+   "r": 3,
+   "H": null,
+   "topics": "ANY",
+   "cal": "excl"
+  }
+ },
+ "picks": {
+  "gold_straddle": {
+   "info_only": {
+    "dist": 3,
+    "W": 60,
+    "stop": "opp",
+    "r": 0,
+    "H": 1800,
+    "topics": "ANY",
+    "cal": "incl"
+   }
+  },
+  "gold_direct": {
+   "pick": {
+    "dir": 2,
+    "stop_abs": 10,
+    "r": 3,
+    "H": 1800,
+    "topics": "GEO+ENERGY",
+    "cal": "excl"
+   }
+  },
+  "nasdaq_straddle": {
+   "info_only": {
+    "dist": 60,
+    "W": 300,
+    "stop": "half",
+    "r": 2,
+    "H": null,
+    "topics": "FED",
+    "cal": "incl"
+   }
+  },
+  "nasdaq_direct": {
+   "info_only": {
+    "dir": 1,
+    "stop_abs": 80,
+    "r": 2,
+    "H": null,
+    "topics": "ANY",
+    "cal": "excl"
+   }
+  }
+ }
+}

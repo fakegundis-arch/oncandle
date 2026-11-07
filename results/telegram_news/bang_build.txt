@@ -1,0 +1,61 @@
+FJ ❗ triggers without $MACRO, Jan-Jun (first of story): 879; inside calendar windows: 165
+USER gold straddle: straddle $5 each side, orders 60 s, stop opp, 2R target, out after 30 min, topics ANY, calendar excl | Jan-Jun n 98 R +3.7 PF 1.07 win 41% DD -75% $ 699 | Jan-Mar +5.6 Apr-Jun -1.9 | stress PF 0.89 | passes False
+USER gold direct: direct MOM L30 k0.0, stop $10, 2R target, out after 30 min, topics ANY, calendar excl | Jan-Jun n 417 R +19.9 PF 1.11 win 46% DD -97% $ 734 | Jan-Mar +36.5 Apr-Jun -16.6 | stress PF 0.99 | passes False
+USER nasdaq straddle: straddle pts 40 each side, orders 120 s, stop opp, 3R target, TP / SL only, topics ANY, calendar excl | Jan-Jun n 62 R -0.6 PF 0.99 win 37% DD -82% $ 532 | Jan-Mar +5.1 Apr-Jun -5.7 | stress PF 0.88 | passes False
+USER nasdaq direct: direct MOM L30 k0.0, stop pts 80, 3R target, TP / SL only, topics ANY, calendar excl | Jan-Jun n 246 R -47.7 PF 0.71 win 26% DD -100% $ 1 | Jan-Mar -0.6 Apr-Jun -47.1 | stress PF 0.70 | passes False
+
+== gold straddle: 2880 settings, 0 pass; median PF 0.95; 1236 made money; median trades 48
+                                                                                                                 desc   n         R       pf      win        dd       h1R       h2R  stress_pf  nb_pass
+                 straddle $3 each side, orders 60 s, stop opp, no target, out after 30 min, topics ANY, calendar incl 276 72.833917 1.409196 0.311594 -0.972128 57.182417 15.651500   1.084695      0.0
+                 straddle $3 each side, orders 30 s, stop opp, no target, out after 30 min, topics ANY, calendar incl 183 71.915917 1.598254 0.306011 -0.859840 53.695583 18.220333   1.274664      0.0
+                straddle $3 each side, orders 120 s, stop opp, no target, out after 30 min, topics ANY, calendar incl 362 63.864083 1.272576 0.314917 -0.976070 39.513583 24.350500   1.018630      0.0
+straddle $3 each side, orders 60 s, stop mid, no target, out after 15 min, topics TRADE+POLITICS+CHINA, calendar incl 101 51.819333 1.666484 0.217822 -0.896911 16.900000 34.919333   1.240445      0.0
+                straddle $6 each side, orders 120 s, stop mid, no target, out after 30 min, topics ANY, calendar incl 166 49.033250 1.420313 0.283133 -0.955278 38.243417 10.789833   1.092758      0.0
+                 straddle $4 each side, orders 60 s, stop opp, no target, out after 30 min, topics ANY, calendar incl 199 48.215062 1.417594 0.366834 -0.832402 35.086688 13.128375   1.184973      0.0
+                straddle $5 each side, orders 120 s, stop mid, no target, out after 30 min, topics ANY, calendar incl 229 47.142100 1.274858 0.240175 -0.992175 23.563700 23.578400   1.088106      0.0
+straddle $3 each side, orders 60 s, stop mid, no target, out after 30 min, topics TRADE+POLITICS+CHINA, calendar incl 101 46.414333 1.556580 0.178218 -0.946466 18.557667 27.856667   1.079770      0.0
+  NO SETTING PASSES - info-only Jul-Oct run of the highest-R: straddle $3 each side, orders 60 s, stop opp, no target, out after 30 min, topics ANY, calendar incl
+
+== gold direct: 3840 settings, 7 pass; median PF 0.80; 884 made money; median trades 150
+                                                                                       desc   n       R       pf      win        dd     h1R     h2R  stress_pf  nb_pass
+       direct MOM L10 k0.5, stop $5, no target, out after 30 min, topics ANY, calendar incl 315 92.5680 1.444828 0.330159 -0.901388 45.3094 47.2586   1.092446      0.0
+direct MOM L10 k0.5, stop $5, no target, out after 30 min, topics GEO+ENERGY, calendar incl 227 66.8812 1.448708 0.325991 -0.845713 41.4998 25.3814   1.089894      0.0
+       direct MOM L10 k1.0, stop $5, no target, out after 30 min, topics ANY, calendar incl 165 66.4260 1.604988 0.327273 -0.878327 28.8438 37.5822   1.201960      0.0
+       direct MOM L10 k0.0, stop $5, no target, out after 30 min, topics ANY, calendar incl 540 65.3106 1.182037 0.312963 -0.997481 31.0690 34.2416   0.997040      0.0
+       direct MOM L10 k0.5, stop $5, no target, out after 30 min, topics ANY, calendar excl 256 60.2466 1.361415 0.339844 -0.951345 54.3862  5.8604   1.086753      0.0
+direct MOM L10 k0.5, stop $5, no target, out after 30 min, topics GEO+ENERGY, calendar excl 202 56.9118 1.432250 0.331683 -0.884638 41.4082 15.5036   1.134689      0.0
+direct MOM L10 k0.5, stop $5, no target, out after 15 min, topics GEO+ENERGY, calendar incl 234 52.7230 1.387937 0.363248 -0.853821 39.5140 13.2090   1.043168      0.0
+       direct MOM L10 k0.5, stop $5, no target, out after 15 min, topics ANY, calendar incl 327 50.0754 1.261814 0.363914 -0.930449 30.1540 19.9214   0.969957      0.0
+  passing (pick rule order):
+                                                                                        desc   n       R       pf      win        dd     h1R     h2R  stress_pf  nb_pass
+direct MOM L10 k1.0, stop $10, 3R target, out after 30 min, topics GEO+ENERGY, calendar excl  97 37.6088 2.023834 0.556701 -0.343900 21.5160 16.0928   1.597545 0.250000
+direct MOM L10 k1.0, stop $10, 2R target, out after 30 min, topics GEO+ENERGY, calendar excl  99 27.2756 1.722852 0.555556 -0.343900 17.6076  9.6680   1.381505 0.222222
+direct MOM L10 k1.0, stop $10, 3R target, out after 15 min, topics GEO+ENERGY, calendar excl  99 22.9983 1.698803 0.545455 -0.347377 16.9079  6.0904   1.351380 0.222222
+direct MOM L10 k1.0, stop $10, 2R target, out after 15 min, topics GEO+ENERGY, calendar excl 100 18.2742 1.538887 0.540000 -0.347377 14.2067  4.0675   1.255187 0.200000
+        direct MOM L10 k0.0, stop $10, 1R target, out after 5 min, topics FED, calendar incl  48  6.1455 1.612199 0.604167 -0.309636  4.4384  1.7071   1.309936 0.000000
+      direct FADE L30 k0.0, stop $10, 3R target, out after 30 min, topics FED, calendar incl  43 12.9065 1.592879 0.465116 -0.344935  1.8102 11.0963   1.502808 0.000000
+  PICK: direct MOM L10 k1.0, stop $10, 3R target, out after 30 min, topics GEO+ENERGY, calendar excl
+
+== nasdaq straddle: 1080 settings, 0 pass; median PF 0.60; 94 made money; median trades 33
+                                                                                                                  desc   n        R       pf      win        dd       h1R      h2R  stress_pf  nb_pass
+                straddle pts 60 each side, orders 300 s, stop half, 2R target, TP / SL only, topics FED, calendar incl   9 9.000000 4.000000 0.666667 -0.100000  2.000000  7.00000   2.000000      0.0
+                 straddle pts 60 each side, orders 300 s, stop mid, 1R target, TP / SL only, topics ANY, calendar incl  79 8.931333 1.254646 0.556962 -0.707520  2.994833  5.93650   0.975587      0.0
+                 straddle pts 20 each side, orders 300 s, stop opp, 3R target, TP / SL only, topics FED, calendar incl  33 7.319500 1.332705 0.333333 -0.409510  0.482750  6.83675   0.806850      0.0
+                 straddle pts 50 each side, orders 300 s, stop mid, 2R target, TP / SL only, topics FED, calendar incl  12 7.069400 2.413880 0.583333 -0.271000 -3.000000 10.06940   0.675578      0.0
+                straddle pts 60 each side, orders 300 s, stop half, 3R target, TP / SL only, topics FED, calendar incl   9 7.000000 2.400000 0.444444 -0.100000 -1.000000  8.00000   1.000000      0.0
+                 straddle pts 60 each side, orders 300 s, stop mid, 1R target, TP / SL only, topics FED, calendar incl   9 7.000000 8.000000 0.888889 -0.100000  1.000000  6.00000   2.376049      0.0
+straddle pts 20 each side, orders 120 s, stop opp, 1R target, TP / SL only, topics TRADE+POLITICS+CHINA, calendar excl  82 6.234750 1.166697 0.536585 -0.690997  6.627500 -0.39275   0.725400      0.0
+                 straddle pts 50 each side, orders 300 s, stop mid, 1R target, TP / SL only, topics ANY, calendar incl 119 6.024600 1.107370 0.529412 -0.661556  0.054000  5.97060   0.889636      0.0
+  NO SETTING PASSES - info-only Jul-Oct run of the highest-R: straddle pts 60 each side, orders 300 s, stop half, 2R target, TP / SL only, topics FED, calendar incl
+
+== nasdaq direct: 960 settings, 0 pass; median PF 0.77; 92 made money; median trades 131
+                                                                                        desc   n         R       pf      win        dd       h1R       h2R  stress_pf  nb_pass
+        direct MOM L10 k0.5, stop pts 80, 2R target, TP / SL only, topics ANY, calendar excl 178 17.001125 1.175789 0.398876 -0.649022  8.869250  8.131875   1.133292      0.0
+ direct MOM L10 k0.5, stop pts 80, 2R target, TP / SL only, topics GEO+ENERGY, calendar excl 142 15.548750 1.206507 0.408451 -0.551644  8.501875  7.046875   1.153903      0.0
+        direct MOM L10 k0.5, stop pts 40, 1R target, TP / SL only, topics ANY, calendar excl 245 10.994250 1.095322 0.518367 -0.756549 11.946750 -0.952500   0.900011      0.0
+direct FADE L30 k1.0, stop pts 80, 1R target, TP / SL only, topics GEO+ENERGY, calendar incl 167 10.942750 1.151783 0.532934 -0.701577  9.636500  1.306250   1.030506      0.0
+        direct MOM L10 k0.5, stop pts 80, 1R target, TP / SL only, topics ANY, calendar excl 206 10.873000 1.120615 0.514563 -0.784445 -1.235500 12.108500   1.119215      0.0
+       direct FADE L30 k1.0, stop pts 80, 1R target, TP / SL only, topics ANY, calendar excl 186 10.187125 1.125873 0.521505 -0.820629  6.940625  3.246500   0.929466      0.0
+direct FADE L10 k1.0, stop pts 80, 3R target, TP / SL only, topics GEO+ENERGY, calendar incl 105  9.995500 1.156178 0.342857 -0.675379 11.067625 -1.072125   0.999301      0.0
+direct FADE L30 k1.0, stop pts 80, 1R target, TP / SL only, topics GEO+ENERGY, calendar excl 149  9.780250 1.152205 0.536913 -0.683546  6.319125  3.461125   1.019698      0.0
+  NO SETTING PASSES - info-only Jul-Oct run of the highest-R: direct MOM L10 k0.5, stop pts 80, 2R target, TP / SL only, topics ANY, calendar excl

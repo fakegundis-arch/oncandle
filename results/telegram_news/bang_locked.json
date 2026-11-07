@@ -1,0 +1,106 @@
+{
+ "locked_at_utc": "2026-11-07T08:16:20+00:00",
+ "note": "FinancialJuice \u2757 bot: the user's four fixed settings, the protocol pick (gold direct) and the declared info-only best settings (gold straddle, Nasdaq straddle, Nasdaq direct), frozen before the one Jul-Oct run.",
+ "entries": {
+  "user_gold_straddle": [
+   "gold",
+   "straddle",
+   {
+    "dist": 5,
+    "W": 60,
+    "stop": "opp",
+    "r": 2,
+    "H": 1800,
+    "topics": "ANY",
+    "cal": "excl"
+   }
+  ],
+  "user_gold_direct": [
+   "gold",
+   "direct",
+   {
+    "dir": 3,
+    "stop_abs": 10,
+    "r": 2,
+    "H": 1800,
+    "topics": "ANY",
+    "cal": "excl"
+   }
+  ],
+  "user_nasdaq_straddle": [
+   "nasdaq",
+   "straddle",
+   {
+    "dist": 40,
+    "W": 120,
+    "stop": "opp",
+    "r": 3,
+    "H": null,
+    "topics": "ANY",
+    "cal": "excl"
+   }
+  ],
+  "user_nasdaq_direct": [
+   "nasdaq",
+   "direct",
+   {
+    "dir": 3,
+    "stop_abs": 80,
+    "r": 3,
+    "H": null,
+    "topics": "ANY",
+    "cal": "excl"
+   }
+  ],
+  "info_only_gold_straddle": [
+   "gold",
+   "straddle",
+   {
+    "dist": 3,
+    "W": 60,
+    "stop": "opp",
+    "r": 0,
+    "H": 1800,
+    "topics": "ANY",
+    "cal": "incl"
+   }
+  ],
+  "pick_gold_direct": [
+   "gold",
+   "direct",
+   {
+    "dir": 2,
+    "stop_abs": 10,
+    "r": 3,
+    "H": 1800,
+    "topics": "GEO+ENERGY",
+    "cal": "excl"
+   }
+  ],
+  "info_only_nasdaq_straddle": [
+   "nasdaq",
+   "straddle",
+   {
+    "dist": 60,
+    "W": 300,
+    "stop": "half",
+    "r": 2,
+    "H": null,
+    "topics": "FED",
+    "cal": "incl"
+   }
+  ],
+  "info_only_nasdaq_direct": [
+   "nasdaq",
+   "direct",
+   {
+    "dir": 1,
+    "stop_abs": 80,
+    "r": 2,
+    "H": null,
+    "topics": "ANY",
+    "cal": "excl"
+   }
+  ]
+ }
+}
