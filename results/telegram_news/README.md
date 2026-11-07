@@ -231,3 +231,32 @@ Jan-Jun 2026: gold **1 of 1,080** passed (median PF 0.88; best distance $8, medi
 Why the gold pick stopped trading: after Walter Bloomberg's Fed headlines gold moved $8+ within 2 minutes 15.4% of the
 time in Jan-Jun (63 of 409) but 0.9% in Jul-Oct (2 of 214); the median 2-minute move fell from $3.76 to $2.42. The
 setting fitted a volatile half-year. Results: `straddle_tpsl_test.json`, `straddle_tpsl_nasdaq_info_test.json`.
+
+# FinancialJuice ❗ headlines only: straddle vs direct order (Nov 7 2026)
+
+Triggers: @financialjuice posts carrying ❗ and NOT containing `$MACRO` (scheduled data) - 1,425 posts Jan-Oct (FJ uses
+❗ regularly from February), 879 tradable in Jan-Jun after removing repeats of the same story. Two entry types:
+straddle (buy stop / sell stop) and direct market order (direction from the price move just before the bot reads the
+post, its fade, the headline's words, or words + price). Real Exness ticks, +1 spread on every fill (stress: 5 s late,
++2 spreads), flat before the daily / weekend close. Protocol `scripts/telegram_news/bang_lab.py` (committed before
+any result); built on Jan-Jun 2026, every setting below run ONCE on Jul-Oct 2026 (`bang_test.json`, `bang_test.txt`).
+
+Jan-Jun grids: gold straddle 0 of 2,880 pass (median PF 0.95); gold direct 7 of 3,840 pass; Nasdaq straddle 0 of
+1,080; Nasdaq direct 0 of 960.
+
+| Setting | Jan-Jun (built on) | Jul-Oct 2026 (unseen) | $1,000 at 10% / 2% / 1% (Jul-Oct) |
+|---|---|---|---|
+| User: gold straddle $5, orders 1 min, stop at the other order, 2R, out after 30 min | 98, +3.7R, PF 1.07, DD -75% | 26, -3.3R, PF 0.72 | $646 / $932 / $966 |
+| **User: gold direct, follow the 30-s move, stop $10, 2R, out after 30 min** | 417, +19.9R, PF 1.11 (Jan-Mar +36.5, Apr-Jun -16.6), DD -97% | **229, +13.5R, PF 1.19, win 49%, DD -65%; stress +10.1R, PF 1.14** | **$1,784 / $1,269 / $1,135** |
+| User: Nasdaq straddle 40 pts, orders 2 min, stop at the other order, 3R, TP / SL only | 62, -0.6R, PF 0.99 | 34, -5.0R, PF 0.76 | $467 / $895 / $949 |
+| User: Nasdaq direct, follow the 30-s move, stop 80 pts, 3R, TP / SL only | 246, -47.7R, PF 0.71 | 141, -19.0R, PF 0.78 | $51 / $654 / $818 |
+| Pick (gold direct): follow the 10-s move if >= 1x vol, stop $10, 3R, 30 min, war / energy, outside calendar windows | 97, +37.6R, PF 2.02, DD -34% | **53, -9.8R, PF 0.56 - fails** | $321 / $817 / $905 |
+| Info-only best gold straddle: $3, 1 min, stop at the other order, no target, 30 min | 276, +72.8R, PF 1.41, DD -97% | 111, +2.6R, PF 1.04 (stress -11.4R) | $210 / $959 / $1,001 |
+| Info-only best Nasdaq straddle: 60 pts, 5 min, stop half, 2R, Fed headlines | 9, +9.0R | 19, -1.0R, PF 0.92 | $759 / $973 / $988 |
+| Info-only best Nasdaq direct: follow the 10-s move >= 0.5x vol, stop 80 pts, 2R | 178, +17.0R, PF 1.18 | 105, +6.0R, PF 1.11 (stress -0.7R) | $837 / $1,092 / $1,054 |
+
+Reading: no setting meets the success rule. The protocol pick failed again (a lucky survivor of the Jan-Jun search).
+The only setting positive in both periods and under stress on Jul-Oct is the user's simple gold direct order on every
+❗ headline (follow the 30-s move, stop $10, 2R, 30 min) - but its edge is thin (PF 1.11-1.19), it lost in Apr-Jun
+(-16.6R) and July, and at 10% risk its drawdowns were -97% and -65%. At 1-2% risk it is a candidate for a demo
+forward test, not for real money. Nasdaq lost in every version.

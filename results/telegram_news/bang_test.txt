@@ -1,0 +1,40 @@
+
+user_gold_straddle: straddle $5 each side, orders 60 s, stop opp, 2R target, out after 30 min, topics ANY, calendar excl
+   Jan-Jun: n 98 R +3.7 PF 1.07 DD -75%
+   Jul-Oct: n 26 R -3.3 PF 0.72 win 46% DD -42% | $1,000 at 10% -> $646, 2% $932 (DD -9%), 1% $966 | stress R +1.8 PF 1.17 | success False
+   by month: {'2026-07': -4.0, '2026-08': 3.2, '2026-09': -3.1, '2026-10': 0.6}
+
+user_gold_direct: direct MOM L30 k0.0, stop $10, 2R target, out after 30 min, topics ANY, calendar excl
+   Jan-Jun: n 417 R +19.9 PF 1.11 DD -97%
+   Jul-Oct: n 229 R +13.5 PF 1.19 win 49% DD -65% | $1,000 at 10% -> $1,784, 2% $1,269 (DD -17%), 1% $1,135 | stress R +10.1 PF 1.14 | success False
+   by month: {'2026-07': -0.6, '2026-08': 4.0, '2026-09': 5.0, '2026-10': 5.1}
+
+user_nasdaq_straddle: straddle pts 40 each side, orders 120 s, stop opp, 3R target, TP / SL only, topics ANY, calendar excl
+   Jan-Jun: n 62 R -0.6 PF 0.99 DD -82%
+   Jul-Oct: n 34 R -5.0 PF 0.76 win 35% DD -64% | $1,000 at 10% -> $467, 2% $895 (DD -17%), 1% $949 | stress R -7.0 PF 0.64 | success False
+   by month: {'2026-07': -5.9, '2026-08': 1.1, '2026-09': -0.2, '2026-10': -0.0}
+
+user_nasdaq_direct: direct MOM L30 k0.0, stop pts 80, 3R target, TP / SL only, topics ANY, calendar excl
+   Jan-Jun: n 246 R -47.7 PF 0.71 DD -100%
+   Jul-Oct: n 141 R -19.0 PF 0.78 win 34% DD -95% | $1,000 at 10% -> $51, 2% $654 (DD -36%), 1% $818 | stress R -25.0 PF 0.72 | success False
+   by month: {'2026-07': -8.0, '2026-08': -0.8, '2026-09': -4.3, '2026-10': -5.9}
+
+info_only_gold_straddle: straddle $3 each side, orders 60 s, stop opp, no target, out after 30 min, topics ANY, calendar incl
+   Jan-Jun: n 276 R +72.8 PF 1.41 DD -97%
+   Jul-Oct: n 111 R +2.6 PF 1.04 win 28% DD -85% | $1,000 at 10% -> $210, 2% $959 (DD -30%), 1% $1,001 | stress R -11.4 PF 0.86 | success False
+   by month: {'2026-07': -10.6, '2026-08': 8.9, '2026-09': 10.3, '2026-10': -6.0}
+
+pick_gold_direct: direct MOM L10 k1.0, stop $10, 3R target, out after 30 min, topics GEO+ENERGY, calendar excl
+   Jan-Jun: n 97 R +37.6 PF 2.02 DD -34%
+   Jul-Oct: n 53 R -9.8 PF 0.56 win 38% DD -68% | $1,000 at 10% -> $321, 2% $817 (DD -18%), 1% $905 | stress R -8.6 PF 0.60 | success False
+   by month: {'2026-07': -1.3, '2026-08': -0.6, '2026-09': -1.1, '2026-10': -6.7}
+
+info_only_nasdaq_straddle: straddle pts 60 each side, orders 300 s, stop half, 2R target, TP / SL only, topics FED, calendar incl
+   Jan-Jun: n 9 R +9.0 PF 4.00 DD -10%
+   Jul-Oct: n 19 R -1.0 PF 0.92 win 32% DD -54% | $1,000 at 10% -> $759, 2% $973 (DD -13%), 1% $988 | stress R -3.0 PF 0.73 | success False
+   by month: {'2026-07': -5.0, '2026-08': -1.0, '2026-09': 6.0, '2026-10': -1.0}
+
+info_only_nasdaq_direct: direct MOM L10 k0.5, stop pts 80, 2R target, TP / SL only, topics ANY, calendar excl
+   Jan-Jun: n 178 R +17.0 PF 1.18 DD -65%
+   Jul-Oct: n 105 R +6.0 PF 1.11 win 43% DD -82% | $1,000 at 10% -> $837, 2% $1,092 (DD -27%), 1% $1,054 | stress R -0.7 PF 0.99 | success False
+   by month: {'2026-07': -11.0, '2026-08': 1.2, '2026-09': 9.4, '2026-10': 6.4}
