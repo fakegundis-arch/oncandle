@@ -191,3 +191,22 @@ The gold result is the first positive unseen result of the news bots, but it is 
 * Jul-Oct had already served as the test of the earlier news bots (not of this design).
 Next honest step: an untouched period (2025) and a forward test on a demo account, at 1-2% risk.
 Results: `straddle_fixed_test.json`, `straddle_fixed_gold_info_test.json`, grids `straddle_fixed_grid_*.csv`.
+
+# Nasdaq +/-30-point straddle - the user's design (Nov 7 2026)
+
+Nasdaq at 26,700 -> buy stop 26,730, sell stop 26,670 when the bot reads a tradable FinancialJuice / Walter Bloomberg
+headline; one cancels the other; same fills (+1 spread), stress test and flat-before-close as above. Distance fixed at
+30 points; 216 settings of order life, stop (at the other order = 60 pts, or back at the start = 30 pts), target, hold
+and topics. Protocol `scripts/telegram_news/straddle_points_lab.py` (committed before any result).
+
+Jan-Jun 2026: **0 of 216 settings passed**; median PF 0.78; only 7 made money. No pick. Declared info-only run of the
+highest-R setting (Fed headlines, orders live 1 min, stop back at the start price, no target, out after 30 min):
+
+| | Jan-Jun 2026 (built on) | Jul-Oct 2026 (unseen, run once) |
+|---|---|---|
+| Trades / R / PF / win | 65 / +23.9R / 1.49 / 23% (Jan-Mar -12.7R, Apr-Jun +36.6R) | **27 / -10.4R / 0.53 / 19%** |
+| $1,000 at 10% risk | $1,520 after a -89% drawdown | **$253 (-86%)** |
+| $1,000 at 2% / 1% | $1,452 (-31%) / $1,236 (-17%) | $800 (-30%) / $898 (-17%) |
+
+It loses on the unseen months (Jul -8.5R, Aug -6.4R, Sep -2.0R, Oct +6.5R). `straddle_nas30_info_test.json`,
+grid `straddle_nas30_grid.csv`.
