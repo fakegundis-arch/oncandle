@@ -142,12 +142,16 @@ def main():
     summary = {}
     for tag, evs in [("real", real)] + [(f"fake{s}", [Q.shift_events(ts, d, 1000 * s + j) for j, (ts, d) in
                                                        enumerate(real)]) for s in (1, 2, 3)]:
-        with Pool(4) as pool:
-            run_grid(pool, evs)
-        with Pool(4) as pool:
-            rows = sum(pool.map(_grid, range(len(SIGS)), chunksize=2), [])
-        df = pd.DataFrame(rows)
-        df.to_csv(Q.OUT / f"grid_{tag}.csv", index=False)
+        f = Q.OUT / f"grid_{tag}.csv"
+        if f.exists():                              # resume: this grid was finished before a restart
+            df = pd.read_csv(f)
+        else:
+            with Pool(4) as pool:
+                run_grid(pool, evs)
+            with Pool(4) as pool:
+                rows = sum(pool.map(_grid, range(len(SIGS)), chunksize=2), [])
+            df = pd.DataFrame(rows)
+            df.to_csv(f, index=False)
         nodd = df[df.ok_nodd]
         summary[tag] = dict(settings=len(df), passing=int(df.ok.sum()), passing_no_dd=int(len(nodd)),
                             best_R_no_dd=float(nodd.R.max()) if len(nodd) else None,
