@@ -120,3 +120,21 @@ lost in 10 of the 12 instrument-months. By the time these channels post (seconds
 is already in the price; what follows is as likely to reverse as to continue. Tight stops do not protect in news
 spikes: the secondary's worst trade lost 17.7x its planned risk when gold gapped through the stop. Results:
 `newsbot_test.json`, `newsbot_secondary_test.json`, grids `newsbot_grid_*.csv`, build log `newsbot_build.txt`.
+
+## The secondary candidate in detail (gold after war / energy headlines)
+
+Chart: `secondary_performance.png`; every trade with its headline: `secondary_trades.csv`.
+
+| | Jan-Jun (built on) | Jul-Oct (unseen) |
+|---|---|---|
+| Trades | 1,218 | 844 |
+| Win rate | 32% | 25% |
+| Average win / loss | +2.61R / -0.97R | +2.43R / -1.02R |
+| Total | +198R, PF 1.24 | -126R, PF 0.80 |
+| Longest losing streak | 17 | 16 |
+| $1,000 at 10% / 2% / 1% / 0.5% risk | $44 / $15,974 / $5,300 / $2,484 | $0 / $41 / $239 / $509 |
+| Max drawdown at 1% risk | -35% | -85% |
+
+Engine flaw found here (it does not change the verdict): the backtest had no "flat before the market closes" rule, so
+17 trades opened late on Fridays or just before the daily break were held to the reopen (up to 49 hours) - they hold the
+best (+24R) and the worst (-17.7R) trades. Without them: Jan-Jun +142R (PF 1.18), Jul-Oct -119.5R (PF 0.81).
