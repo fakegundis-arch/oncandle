@@ -260,3 +260,19 @@ The only setting positive in both periods and under stress on Jul-Oct is the use
 ❗ headline (follow the 30-s move, stop $10, 2R, 30 min) - but its edge is thin (PF 1.11-1.19), it lost in Apr-Jun
 (-16.6R) and July, and at 10% risk its drawdowns were -97% and -65%. At 1-2% risk it is a candidate for a demo
 forward test, not for real money. Nasdaq lost in every version.
+
+## The two gold ❗ settings without the 30-minute exit (Nov 7 2026)
+
+Same settings, exits only at the stop or the 2R target (closed before the daily break / weekend if neither is hit).
+`scripts/telegram_news/bang_notime.py`, results `bang_notime_results.json`. Nothing searched; both periods reported.
+
+| Setting | Period | With 30-min exit | Without (stop / target only) | $1,000 without, at 10% / 2% / 1% |
+|---|---|---|---|---|
+| Gold direct, follow the 30-s move, stop $10, target $20 | Jan-Jun | 417 trades, +19.9R, PF 1.11 | 364 trades, +22.8R, PF 1.10, win 38% | $379 (-97%) / $1,377 / $1,214 |
+| | Jul-Oct | 229 trades, +13.5R, PF 1.19 | **183 trades, +8.4R, PF 1.08, win 39%** | **$552 (-89%)** / $1,115 / $1,072 |
+| Gold straddle $5, orders 1 min, stop $10, target $20 | Jan-Jun | 98 trades, +3.7R, PF 1.07 | 97 trades, +9.2R, PF 1.15 | $1,003 (-77%) / $1,156 / $1,086 |
+| | Jul-Oct | 26 trades, -3.3R, PF 0.72 | **26 trades, -0.7R, PF 0.96** | **$762 (-41%)** / $979 / $991 |
+
+Without the timer the direct order wins less often (38-39%) and loses its Jul-Oct edge (PF 1.19 -> 1.08); at 10% risk
+it ends below $1,000 in both periods despite a positive R total, because the losing streaks (up to 14 in a row)
+compound. The straddle is about break-even on Jul-Oct either way.
