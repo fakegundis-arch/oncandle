@@ -1,0 +1,18 @@
+{
+ "gold_info_only": {
+  "p": 0.1,
+  "W": 60,
+  "stop": "opp",
+  "r": 2,
+  "H": 1800,
+  "topics": "GEO+ENERGY"
+ },
+ "nasdaq": {
+  "p": 0.45,
+  "W": 300,
+  "stop": "mid",
+  "r": 1,
+  "H": 300,
+  "topics": "ALL"
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "locked_at_utc": "2026-11-07T07:43:07+00:00",
+ "note": "Fixed-distance straddle, picked on Jan-Jun 2026 by the straddle_fixed_lab.py rule, frozen before the one Jul-Oct 2026 run. Gold: no setting passed -> info-only run of its highest-R setting (declared in the protocol).",
+ "picks": {
+  "nasdaq": {
+   "p": 0.45,
+   "W": 300,
+   "stop": "mid",
+   "r": 1,
+   "H": 300,
+   "topics": "ALL"
+  }
+ },
+ "info_only": {
+  "gold": {
+   "p": 0.1,
+   "W": 60,
+   "stop": "opp",
+   "r": 2,
+   "H": 1800,
+   "topics": "GEO+ENERGY"
+  }
+ },
+ "build_jan_jun": {
+  "nasdaq": {
+   "n": 46,
+   "R": 3.64,
+   "pf": 1.4,
+   "dd": -0.232,
+   "usd": 1328,
+   "stress_pf": 1.64,
+   "nb_pass": 0.0,
+   "passing_settings": "1 of 1,296"
+  },
+  "gold_info_only": {
+   "n": 762,
+   "R": 57.5,
+   "pf": 1.14,
+   "dd": -0.997,
+   "stress_pf": 0.98,
+   "passing_settings": "0 of 1,296"
+  }
+ }
+}
