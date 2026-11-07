@@ -22,7 +22,8 @@ import feats as FE  # noqa: E402
 from lib import clean, known_price, minute_vol, mid_last  # noqa: E402
 
 # Frozen 2026-11-07.  All three are gold-only; stops are multiples of the 60-minute mean |1-minute change| ("vol")
-# measured before the post.  See REPORT.md: none of them beats the luck check, so none is a real edge.
+# measured before the post.  See alpha's report (REPORT.md text was handed back to the lead; writing .md files was
+# blocked for this agent): none of them beats the luck check or the May-Jun check, so none is a real edge.
 CANDIDATES: dict = {
     # 1. search winner (highest search-period $ under the robustness filter): sell gold 30 s after a 🚨 Iran headline
     "iran_siren_short": {"legs": [{"inst": "gold", "filter": "siren&iran", "rule": {"kind": "sell"}, "delay": 30,
