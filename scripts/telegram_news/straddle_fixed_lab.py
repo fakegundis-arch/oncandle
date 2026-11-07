@@ -12,12 +12,15 @@ result, Nov 7 2026).  The user's design: gold at 4,670 -> buy stop 4,675, sell s
   * Knobs: p (above), order life W in {60, 300, 900} s, stop in {opp = at the other order's level (2 x the distance),
     mid = back at the starting price (1 x the distance)} (at least 3 spreads), target r in {0, 1, 2} x stop,
     hold H in {300, 900, 1800} s, topics in {ALL, GEO+ENERGY, FED, TRADE+POLITICS+CHINA}  -> 1,296 per instrument.
-  * BUILD on Jan 1 - Oct 31 2026.  Pass: >= 40 trades, PF >= 1.3, R > 0 in Jan-May and in Jun-Oct, stress PF >= 1.15,
-    max drawdown at 10 % better than -35 %.  Pick: most passing neighbours (one knob one step), then shallower
-    drawdown, then higher R.
-  * TEST once on Jan 1 - Dec 31 2025 (never used with these channels): success = >= 20 trades, R > 0, PF >= 1.3,
-    drawdown better than -35 %.  If NO setting passes for an instrument, its highest-R build setting gets one
-    information-only 2025 run instead (declared here, before any result).
+  * BUILD on Jan 1 - Jun 30 2026 (the user's choice, Nov 7: "build on the first 6 months of 2026 and then backtest it
+    on the remaining months of 2026 unseen").  Pass: >= 40 trades, PF >= 1.3, R > 0 in Jan-Mar and in Apr-Jun, stress
+    PF >= 1.15, max drawdown at 10 % better than -35 %.  Pick: most passing neighbours (one knob one step), then
+    shallower drawdown, then higher R.
+  * TEST once on Jul 1 - Oct 31 2026: success = >= 20 trades, R > 0, PF >= 1.3, drawdown better than -35 %.  If NO
+    setting passes for an instrument, its highest-R build setting gets one information-only Jul-Oct run instead
+    (declared here, before any result).  Jul-Oct was already the test period of the direction bots and of the
+    volatility-scaled straddle; no fixed-distance straddle has been run on it.
+  (Revision of Nov 7, before any result: the first draft built on Jan-Oct 2026 and tested on 2025.)
 """
 from __future__ import annotations
 
@@ -30,9 +33,9 @@ import pandas as pd
 import newsbot_lab as N
 import straddle_lab as S
 
-BUILD = ("2026-01-01", "2026-11-01")
-HALVES = {"jan-may": ("2026-01-01", "2026-06-01"), "jun-oct": ("2026-06-01", "2026-11-01")}
-TEST = ("2025-01-01", "2026-01-01")
+BUILD = ("2026-01-01", "2026-07-01")
+HALVES = {"jan-mar": ("2026-01-01", "2026-04-01"), "apr-jun": ("2026-04-01", "2026-07-01")}
+TEST = ("2026-07-01", "2026-11-01")
 GRID = dict(p=[0.05, 0.10, 0.15, 0.20, 0.30, 0.45], W=[60, 300, 900], stop=["opp", "mid"], r=[0, 1, 2],
             H=[300, 900, 1800], topics=["ALL", "GEO+ENERGY", "FED", "TRADE+POLITICS+CHINA"])
 KNOBS = list(GRID)
@@ -97,19 +100,19 @@ def run(feat: pd.DataFrame, inst: str, cfg: dict, stress: bool = False) -> pd.Da
 
 def passes_build(t: pd.DataFrame, ts: pd.DataFrame) -> tuple[bool, dict]:
     m = N.metrics(t, *BUILD)
-    h1, h2 = N.metrics(t, *HALVES["jan-may"]), N.metrics(t, *HALVES["jun-oct"])
+    h1, h2 = N.metrics(t, *HALVES["jan-mar"]), N.metrics(t, *HALVES["apr-jun"])
     ms = N.metrics(ts, *BUILD)
-    chk = {"n>=40": m["n"] >= 40, "pf>=1.3": m["pf"] >= 1.3, "jan-may R>0": h1["R"] > 0, "jun-oct R>0": h2["R"] > 0,
+    chk = {"n>=40": m["n"] >= 40, "pf>=1.3": m["pf"] >= 1.3, "jan-mar R>0": h1["R"] > 0, "apr-jun R>0": h2["R"] > 0,
            "stress pf>=1.15": ms["pf"] >= 1.15, "dd>-35%": m["dd"] > -0.35}
     return all(chk.values()), dict(m, h1R=h1["R"], h2R=h2["R"], stress_pf=ms["pf"], stress_R=ms["R"], **chk)
 
 
 def final_test(picks: dict, tag: str = "straddle_fixed") -> dict:
-    """ONE run on 2025. Saves results/telegram_news/<tag>_test2025.json, refuses a second run."""
-    fpath = N.OUT / f"{tag}_test2025.json"
+    """ONE run on Jul-Oct 2026. Saves results/telegram_news/<tag>_test.json, refuses a second run."""
+    fpath = N.OUT / f"{tag}_test.json"
     if fpath.exists():
         raise RuntimeError("final_test has already been run")
-    tp = N.tradable(N.load_posts("2024-12-31", TEST[1]))
+    tp = N.tradable(N.load_posts("2026-06-30", TEST[1]))
     feat = features(tp)
     res = {}
     for inst, cfg in picks.items():

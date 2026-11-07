@@ -1,4 +1,4 @@
-"""Jan-Oct 2026 grid of the fixed-distance straddle (straddle_fixed_lab.py protocol) and the pre-registered pick.
+"""Jan-Jun 2026 grid of the fixed-distance straddle (straddle_fixed_lab.py protocol) and the pre-registered pick.
 usage: cd <repo> && PYTHONDONTWRITEBYTECODE=1 python3 -I scripts/telegram_news/straddle_fixed_build.py
 -> results/telegram_news/straddle_fixed_grid_<inst>.csv, straddle_fixed_build.txt, straddle_fixed_pick.json"""
 import itertools
@@ -51,7 +51,7 @@ def main():
     for inst in N.SYMS:
         _F[inst] = S.features(tp)
         N.ticks(inst)
-    txt.append(f"{len(tp)} tradable posts Jan-Oct (FJ {int((tp.ch == 'FJ').sum())}, WB {int((tp.ch == 'WB').sum())})")
+    txt.append(f"{len(tp)} tradable posts Jan-Jun (FJ {int((tp.ch == 'FJ').sum())}, WB {int((tp.ch == 'WB').sum())})")
     cs = configs()
     for inst in N.SYMS:
         with Pool(4) as pool:
