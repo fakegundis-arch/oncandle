@@ -29,9 +29,10 @@ def nb_grid(rows, ent, ext, rr, sds, pxs, risk, cap, maxopen, split, a, b):
     for q in range(nx):
         e1, x1, r1, s1, p1 = ent[rows, q], ext[rows, q], rr[rows, q], sds[rows, q], pxs[rows, q]
         for pi in range(2):
-            res = V.nb_account(e1, x1, r1, s1, p1, 1 if pi == 0 else 3, risk, cap, maxopen, split, a, b)
-            for k in range(9):
-                out[q, pi, k] = res[k]
+            n_, R_, gw_, gl_, ra_, rb_, bal_, dd_, ml_ = V.nb_account(e1, x1, r1, s1, p1, 1 if pi == 0 else 3, risk,
+                                                                       cap, maxopen, split, a, b)
+            out[q, pi, 0], out[q, pi, 1], out[q, pi, 2], out[q, pi, 3] = n_, R_, gw_, gl_
+            out[q, pi, 4], out[q, pi, 5], out[q, pi, 6], out[q, pi, 7], out[q, pi, 8] = ra_, rb_, bal_, dd_, ml_
     return out
 
 
