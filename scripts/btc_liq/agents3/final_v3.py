@@ -33,8 +33,10 @@ CHUNKS = {"build": [("2026-01-01", "2026-04-01"), ("2026-04-01", "2026-07-01")],
 
 def load(agent):
     f = HERE / ("lead_baselines.py" if agent == "lead" else f"{agent}/strategy.py")
-    spec = importlib.util.spec_from_file_location(f"strat_{agent}", f)
+    sys.path.insert(0, str(f.parent))                       # numba caches remember the module name "strategy"
+    spec = importlib.util.spec_from_file_location("lead_baselines" if agent == "lead" else "strategy", f)
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = mod
     spec.loader.exec_module(mod)
     return mod
 

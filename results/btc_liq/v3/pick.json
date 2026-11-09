@@ -1,0 +1,44 @@
+{
+ "rule": "highest Jan-Jun 2026 balance at 10 % among candidates meeting rule 4 whose researcher's luck check passed",
+ "version3": {
+  "agent": "flow",
+  "name": "flow_bigprint_oiup_30s"
+ },
+ "table": [
+  {
+   "agent": "exec",
+   "name": "exec_flushfade_4v",
+   "final": 14393.62572209311,
+   "rule4": true,
+   "luck": true
+  },
+  {
+   "agent": "exec",
+   "name": "exec_flushfade_3v_be",
+   "final": 9830.078650539443,
+   "rule4": true,
+   "luck": false
+  },
+  {
+   "agent": "flow",
+   "name": "flow_bigprint_oiup_30s",
+   "final": 85229.43950670687,
+   "rule4": true,
+   "luck": true
+  },
+  {
+   "agent": "flow",
+   "name": "flow_info_60s_wide",
+   "final": 8075.789659678526,
+   "rule4": true,
+   "luck": false
+  },
+  {
+   "agent": "oi",
+   "name": "OI_BIGMOVE",
+   "final": 5601.106789403306,
+   "rule4": true,
+   "luck": false
+  }
+ ]
+}
