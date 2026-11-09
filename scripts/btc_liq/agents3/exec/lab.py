@@ -24,8 +24,6 @@ class Lab:
         self.l = np.full(n, np.nan, np.float32)
         self.bq = np.zeros(n, np.float32)
         self.sq = np.zeros(n, np.float32)
-        self.nbuy = np.zeros(n, np.float32)
-        self.nsell = np.zeros(n, np.float32)
         for m in ms:
             z = np.load(os.path.join(data_dir, "binance_1s", f"{m}.npz"))
             t = z["t"]
@@ -38,8 +36,6 @@ class Lab:
             self.l[i] = np.where(lo == 0, np.nan, lo)
             self.bq[i] = z["bq"][keep]
             self.sq[i] = z["sq"][keep]
-            self.nbuy[i] = z["nb"][keep]
-            self.nsell[i] = z["ns"][keep]
             del z
         self.c = pd.Series(c).ffill().bfill().to_numpy()
         del c
@@ -63,13 +59,18 @@ class Lab:
             d = pd.concat(dps).sort_values("time")
             d["ts"] = d.time.astype("datetime64[s]").astype("int64")
             self.depth = d[(d.ts >= self.t0) & (d.ts < t1)].reset_index(drop=True)
-        tparts = [dict(np.load(os.path.join(data_dir, "exness", f"{m}.npz"))) for m in ms]
-        tk = {k: np.concatenate([p[k] for p in tparts]) for k in tparts[0]}
-        del tparts
-        o = np.argsort(tk["t"], kind="stable")
-        tk = {k: v[o] for k, v in tk.items()}
-        keep = np.r_[True, np.diff(tk["t"]) > 0] & (tk["t"] < t1)
-        self.tk = {k: np.ascontiguousarray(v[keep]) for k, v in tk.items() if k != "n"}
+        tparts = [np.load(os.path.join(data_dir, "exness", f"{m}.npz")) for m in ms]
+        tt = np.concatenate([p["t"] for p in tparts])
+        o = np.argsort(tt, kind="stable")
+        tt = tt[o]
+        keep = np.r_[True, np.diff(tt) > 0] & (tt < t1)
+        self.tk = {"t": np.ascontiguousarray(tt[keep])}
+        del tt
+        for k in ("bid_first", "bid_last", "bid_min", "bid_max", "ask_first", "ask_last", "ask_min", "ask_max"):
+            v = np.concatenate([p[k] for p in tparts])[o]
+            self.tk[k] = np.ascontiguousarray(v[keep])
+            del v
+        del tparts, o, keep
         self.gaps = np.flatnonzero(np.diff(self.tk["t"]) >= bc.GAP).astype(np.int64)
 
     def vol_at(self, ts):

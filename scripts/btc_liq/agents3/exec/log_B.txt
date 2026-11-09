@@ -1,0 +1,8 @@
+real signals 3668 settings 768 outcomes 30.0
+done 31.8 92160
+fake1 signals 3668 settings 768 outcomes 27.0
+done 28.7 92160
+fake2 signals 3668 settings 768 outcomes 27.6
+done 29.3 92160
+fake3 signals 3668 settings 768 outcomes 28.3
+done 30.3 92160

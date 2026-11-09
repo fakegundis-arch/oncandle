@@ -1,0 +1,22 @@
+real signals 818 settings 3360 outcomes 30.4
+done 31.5 181440
+fake1 signals 818 settings 3360 outcomes 26.8
+done 28.4 181440
+fake2 signals 818 settings 3360 outcomes 25.9
+done 27.1 181440
+fake3 signals 818 settings 3360 outcomes 26.7
+done 28.1 181440
+fake4 signals 818 settings 3360 outcomes 28.0
+done 29.5 181440
+fake5 signals 818 settings 3360 outcomes 27.5
+done 29.0 181440
+fake6 signals 818 settings 3360 outcomes 30.6
+done 32.2 181440
+fake7 signals 818 settings 3360 outcomes 29.9
+done 31.5 181440
+fake8 signals 818 settings 3360 outcomes 30.9
+done 32.3 181440
+fake9 signals 818 settings 3360 outcomes 26.3
+done 27.5 181440
+fake10 signals 818 settings 3360 outcomes 27.7
+done 28.8 181440

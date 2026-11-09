@@ -1,0 +1,7 @@
+fake2 signals 1699 settings 7800 outcomes 45.6
+accounts 65.4
+done 66.4 1123200
+
+real	1m7.288s
+user	1m4.478s
+sys	0m1.938s

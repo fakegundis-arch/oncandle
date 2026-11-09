@@ -16,30 +16,31 @@ from engine import JAN, MAY, JUL, APR
 
 MAR = bc.ts_of("2026-03-01")
 
-STOPS = [1.5, 2, 2.5, 3, 4, 5, 6, 8, 10]
-HOLDS = [120, 180, 240, 300, 420, 600, 900]
-TPS = [np.nan, 1.0, 1.5, 2.0, 3.0, 4.0]
-BTS = [(np.nan, np.nan), (0.5, np.nan), (1.0, np.nan), (1.5, np.nan), (0.5, 0.5), (0.5, 1.0), (1.0, 0.5), (1.0, 1.0),
-       (1.0, 1.5), (1.5, 1.0), (1.5, 1.5), (2.0, 1.0)]
-DOIS = [-0.0015, -0.002, -0.0025, -0.003, -0.004, -0.005, -0.007]
-MVS = [0.001, 0.0015, 0.002, 0.0025, 0.003, 0.004]
+SIDES = [1, -1]                      # follow the bucket move / fade it
+ENTRIES = [(0, 0.0, 0)] + [(k, o, lf) for k in (2, 1) for o in (1.0, 2.0, 4.0) for lf in (300, 1200)]
+STOPS = [2, 3, 5, 8, 12]
+HOLDS = [300, 900, 1800, 3600, 7200]
+TPS = [np.nan, 1.0, 2.0, 4.0]
+BTS = [(np.nan, np.nan), (1.0, np.nan), (1.0, 1.0)]
+DOIS = [-0.0015, -0.002, -0.003, -0.004, -0.005, -0.007]
+MVS = [0.001, 0.0015, 0.002, 0.003, 0.004, 0.006]
 NETS = [0, 1]
-COSTS = [np.inf, 1.0, 0.75]
-MAXPOS = [1, 2, 3]
+MAXPOS = [1, 3]
 
 
 def settings():
-    return list(itertools.product(STOPS, HOLDS, TPS, BTS))
+    return list(itertools.product(SIDES, ENTRIES, STOPS, HOLDS, TPS, BTS))
 
 
 def masks(f):
     out, keys = [], []
-    for a, b, c, e in itertools.product(DOIS, MVS, NETS, COSTS):
-        m = (f.doi <= a) & (f.mv_abs >= b) & (f.cost <= e)
+    for a, b, c in itertools.product(DOIS, MVS, NETS):
+        e = np.inf
+        m = (f.doi <= a) & (f.mv_abs >= b)
         if c:
             m &= f.net > 0
         out.append(m.to_numpy())
-        keys.append((a, b, c, e))
+        keys.append((a, b, c))
     return np.array(out), keys
 
 
@@ -114,7 +115,7 @@ def run_all(ENT, EXT, RR, SD, PX, order, M, maxposs, p):
     S = ENT.shape[0]
     NM = M.shape[0]
     NP = len(maxposs)
-    out = np.zeros((NM * S * NP, 14))
+    out = np.zeros((NM * S * NP, 16))
     for mi in range(NM):
         for s in range(S):
             o = order[s]
@@ -122,7 +123,7 @@ def run_all(ENT, EXT, RR, SD, PX, order, M, maxposs, p):
             for pi in range(NP):
                 mp = maxposs[pi]
                 a = _acc(ENT[s], EXT[s], RR[s], SD[s], PX[s], sel, mp, p[0], p[2], p[1])
-                b = _acc(ENT[s], EXT[s], RR[s], SD[s], PX[s], sel, mp, p[2], p[3], p[3])
+                b = _acc(ENT[s], EXT[s], RR[s], SD[s], PX[s], sel, mp, p[0], p[3], p[4])
                 k = (mi * S + s) * NP + pi
                 out[k, 0] = a[0]
                 out[k, 1] = a[1]
@@ -136,6 +137,8 @@ def run_all(ENT, EXT, RR, SD, PX, order, M, maxposs, p):
                 out[k, 9] = b[2] / b[3] if b[3] > 0 else 99.0
                 out[k, 10] = b[4]
                 out[k, 11] = b[5]
+                out[k, 14] = b[6]
+                out[k, 15] = b[7]
                 out[k, 12] = mi
                 out[k, 13] = s
     return out
@@ -144,6 +147,7 @@ def run_all(ENT, EXT, RR, SD, PX, order, M, maxposs, p):
 def load_signals(tag, L=None):
     f = pd.read_parquet("sig_all.parquet")
     f = f[(f.doi <= max(DOIS)) & (f.mv_abs >= min(MVS))].sort_values("dec").reset_index(drop=True)
+    f = f[["T", "dec", "dir", "doi", "mv_abs", "net", "vol", "spread", "hour"]].copy()
     if tag != "real":
         f = fake_shift(L, f, int(tag[4:]))
     f["cost"] = 2 * f.spread / f.vol
@@ -191,27 +195,25 @@ def main(tag):
     RR = np.zeros((S, N))
     SD = np.zeros((S, N))
     PX = np.zeros((S, N))
-    for k, (st, h, tp, (be, tr)) in enumerate(ST):
-        ENT[k], EXT[k], RR[k], SD[k], PX[k] = L.nbt(sig, d, 0, 0.0, 0, st * vol, tp, h, be, tr)
+    for k, (side, (kind, off, life), st, h, tp, (be, tr)) in enumerate(ST):
+        ENT[k], EXT[k], RR[k], SD[k], PX[k] = L.nbt(sig, side * d, kind, off * vol, life, st * vol, tp, h, be, tr)
     print(tag, "signals", N, "settings", S, "outcomes", round(time.time() - t, 1), flush=True)
     del L
     order = np.argsort(np.where(np.isnan(RR), 2 ** 62, ENT), axis=1, kind="stable")
     M, keys = masks(f)
-    out = run_all(ENT, EXT, RR, SD, PX, order, M, np.array(MAXPOS), np.array([JAN, MAR, MAY, JUL]))
+    out = run_all(ENT, EXT, RR, SD, PX, order, M, np.array(MAXPOS), np.array([JAN, MAR, MAY, JUL, APR]))
     print("accounts", round(time.time() - t, 1), flush=True)
-    res = pd.DataFrame(out[:, :12], columns=["nA", "RA", "pfA", "fA", "ddA", "RA1", "RA2", "nB", "RB", "pfB", "fB", "ddB"])
-    mi, si = out[:, 12].astype(int), out[:, 13].astype(int)
-    kk = np.array(keys, dtype=float)
-    res["doi"], res["mv"], res["net"], res["cost"] = kk[mi, 0], kk[mi, 1], kk[mi, 2], kk[mi, 3]
-    ss = np.array([(a, b, c, e[0], e[1]) for a, b, c, e in ST], dtype=float)
-    res["stop"], res["hold"], res["tp"], res["be"], res["tr"] = ss[si, 0], ss[si, 1], ss[si, 2], ss[si, 3], ss[si, 4]
-    res["mp"] = np.tile(MAXPOS, len(out) // len(MAXPOS))
+    res = pd.DataFrame(out[:, :12], columns=["nA", "RA", "pfA", "fA", "ddA", "RA1", "RA2", "n", "R", "pf", "final", "dd"])
+    res["R1"], res["R2"] = out[:, 14], out[:, 15]
+    res["mi"], res["si"] = out[:, 12].astype(np.int32), out[:, 13].astype(np.int32)
+    res["mp"] = np.tile(MAXPOS, len(out) // len(MAXPOS)).astype(np.int8)
     for c in res.columns:
-        if res[c].dtype == np.float64 and c not in ("fA", "fB"):
+        if res[c].dtype == np.float64 and c not in ("fA", "final"):
             res[c] = res[c].astype(np.float32)
     res.to_parquet(f"resA_{tag}.parquet")
-    np.savez_compressed(f"outA_{tag}.npz", ENT=ENT, EXT=EXT, RR=RR.astype(np.float32), SD=SD.astype(np.float32),
-                        PX=PX.astype(np.float32)) if tag == "real" else None
+    if tag == "real":
+        np.savez_compressed("outA_real.npz", ENT=ENT, EXT=EXT, RR=RR.astype(np.float32), SD=SD.astype(np.float32),
+                            PX=PX.astype(np.float32))
     print("done", round(time.time() - t, 1), len(res), flush=True)
 
 
