@@ -1,0 +1,67 @@
+{
+ "real": {
+  "settings": 1382400,
+  "passing": 6842,
+  "passing_no_dd": 15916,
+  "best_R_no_dd": 145.89272028057331,
+  "best_R_n40": 155.87369119770264,
+  "best_usd_n40": 13714419.393498762
+ },
+ "fake1": {
+  "settings": 1382400,
+  "passing": 0,
+  "passing_no_dd": 0,
+  "best_R_no_dd": null,
+  "best_R_n40": 10.328558248020393,
+  "best_usd_n40": 2213.020449475065
+ },
+ "fake2": {
+  "settings": 1382400,
+  "passing": 16,
+  "passing_no_dd": 172,
+  "best_R_no_dd": 48.233045062394304,
+  "best_R_n40": 48.233045062394304,
+  "best_usd_n40": 6088.187594110697
+ },
+ "fake3": {
+  "settings": 1382400,
+  "passing": 184,
+  "passing_no_dd": 564,
+  "best_R_no_dd": 38.49201521453929,
+  "best_R_n40": 38.49201521453929,
+  "best_usd_n40": 8878.911990069673
+ }
+}
+
+version 1 inside this grid (Jan-Jun, 100x cap): n 52.00, R 19.70, pf 2.43, h1R 6.75, h2R 12.96, usd 5350.61, dd -0.30, max_lot 2.07, stress_pf 1.47
+
+PICK (all rules): OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=confirm, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage trail1; one trade at a time
+  Jan-Jun: n 97.00, R 25.01, pf 2.40, h1R 12.90, h2R 12.11, usd 9197.89, dd -0.20, max_lot 2.76, stress_pf 1.74, passing neighbours 0.82
+  luck: best fake R meeting every rule except drawdown [None, 48.233045062394304, 38.49201521453929]; pick beats every fake: False
+
+6842 settings pass (all rules); top 25 by the pick rule:
+  nb 0.82 | n 97 R +25.0 PF 2.40 DD -20% $9,198 stressPF 1.74 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=confirm, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage trail1; one trade at a time
+  nb 0.82 | n 97 R +25.0 PF 2.40 DD -20% $9,198 stressPF 1.74 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=confirm, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage trail1; up to 3 trades
+  nb 0.82 | n 97 R +25.0 PF 2.40 DD -20% $9,176 stressPF 1.77 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=confirm, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage be; one trade at a time
+  nb 0.82 | n 97 R +25.0 PF 2.40 DD -20% $9,176 stressPF 1.77 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=confirm, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage be; up to 3 trades
+  nb 0.82 | n 101 R +24.3 PF 2.27 DD -20% $8,504 stressPF 1.66 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=any, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage trail1; one trade at a time
+  nb 0.82 | n 101 R +24.3 PF 2.27 DD -20% $8,504 stressPF 1.66 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=any, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage trail1; up to 3 trades
+  nb 0.82 | n 101 R +24.3 PF 2.27 DD -20% $8,484 stressPF 1.69 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=any, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage be; one trade at a time
+  nb 0.82 | n 101 R +24.3 PF 2.27 DD -20% $8,484 stressPF 1.69 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=any, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage be; up to 3 trades
+  nb 0.82 | n 101 R +23.0 PF 2.20 DD -20% $7,406 stressPF 1.61 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=any, depth=none; entry mkt; stop 8 vol, target 2R, out after 5 min, manage be; one trade at a time
+  nb 0.82 | n 101 R +23.0 PF 2.20 DD -20% $7,406 stressPF 1.61 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=any, depth=none; entry mkt; stop 8 vol, target 2R, out after 5 min, manage be; up to 3 trades
+  nb 0.81 | n 97 R +25.0 PF 2.40 DD -20% $9,176 stressPF 1.79 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=confirm, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage none; one trade at a time
+  nb 0.81 | n 97 R +25.0 PF 2.40 DD -20% $9,176 stressPF 1.79 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=confirm, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage none; up to 3 trades
+  nb 0.81 | n 97 R +25.0 PF 2.40 DD -20% $9,176 stressPF 1.77 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=confirm, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage trail2; one trade at a time
+  nb 0.81 | n 97 R +25.0 PF 2.40 DD -20% $9,176 stressPF 1.77 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=confirm, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage trail2; up to 3 trades
+  nb 0.81 | n 101 R +24.3 PF 2.27 DD -20% $8,484 stressPF 1.70 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=any, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage none; one trade at a time
+  nb 0.81 | n 101 R +24.3 PF 2.27 DD -20% $8,484 stressPF 1.70 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=any, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage none; up to 3 trades
+  nb 0.81 | n 101 R +24.3 PF 2.27 DD -20% $8,484 stressPF 1.69 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=any, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage trail2; one trade at a time
+  nb 0.81 | n 101 R +24.3 PF 2.27 DD -20% $8,484 stressPF 1.69 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=any, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage trail2; up to 3 trades
+  nb 0.81 | n 86 R +24.1 PF 2.17 DD -28% $7,934 stressPF 1.77 | OI fall >= 0.5 % & move >= 0.2 % over 5 min, late=same, flow=any, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 10 min, manage be; one trade at a time
+  nb 0.81 | n 86 R +23.6 PF 2.14 DD -28% $7,571 stressPF 1.73 | OI fall >= 0.5 % & move >= 0.2 % over 5 min, late=same, flow=any, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 10 min, manage trail1; one trade at a time
+  nb 0.81 | n 101 R +23.0 PF 2.20 DD -20% $7,406 stressPF 1.62 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=any, depth=none; entry mkt; stop 8 vol, target 2R, out after 5 min, manage none; one trade at a time
+  nb 0.81 | n 101 R +23.0 PF 2.20 DD -20% $7,406 stressPF 1.62 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=any, depth=none; entry mkt; stop 8 vol, target 2R, out after 5 min, manage none; up to 3 trades
+  nb 0.81 | n 101 R +23.0 PF 2.20 DD -20% $7,406 stressPF 1.61 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=any, depth=none; entry mkt; stop 8 vol, target 2R, out after 5 min, manage trail2; one trade at a time
+  nb 0.81 | n 101 R +23.0 PF 2.20 DD -20% $7,406 stressPF 1.61 | OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=any, depth=none; entry mkt; stop 8 vol, target 2R, out after 5 min, manage trail2; up to 3 trades
+  nb 0.81 | n 86 R +23.4 PF 2.13 DD -28% $7,169 stressPF 1.69 | OI fall >= 0.5 % & move >= 0.2 % over 5 min, late=same, flow=any, depth=none; entry mkt; stop 8 vol, target 2R, out after 10 min, manage be; one trade at a time

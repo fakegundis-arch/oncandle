@@ -1,0 +1,52 @@
+{
+ "rule": "all rules",
+ "pick": {
+  "x": 0.5,
+  "y": 0.3,
+  "w": 1,
+  "late": "any",
+  "flow": "confirm",
+  "depth": "none",
+  "entry": "mkt",
+  "stop": 8,
+  "target": 1.5,
+  "timer": 300,
+  "manage": "trail1",
+  "pos": 1
+ },
+ "desc": "OI fall >= 0.5 % & move >= 0.3 % over 5 min, late=any, flow=confirm, depth=none; entry mkt; stop 8 vol, target 1.5R, out after 5 min, manage trail1; one trade at a time",
+ "build": {
+  "n": 97.0,
+  "R": 25.00787865281596,
+  "pf": 2.4044030005428363,
+  "h1R": 12.897931744578635,
+  "h2R": 12.10994690823732,
+  "usd": 9197.890183741181,
+  "dd": -0.20441110225890047,
+  "max_lot": 2.7566462452782496,
+  "stress_pf": 1.737464595753762
+ },
+ "nb_pass": 0.8235294117647058,
+ "luck": {
+  "best_fake_R": [
+   null,
+   48.233045062394304,
+   38.49201521453929
+  ],
+  "beats_every_fake": false
+ },
+ "version1": {
+  "x": 0.7,
+  "y": 0.3,
+  "w": 1,
+  "late": "any",
+  "flow": "any",
+  "depth": "none",
+  "entry": "mkt",
+  "stop": 5,
+  "target": 2,
+  "timer": 300,
+  "manage": "none",
+  "pos": 1
+ }
+}
