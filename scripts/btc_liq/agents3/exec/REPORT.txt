@@ -1,0 +1,98 @@
+EXEC RESEARCHER - VERSION 3 REPORT (honest metrics timing; Jan 1 - Jun 30 2026; $1,000 at 10 % risk; btc_common rules)
+
+0. THE CORRECTION
+Everything I did before the Nov 9 correction used rows from ct+60 s (look-ahead) and is thrown away.  With the honest rule
+(row usable from ct+360 s, describing [ct, ct+300)) I rebuilt v1 / v2 exactly: v1 88 trades -3.7R PF 0.84, v2 176 trades
+-1.1R PF 0.97, which matches the lead.  The Exness round trip costs 2 spreads, about 0.6-1.1 x the 1-minute vol.  After an
+honest open-interest-drop bucket the average price drift in the next 1-60 minutes is close to zero (any sign, any size
+bin), so following the move cannot pay at these costs.
+
+1. WHAT I SEARCHED (real-signal combinations, each one a full btc_common-equivalent account at 10 %)
+ A. The 5-minute OI-drop family of v1 / v2, with the whole trade-engineering grid: OI drop 0.15-0.7 %, move 0.1-0.6 %,
+    taker agreement on / off; follow or fade; market / breakout-stop / pullback-limit entries at 1 / 2 / 4 x vol, living
+    5 / 20 min; stop 2-12 x vol; target none / 1 / 2 / 4R; timer 5 min - 2 h; break-even / trailing; maxpos 1 / 3.
+    That is 1,123,200 combinations.  An earlier screen tried 15,744 more (entry types x exits x 4 signal sets).
+ B. OI drop over 5 / 10 / 15 minutes with longer holds (30 min - 4 h), follow / fade, market or limit: 92,160 combinations.
+ C. "Flush fade" (the effect found in B and in event studies): OI drop >= 0.7 / 1 / 1.5 % over 5 / 10 / 15 min with a move
+    >= 0.3 / 0.4 / 0.6 %, fade side only; market entry, or a limit 1-6 x vol further into the flush living 10 / 20 / 40 min;
+    stop 8-24 x vol or 0.5 / 0.75 / 1.0 x the flush size in $; target none / 1-4R; timer 1 / 2 / 4 h; break-even on / off;
+    maxpos 1 / 3.  That is 181,440 combinations.
+ Event studies (not trade searches): about 1,700 OI-window cells, real-time burst triggers with and without OI context,
+ depth imbalance, premium z-score and momentum quintiles.  None of these beat costs.
+ Total: about 1.41 million real combinations, plus the same grids on 16 fake signal sets.
+
+2. LUCK CHECK (fake = every signal moved by a random 1-14 days, same direction; vol / spread re-measured; same grid)
+ Best Jan-Jun setting meeting rule 4 (>= 40 trades, PF >= 1.3, R > 0 in Jan-Mar and in Apr-Jun, drawdown better than -35 %):
+ A  real +15.8R / $3,804   fakes (3): +14.4R / $2,964, +12.8R / $2,690, +33.0R / $2,710 (best final $3,091)   -> FAIL
+ B  real +28.9R / $10,564  fakes (3): +29.1R / $10,044, +20.5R / $4,162, +19.3R / $3,961                       -> FAIL
+ C  real +34.6R / $14,394  fakes (10): +20.9, 23.1, 14.1, 11.2, 23.6, 22.9, 17.0, 8.5, 26.9, 10.2R;
+    best fake +26.9R / $6,585 (fake 9)                                                                 -> PASS for C
+    Across the whole grid of C: real median R +0.78 with 59 % of combinations above 0.  The 10 fakes have median R
+    -1.95 to -5.62 and only 7-38 % of combinations above 0.
+ Fixed-rule test (the frozen rule on its own signals shifted 200 times):
+    exec_flushfade_4v: fakes mean -9.6R, sd 10.1, max +14.8R, max final $2,030; 0 of 200 reach +34.6R.
+    exec_flushfade_3v_be: fakes max +19.7R, max final $4,118; 0 of 200 reach +29.5R.
+ Control (the same execution of exec_flushfade_4v on 15-min moves >= 0.4 %, grouped by the OI change over the same window):
+    OI drop >= 1 %: +34.6R.   OI drop 0.3-1 %: +2.6R (dd -100 %).   OI flat: -41R.   OI rising: -58R.
+    The edge exists only after real deleveraging, and it grows as the OI drop grows.
+ The same effect also shows in a plain event study (no trade engine): the fade gain at 1 h is positive in 5 of 6 months.
+
+3. THE CANDIDATES (strategy.py CANDIDATES; both are the same idea and differ only in the settings shown)
+ exec_flushfade_4v (main candidate):
+   Every 5 minutes, when a metrics row becomes known (ct+360 s): if Binance open interest fell >= 1 % over the last three
+   5-min rows (15 minutes, ct-600 .. ct+300) and the Binance price moved >= 0.4 % over the same 15 minutes, FADE that move.
+   Place a limit order 4 x vol further in the direction of the flush (sell above after an up-flush, buy below after a
+   down-flush).  It lives 20 minutes; if the flush does not stretch that far, nothing is traded.  The stop is 0.75 x the
+   15-minute move in $, fixed from the fill.  The target is 4R.  The position is closed after 4 hours.  Up to 3 positions
+   at once (consecutive flush rows can add), 10 % risk each, 30 % cap.
+ exec_flushfade_3v_be: the same, but the move must be >= 0.6 %, the limit is 3 x vol away, and the stop moves to
+   break-even after +1R.
+ (A market order at the known time LOSES with the same signal: -8.0R.  The edge comes from the execution: wait for the flush
+  to overshoot, then fade it with a stop that scales with the flush and a long timer.)
+
+                   trades     R     PF   win    $1,000 ->  max DD  biggest lot  stress PF (stress $)
+ exec_flushfade_4v
+   Jan-Apr           47   +26.5   2.53  60 %    $7,466    -29.3 %   2.70 BTC    2.02 ($4,339)
+   May-Jun           20    +8.1   2.56  65 %    $1,928    -25.6 %   1.29 BTC    1.88 ($1,398)
+   Jan-Jun           67   +34.6   2.54  61 %   $14,394    -29.3 %   9.61 BTC    1.99 ($6,064)
+   Jan-Mar +23.6R, Apr-Jun +11.1R.  Per-month R (Jan-Jun account): Jan +2.1 (13 trades), Feb +8.7 (15), Mar +12.8 (10),
+   Apr +3.0 (9), May +6.8 (8), Jun +1.3 (12).
+ exec_flushfade_3v_be
+   Jan-Apr           52   +25.3   2.98  54 %    $7,368    -30.5 %   1.24 BTC    2.54 ($4,436)
+   May-Jun           21    +4.2   1.75  52 %    $1,334    -29.2 %   0.51 BTC    1.23 ($1,032)
+   Jan-Jun           73   +29.5   2.61  53 %    $9,830    -30.5 %   3.77 BTC    2.13 ($4,578)
+   Jan-Mar +20.1R, Apr-Jun +9.3R.  Per month: Jan -0.5 (11), Feb +11.9 (20), Mar +8.8 (10), Apr +5.1 (11), May +5.2 (7),
+   Jun -1.0 (14).
+ Both meet rule 4 (stress PF >= 1.15, drawdown better than -35 %, R > 0 in both halves, >= 40 trades, PF >= 1.3).
+ How they were chosen: Jan-Apr only, inside grid C.  _4v is the best Jan-Apr final among settings with >= 40 Jan-Jun
+ trades.  (The single best Jan-Apr setting had only 38 trades in Jan-Jun, so it fails rule 4.)  _3v_be has the best
+ Jan-Apr neighbourhood score (median of neighbours one grid step away).  May-Jun was then checked: +8.1R and +4.2R.
+ Neighbours of _4v (one step in each setting) all have R > 0: limit 2 / 3 / 6 x vol +32 / +37 / +12R; life 10 / 40 min
+ +26 / +27R; stop 0.5 / 1.0 x move +44 / +26R; vol stops 8-24 x vol +16 to +29R; timer 1 h / 2 h +18 / +28R;
+ OI 0.7 / 1.5 % +20 / +18R; move 0.3 / 0.6 % +30 / +24R; maxpos 1 +25R.  The dollar result swings more than R, because
+ drawdown is sensitive: several neighbours fall below -35 %.
+ All figures come from strategy.signals + btc_common.trades / account.  For June I also ran strategy.backtest end to end
+ with btc_common.Market: identical (12 trades, +1.30R).
+
+4. HONEST VERDICT
+ * The v1 / v2 idea (follow the move after an OI drop) has no honest edge.  1.1 million trade-engineering variants of it
+   do not beat the fake signals.  The best real setting (exec_oidrop_pullback in strategy.REJECTED: +15.8R, $3,804) is
+   luck level.
+ * One honest effect survives: fading a large deleveraging flush, but only with overshoot limit entries, a flush-sized stop
+   and a 4-hour timer.  It is coherent (forced selling or buying overshoots, then reverts; fading moves where OI rises loses
+   badly), it holds in May-Jun after a Jan-Apr choice, and it beats every fake in its own search and in the fixed-rule test.
+ * Reasons for caution:
+   (1) I found this family after looking at Jan-Jun with honest timing (stages A and B and the event studies).  Against the
+       union of ALL my fake searches, the best fake reached +33.0R (stage A, fake 3, $2,710), only 1.6R below
+       exec_flushfade_4v's +34.6R.  In $ the real result is still clearly ahead of every fake ($14,394 vs $10,044).
+   (2) The sample is small: about 11 trades per month from roughly 40-50 separate flush episodes.  January and June are
+       weak, and 4-hour holds make R noisy.
+   (3) The in-sample drawdown is about -30 % at 10 % risk.  On unseen months worse is likely, and -35 % or deeper is
+       quite possible.
+   (4) Lots reach 9.6 BTC on a $14k account (about 48x notional).  This is within the cap, but real Exness fills and
+       overnight swap (not modelled) would cost something on 4-hour holds.
+   My expectation for unseen months: modestly positive if flushes of >= 1 % OI in 15 min keep occurring.  It is not a
+   sure thing, and I would run it at reduced risk first.
+ Files: strategy.py (CANDIDATES, REJECTED, signals, backtest), search.py / search2.py / search3.py (grids A / B / C, real and
+ fake), analyzeC.py / luck.py / plateau.py (luck and plateau summaries), perm.py (fixed-rule test), control.py (OI
+ control), verify.py (btc_common verification).

@@ -1,0 +1,122 @@
+VERSION 3 - RESEARCHER "flow" - REPORT (Nov 9 2026)
+All figures: btc_common rules with the CORRECTED metrics timing (a 5-min row is used only from create_time + 360 s),
+$1,000 start, 10 % risk per trade, Jan 1 - Jun 30 2026 data only.
+
+0. SHORT ANSWER
+One honest candidate found and frozen: "flow_bigprint_oiup_30s".  On Jan-Jun: 69 trades, +54.2R, PF 3.22,
+$1,000 -> $85,229, max drawdown -31.7 %, stress PF 2.74.  It passes the luck check (best fake from the same search:
+$14,820 / best fake R +42.3; the fixed rule on 100 randomly shifted signal sets: mean -10.7R, max +14.6R).
+It is NOT the angle I was given: catching forced liquidations early did not work honestly (section 2).  The edge is
+the opposite case - a fast burst carried by a large aggressive print during which open interest did NOT fall (new
+positions, not forced closes) keeps going for ~2 hours.
+The second entry in CANDIDATES ("flow_info_60s_wide") is for information only: on its own it does not beat the
+search-level luck check (R +24.4 < best fake R +42.3), so it should not be picked; it is there to test on unseen
+months whether the idea also works on 60-s bursts.
+
+1. RULES OF THE CANDIDATE (plain words)  -  flow_bigprint_oiup_30s
+ a) Burst: at second s, Binance BTCUSDT moved >= 8 x vol in the last 30 seconds (last trade price of second s-1 vs
+    s-31; vol = btc_common Market.vol).  After a burst no new burst is taken for 900 s.  Direction = burst direction.
+ b) Big print: the largest single aggressive trade IN the burst direction during the last 60 s (Binance mb / ms) is
+    > 30 % of the largest aggressive trade (either side) of the last hour.
+ c) Open interest did not fall: the 5-min bucket that holds the burst (create_time ct = start of that bucket) shows
+    Binance open interest up >= +0.05 % vs the previous row.  This row is known only at ct + 360 s, so the decision is
+    taken at ct + 360 s (60-360 s after the burst), market order, +2 s latency.
+ d) Exit: stop 10 x vol (vol at the decision second), target 3R, otherwise out after 2 hours.  Max 2 positions
+    (in practice they never overlapped more than that).
+ Order of magnitude: stop ~$350, ~11 trades a month, average time in trade 75 min.
+ flow_info_60s_wide: same rules with a 60-s window (>= 8 x vol in 60 s), open interest up >= +0.15 %, stop 20 x vol,
+ no target, out after 2 hours, max 2 positions.
+
+2. WHAT I TRIED FOR THE GIVEN ANGLE (all honest timing) AND WHY IT FAILED
+ * With the corrected timing the open-interest-drop continuation is gone: after buckets with OI <= -0.5 % and move
+   >= 0.3 % the price drifts +0.0 to +0.3 vol over the next 25 min (median slightly negative); the pre-correction
+   "push" was the look-ahead.  Following or fading such buckets loses after costs at every hold from 5 min to 4 h.
+ * Detecting the liquidation bucket in real time from 1-second flow: contemporaneous AUC for OI drop is at best 0.76
+   (volume intensity over the bucket), ~0.67 when only earlier data is used; precision at the top decile 12-18 %.
+   Entering on such predictions loses (false positives cost ~2 spreads each).
+ * Gradient boosting on ~18,000 bursts (90 flow / depth / premium / OI-history features, train one half, test the
+   other): top-decile 5-min forward move +0.9 to +1.2 vol, below the ~1.3 vol round-trip cost (2 Exness spreads).
+ * Binance -> Exness lead-lag: correlation of 1-s changes 0.87 at lag 0, 0.14 at lag 1, ~0 from 2 s (our latency).
+   Exness quotes overshoot fast moves and give back 0.2-0.4 vol within 10 s - smaller than the cost.
+ * "Catch it faster" on the winning signal: entering at the burst itself and cutting at ct+360 if open interest did
+   not confirm gives -47R (330 trades; the 261 unconfirmed lose -65R, the 69 confirmed make only +17.8R vs +54.2R
+   when entered at ct+360).  Bursts retrace in the first minutes; waiting for the open interest also buys a better
+   price.  So faster entry is clearly worse here.
+ * Bursts with a small relative print (< 30 %) lose in almost every burst definition; OI-drop bursts faded or
+   followed for 0.5-4 h lose.
+
+3. SEARCH AND COMBINATIONS
+ Search A (one burst definition at a time): 13 burst definitions (W 30/60/120/300 s, X 5-16 x vol) x 7 OI-up
+ thresholds (+0.05 .. +0.4 %) x 4 "move held until decision" filters x 9 flow filters (none, ETH OI up, previous
+ bucket OI up, relative print >/< 0.3, volume intensity >/< 2, 4-h range break yes/no) x 64 exits (stop 10/15/20/30
+ x vol, hold 0.5/1/2/4 h, target none/3R, trailing none/(1R, 1.5R)) x maxpos 1/2/3 = 515,328 non-empty settings.
+ Search U (unions of burst definitions, de-duplicated): 9 unions x 7 OI thresholds x 5 print thresholds x 64 exits x
+ 3 maxpos = 60,480.  About 2,000 more in exploration / sensitivity.  Total ~578,000 settings on the real signals
+ (the same 575,808 on each of 5 fake sets).  Earlier work done under the old look-ahead timing was discarded.
+ Selection: best Jan-Apr final balance among settings with >= 27 Jan-Apr trades and drawdown better than -35 %,
+ then checked on May-Jun before freezing.  flow_info_60s_wide was picked by eye from the middle of the plateau after
+ seeing Jan-Jun tables (so its May-Jun figure is not a clean out-of-sample check).
+
+4. RESULTS  (btc_common.account at 10 %, maxpos 2; stress = stress=True)
+ flow_bigprint_oiup_30s
+   period    trades   R      PF    win    $1,000 ->   max DD   biggest lot   stress PF
+   Jan-Apr     47   +36.0   3.14   60 %    $19,095    -19.0 %   10.5 BTC      2.65
+   May-Jun     22   +18.2   3.40   59 %     $4,463    -31.7 %    1.5 BTC      2.93
+   Jan-Jun     69   +54.2   3.22   59 %    $85,229    -31.7 %   28.9 BTC      2.74 (stress final $48,537)
+   Jan-Mar R +27.6, Apr-Jun R +26.7.
+   Per month R: Jan +15.4  Feb +7.0  Mar +5.1  Apr +8.5  May +6.6  Jun +11.7 (all positive)
+   Longs 43 trades +32.3R, shorts 26 trades +21.9R (not just the down-trend).  r is capped at +3R by the target;
+   the 5 best trades are 28 % of the total R.
+ flow_info_60s_wide (information only)
+   Jan-Apr     54   +15.0   2.20   63 %     $3,547    -21.2 %    1.6 BTC      1.84
+   May-Jun     22    +9.5   3.14   55 %     $2,277    -23.7 %    0.5 BTC      2.59
+   Jan-Jun     76   +24.4   2.45   60 %     $8,076    -23.7 %    1.7 BTC      2.04
+   Jan-Mar R +13.2, Apr-Jun R +11.2.  Per month: +5.8 +3.3 +4.1 +1.8 +1.8 +7.6.
+ Both meet rule 4 (>= 40 trades, PF >= 1.3, R > 0 in Jan-Mar and Apr-Jun, stress PF >= 1.15, DD better than -35 %).
+
+5. LUCK CHECK (signals moved by a random 1-14 days, either way, same direction, same features; outcomes recomputed;
+   the whole search re-run; 5 fake sets)
+   Search A best meeting rule 4 on Jan-Jun:  real $87,405 / +57.1R  (21,879 settings meet the rules)
+     fake0 $4,992 / best R +20.0 (664 meet) | fake1 $14,820 / +32.0 (5,262) | fake2 $7,719 / +25.4 (3,725) |
+     fake3 $8,842 / +34.2 (4,737) | fake4 $11,288 / +42.3 (3,385)
+     => best fake: $14,820 and R +42.3.  Candidate: $85,229 and +54.2R.
+   Search U best meeting rules: real $30,926 / +43.1R; fakes $12,406 / +30.6R at most (two fake sets: nothing).
+   Walk-forward of the procedure (top 100 Jan-Apr settings -> May-Jun R): real mean +8.4R, 88 % positive;
+     fakes mean -2.3 .. +1.0R, 14-53 % positive.  The real Jan-Apr winner made +18.2R in May-Jun; the fake
+     Jan-Apr winners made -3.4 .. +4.3R.
+   Fixed candidate rule on 100 shifted signal sets: mean -10.7R (sd 10.4), max +14.6R, best $2,234
+     (flow_info_60s_wide: mean -4.7R, sd 7.8, max +16.1R).
+   Verdict: the candidate passes (54R vs 42R best fake in R, 5.8x in $; ~6 sd above the fixed-rule null).  The margin
+   in R over the best fake is real but not huge - the trending Jan-Jun market lets fake signals reach +20..+42R.
+
+6. PLATEAU / SENSITIVITY (one change at a time from the candidate, Jan-Jun R / final / DD)
+   window 20/45/60 s: +33.5 / +45.6 / +40.0R;  X 6/7/9/10: +47.4 / +50.9 / +26.8 / +16.9R
+   OI-up -0.05/0/+0.1/+0.2 %: +56.7 / +64.6 / +41.3 / +41.0R;  print share 0/0.2/0.4/0.5: +47.3 / +52.9 / +39.6 / +37.9R
+   stop 8/12/15/20 vol: +44.4 / +43.6 / +34.0 / +31.9R;  hold 1/1.5/3 h: +32.5 / +41.2 / +55.8R;  target 2R/4R/none:
+   +36.1 / +56.1 / +57.1R;  refractory 300/1800 s: +50.2 / +47.8R.
+   Every neighbour is positive, but the final balance swings from $3,550 to $156,000 and several neighbours break the
+   -35 % drawdown rule (60-s window, X 6-7, no print filter).  Across all 13 burst definitions the "big print + OI not
+   falling" filter is positive for OI thresholds up to +0.3 % (median R over 32 exits positive in 76 of 78 cells)
+   while the "small print" complement is positive in only 18 of 74 - the main reason I believe the effect is real.
+   Holds under 30 min earn ~0: the edge accrues over 1-2 h.
+
+7. HONEST VERDICT
+ * The open-interest-drop / liquidation-cascade edge does not survive honest timing, and nothing in the 1-second
+   flow, depth or premium let me catch liquidations early enough to pay 2 spreads.  Trying to enter faster made the
+   working signal much worse.
+ * What survives is a different, plausible effect: a sharp 30-s burst led by a large aggressive order while open
+   interest is not falling (positions being opened, not liquidated) continues for ~2 h.  It is positive in every
+   month, for longs and shorts, on May-Jun after a Jan-Apr selection, and beats the luck check.
+ * Risks: only 69 trades; the exact parameter point is near the best of its neighbourhood (expect less - a fair
+   guess is half the R); drawdown -32 % at 10 % risk is close to the limit and can be deeper on unseen months;
+   Jan-Jun 2026 was a strongly trending market (BTC -35 % with a +12 % April), and 2-hour momentum trades may do worse
+   in a range.  Exness spread changes hit it less than the 5-min ideas (stop ~$350, stress PF 2.7).
+ * Practical: backtest() loads btc_common.Market(start - 32 days, end); for Jan-Jun that is btc_common's own loader
+   over 7 months (~6-7 GB peak on this machine).  Monthly chunks give the same trades except a trade still open at a
+   chunk end, which is closed at the chunk's last quote.
+
+FILES: strategy.py (CANDIDATES, backtest, signals), fast.py (lean loader, checked equal to Market), events.py, feats.py,
+slib.py / srch.py (numba account with mask, checked against btc_common), build_A.py, search_A.py, search_U.py,
+analyze_A.py / analyze_U.py / wf.py / plateau*.py, check.py / check2.py / sens.py / shiftnull.py / hybrid.py /
+lagcheck.py, cache/ (event tables, search results, check_out.txt).  study*.py before study1b were run under the old
+timing and are superseded.

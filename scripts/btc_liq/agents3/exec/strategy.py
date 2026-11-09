@@ -19,8 +19,21 @@ import pandas as pd
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import btc_common as bc  # noqa: E402
 
-CANDIDATES: dict = {}
-REJECTED: dict = {}      # best settings found that did NOT pass the luck check (for information only)
+NAN = float("nan")
+CANDIDATES: dict = {
+    # fade a deleveraging flush: OI -1 % over 15 min with a >= 0.4 % move; sell / buy limit 4 x vol further into the
+    # flush (lives 20 min); stop 0.75 x the 15-min move in $; target 4R; out after 4 h; up to 3 positions.
+    "exec_flushfade_4v": dict(w=3, doi=0.01, mv=0.004, net=0, side=-1, kind=1, off=4.0, life=1200, stype="m",
+                              stop=0.75, tp=4.0, hold=14400, be=NAN, tr=NAN, maxpos=3),
+    # Jan-Apr plateau pick of the same family: move >= 0.6 %, limit 3 x vol, break-even after +1R.
+    "exec_flushfade_3v_be": dict(w=3, doi=0.01, mv=0.006, net=0, side=-1, kind=1, off=3.0, life=1200, stype="m",
+                                 stop=0.75, tp=4.0, hold=14400, be=1.0, tr=NAN, maxpos=3),
+}
+# best setting of the 5-minute OI-drop search (stage A); it FAILED the luck check - for information only, not a candidate
+REJECTED: dict = {
+    "exec_oidrop_pullback": dict(w=1, doi=0.003, mv=0.006, net=0, side=1, kind=1, off=1.0, life=1200, stype="v",
+                                 stop=8.0, tp=2.0, hold=900, be=1.0, tr=NAN, maxpos=1),
+}
 
 
 def signals(mk: bc.Market, p: dict):

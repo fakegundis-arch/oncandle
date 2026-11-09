@@ -19,8 +19,9 @@ import btc_common as bc  # noqa: E402
 CANDIDATES = {
     # chosen by the Jan-Apr search (best Jan-Apr final balance meeting the rules), then checked on May-Jun
     "flow_bigprint_oiup_30s": dict(W=30, X=8, refr=900, oi_up=0.0005, big_rel=0.3, stop=10, tp=3.0, hold=7200, maxpos=2),
-    # broader / calmer variant from the middle of the plateau: 60-s bursts, wider stop, no target
-    "flow_bigprint_oiup_60s": dict(W=60, X=8, refr=900, oi_up=0.0015, big_rel=0.3, stop=20, tp=float("nan"), hold=7200,
+    # INFORMATION ONLY (does not beat the search-level luck check on its own, see REPORT.txt): the same idea on 60-s
+    # bursts with a wider stop, picked from the middle of the plateau - a generality test on unseen months
+    "flow_info_60s_wide": dict(W=60, X=8, refr=900, oi_up=0.0015, big_rel=0.3, stop=20, tp=float("nan"), hold=7200,
                                    maxpos=2),
 }
 

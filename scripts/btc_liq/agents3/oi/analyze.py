@@ -21,7 +21,7 @@ def ja_rule(df):
 
 
 def summary(seed, tag="", show=8):
-    df = pd.read_parquet(f"s1_{seed}{tag}.parquet")
+    df = pd.read_parquet(f"s1f_{seed}{tag}.parquet")
     dd = pd.read_parquet(f"s1defs_{seed}{tag}.parquet")
     r4 = rule4(df)
     ja = ja_rule(df)

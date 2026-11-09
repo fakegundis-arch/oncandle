@@ -176,7 +176,8 @@ def main(seed, tag=""):
                     o = np.argsort(e, kind="stable")
                     rows, dsel = rows[o], dsel[o]
                     run_exits(rows, dsel, ent, px, sd, RT, XT, stop_of, A, MAY, APR, out)
-                    keep = (out[:, 0] >= 20) & (out[:, 1] > 0)
+                    keep = (((out[:, 0] >= 27) & (out[:, 2] >= 1.2) & (out[:, 1] > 0))
+                            | ((out[:, 9] >= 40) & (out[:, 11] >= 1.2) & (out[:, 14] > 0) & (out[:, 15] > 0)))
                     if keep.any():
                         did = len(defs)
                         defs.append((oi_f, oi_v, mv_f, mv_v, fade, fname, th, side))
@@ -185,9 +186,13 @@ def main(seed, tag=""):
         print(oi_f, oi_v, len(defs), round(time.time() - t), flush=True)
     res = np.concatenate(res)
     df = pd.DataFrame(res, columns=["def", "exit"] + COLS)
-    df["def"] = df["def"].astype(int)
-    df["exit"] = df["exit"].astype(int)
-    df.to_parquet(os.path.join(HERE, f"s1_{seed}{tag}.parquet"))
+    for c in COLS:
+        df[c] = df[c].astype(np.float32)
+    df["def"] = df["def"].astype(np.int32)
+    df["exit"] = df["exit"].astype(np.int16)
+    pd.DataFrame(defs, columns=["oi_f", "oi_v", "mv_f", "mv_v", "fade", "flt", "th", "side"]).to_parquet(
+        os.path.join(HERE, f"s1defs_{seed}{tag}.parquet"))
+    df.to_parquet(os.path.join(HERE, f"s1f_{seed}{tag}.parquet"))
     pd.DataFrame(defs, columns=["oi_f", "oi_v", "mv_f", "mv_v", "fade", "flt", "th", "side"]).to_parquet(
         os.path.join(HERE, f"s1defs_{seed}{tag}.parquet"))
     print("done", len(df), time.time() - t)
