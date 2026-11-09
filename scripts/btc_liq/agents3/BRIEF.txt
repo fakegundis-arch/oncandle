@@ -1,0 +1,61 @@
+VERSION 3 OF THE BITCOIN LIQUIDATION BOT - BRIEF FOR THE THREE RESEARCHERS (Nov 9 2026)
+
+Goal: a bot that is MORE PROFITABLE than versions 1 and 2 (below) at 10 % risk per trade, built ONLY on Jan 1 - Jun 30
+2026.  The lead will later run your frozen candidates ONCE on later months you cannot see.  A lucky fit is worthless to
+the user (real money): build something that works in general, not something that fits Jan-Jun.
+
+What exists (Jan 1 - Jun 30 2026, $1,000 at 10 % risk, rules of btc_common.py):
+  Version 1: every 5 min, Binance BTCUSDT open interest fell >= 0.7 % in the last 5-min bucket while BTC moved >= 0.3 %
+    -> follow the move (market order at the bucket time + 60 s, + 2 s latency); stop 5 x vol; target 2R; out after
+    5 min; one trade at a time.  Jan-Jun: 52 trades, +19.7R, PF 2.43, $5,351, max drawdown -30 %.
+  Version 2: open interest fell >= 0.5 %, move >= 0.3 %, and net taker volume in the bucket agrees with the move ->
+    follow (market order); stop 8 x vol; target 1.5R; after +1R the stop trails 1R behind the best price; out after
+    5 min; one at a time.  Jan-Jun: 97 trades, +25.0R, PF 2.40, $9,198, max drawdown -20 %, stress PF 1.74.
+  ("vol" = mean |1-minute change| of the Binance price over the previous 60 minutes, btc_common.Market.vol.)
+  Ideas that LOST on Jan-Jun with simple rules: riding a burst of one-sided aggressive volume, fading a flush after
+  it stops making new lows, trading toward estimated liquidation clusters from open-interest build-up.  After an
+  open-interest-drop signal the push lasted ~1-5 minutes and faded by 30-60 minutes on average.
+
+DATA: /home/user/btc_lab_data ONLY (Dec 1 2025 - Jun 30 2026; December is look-back).  Layout and timing rules are in
+/home/user/oncandle/scripts/btc_liq/agents3/btc_common.py - read it first.  Binance 1-second BTCUSDT flow and prices,
+5-min BTC and ETH open interest + long / short ratios, funding, 1-minute premium index, order-book depth, Exness BTCUSDm
+1-second bid / ask (the trading prices; Exness spread is ~$18 in Jan-Jun, BTC 1-min vol ~$30-60).
+
+RULES YOU MAY NOT BEND
+* Use btc_common.py (Market, trades, account) for every fill, exit and money figure.  Do not edit it.  You may write
+  faster vectorised / numba code for searching, but check it against btc_common and use btc_common in strategy.py.
+* No look-ahead: a decision at second s uses only information known before s under the timing rules in btc_common
+  (5-min metrics from create_time + 60 s, depth + 5 s, premium minute at its end, Binance seconds < s).  No threshold
+  computed from the period being evaluated; rolling statistics only from the past.
+* 10 % of the balance risked per trade (never more), lot capped at 100 x balance / price, at most 30 % open risk
+  (up to 3 positions; set "maxpos" 1, 2 or 3 in your params).  Stress (stress=True) must stay profitable.
+* Do NOT open anything else in the repository (no results/, no other scripts, no data/, no git history) and do NOT
+  download anything from the internet.  Work only in your own folder
+  /home/user/oncandle/scripts/btc_liq/agents3/<YOUR_NAME>/.  Do not run git.
+* The machine is shared by 3 researchers: at most ONE heavy process at a time, about 3.5 GB memory, under 1.5 GB of
+  files in your folder.  Commands under 10 minutes each (run longer ones in the background and check on them).
+
+HOW TO SEARCH (try millions of combinations - precompute per-signal outcomes once, then evaluate combinations fast)
+1. Search on Jan 1 - Apr 30, then check your choices on May 1 - Jun 30 before freezing them (or walk forward).
+2. LUCK CHECK (required): run the SAME search on fake signals - every signal moved by a random 1-14 days, same
+   direction - at least 3 times, and report the best result the fake search finds (R and $ at 10 %).  Your candidate
+   only counts if its Jan-Jun R clearly beats the best fake setting meeting the same rules.
+3. Prefer broad plateaus (neighbouring settings also good) over single sharp peaks; count how many settings you tried.
+4. Build rules the lead will use (Jan-Jun, btc_common.account at 10 %): >= 40 trades, PF >= 1.3, R > 0 in Jan-Mar AND
+   in Apr-Jun, stress PF >= 1.15, max drawdown better than -35 %.
+5. The lead picks VERSION 3 among all researchers' candidates (fixed in advance): the highest Jan-Jun 2026 final
+   balance at 10 % among candidates that meet rule 4 and whose researcher's luck check passed; every candidate is also
+   run once on the unseen months and reported.
+
+DELIVER in your folder:
+* strategy.py with CANDIDATES = {name: params} (at most 2, frozen; params include "maxpos") and
+  backtest(params, data_dir, start, end, stress=False) -> pandas DataFrame with columns
+  sig_ts, dir, entry_ts, exit_ts, r, sd, entry_px (one row per filled signal whose ENTRY is in [start, end)), built
+  with btc_common.trades.  It must load data itself with btc_common.Market(data_dir, <start minus at least 31 days>,
+  end) and work for any period and any data folder with the same layout (the lead will run it on months you have not
+  seen, with a folder that contains them).
+* REPORT.txt (if writing it is blocked, put the full text in your final message): the rules of each candidate in plain
+  words, how many combinations you tried, results on Jan-Apr, May-Jun and Jan-Jun 2026 (trades, R, PF, win rate,
+  $1,000 at 10 % -> final $, max drawdown, biggest lot, stress PF), per-month R, the luck-check numbers, and an honest
+  verdict.
+* A final message under 300 words with the same summary.  Budget: about 3 hours of work.
