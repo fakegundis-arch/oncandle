@@ -1,5 +1,10 @@
 VERSION 3 OF THE BITCOIN LIQUIDATION BOT - BRIEF FOR THE THREE RESEARCHERS (Nov 9 2026)
 
+*** CORRECTION (Nov 9 2026): a Binance 5-minute metrics row with create_time ct describes the 5 minutes AFTER ct
+(taker ratio vs Binance volume in [ct, ct+300): correlation 0.997; open interest = snapshot at ~ct+300).  A row may
+only be used from ct + 360 s (btc_common known_ts).  Versions 1 and 2 used rows from ct + 60 s, i.e. ~4 minutes of
+look-ahead: their numbers below are NOT valid baselines (rebuilt with honest timing they lose on Jan-Jun). ***
+
 Goal: a bot that is MORE PROFITABLE than versions 1 and 2 (below) at 10 % risk per trade, built ONLY on Jan 1 - Jun 30
 2026.  The lead will later run your frozen candidates ONCE on later months you cannot see.  A lucky fit is worthless to
 the user (real money): build something that works in general, not something that fits Jan-Jun.

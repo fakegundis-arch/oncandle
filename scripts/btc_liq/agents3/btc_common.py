@@ -8,7 +8,10 @@ data_dir layout (the agents get a copy that covers 2025-12-01 .. 2026-06-30; Dec
                              mb / ms largest single aggressive buy / sell trade (BTC)
   metrics.csv.gz             BTCUSDT every 5 min: create_time, sum_open_interest (BTC), sum_open_interest_value,
                              count_toptrader_long_short_ratio, sum_toptrader_long_short_ratio, count_long_short_ratio,
-                             sum_taker_long_short_vol_ratio.  A value is known 60 s after create_time.
+                             sum_taker_long_short_vol_ratio.  CORRECTED Nov 9 2026: a row describes the 5 minutes
+                             AFTER create_time (its taker ratio matches Binance taker volume in [ct, ct+300) with
+                             correlation 0.997; its open interest is the snapshot at ~ct+300).  A row is known at
+                             create_time + 360 s (end of its window + 60 s), column known_ts.
   eth_metrics.csv.gz         the same for ETHUSDT
   funding.csv.gz             BTCUSDT funding: calc_time (ms), funding_interval_hours, last_funding_rate
   premium_1m.parquet         BTCUSDT premium index, 1-minute klines: open_time (ms), open, high, low, close
@@ -19,7 +22,7 @@ data_dir layout (the agents get a copy that covers 2025-12-01 .. 2026-06-30; Dec
                              n) - the prices the bot trades at
 
 Rules (enforced below): a decision taken at second s may use Binance seconds < s, a 5-minute metrics row only from its
-create_time + 60 s, depth snapshots from their time + 5 s, premium minutes from their end, funding from calc_time.
+create_time + 360 s (see above), depth snapshots from their time + 5 s, premium minutes from their end, funding from calc_time.
 Orders reach Exness 2 s after the decision (stress: 5 s).  Market buy = ask + 1 spread (stress 2), sell = bid - 1
 spread.  Stop orders fill at max(price, ask) + 1 spread (buy); limit orders fill at their price only if the price trades
 1 spread through it (stress 2).  Every trade has a stop fixed at entry, at least 3 spreads; r = profit / stop
@@ -109,7 +112,7 @@ class Market:
         m = m[(m.create_time >= pd.Timestamp(start)) & (m.create_time < pd.Timestamp(end))]
         m = m.drop_duplicates("create_time").sort_values("create_time").reset_index(drop=True)
         m["ts"] = m.create_time.astype("datetime64[s]").astype("int64")
-        m["known_ts"] = m.ts + 60
+        m["known_ts"] = m.ts + 360                               # row describes [ct, ct+300), +60 s
         oi = m.sum_open_interest.to_numpy(float).copy()
         oi[~(oi > 0)] = np.nan                                   # Binance sometimes publishes 0: missing
         m["sum_open_interest"] = oi

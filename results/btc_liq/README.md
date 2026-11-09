@@ -1,5 +1,14 @@
 # Bitcoin liquidation bot (Nov 7 2026)
 
+> **CORRECTION (Nov 9 2026) - these results are NOT valid.**  A Binance 5-minute metrics row with create_time `ct`
+> describes the 5 minutes AFTER `ct` (its taker buy / sell ratio matches Binance taker volume in [ct, ct+300) with
+> correlation 0.997 vs 0.107 for [ct-300, ct); its open-interest value is the snapshot at about ct+300).  Versions 1
+> and 2 used each row from ct + 60 s, i.e. about 4 minutes before it could be known - look-ahead.  Rebuilt with the
+> row used only from ct + 360 s (end of its window + 60 s), on Jan-Jun 2026: version 1 88 trades, -3.7R, PF 0.84,
+> $1,000 -> $581; version 2 177 trades, -1.2R, PF 0.96, $1,000 -> $718.  The open-interest-drop edge was an artifact
+> of the timestamp error.  Found by a version-3 research agent and verified by the lead.
+
+
 Signals from Binance USD-M BTCUSDT public data (every trade -> 1-second taker buy / sell volume; 5-minute open
 interest; ~30-second order-book depth), trades on Exness BTCUSDm 1-second bid / ask (the user's broker).  Free
 liquidation records do not exist for 2026 (Binance's liquidation snapshots stop in 2024, coin-margined only), so
