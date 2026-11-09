@@ -111,7 +111,7 @@ class Data:
         m = m[(m.create_time >= pd.Timestamp(a)) & (m.create_time < pd.Timestamp(b))].sort_values("create_time")
         m = m.drop_duplicates("create_time").reset_index(drop=True)
         self.mts = m.create_time.astype("datetime64[s]").astype("int64").to_numpy()
-        oi = m.sum_open_interest.to_numpy(float)
+        oi = m.sum_open_interest.to_numpy(float).copy()
         oi[~(oi > 0)] = np.nan
         self.oi = oi
         dps = []
