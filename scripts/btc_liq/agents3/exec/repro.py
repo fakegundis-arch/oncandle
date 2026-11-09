@@ -16,14 +16,14 @@ oi = m.sum_open_interest.to_numpy()
 prev_ok = np.r_[False, np.diff(ts) == 300]
 doi = np.r_[np.nan, oi[1:] / oi[:-1] - 1]
 doi[~prev_ok] = np.nan
-i = ts - L.t0
+i = ts + 300 - L.t0
 
 
 def px(k):
     return L.c[np.clip(k, 0, L.n - 1)]
 
 
-for variant in ("A", "B"):
+for variant in ("B",):
     if variant == "A":   # last trade before T vs last trade before T-300
         mv = px(i - 1) / px(i - 301) - 1
     else:                # close of second T vs close of second T-300

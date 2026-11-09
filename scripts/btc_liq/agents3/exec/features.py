@@ -16,16 +16,17 @@ def build(L, oi_th=-0.002, mv_th=0.0015):
     prev2 = np.r_[False, False, (ts[2:] - ts[:-2]) == 600]
     doi2 = np.r_[np.nan, np.nan, oi[2:] / oi[:-2] - 1]
     doi2[~prev2] = np.nan
-    i = ts - L.t0
+    i = ts + 300 - L.t0          # bucket [ct, ct+300) ends at ct+300; row known at ct+360
     ok = (i >= 3600 * 26) & (i + 60 < L.n)
     px = lambda k: L.c[np.clip(k, 0, L.n - 1)]
     mv = px(i) / px(i - 300) - 1
     sel = ok & (doi <= oi_th) & (np.abs(mv) >= mv_th)
     idx = np.flatnonzero(sel)
     i = i[idx]
-    T = ts[idx]
+    T = ts[idx] + 300
     d = np.sign(mv[idx]).astype(int)
-    dec = T + 60
+    dec = m.known_ts.to_numpy()[idx]
+    assert np.all(dec == T + 60)
     f = pd.DataFrame(dict(T=T, dec=dec, dir=d, doi=doi[idx], doi2=doi2[idx], mv=mv[idx]))
     f["mv_abs"] = np.abs(f.mv)
     f["mv_pre"] = d * (px(i - 300) / px(i - 600) - 1)          # previous bucket move, in direction
@@ -105,7 +106,7 @@ def build(L, oi_th=-0.002, mv_th=0.0015):
     # ETH OI change in same bucket
     e = L.eth.set_index("ts").sum_open_interest
     eprev = e.shift(1)
-    eo = (e / eprev - 1).reindex(T).to_numpy()
+    eo = (e / eprev - 1).reindex(ts[idx]).to_numpy()
     f["eth_doi"] = eo
     # funding last known
     fts = L.funding.ts.to_numpy()

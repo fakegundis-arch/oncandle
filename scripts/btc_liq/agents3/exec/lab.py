@@ -78,15 +78,7 @@ class Lab:
         return np.where(sm >= 0, self.mv[np.clip(sm, 0, len(self.mv) - 1)], np.nan)
 
     def _metrics(self, f, start, end):
-        m = pd.read_csv(os.path.join(self.data_dir, f), parse_dates=["create_time"])
-        m = m[(m.create_time >= pd.Timestamp(start)) & (m.create_time < pd.Timestamp(end))]
-        m = m.drop_duplicates("create_time").sort_values("create_time").reset_index(drop=True)
-        m["ts"] = m.create_time.astype("datetime64[s]").astype("int64")
-        m["known_ts"] = m.ts + 60
-        oi = m.sum_open_interest.to_numpy(float).copy()
-        oi[~(oi > 0)] = np.nan
-        m["sum_open_interest"] = oi
-        return m
+        return bc.Market._metrics(self, f, start, end)   # same (corrected) timing as btc_common
 
     def trades(self, sig_ts, dirs, **kw):
         return bc.trades(self, sig_ts, dirs, **kw)
