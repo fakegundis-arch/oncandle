@@ -1,0 +1,16 @@
+3652 Telegram posts the live bot saw (Oct 25 - Nov 9 UTC); same decision 95.8 %
+
+replay                          ARMED  USD news blackout  blacklisted  channel max_open  duplicate content  global cap  no keyword match  no orders (market closed etc.)  repost/forward  too short
+live                                                                                                                                                                                               
+ARMED                             304                 35            0                 2                  1           2                 1                               0               0          0
+USD news blackout                   0                  3            0                 0                  0           0                 0                               0               0          0
+blacklisted                         0                  0          263                 0                  0           0                 6                               0               0          0
+channel max_open                    2                 16            0                38                  0          11                 1                               0               0          0
+duplicate content                   1                  0            0                 0                  2           0                 0                               0               0          0
+global cap                          9                 28            1                 5                  0          35                 2                               0               0          0
+media post with no text             0                  0            0                 0                  0           0                 0                               0               0          1
+no keyword match                    0                  0            9                 0                  0           1              2807                               0               0          0
+no orders (market closed etc.)      2                  0            0                 0                  0           0                 0                              46               0          0
+repost/retweet                      0                  0            0                 0                  0           0                 0                               0               1          0
+stale                               5                  0            0                 2                  0           2                 7                               0               0          0
+too short (<15 chars                0                  0            0                 0                  0           0                 0                               0               0          1

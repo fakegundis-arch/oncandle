@@ -47,5 +47,105 @@
    "too short": 24,
    "reply": 11
   }
+ },
+ "live": {
+  "settings": {
+   "lat": 2,
+   "slip": 0.0,
+   "exit_slip": 0.0,
+   "ai": "keep",
+   "qb": true
+  },
+  "summary": {
+   "gold": {
+    "positions": 1389,
+    "usd": 250.27,
+    "win_rate": 0.399,
+    "pf": 1.1,
+    "max_drawdown_usd": -178.1,
+    "median_hold_min": 1.1
+   },
+   "nasdaq": {
+    "positions": 838,
+    "usd": -744.44,
+    "win_rate": 0.477,
+    "pf": 0.92,
+    "max_drawdown_usd": -1244.92,
+    "median_hold_min": 3.7
+   },
+   "all": {
+    "positions": 2227,
+    "usd": -494.17,
+    "win_rate": 0.428,
+    "pf": 0.96,
+    "max_drawdown_usd": -1200.5,
+    "median_hold_min": 1.8
+   },
+   "straddles_armed": 6758
+  },
+  "decisions": {
+   "no keyword match": 45858,
+   "ARMED": 6758,
+   "channel max_open": 4339,
+   "blacklisted": 4089,
+   "global cap": 2636,
+   "market shut": 1783,
+   "USD news blackout": 1640,
+   "blacklisted phrase": 145,
+   "duplicate content": 46,
+   "repost/forward": 32,
+   "too short": 24,
+   "reply": 11
+  }
+ },
+ "live_ai_real": {
+  "settings": {
+   "lat": 2,
+   "slip": 0.0,
+   "exit_slip": 0.0,
+   "ai": "real",
+   "qb": true
+  },
+  "summary": {
+   "gold": {
+    "positions": 1370,
+    "usd": 219.88,
+    "win_rate": 0.398,
+    "pf": 1.09,
+    "max_drawdown_usd": -178.1,
+    "median_hold_min": 1.1
+   },
+   "nasdaq": {
+    "positions": 776,
+    "usd": -944.33,
+    "win_rate": 0.469,
+    "pf": 0.89,
+    "max_drawdown_usd": -1244.92,
+    "median_hold_min": 3.8
+   },
+   "all": {
+    "positions": 2146,
+    "usd": -724.45,
+    "win_rate": 0.424,
+    "pf": 0.93,
+    "max_drawdown_usd": -1200.5,
+    "median_hold_min": 1.8
+   },
+   "straddles_armed": 6983
+  },
+  "decisions": {
+   "no keyword match": 45858,
+   "ARMED": 6983,
+   "channel max_open": 4162,
+   "blacklisted": 4089,
+   "global cap": 2582,
+   "market shut": 1784,
+   "USD news blackout": 1640,
+   "blacklisted phrase": 145,
+   "duplicate content": 51,
+   "repost/forward": 32,
+   "too short": 24,
+   "reply": 11
+  }
  }
 }

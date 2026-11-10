@@ -64,6 +64,10 @@ SCENARIOS = {
     "optimistic": dict(lat=1, slip=0.0, exit_slip=0.0, ai="keep"),
     "stress": dict(lat=5, slip=2.0, exit_slip=1.0, ai="keep"),
     "ai_real": dict(lat=2, slip=1.0, exit_slip=0.0, ai="real"),
+    # calibrated on the bot's own log (live_check.py, Oct 25 - Nov 10): armed a median 2 s after the post, priced from
+    # the last quote BEFORE that second (qb), stops filled at their price (no extra spread)
+    "live": dict(lat=2, slip=0.0, exit_slip=0.0, ai="keep", qb=True),
+    "live_ai_real": dict(lat=2, slip=0.0, exit_slip=0.0, ai="real", qb=True),
 }
 _VERDICTS: dict = {}
 
@@ -383,7 +387,7 @@ def replay(cfg, posts, ticks, windows, sc) -> tuple[pd.DataFrame, pd.DataFrame]:
         if market_shut(gold, det):
             decisions.append((p.ts, p.ch, "market shut (orders rejected)"))
             continue
-        j = int(np.searchsorted(gold["t"], det, side="right")) - 1
+        j = int(np.searchsorted(gold["t"], det, side="left" if sc.get("qb") else "right")) - 1
         sym = sym_info(cfg.symbol, gold, j)
         buy = round_price(sym.ask + prof.entry_offset, sym)
         sell = round_price(sym.bid - prof.entry_offset, sym)
@@ -411,7 +415,7 @@ def replay(cfg, posts, ticks, windows, sc) -> tuple[pd.DataFrame, pd.DataFrame]:
             trades.append(dict(base, symbol=comp.symbol, side="", fill_ts=0, fill=np.nan, exit_ts=0, exit=np.nan,
                                exit_reason="no Nasdaq price data yet", lot=comp.lot, usd=0.0))
         elif comp.enabled and "telegram" in comp.feeds and det >= open_comp_until and not market_shut(nas, det):
-            jn = int(np.searchsorted(nas["t"], det, side="right")) - 1
+            jn = int(np.searchsorted(nas["t"], det, side="left" if sc.get("qb") else "right")) - 1
             nsym = sym_info(comp.symbol, nas, jn)
             nb_, ns_ = round_price(nsym.ask + comp.entry_offset, nsym), round_price(nsym.bid - comp.entry_offset, nsym)
             cpos, cclose = simulate(comp.symbol, nas, det, nb_, ns_, comp.stop_loss, comp.take_profit,

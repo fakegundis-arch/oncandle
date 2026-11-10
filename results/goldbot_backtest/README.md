@@ -93,3 +93,66 @@ unfilled orders at the first bot tick after the measured response time; ❗/🔴
 
 With the review: posts the AI kept -$75.00 (26 trades); ❗/🔴 posts (not reviewed) +$55.93 (20 trades).  Verdicts
 from today's model can differ slightly from what it answered live.
+
+## Checked against the bot's own live log (Oct 25 - Nov 10 2026)
+
+The bot's `newsbot.log` (Oct 25 - Nov 10, clock UTC+3) was parsed (`scripts/goldbot_backtest/live_log.py`; the log
+itself holds account numbers and is not in the repo) and every live decision and fill was compared with the replay
+(`scripts/goldbot_backtest/live_check.py`).  Files: `live_log_check/`.
+
+**Post decisions.** 3,652 Telegram posts the live bot saw (to Nov 9): the replay made the same decision on 95.8 %
+(`post_decisions_crosstab.txt`).  The differences: 79 posts in the Oct 28 FOMC hours (the live bot had no news
+blackout yet - it was added Nov 1); straddles from the X feed (@DeItaone etc.) holding the global cap live (the
+replay has no X data); posts the live bot got late and skipped as stale (e.g. Nov 6 14:43, 128-261 s late); and
+keyword-list edits.
+
+**Straddle by straddle.** All 756 straddles the live bot armed (Telegram, X and Trump feeds; gold and USTECm) were run
+through the replay engine with what the bot had at that moment: the logged arm second, the last quote before it, the
+logged USTECm stop prices, the AI verdict at its logged time, and the settings in force, read from the fills:
+
+| live period (UTC) | gold offset / SL | USTECm offset / SL / TP, lot, break-even |
+|---|---|---|
+| to Nov 1 | 6 / 6 | no companion |
+| Nov 1 - Nov 4 18:45 | 6 / 5 | 25 / 30 / 30, 0.1, on (20 -> +5) |
+| Nov 4 18:45 - Nov 5 22:33 | 5 / 3 | 30 / 40 / 40, 0.1, on |
+| Nov 5 22:33 - Nov 9 14:40 | 5 / 3 | 30 / 40 / 40, 0.1, off |
+| from Nov 9 14:40 | 5 / 3 | 30 / 40 / 40, 0.5, off |
+
+Result (straddles with price data): USTECm 15 of 16 live fills on the same side at the same price to the cent, 196 of
+196 unfilled ones unfilled too; the one other-side case is a live order the broker rejected ("bad stops", the bot was
+2.8 s behind).  Gold: 9 of 12 live fills on the same side (prices within $0.0-0.5), 418 of 424 unfilled ones unfilled.
+The gold differences are $0.2-0.7 quote differences at arming, and 5 straddles that the replay fills in the 24 h
+after the Oct 28 FOMC trades - the live account was empty then (balance $16.39 -> $0.00), so its triggered orders
+could not fill.
+
+**Live trades and the account balance.** Each live fill, run forward from its real price and second
+(`live_trade_exits.csv`), against the bot's own daily balance lines:
+
+| interval | balance change | replay of the live fills |
+|---|---|---|
+| live account 1, Oct 28 (FOMC) | -16.39 (emptied) | -10.00 |
+| live account 2, Nov 2 | -3.64 | -4.50 |
+| live account 2, Nov 3 | -25.29 (emptied) | -18.54, see below |
+| demo, Nov 4 | -3.00 | -3.00 |
+| demo, Nov 5 (if $1,000 was added) | -7.76 | -7.62 |
+| demo, Nov 6 | -4.00 | -4.00 |
+| demo, Nov 6 - 9 | +1.00 | -3.00 (the Nov 9 USTECm trade has no price data yet; +4.00 at its TP fits) |
+
+Live account 2 was emptied by a bot failure: the USTECm BUY of Nov 3 23:38 UTC never got its stop loss (114
+"bad stops" rejections - price had already gone through the SL level), stayed open with no stop, and its loss reached
+the account's remaining ~$9.8 at 23:41:50, when the retries stop.  Two more live-only events the replay does not
+model: stop-loss rejections leave positions naked, and orders placed while the bot is busy use a quote up to ~3 s old.
+
+**What changed in the replay.** The bot arms a median 2 s after the post (1 s: 95, 2 s: 110, 3 s: 81, 4 s: 55 posts)
+and prices from the last quote before that second; its stops filled at their price.  The old replay priced from the
+end of that second and added one spread of slippage.  New scenarios `live` / `live_ai_real` do it the bot's way
+(`summary_to_2026-11-10.json`).  Today's config, Jan 1 - Nov 9:
+
+| | gold | Nasdaq | total |
+|---|---|---|---|
+| old `base` (no AI) | -56.45 | -1,246.45 | -1,302.90 |
+| calibrated `live` (no AI) | +250.27 | -744.44 | -494.17 |
+| calibrated `live_ai_real` (real AI Oct 11 - Nov 9, none before) | +219.88 | -944.33 | -724.45 |
+
+Last 30 days (Oct 11 - Nov 9) with the real AI review: old -$19.07, calibrated +$5.92.  My recorded AI verdicts agree
+with the live bot's on 280 of 285 posts both reviewed.  USTECm prices for Nov 9-10 are not in the Exness archive yet.
