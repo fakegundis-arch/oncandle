@@ -1,5 +1,5 @@
 """Download the full post history of public Telegram channels from their web preview (t.me/s/<channel>), newest to
-oldest, back to a start date.  One JSON line per post: id, time (UTC, to the second), text, links, views.
+oldest, back to a start date.  One JSON line per post: id, time (UTC, to the second), text, links, views, fwd, reply, media.
 Resumable: an existing file is extended back from its oldest post.
 
 usage: python3 -I scripts/telegram_news/tg_history.py <since YYYY-MM-DD> <outdir> <channel> [...]
@@ -42,6 +42,8 @@ def parse(page: str) -> list[dict]:
         views = re.search(r'tgme_widget_message_views">([^<]+)<', body)
         out.append({"id": int(mid), "time": t.group(1), "text": text, "links": links,
                     "fwd": html.unescape(fwd.group(1)).strip() if fwd else None,
+                    "reply": "tgme_widget_message_reply" in body,
+                    "media": bool(re.search(r"tgme_widget_message_(photo|video|document|roundvideo|voice)", body)),
                     "views": views.group(1) if views else None})
     return out
 
