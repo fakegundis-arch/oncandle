@@ -187,3 +187,21 @@ live bot armed all 12 at the same moments, so their stop prices come from the lo
 as live (Qatari +$20, Nvidia +$20, Al Arabiya -$20 at today's 0.5 lot), the other 9 unfilled as live: +$20.00.
 Updated `live_ai_real` totals: Jan 1 - Nov 9 -$704.45; last 30 days +$25.92.  The Nov 10 gold trades still need
 XAUUSDm prices for Nov 10.
+
+## Gold for Nov 10 from the user's MT5 export
+
+XAUUSDm 1-minute bars exported from MT5 (kept locally; same clock as the tick archive, 68 % of Oct 1 - Nov 9 OHLC
+values equal, 82 % within 5 cents).  `scripts/goldbot_backtest/m1_gold.py` runs each Nov 10 live gold fill forward
+with the bot's own SL, break-even stages (4.5 -> +1, 15 -> +12, on wicks) and trailing stop, under every possible
+order of prices inside each minute; file `live_log_check/gold_live_trades_nov10_m1.csv`.
+
+| filled (UTC) | post | trade | result (same under every order) |
+|---|---|---|---|
+| Nov 10 09:01 | ❗ Fed's Waller: half-point hike may be needed | SELL 4093.23 | stop loss 09:02, -$3.00 |
+| Nov 10 09:02 | Fed's Waller: concerned about the breadth of price rises | BUY 4100.33 | stop loss 09:03, -$3.00 |
+| Nov 10 15:50 | Gordon Johnson slams Fed balance sheet | SELL 4038.14 | stop loss 15:51-15:52, -$3.00 |
+
+None reached the +4.5 break-even trigger.  Nov 10 live Telegram trades in all: gold -$9.00, USTECm +$20.00 (above):
++$11.00, so from the $1,088.81 start-of-day balance the account should read about $1,099.81 once the last of them
+closed (16:00 UTC), if nothing else traded.  The log stops at 16:03 UTC.  The backtest itself still ends Nov 9:
+minute bars cannot give the gold quote at the arming second, which decides where the stops sit.
