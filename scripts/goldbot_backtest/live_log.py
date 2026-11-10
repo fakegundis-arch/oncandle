@@ -161,9 +161,8 @@ def straddles(path):
                     s["ai"], s["ai_utc"] = "keep", t
             continue
         if "straddle placed NO orders" in msg:
-            feed = re.search(r"(TELEGRAM|X|TRUMP) straddle placed", msg)
-            if feed and feed.group(1) in last_by_feed:
-                last_by_feed[feed.group(1)][0]["no_orders"] = msg.split("—")[-1].strip()
+            # a failed placement logs no "Armed" line: it belongs to a post that never became a straddle, not to the
+            # straddle armed before it
             continue
         r = SLTP.search(msg)
         if r:                       # usually just before the fill line, sometimes seconds after it (a retried SL)

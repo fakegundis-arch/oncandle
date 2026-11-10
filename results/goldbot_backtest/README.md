@@ -120,7 +120,7 @@ logged USTECm stop prices, the AI verdict at its logged time, and the settings i
 
 Result (straddles with price data): USTECm 15 of 16 live fills on the same side at the same price to the cent, 196 of
 196 unfilled ones unfilled too; the one other-side case is a live order the broker rejected ("bad stops", the bot was
-2.8 s behind).  Gold: 9 of 12 live fills on the same side (prices within $0.0-0.5), 418 of 424 unfilled ones unfilled.
+2.8 s behind).  Gold: 9 of 12 live fills on the same side (prices within $0.0-0.5), 429 of 435 unfilled ones unfilled.
 The gold differences are $0.2-0.7 quote differences at arming, and 5 straddles that the replay fills in the 24 h
 after the Oct 28 FOMC trades - the live account was empty then (balance $16.39 -> $0.00), so its triggered orders
 could not fill.
@@ -224,3 +224,8 @@ Rerun, today's config, Jan 1 - Nov 9 (`summary_to_2026-11-10.json`):
 
 Last 30 days (Oct 11 - Nov 9) with the real AI review: gold -$14.02, Nasdaq +$19.94 (39 trades, 20 won, 19 lost,
 at 0.5 lot), total +$5.92.
+
+Note (Nov 10): the log parser had pinned 11 failed order placements ("Market closed") on the straddle armed before
+them, which dropped those 11 gold straddles from the check; fixed - all 11 are unfilled in both, counts above updated.
+The bot's "window over, no fill" line for a straddle means no position was open when its 2-minute window ended - it is
+also printed for straddles that filled and had already closed (e.g. USTECm Nov 5 21:36 and 21:40 UTC, both filled).
