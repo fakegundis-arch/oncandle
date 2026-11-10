@@ -110,10 +110,50 @@ def load_posts() -> pd.DataFrame:
     return d.sort_values(["ts", "ch", "id"]).reset_index(drop=True)
 
 
+M1_FILLED: dict = {}          # symbol -> set of UTC day starts (unix s) priced from the MT5 1-minute export
+
+
+def m1_fill(sym: str, tk: dict) -> list:
+    """Bars for whole weekdays the Exness tick archive lacks (its monthly files miss some days: USTECm Mar 30-31,
+    Sep 30, Oct 19, Oct 29-30 2026), from the user's MT5 1-minute export (data/mt5_exports/<sym>_M1_*.csv, bid OHLC +
+    spread in points, UTC) when it covers them.  One bar per minute, stamped at the minute's last second; ask = bid +
+    the bar's spread.  Coarser than ticks (the arming quote is the previous minute's close, and a minute's range is
+    taken as one step), so trades on these days are marked price_source = "MT5 1-minute bars"."""
+    files = sorted(glob.glob(str(ROOT / "data/mt5_exports" / f"{sym}_M1_*.csv")))
+    if not files:
+        return []
+    have = set(np.unique(tk["t"] // 86400 * 86400).tolist())
+    lo, hi = int(tk["t"][0]), int(tk["t"][-1])
+    out, days = [], set()
+    for f in files:
+        m = pd.read_csv(f, sep="\t")
+        m.columns = [c.strip("<>").lower() for c in m.columns]
+        t0 = (pd.to_datetime(m.date + " " + m.time, format="%Y.%m.%d %H:%M:%S") - pd.Timestamp("1970-01-01")) \
+            // pd.Timedelta(seconds=1)
+        day = t0 // 86400 * 86400
+        wk = pd.to_datetime(day, unit="s").dt.dayofweek < 5
+        miss = (~day.isin(have)) & wk & (t0 > lo) & (t0 < hi)
+        if not miss.any():
+            continue
+        m, t0 = m[miss], t0[miss]
+        sp = m.spread.to_numpy(float) * SPEC[sym]["point"]
+        b = {"bid_first": m.open, "bid_last": m.close, "bid_min": m.low, "bid_max": m.high}
+        part = {"t": (t0 + 59).to_numpy(np.int64), "n": m.tickvol.to_numpy(np.int32)}
+        for k, v in b.items():
+            part[k] = v.to_numpy(float)
+            part[k.replace("bid", "ask")] = v.to_numpy(float) + sp
+        out.append(part)
+        days |= set(day[miss].unique().tolist())
+    M1_FILLED[sym] = days
+    return out
+
+
 def load_ticks(sym: str) -> dict:
     ms = pd.period_range(START, pd.Timestamp(END) - pd.Timedelta(seconds=1), freq="M")
     parts = [dict(np.load(ROOT / "data/ticks_exness" / sym / f"{m}.npz")) for m in ms.astype(str)]
     tk = {k: np.concatenate([p[k] for p in parts]) for k in parts[0]}
+    for p in m1_fill(sym, tk):
+        tk = {k: np.concatenate([tk[k], p[k].astype(tk[k].dtype)]) for k in tk}
     o = np.argsort(tk["t"], kind="stable")
     tk = {k: v[o] for k, v in tk.items()}
     keep = np.r_[True, np.diff(tk["t"]) > 0]
@@ -455,14 +495,20 @@ def main():
     res = {}
     for name in names:
         tr, dec = replay(cfg, posts, ticks, windows, SCENARIOS[name])
+        if len(tr):
+            day = tr.armed_ts // 86400 * 86400
+            tr["price_source"] = np.where([d in M1_FILLED.get(s, ()) for d, s in zip(day, tr.symbol)],
+                                          "MT5 1-minute bars", "Exness ticks")
         tag = name if END == "2026-11-01" else f"{name}_to_{END}"
         tr.to_csv(OUT / f"trades_{tag}.csv", index=False)
         dec.to_csv(OUT / f"decisions_{tag}.csv", index=False)
         res[name] = dict(settings=SCENARIOS[name], summary=summary(tr),
                          decisions=dec.decision.str.replace(r" \(.*", "", regex=True).value_counts().to_dict())
         print(name, json.dumps(res[name]["summary"]), flush=True)
-    (OUT / ("summary.json" if END == "2026-11-01" else f"summary_to_{END}.json")).write_text(
-        json.dumps(res, indent=1, default=str))
+    f = OUT / ("summary.json" if END == "2026-11-01" else f"summary_to_{END}.json")
+    old = json.loads(f.read_text()) if f.exists() else {}           # keep the scenarios not rerun this time
+    old.update(res)
+    f.write_text(json.dumps(old, indent=1, default=str))
 
 
 if __name__ == "__main__":
