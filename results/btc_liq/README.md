@@ -1,5 +1,9 @@
 # Bitcoin liquidation bot (Nov 7 2026)
 
+> **Status (Nov 10 2026):** with the honest data timing, versions 1 and 2 lose on Jan-Jun 2026, Jul-Oct 2026 and
+> Jan-Nov 2025, and none of the version-3 candidates built by three research agents made money on the unseen months
+> either - see `v3/README.md`.
+
 > **CORRECTION (Nov 9 2026) - these results are NOT valid.**  A Binance 5-minute metrics row with create_time `ct`
 > describes the 5 minutes AFTER `ct` (its taker buy / sell ratio matches Binance taker volume in [ct, ct+300) with
 > correlation 0.997 vs 0.107 for [ct-300, ct); its open-interest value is the snapshot at about ct+300).  Versions 1
