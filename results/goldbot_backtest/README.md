@@ -70,3 +70,11 @@ Replayed with its own logic on Jan-Oct 2026, the Telegram part of the bot loses 
 the base case (gold about flat, the Nasdaq companion -$1,406).  Gold alone is near break-even and only positive with
 perfect, slippage-free fills.  Comparing against the bot's real trades needs its MT5 account history or its log
 (logs/newsbot.log); with either, each live trade can be matched to its replayed counterpart.
+
+## Correction (Nov 10 2026): news blackout in November
+The calendar file used for the USD news blackout ended on Oct 31, so the first runs that reached into November
+(`*_to_2026-11-10*`, the last-30-days list) applied no blackout on Nov 1-9.  The November 2026 Forex Factory calendar
+was added (`scripts/fetch_ff_calendar.py --start 2026-11 --end 2026-11`) and the run repeated: Jan-Oct is identical;
+two gold trades right after the Nov 6 jobs report (13:33 and 13:36 UTC, -$3 each) are now blocked, as the bot would.
+Nov 1-9: 73 trades, +$199.37 (was 75, +$193.37); Jan 1 - Nov 9: -$1,302.90 (was -$1,308.90); last 30 days: 124
+trades, +$329.90 (was 126, +$323.90).

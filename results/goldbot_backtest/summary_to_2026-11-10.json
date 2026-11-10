@@ -8,9 +8,9 @@
   },
   "summary": {
    "gold": {
-    "positions": 1418,
-    "usd": -62.46,
-    "win_rate": 0.358,
+    "positions": 1416,
+    "usd": -56.46,
+    "win_rate": 0.359,
     "pf": 0.98,
     "max_drawdown_usd": -344.17,
     "median_hold_min": 0.9
@@ -24,23 +24,23 @@
     "median_hold_min": 3.7
    },
    "all": {
-    "positions": 2249,
-    "usd": -1308.9,
+    "positions": 2247,
+    "usd": -1302.9,
     "win_rate": 0.397,
     "pf": 0.89,
     "max_drawdown_usd": -2067.67,
     "median_hold_min": 1.6
    },
-   "straddles_armed": 6824
+   "straddles_armed": 6821
   },
   "decisions": {
    "no keyword match": 45858,
-   "ARMED": 6824,
+   "ARMED": 6821,
    "channel max_open": 4315,
    "blacklisted": 4089,
    "global cap": 2594,
    "market shut": 1787,
-   "USD news blackout": 1637,
+   "USD news blackout": 1640,
    "blacklisted phrase": 145,
    "duplicate content": 45,
    "repost/forward": 32,

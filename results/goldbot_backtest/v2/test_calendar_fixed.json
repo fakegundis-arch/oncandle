@@ -1,0 +1,41 @@
+{
+ "note": "Same version-2 pick and version 1, rerun after adding the Nov 2026 Forex Factory calendar (the first run had no news blackout for Nov 1-9). Data fix only.",
+ "results": {
+  "version2": {
+   "normal": {
+    "pnl": 14.106000000001131,
+    "gold": 14.106000000001131,
+    "nasdaq": 0.0,
+    "positions": 13,
+    "pf": 1.7827100210854254,
+    "max_drawdown": -15.340999999999894
+   },
+   "stress": {
+    "pnl": 17.531999999999243,
+    "gold": 17.531999999999243,
+    "nasdaq": 0.0,
+    "positions": 12,
+    "pf": 2.3486153846153264,
+    "max_drawdown": -10.231000000000677
+   }
+  },
+  "version1": {
+   "normal": {
+    "pnl": -352.31699999995453,
+    "gold": -28.55699999999615,
+    "nasdaq": -323.7599999999584,
+    "positions": 814,
+    "pf": 0.9323160677513715,
+    "max_drawdown": -1165.0980000000072
+   },
+   "stress": {
+    "pnl": -1531.3930000000028,
+    "gold": -334.8129999999974,
+    "nasdaq": -1196.5800000000054,
+    "positions": 827,
+    "pf": 0.7438188958266247,
+    "max_drawdown": -1986.1510000000649
+   }
+  }
+ }
+}

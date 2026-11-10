@@ -34,3 +34,7 @@ factor 1.13); only 8 % of neighbouring settings also pass.
 Version 2 meets the declared test rule (P&L > 0, above the current bot's, profit factor >= 1.2), but with 14 trades in
 five months and +$11, it mostly avoids losses by trading rarely - no Nasdaq companion and wider gold orders that seldom
 fill - and it did not beat the luck check on Jan-May.  It is a safer configuration of the bot, not a proven edge.
+
+**Correction (Nov 10 2026):** the Jun-Nov run above had no USD news blackout on Nov 1-9 (the calendar file ended Oct
+31).  Rerun of the same pick with the November calendar added (`test_calendar_fixed.json`): version 2 13 positions,
++$14.11, profit factor 1.78, worst drawdown -$15.34 (worse fills +$17.53); current bot -$352.32.

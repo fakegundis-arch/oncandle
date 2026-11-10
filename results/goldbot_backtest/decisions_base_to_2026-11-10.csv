@@ -66650,10 +66650,10 @@ post_ts,channel,decision
 1793971884,FinancialJuice,no keyword match
 1793971939,WalterBloomberg,no keyword match
 1793971953,WalterBloomberg,blacklisted ('year')
-1793971973,FinancialJuice,ARMED
+1793971973,FinancialJuice,USD news blackout
 1793971987,FinancialJuice,no keyword match
-1793972156,WalterBloomberg,ARMED
-1793972264,WalterBloomberg,ARMED
+1793972156,WalterBloomberg,USD news blackout
+1793972264,WalterBloomberg,USD news blackout
 1793972671,WalterBloomberg,no keyword match
 1793973242,FinancialJuice,blacklisted ('bank')
 1793973388,FinancialJuice,no keyword match
