@@ -51,7 +51,7 @@ from newsbot.strategy import (break_even_stages, round_price, sl_placeable_now, 
 from newsbot.utils import any_keyword, first_matching_group, matched_keywords  # noqa: E402
 
 OUT = ROOT / "results" / "goldbot_backtest"
-START, END = "2026-01-01", "2026-11-01"
+START, END = "2026-01-01", os.environ.get("GOLDBOT_END", "2026-11-01")   # END exclusive
 TICK = 2                     # bot main-loop cadence (POLL_SECONDS)
 GAP = 600                    # a >= 10-minute pause in quotes = market shut
 CHANNEL = {"financialjuice": "FinancialJuice", "WalterBloomberg": "WalterBloomberg", "apewirenews": "apewirenews"}
@@ -88,7 +88,7 @@ def load_posts() -> pd.DataFrame:
 
 
 def load_ticks(sym: str) -> dict:
-    ms = pd.period_range(START, END, freq="M")[:-1]
+    ms = pd.period_range(START, pd.Timestamp(END) - pd.Timedelta(seconds=1), freq="M")
     parts = [dict(np.load(ROOT / "data/ticks_exness" / sym / f"{m}.npz")) for m in ms.astype(str)]
     tk = {k: np.concatenate([p[k] for p in parts]) for k in parts[0]}
     o = np.argsort(tk["t"], kind="stable")
@@ -331,8 +331,12 @@ def replay(cfg, posts, ticks, windows, sc) -> tuple[pd.DataFrame, pd.DataFrame]:
     open_comp_until = -1
     recent: dict = {}
     decisions, trades = [], []
+    gold_end, nas_end = int(gold["t"][-1]), int(nas["t"][-1])
     for p in posts.itertuples():
         det = int(p.ts) + sc["lat"]
+        if det > gold_end:
+            decisions.append((p.ts, p.ch, "no price data yet"))
+            continue
         flag = emoji_flag(p.text, et, mode)
         ok, why = post_tradable(p, prof, mode, sc["lat"], keyword_bypass=bool(flag))
         if not ok:
@@ -381,7 +385,10 @@ def replay(cfg, posts, ticks, windows, sc) -> tuple[pd.DataFrame, pd.DataFrame]:
                                exit_reason="no fill" + (" (AI veto)" if veto is not None and close < det + prof.cancel_after_seconds else ""),
                                lot=lot, usd=0.0))
         # companion (USTECm): only when gold armed, and only if no companion is open
-        if comp.enabled and "telegram" in comp.feeds and det >= open_comp_until and not market_shut(nas, det):
+        if comp.enabled and "telegram" in comp.feeds and det > nas_end:
+            trades.append(dict(base, symbol=comp.symbol, side="", fill_ts=0, fill=np.nan, exit_ts=0, exit=np.nan,
+                               exit_reason="no Nasdaq price data yet", lot=comp.lot, usd=0.0))
+        elif comp.enabled and "telegram" in comp.feeds and det >= open_comp_until and not market_shut(nas, det):
             jn = int(np.searchsorted(nas["t"], det, side="right")) - 1
             nsym = sym_info(comp.symbol, nas, jn)
             nb_, ns_ = round_price(nsym.ask + comp.entry_offset, nsym), round_price(nsym.bid - comp.entry_offset, nsym)
@@ -422,12 +429,14 @@ def main():
     res = {}
     for name in names:
         tr, dec = replay(cfg, posts, ticks, windows, SCENARIOS[name])
-        tr.to_csv(OUT / f"trades_{name}.csv", index=False)
-        dec.to_csv(OUT / f"decisions_{name}.csv", index=False)
+        tag = name if END == "2026-11-01" else f"{name}_to_{END}"
+        tr.to_csv(OUT / f"trades_{tag}.csv", index=False)
+        dec.to_csv(OUT / f"decisions_{tag}.csv", index=False)
         res[name] = dict(settings=SCENARIOS[name], summary=summary(tr),
                          decisions=dec.decision.str.replace(r" \(.*", "", regex=True).value_counts().to_dict())
         print(name, json.dumps(res[name]["summary"]), flush=True)
-    (OUT / "summary.json").write_text(json.dumps(res, indent=1, default=str))
+    (OUT / ("summary.json" if END == "2026-11-01" else f"summary_to_{END}.json")).write_text(
+        json.dumps(res, indent=1, default=str))
 
 
 if __name__ == "__main__":
