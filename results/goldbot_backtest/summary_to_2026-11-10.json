@@ -1,48 +1,48 @@
 {
- "base": {
+ "ai_real": {
   "settings": {
    "lat": 2,
    "slip": 1.0,
    "exit_slip": 0.0,
-   "ai": "keep"
+   "ai": "real"
   },
   "summary": {
    "gold": {
-    "positions": 1416,
-    "usd": -56.46,
-    "win_rate": 0.359,
-    "pf": 0.98,
+    "positions": 1398,
+    "usd": -85.6,
+    "win_rate": 0.358,
+    "pf": 0.97,
     "max_drawdown_usd": -344.17,
     "median_hold_min": 0.9
    },
    "nasdaq": {
-    "positions": 831,
-    "usd": -1246.43,
-    "win_rate": 0.463,
-    "pf": 0.86,
+    "positions": 771,
+    "usd": -1566.26,
+    "win_rate": 0.45,
+    "pf": 0.82,
     "max_drawdown_usd": -1845.56,
-    "median_hold_min": 3.7
+    "median_hold_min": 3.9
    },
    "all": {
-    "positions": 2247,
-    "usd": -1302.9,
-    "win_rate": 0.397,
-    "pf": 0.89,
+    "positions": 2169,
+    "usd": -1651.86,
+    "win_rate": 0.391,
+    "pf": 0.85,
     "max_drawdown_usd": -2067.67,
     "median_hold_min": 1.6
    },
-   "straddles_armed": 6821
+   "straddles_armed": 7043
   },
   "decisions": {
    "no keyword match": 45858,
-   "ARMED": 6821,
-   "channel max_open": 4315,
+   "ARMED": 7043,
+   "channel max_open": 4142,
    "blacklisted": 4089,
-   "global cap": 2594,
-   "market shut": 1787,
+   "global cap": 2539,
+   "market shut": 1788,
    "USD news blackout": 1640,
    "blacklisted phrase": 145,
-   "duplicate content": 45,
+   "duplicate content": 50,
    "repost/forward": 32,
    "too short": 24,
    "reply": 11

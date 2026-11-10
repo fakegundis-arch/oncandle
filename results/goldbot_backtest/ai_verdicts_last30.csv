@@ -1,0 +1,920 @@
+channel,post_id,post_ts,ok,is_principal,rating,failed_gate,error,reason,latency_s,text
+FinancialJuice,139700,1791762033,False,False,30,speaker,,"Routine legal decision, unlikely to impact markets.",2.84,"Judge orders immediate stop to taxpayer-funded pro-Trump ads, including those planned for tonight - Politico|FJ"
+FinancialJuice,139759,1791792867,False,False,20,speaker,,"Routine statement, no new market impact.",2.82,Zelenskiy: Russia committed breaches of energy ceasefire announced by President Trump|FJ
+FinancialJuice,139784,1791798963,False,False,20,speaker,,"Routine update, no new information.",2.82,"Kremlin on energy ceasefire between Russia and Ukraine declared by Trump: Contacts are ongoing, we will inform you in due course|FJ"
+WalterBloomberg,36722,1791804825,False,False,60,speaker,,Discusses supply risks but lacks direct principal action.,2.89,"OIL MARKETS FACE GROWING SUPPLY RISKS AS MIDDLE EAST ATTACKS ESCALATE Houthi missile and drone strikes on Saudi Arabia are intensifying, threatening critical oil infrastructure and exports through the"
+WalterBloomberg,36723,1791804847,False,True,41,rating,,Comments on diesel supply but not a major policy shift.,1.6,"TRUMP'S RUSSIAN DIESEL DEAL UNLIKELY TO BRING PRICES DOWN Trump says Russia will release 4.8 million tons of diesel, equivalent to roughly 35.8 million barrels. That sounds substantial, but it would c"
+WalterBloomberg,36727,1791805727,True,True,61,,,Comments on Iran conflict could impact markets.,1.31,"FORMER U.S. DEFENSE SECRETARY WARNS IRAN WAR HAS “NO EASY WAY OUT” Former Defense Secretary Lloyd Austin warns Washington and Tehran both believe they can outlast each other, making a diplomatic break"
+WalterBloomberg,36741,1791814204,True,True,61,,,Defending a controversial energy deal could impact markets.,0.75,"TRUMP DEFENDS RUSSIAN ENERGY DEAL, TARGETS EUROPEAN UNION President Trump claims the European Union paid Russia $250 billion for energy, defending his own decision to ease restrictions on Russian dies"
+FinancialJuice,139816,1791814208,False,True,40,rating,,"Routine statement, not market-moving.",1.67,Trump on Russia: EU paid Russia $250 bln for energy. I made right choice for Americans - Truth Social|FJ
+FinancialJuice,139818,1791814625,False,False,30,speaker,,"Routine market commentary, not a principal speaking.",0.83,Kazakhstan starts gold sales after US Treasury yields increase.|FJ
+FinancialJuice,139835,1791817722,False,False,20,speaker,,"Routine communication, unlikely to impact markets.",0.84,UK's PM Burnham: UK Chancellor spoke to US Treasury Secretary on weekend.|FJ
+FinancialJuice,139850,1791823453,True,True,61,,,Indicates a potential policy shift on rates.,0.94,Fed's Hammack: Interest rates need to be higher - Axios|FJ
+FinancialJuice,139851,1791823470,True,True,61,,,Indicates a policy shift on interest rates.,0.83,Fed's Hammack: Interest rates need to be higher - Barron's|FJ
+WalterBloomberg,36750,1791823478,True,True,75,,,Calls for more rate hikes could impact markets.,0.79,FED'S HAMMACK CALLS FOR MORE RATE HIKES AS INFLATION RISKS PERSIST Cleveland Fed President Beth Hammack says U.S. interest rates need to rise further to bring inflation back toward the Fed's 2% target
+FinancialJuice,139852,1791823540,True,True,61,,,Indicates a potential policy shift on rates.,1.25,Fed's Hammack: Interest rates need to be higher - Barron's|FJ
+WalterBloomberg,36751,1791823575,True,True,75,,,Comments indicate potential policy shifts on rates.,1.08,"*FED'S HAMMACK SAYS MORE MONETARY POLICY TIGHTENING NEEDED *FED'S HAMMACK PREFERS SMALLER, MORE FREQUENT RATE MOVES *FED'S HAMMACK SAYS CURRENT POLICY NOT RESTRICTIVE ENOUGH *FED'S HAMMACK SAYS INFLAT"
+FinancialJuice,139853,1791823623,False,False,30,speaker,,"Routine comment, not market-moving.",0.84,Fed's Hammack: Keeping an open-mind about right timing.|FJ
+FinancialJuice,139854,1791823643,False,False,30,speaker,,"Routine statement, already priced in.",0.82,Fed's Hammack: inflation remains too high.|FJ
+FinancialJuice,139855,1791823692,True,True,61,,,Suggests policy shift towards tighter economy.,0.8,Fed's Hammack: I think more tightness needed in economy.|FJ
+FinancialJuice,139856,1791823712,False,False,30,speaker,,Routine commentary on inflation risks.,0.85,Fed's Hammack: Biggest risk is inflationary mindset.|FJ
+FinancialJuice,139858,1791823848,False,True,40,rating,,"Routine comments, likely already priced in.",0.81,Cleveland Fed President Beth Hammack comments in prepared remarks|FJ
+FinancialJuice,139862,1791823862,True,True,61,,,Indicates a policy stance that could impact markets.,0.94,Fed's Hammack: restrictive approach needed to achieve 2% inflation|FJ
+FinancialJuice,139864,1791823866,True,True,61,,,Comments on monetary policy could impact markets.,0.88,"Cleveland Fed's Hammack: broad inflation, sustained growth require tight monetary policy|FJ"
+FinancialJuice,139866,1791823877,False,True,40,rating,,"Routine preference, likely already priced in.",0.81,Hammack prefers Fed make smaller policy rate changes but act relatively quickly: says|FJ
+FinancialJuice,139870,1791823885,False,False,20,speaker,,Routine commentary on Fed officials' responsibilities.,0.84,Hammack: Fed officials have duty to clarify their decisions|FJ
+FinancialJuice,139873,1791824189,False,False,20,speaker,,Post does not report actual speech content.,0.79,Fed's Hammack's Speech|FJ
+FinancialJuice,139886,1791825859,False,False,30,speaker,,"Routine statement, unlikely to move markets.",0.85,Fed's Hammack: Rate projections provide helpful information|FJ
+WalterBloomberg,36755,1791826043,False,True,40,rating,,Routine commentary on treasury rates.,1.32,"FED'S HAMMACK: TREASURY RATES RIGHT NOW ARE ""MODEST"" BY HISTORIC STANDARDS (@WalterBloomberg)"
+FinancialJuice,139887,1791826071,False,False,30,speaker,,Routine commentary on Treasury rates.,0.97,"Fed's Hammack: Treasury rates right now are ""modest"" by historic standards|FJ"
+FinancialJuice,139888,1791826100,True,True,61,,,Indicates potential economic concerns affecting mortgages.,1.04,"Fed's Hammack: If the economy were to return to a 3% home mortgage, it would likely mean something had gone wrong in the economy|FJ"
+FinancialJuice,139889,1791826129,False,True,41,rating,,Comments on neutral rate are notable but expected.,1.97,"Fed's Hammack: The neutral rate is likely higher, but it is hard to pin down|FJ"
+FinancialJuice,139892,1791826299,True,True,61,,,Indicates potential inflation concerns affecting markets.,2.89,"Fed's Hammack: Hearing ""early warning signs"" of a possible problem with inflation expectations|FJ"
+FinancialJuice,139894,1791826397,True,True,61,,,Comments suggest potential policy action.,3.07,"Fed's Hammack: Need to ""cool the economy at the margins""|FJ"
+FinancialJuice,139895,1791826445,False,True,41,rating,,Comments on interest rates and industry impact.,3.0,"Fed's Hammack: Higher interest rates won't dissuade hyperscalers, but might influence firms in other industries.|FJ"
+WalterBloomberg,36759,1791826517,False,False,30,speaker,,Routine commentary on Fed policy expectations.,1.16,HAMMACK: THE QUESTION FOR THE FED NOW IS HOW FAST TO MAKE POLICY MORE RESTRICTIVE (@WalterBloomberg)
+FinancialJuice,139896,1791826523,False,True,40,rating,,"Routine statement, likely already priced in.",1.14,Fed's Hammack: Not aiming for rates to make a radical impact on the economy|FJ
+FinancialJuice,139897,1791826541,True,True,61,,,Indicates potential policy shift by the Fed.,1.66,Fed's Hammack: The question for the Fed now is how fast to make policy more restrictive|FJ
+FinancialJuice,139898,1791826555,False,True,41,rating,,"Routine statement, not a significant policy shift.",0.86,Fed's Hammack: Don't want to threaten the jobs side of the Fed's mandate|FJ
+FinancialJuice,139899,1791826801,True,True,61,,,Comments suggest potential policy shifts ahead.,2.03,"Fed's Hammack: There is more restraint that is needed; if monetary policy does nothing, market conditions would change|FJ"
+FinancialJuice,139901,1791826861,False,True,41,rating,,Mildly notable projection from FOMC member.,1.1,Fed's Hammack: I have one of the higher FOMC projections for neutral|FJ
+FinancialJuice,139902,1791826871,False,False,30,speaker,,"Routine commentary, not market-moving.",0.8,"Fed's Hammack: Comments from low-income workers were first about trading down, now they are beginning to juggle what bills to pay|FJ"
+WalterBloomberg,36766,1791829560,True,True,61,,,Talks on diesel supply could impact markets.,0.92,RUSSIA’S NOVAK ON DIESEL SUPPLY DEAL WITH TRUMP: THERE ARE TALKS BETWEEN GOVERNMENTS OF RUSSIA AND US ON SUPPLY (@WalterBloomberg)
+FinancialJuice,139911,1791829616,True,True,61,,,Potential impact on global diesel supply.,0.94,Russia’s Deputy PM Novak on diesel supply deal with Trump: There are talks between the governments of Russia and the us on supply. We have the possibility to make additional supplies of diesel on glob
+FinancialJuice,139920,1791830351,False,False,30,speaker,,"Routine announcement, not market-moving.",0.93,The Trump Administration plans to move AI testing agency officials to the White House - The Information.|FJ
+FinancialJuice,139956,1791878898,False,True,41,rating,,"Comment on AI's economic impact, mildly notable.",0.89,Fed’s Waller: AI could contribute to widening GDP per capita.|FJ
+FinancialJuice,139957,1791879814,False,False,30,speaker,,Routine commentary on Trump and Fed independence.,0.95,"Fed's Waller: Trump is a threat to Fed independence, but he is not succeeding so far.|FJ"
+FinancialJuice,139959,1791879873,False,True,41,rating,,Routine statement about Fed independence.,0.96,"Fed's Waller: I have faith congress, courts to protect Fed independence.|FJ"
+FinancialJuice,139967,1791885188,False,False,20,speaker,,No new information or market impact.,0.75,Kremlin: Still has nothing to say about what Trump described as an energy ceasefire between Russia and Ukraine|FJ
+FinancialJuice,139968,1791885208,False,False,30,speaker,,Routine commentary on geopolitical relations.,0.77,"Kremlin calls European criticism of Trump's Russia diesel deal cynical, given EU states are active buyers of Russian oil|FJ"
+WalterBloomberg,36779,1791888527,False,True,41,rating,,Denial of connection may influence market sentiment.,0.89,KREMLIN DENIES TRUMP'S RUSSIAN DIESEL DEAL IS LINKED TO UKRAINE PEACE TALKS The Kremlin says Russia's diesel export agreement with the U.S. has no direct connection to negotiations over Ukraine. The d
+WalterBloomberg,36782,1791889413,True,True,61,,,Comments on inflation and AI are notable.,0.79,"AI IS AN INFLATION PROBLEM, FED’S GOOLSBEE SAYS - SEMAFOR (@WalterBloomberg)"
+FinancialJuice,139986,1791889453,True,True,61,,,Comments on AI's impact on inflation are notable.,1.0,Fed's Goolsbee: AI is an inflation problem - Semafor|FJ
+WalterBloomberg,36783,1791889509,True,True,75,,,Concerns about inflation could impact Fed policy.,0.79,"FED'S GOOLSBEE WARNS AI BOOM COULD FUEL BROADER U.S. INFLATION Chicago Fed President Austan Goolsbee warns that AI-driven price pressures are spreading beyond data centers, raising concerns about over"
+FinancialJuice,139987,1791889600,True,True,61,,,Comments on AI impact suggest inflation concerns.,1.13,Fed's Goolsbee: AI boom is starting to push up prices - Semafor|FJ
+FinancialJuice,139988,1791889657,True,True,61,,,Indicates potential shift in rate policy.,0.81,Fed's Goolsbee: We need to start showing some progress if we're going to get back on the kind of rate-cutting path that we were on - Semafor|FJ
+FinancialJuice,139989,1791890045,False,False,30,speaker,,"Routine comment on inflation, not market-moving.",1.12,Fed's Goolsbee: Inflation still too high - Semafor|FJ
+FinancialJuice,140000,1791893393,False,False,30,speaker,,Routine commentary on Fed's inflation strategy.,0.92,"WH Sr. Adviser Hassett: Fed to keep inflation in control, not kill the economy.|FJ"
+WalterBloomberg,36791,1791893560,False,False,30,speaker,,"Routine commentary, not new information.",0.76,"HASSETT: FED TO KEEP INFLATION IN CONTROL, NOT KILL THE ECONOMY. (@WalterBloomberg)"
+WalterBloomberg,36793,1791893587,False,False,30,speaker,,Routine commentary on market sentiment.,0.84,HASSETT: MARKET HAS CONFIDENCE IN NEW FED CHAIR (@WalterBloomberg)
+WalterBloomberg,36794,1791893596,False,False,30,speaker,,Routine commentary on Fed's inflation outlook.,0.86,HASSETT: FED MAY SEE INFLATION SLOWDOWN AS REASON TO HOLD (@WalterBloomberg)
+WalterBloomberg,36795,1791894026,False,False,10,speaker,,"Routine schedule, no market impact.",0.77,"TRUMP'S SCHEDULE — TUESDAY, OCTOBER 13 🔸 8:00 AM ET — Executive Time 🔸 9:30 AM ET — White House Press Briefing 🔸 7:30 PM ET — Trump Rally in Wasilla, Alaska (3:30 PM local) TRAVEL SCHEDULE (TBD): Wash"
+FinancialJuice,140024,1791898657,False,False,10,speaker,,No substantive information from the White House.,1.02,LIVE: White House press briefing with Katie Zacharia|FJ
+FinancialJuice,140030,1791900335,False,False,20,speaker,,"Routine communication, unlikely to impact markets.",0.82,Treasury Department: US Treasury Secretary Bessent spoke virtually with Korean counterpart|FJ
+WalterBloomberg,36809,1791901305,False,False,30,speaker,,"Routine market commentary, no new information.",0.85,"INVESTORS PILE INTO LONG-TERM U.S. TREASURIES AHEAD OF CPI AND FED DECISION Investors are favoring longer-term Treasuries, pushing long-term yields lower faster than short-term rates, according to BMO"
+FinancialJuice,140039,1791904533,False,False,20,speaker,,"Routine auction results, unlikely to move markets.",0.86,Fed bids for 3-month bills total $5.4 bln|FJ
+FinancialJuice,140040,1791904551,False,False,30,speaker,,"Routine auction results, already priced in.",0.74,Fed bids for 6-month bills total $4.7 bln|FJ
+FinancialJuice,140043,1791905237,False,False,30,speaker,,"Routine commentary, not market-moving news.",0.78,Pimco's Ivascyn: Market has not yet seen peak in US Treasury yields|FJ
+FinancialJuice,140044,1791905254,False,False,30,speaker,,Routine commentary on Fed policy impact.,0.93,Pimco's Ivascyn: Long-end Treasuries can handle more Fed tightening.|FJ
+FinancialJuice,140046,1791905499,False,False,30,speaker,,"Routine political commentary, not a direct statement.",1.0,GOP senators urge Trump to back out of his Russian oil deal.|FJ
+FinancialJuice,140053,1791905614,False,False,10,speaker,,Post only announces a live event.,0.79,WATCH LIVE: Trump Speaks|FJ
+FinancialJuice,140056,1791905680,False,True,21,rating,,"Routine statement, unlikely to impact markets.",0.8,Trump: US still sharing intel with Ukraine|FJ
+FinancialJuice,140057,1791905686,False,False,30,speaker,,"Routine statement, not market-moving.",0.86,Trump: Working with Russia to end war|FJ
+FinancialJuice,140058,1791905697,True,True,61,,,Potential impact on fuel prices and supply.,0.91,"Trump: Diesel is going to be released to the world, not for us|FJ"
+FinancialJuice,140059,1791905697,True,True,61,,,New information on diesel supply could impact markets.,0.95,"Trump: Diesel is going to be released to the world, not for us. It'll be for the world's market.|FJ"
+FinancialJuice,140060,1791905755,False,True,20,rating,,"Routine comment, unlikely to impact markets.",1.03,Trump on Houthis: They are behaving very badly.|FJ
+FinancialJuice,140061,1791905845,False,True,40,rating,,"Routine statement, not market-moving.",0.95,Trump: Will make decision on Iran|FJ
+FinancialJuice,140062,1791905854,False,True,41,rating,,"Statement on Iran, mildly notable impact.",0.94,Trump on Iran: We'll make a decision on Iran very soon.|FJ
+FinancialJuice,140063,1791905872,False,True,41,rating,,"Routine statement, not market-moving.",0.91,Trump: I did speak with Saudi Crown Prince|FJ
+FinancialJuice,140064,1791905904,False,True,21,rating,,"Routine comment, not market-moving.",0.86,"Trump, on whether he'd ask Turkey to join the Yemen response: I might|FJ"
+FinancialJuice,140065,1791906015,False,True,21,rating,,"Routine statement, not market-moving.",0.88,Trump: I'll let you know if Russia has broken the ceasefire|FJ
+WalterBloomberg,36812,1791906025,False,True,41,rating,,"Routine statements, not new information.",1.05,"TRUMP: US STILL SHARING INTEL WITH UKRAINE TRUMP: WE ARE HELPING THEM AND SHARING INTELLIGENCE TRUMP: DIESEL IS GOING TO BE RELEASED TO THE WORLD, NOT FOR US TRUMP: RUSSIANS ARE RELEASING IT TO ENTIRE"
+WalterBloomberg,36813,1791906067,False,True,41,rating,,Comments on Houthis may influence geopolitical sentiment.,0.98,TRUMP: HOUTHIS ARE BEHAVING VERY BADLY TRUMP: SPOKE TO SAUDI CROWN PRINCE (@WalterBloomberg)
+FinancialJuice,140066,1791906175,False,False,10,speaker,,No substantive content reported.,0.72,Trump ends remarks to reporters at White House|FJ
+WalterBloomberg,36815,1791906189,False,True,21,rating,,"Routine statement, not market-moving.",0.82,*TRUMP: I'LL LET YOU KNOW IF RUSSIA HAS BROKEN CEASEFIRE (@WalterBloomberg)
+WalterBloomberg,36817,1791907504,True,True,75,,,Potential escalation in U.S.-Houthi tensions.,0.82,TRUMP WARNS HOUTHIS OVER ATTACKS ON SAUDI ARABIA AND RISING OIL PRICES President Trump accused Yemen's Houthis of attacking Saudi Arabia and deliberately trying to drive up oil prices ahead of U.S. el
+FinancialJuice,140074,1791911154,False,False,30,speaker,,Routine mention of past conversation.,0.88,Netanyahu spoke to Trump last week about the possibility of resuming the war against Iran - Israel's N12 News|FJ
+FinancialJuice,140078,1791911818,True,True,61,,,"Indicates achievable inflation target, mildly notable.",0.87,"Fed's Barkin: 2% inflation not some unicorn, something we can hit.|FJ"
+FinancialJuice,140079,1791912067,False,False,30,speaker,,"Routine commentary, not a direct statement.",0.83,Netanyahu suggested to Trump to renew the war against Iran - even before the election - Israel's N12 News|FJ
+WalterBloomberg,36822,1791912473,False,False,30,speaker,,"Routine discussion, no confirmed action.",0.93,"NETANYAHU, TRUMP REPORTEDLY DISCUSS RENEWED STRIKES ON IRAN Netanyahu reportedly discussed renewed military action against Iran with Trump last week, according to Axios. U.S. officials believe Netanya"
+FinancialJuice,140092,1791913314,False,False,20,speaker,,"Routine denial, unlikely to impact markets.",0.91,Israel's Prime Minister Netanyahu's Office denied that Netanyahu is pushing Trump to attack Iran before the elections - Israel's N12 News|FJ
+FinancialJuice,140095,1791913495,True,True,61,,,Comments on AI investment impact are notable.,0.93,Fed's Barkin: We can see impact of AI investment on us inflation|FJ
+FinancialJuice,140101,1791914706,True,True,61,,,Indicates a potential policy shift on inflation.,0.93,"Fed's Barkin: It is clear that inflation is enduring, acting makes sense.|FJ"
+FinancialJuice,140102,1791914763,False,True,41,rating,,Mildly notable comment on ongoing shocks.,0.89,Fed's Barkin: It seems clear at this point that shocks are continuing.|FJ
+FinancialJuice,140103,1791914778,False,False,30,speaker,,Routine comment on inflation expectations.,0.92,Fed's Barkin: Doing something about inflation makes sense.|FJ
+FinancialJuice,140104,1791914796,False,False,40,speaker,,"Routine statement, already priced in.",0.86,Fed's Williams: I still believe disinflationary forces are at play.|FJ
+WalterBloomberg,36828,1791914801,False,True,40,rating,,"Routine statement, already priced in.",0.69,*FED'S WILLIAMS SEES NO NEED FOR RATE HIKE IN 2027 AT THIS TIME (@WalterBloomberg)
+FinancialJuice,140105,1791914803,False,True,40,rating,,"Routine statement, already priced in.",0.7,Fed's Williams: This is not an economy that is overheating.|FJ
+FinancialJuice,140107,1791914830,False,False,40,speaker,,"Routine statement, already priced in.",0.82,Fed's Williams: No sign the labor market is contributing to inflation.|FJ
+FinancialJuice,140109,1791914872,False,False,40,speaker,,Routine commentary on inflation drivers.,0.77,Fed's Williams: AI is the inflation driver I am watching most closely.|FJ
+WalterBloomberg,36829,1791914879,True,True,61,,,Comments suggest ongoing economic stability.,1.33,*FED'S WILLIAMS SAYS ECONOMY NOT OVERHEATING *FED'S WILLIAMS SEES NO LABOR MARKET INFLATION PRESSURE *FED'S WILLIAMS SAYS DISINFLATIONARY FORCES STILL AT PLAY *FED'S BARKIN SAYS ECONOMIC SHOCKS CONTIN
+FinancialJuice,140111,1791914915,False,True,40,rating,,"Routine statement, already priced in.",0.96,Fed's Williams: The rate path will be about maintaining a balanced economy.|FJ
+FinancialJuice,140112,1791914930,False,False,10,speaker,,"Routine event conclusion, no market impact.",0.91,Fed's Barkin concludes event at Howard University.|FJ
+WalterBloomberg,36836,1791918211,False,False,60,speaker,,Market reaction to Trump's deal is notable.,0.73,"U.S. DIESEL FUTURES SURGE 4.5% DESPITE TRUMP'S RUSSIAN FUEL DEAL U.S. diesel futures jumped 4.5% to a two-week high, despite President Trump's agreement to suspend sanctions on Russian diesel exports."
+WalterBloomberg,36840,1791919803,False,False,40,speaker,,"Routine inflation forecast, already priced in.",0.7,"U.S. CORE INFLATION FORECAST ALIGNS WITH WALL STREET EXPECTATIONS The Cleveland Fed's inflation nowcast points to core CPI rising 0.20% month-over-month, nearly matching analysts' median forecast of 0"
+apewirenews,1582,1791920781,False,False,30,speaker,,"Routine mention of discussions, no new information.",0.69,"*NETANYAHU, TRUMP TALKED POSSIBLE NEW IRAN ACTION: AXIOS: BBG $CL @apewirenews"
+FinancialJuice,140134,1791920845,False,False,30,speaker,,"Routine discussion, not market-moving news.",0.88,Israel's Prime Minister Netanyahu and Trump talked about a possible new Iran action - Axios|FJ
+FinancialJuice,140141,1791921649,True,True,61,,,Highlights a notable concern about inflation.,1.08,Fed's Collins: Elevated risk of high inflation is the Fed's main focus right now.|FJ
+FinancialJuice,140143,1791921664,True,True,61,,,"Indicates inflation expectations, potentially market-moving.",1.01,Fed's Collins: expect inflation to stay above 2% due to high energy prices|FJ
+FinancialJuice,140144,1791921665,False,True,40,rating,,"Routine statement, likely already priced in.",0.8,Fed's Collins: Job market is broadly balanced|FJ
+FinancialJuice,140145,1791921668,True,True,61,,,Notable support for rate hike decision.,0.91,Fed's Collins: I supported the Fed raising rates at the September meeting.|FJ
+FinancialJuice,140146,1791921681,False,True,41,rating,,"Routine statement, already somewhat priced in.",0.87,Fed's Collins: The US economy has shown resilience in the face of shocks.|FJ
+FinancialJuice,140147,1791921694,False,True,41,rating,,"Routine expectation, not a surprise.",0.87,Fed's Collins: I expect more growth and job market stability.|FJ
+FinancialJuice,140148,1791921708,False,False,30,speaker,,"Routine statement, already priced in.",0.88,Fed's Collins: A stable job market should support consumer spending.|FJ
+FinancialJuice,140149,1791921720,True,True,61,,,Comments on inflation pressures are notable.,2.06,Fed's Collins: Data-center build out is pressuring inflation readings.|FJ
+FinancialJuice,140158,1791922211,True,True,61,,,Comments on forward guidance may impact markets.,0.96,"BoE Gov. Bailey: I support Warsh's views, forward guidance went too far|FJ"
+FinancialJuice,140161,1791922485,False,False,30,speaker,,Routine commentary on market sentiment.,1.11,Stocks Recover as Fed Commentary Eases Aggressive Rate-Hike Fears – US Market Wrap|FJ
+FinancialJuice,140163,1791923035,False,False,30,speaker,,Routine commentary on rate policy.,0.92,Fed's Collins: Looking at the economy holistically when thinking about the future of rate policy|FJ
+FinancialJuice,140164,1791923065,False,False,30,speaker,,"Routine comment, not market-moving.",0.93,Fed's Collins: I am watching to see how broad inflation pressures are in the data.|FJ
+FinancialJuice,140167,1791923175,False,False,30,speaker,,Routine statement about economic uncertainty.,0.8,Fed's Collins: Economic uncertainty is elevated|FJ
+FinancialJuice,140169,1791923743,False,True,41,rating,,Routine acknowledgment of rate challenges.,0.85,Fed's Collins: Officials are well aware that higher rates can create challenges|FJ
+FinancialJuice,140178,1791924260,False,True,41,rating,,Routine statement about economic models.,1.18,Fed's Collins: Fed economic models are mindful of government debt levels.|FJ
+FinancialJuice,140179,1791924304,False,True,40,rating,,"Routine statement, already priced in.",0.92,Fed's Collins: Fed is not rethinking the 2% inflation target|FJ
+FinancialJuice,140279,1791951522,False,True,41,rating,,Notable announcement but routine exploration.,0.95,"Trump: extensive oil, gas, and mineral exploration ready to start in our new and beautiful Greenland|FJ"
+FinancialJuice,140280,1791951564,False,True,41,rating,,"Comments on defense strategy, mildly notable.",0.82,"Trump: Any future US attack must pass over Greenland, where our defense will regularly shoot down drones|FJ"
+FinancialJuice,140281,1791951852,True,True,61,,,New exploration announcement could impact markets.,0.77,"Trump: oil, gas and mineral exploration set to start in Greenland|FJ"
+FinancialJuice,140286,1791954470,False,False,20,speaker,,No direct statement or action reported.,0.96,White House AI task force member says|FJ
+FinancialJuice,140304,1791954722,False,True,10,rating,,"Routine statement about rallies, low market impact.",0.97,Donald J. Trump: my rallies are seven|FJ
+FinancialJuice,140305,1791954722,False,False,15,speaker,,Post does not report a statement or action.,0.94,Donald J. Trump: my rally audiences and...|FJ
+FinancialJuice,140317,1791968305,False,False,30,speaker,,"Routine discussion, not a formal announcement.",0.73,White House actively discussing Ukraine intel sharing - Semafor|FJ
+WalterBloomberg,36846,1791971094,False,False,40,speaker,,"Routine discussion, no decision announced.",0.82,"TRUMP WEIGHS CUTTING INTELLIGENCE SHARING WITH UKRAINE The White House is actively discussing restricting intelligence sharing with Kyiv, according to Semafor, despite Trump publicly saying “we help t"
+WalterBloomberg,36848,1791971454,False,False,20,speaker,,Post discusses a proposal without new information.,0.82,"KREMLIN ON ENERGY CEASIFERE PROPOSED BY TRUMP: THE PROVISIONS OF THE CEASEFIRE WERE NOT SPECIFIED, WORK IS CONTINUING (@WalterBloomberg)"
+WalterBloomberg,36850,1791971569,False,True,41,rating,,"Comments on Fed policy, mildly notable.",0.74,*BOWMAN: DO NOT SEE URGENCY FOR FURTHER FED ACTION ON RATES (@WalterBloomberg)
+WalterBloomberg,36853,1791971967,False,False,55,speaker,,Escalating tensions could impact markets.,0.88,"IRAN WARNS U.S. COULD LAUNCH NEW STRIKES BEFORE MIDTERMS IRGC spokesman Hossein Mohebbi warns Washington could restart attacks on Iran ahead of the November 3 elections, despite Trump's pledge not to "
+WalterBloomberg,36884,1791983002,False,False,55,speaker,,Highlights inflation concerns but lacks direct principal action.,0.78,"AI BOOM FUELS SHARPEST COMPUTER PRICE INFLATION IN TWO DECADES The massive AI infrastructure buildout is coinciding with a sharp rise in consumer technology prices, adding another source of pressure t"
+WalterBloomberg,36886,1791983346,False,False,45,speaker,,Market commentary on Fed hike odds.,0.96,"📊FED HIKE ODDS EXPLODE AFTER HOT CPI REPORT Kalshi traders now price a 55% chance of a 25-basis-point Fed hike in October, up from just 21% earlier. Rate-hike odds have overtaken hold odds for the fir"
+WalterBloomberg,36890,1791984394,False,False,55,speaker,,Market-moving implications from CPI data.,0.77,"WALL STREET SET TO RAISE CORE PCE INFLATION FORECASTS AFTER HOT CPI REPORT September's stronger-than-expected CPI data could push core PCE inflation estimates to at least 0.3% MoM, up from the previou"
+FinancialJuice,140388,1791984404,False,False,30,speaker,,Routine commentary on Fed decision-making.,0.79,WH Sr. Adviser Hassett: We need more data before fed makes decision on rates.|FJ
+WalterBloomberg,36893,1791986875,False,False,10,speaker,,"Routine schedule, no market impact.",0.8,"🇺🇸 PRESIDENT TRUMP'S SCHEDULE — WEDNESDAY, OCTOBER 14, 2026 All times Eastern (ET) 🔸 11:00 AM — Executive Time, Las Vegas, Nevada 🔸 11:30 AM — Travel pool call time, Las Vegas 🔸 4:00 PM — Political ra"
+FinancialJuice,140407,1791990672,False,False,30,speaker,,"Routine forecast update, not a principal speaking.",1.02,"Citi adds December hike to Fed forecast, still sees 2027 cuts $C|FJ"
+WalterBloomberg,36905,1791994631,False,False,15,speaker,,"Opinion expressed, no market impact.",0.81,"ZELENSKIY, ASKED IF HE FEELS BETRAYED BY TRUMP'S DIESEL DEAL: YES, BUT IT IS COMPLICATED - PIERS MORGAN INTERVIEW (@WalterBloomberg)"
+WalterBloomberg,36906,1791994656,False,False,15,speaker,,"Commentary on Trump, not a statement.",0.85,"ZELENSKIY ON TRUMP: IF YOU'RE IN THE MIDDLE, YOU HAVE TO STAY IN THE MIDDLE (@WalterBloomberg)"
+WalterBloomberg,36908,1791995416,True,True,61,,,Significant commitment could impact energy markets.,0.79,"TRUMP: LUTNICK, HAS SECURED AN OFFTAKE COMMITMENT FROM TAIWAN OF BETWEEN 70 TO 80 BLN DOLLARS FOR ALASKA LNG (@WalterBloomberg)"
+WalterBloomberg,36909,1791995426,True,True,61,,,Significant investment announcement could impact markets.,0.91,TRUMP: TAIWAN HAS ALSO AGREED TO INVEST 4.4 BLN DOLLARS IN EQUITY INTO PROJECT (@WalterBloomberg)
+FinancialJuice,140418,1791995440,True,True,61,,,Significant investment announcement could impact markets.,0.76,Trump: Taiwan commits $70b-$80b Alaska LNG offtake - Truth Social|FJ
+FinancialJuice,140419,1791995487,True,True,61,,,Significant investment announcement could impact markets.,1.06,Trump: Taiwan has also agreed to invest $4.4 bln in equity into project|FJ
+FinancialJuice,140420,1791996056,True,True,61,,,Significant deal announcement could impact markets.,0.75,Trump announces $21 bln GlobalFoundries semiconductor deal - Truth Social|FJ
+FinancialJuice,140421,1791996085,False,True,41,rating,,"Routine announcement, not a major policy shift.",0.82,Trump: Japan will provide capital for $21 bln investment as per their prior investment into the US.|FJ
+WalterBloomberg,36913,1791996140,True,True,75,,,Significant investment announcement impacting tech sector.,0.96,"TRUMP ANNOUNCES $21 BILLION SEMICONDUCTOR INVESTMENT BY GLOBALFOUNDRIES Trump says GlobalFoundries ($GFS ) will build two new semiconductor manufacturing facilities in Malta, New York, funded by $21 b"
+FinancialJuice,140427,1791999243,False,False,30,speaker,,"Routine commentary, not market-moving.",0.93,Fed's Barkin: Not seeing AI job losses happening at scale|FJ
+WalterBloomberg,36917,1791999552,True,True,61,,,Remarks could reshape rate hike expectations.,0.79,"ALL EYES ON WARSH September's hotter-than-expected inflation report has raised expectations of another Fed rate hike ahead of the October 27–28 meeting. Fed Chair Kevin Warsh speaks Thursday, October "
+FinancialJuice,140432,1792000305,False,True,41,rating,,Comments on AI's impact are notable.,1.01,Fed's Barkin: No question investment side of economy largely from AI.|FJ
+FinancialJuice,140433,1792000344,False,False,30,speaker,,"Routine commentary, not market-moving.",0.88,Fed's Barkin: Cannot count on AI investment to grow till end of time.|FJ
+FinancialJuice,140434,1792000863,False,False,30,speaker,,"Routine report, likely already priced in.",0.8,"Fed Beige Book: Since the prior beige book, two of the twelve Federal Reserve districts reported moderate growth in economic activity.|FJ"
+FinancialJuice,140435,1792000863,False,False,30,speaker,,Routine commentary on economic expectations.,0.85,"Fed Beige Book: however, expectations tend to be for slight growth, weighted toward manufacturing and burdened by persistent uncertainties.|FJ"
+FinancialJuice,140436,1792000869,False,False,30,speaker,,"Routine report, unlikely to move markets.",0.96,Fed Beige Book: Most districts described little or no net change in overall employment levels.|FJ
+WalterBloomberg,36922,1792000870,True,True,75,,,Signals weak growth and persistent inflation.,1.02,"FED BEIGE BOOK SIGNALS WEAK GROWTH AND PERSISTENT INFLATION The Federal Reserve reports little or no change in employment across most districts, while only 2 of 12 districts recorded moderate economic"
+FinancialJuice,140437,1792000878,False,False,20,speaker,,Post does not report any principal speaking.,0.8,Fed Beige Book|FJ
+FinancialJuice,140438,1792000886,False,False,40,speaker,,"Routine report, already priced in.",0.86,"Fed Beige Book: Three districts characterized overall price growth as robust, while eight noted that growth was moderate—and three of the eight noted that input price pressures were intensifying, if n"
+FinancialJuice,140445,1792002988,False,True,40,rating,,"Routine statement, already expected by markets.",0.9,Fed's Barkin: I do not want to project the outcome of the October FOMC meeting.|FJ
+FinancialJuice,140446,1792003006,False,True,41,rating,,"Routine comment on CPI, mildly notable.",0.79,Fed's Barkin: The CPI report was higher than I would have hoped.|FJ
+WalterBloomberg,36926,1792003173,True,True,61,,,Comments on inflation outlook are notable.,0.83,*FED'S BARKIN SAYS CPI HIGHER THAN HOPED *FED'S BARKIN DECLINES TO PREJUDGE OCTOBER FOMC OUTCOME *FED'S BARKIN SAYS PPI DATA TO INFORM INFLATION OUTLOOK (@WalterBloomberg)
+FinancialJuice,140448,1792004695,False,False,10,speaker,,Post only mentions a scheduled event.,0.83,Fed's Goolsbee Speaks on Yahoo Finance (15:00 ET) - WATCH LIVE|FJ
+FinancialJuice,140450,1792004698,False,True,41,rating,,"Routine announcement, mildly notable impact.",1.02,NY Fed: The desk plans to conduct approximately $14.6 billion in reinvestment purchases between October 15th and November 13th.|FJ
+FinancialJuice,140451,1792004789,False,False,40,speaker,,"Routine announcement, likely already priced in.",0.89,The Fed prolongs the pause on reserve management purchases to mid-November.|FJ
+FinancialJuice,140452,1792004961,True,True,61,,,Comments on CPI data could influence markets.,0.91,Fed's Goolsbee: CPI data was 'discouraging' - Yahoo|FJ
+FinancialJuice,140453,1792005008,False,False,30,speaker,,Routine comment on inflation concerns.,0.88,Fed's Goolsbee: Service inflation in CPI was a concern|FJ
+FinancialJuice,140454,1792005036,False,True,40,rating,,Routine commentary on inflation trends.,0.8,"Fed's Goolsbee: It is key to focus on the trend of inflation, not one report.|FJ"
+WalterBloomberg,36932,1792005040,True,True,61,,,Comments on inflation trends could impact markets.,0.75,"FED'S GOOLSBEE: CPI DATA WAS 'DISCOURAGING' - YAHOO FED'S GOOLSBEE: SERVICE INFLATION IN CPI WAS A CONCERN FED'S GOOLSBEE: KEY TO FOCUS ON TREND OF INFLATION, NOT ONE REPORT (@WalterBloomberg)"
+WalterBloomberg,36933,1792005076,False,True,41,rating,,"Comments on inflation expectations, mildly notable.",0.84,FED'S GOOLSBEE: HOPES ENERGY WILL FADE SOON FROM INFLATION DATA (@WalterBloomberg)
+FinancialJuice,140455,1792005098,False,True,41,rating,,"Comment on inflation, mildly notable impact.",0.98,Fed's Goolsbee: Hope energy will fade soon from inflation data.|FJ
+WalterBloomberg,36934,1792005126,False,True,41,rating,,Routine comment on inflation expectations.,0.81,FED'S GOOLSBEE: THE ECONOMY HAS WORK TO DO THE INFLATION SIDE (@WalterBloomberg)
+FinancialJuice,140456,1792005127,False,True,40,rating,,Routine comment on inflation expectations.,0.89,Fed's Goolsbee: The economy has work to do on the inflation side|FJ
+WalterBloomberg,36935,1792005155,False,True,40,rating,,Routine commentary on Fed communication strategy.,0.99,FED'S GOOLSBEE: IS NOT A FAN OF TELEGRAPHING FED MOVES AHEAD OF MEETINGS (@WalterBloomberg)
+FinancialJuice,140457,1792005166,False,True,40,rating,,Routine commentary on economic conditions.,0.7,Fed's Goolsbee: Prices and costs are clearly the worst side of the economy.|FJ
+FinancialJuice,140458,1792005185,False,True,40,rating,,Routine commentary on Fed communication strategy.,1.12,Fed's Goolsbee: Not a fan of telegraphing Fed moves ahead of meetings|FJ
+WalterBloomberg,36936,1792005203,True,True,61,,,Comments on preventing overheating are notable.,0.83,FED'S GOOLSBEE: FED MUST PREVENT THE BUILD UP OF OVERHEATING (@WalterBloomberg)
+FinancialJuice,140459,1792005204,True,True,61,,,Comments suggest potential policy direction.,0.83,Fed's Goolsbee: There is no ambiguity for the Fed if the economy is solid and inflation is high|FJ
+FinancialJuice,140460,1792005219,True,True,61,,,Comments suggest potential policy action on inflation.,0.91,Fed's Goolsbee: The Fed must prevent the buildup of overheating.|FJ
+FinancialJuice,140461,1792005274,True,True,61,,,Optimism could influence market expectations.,0.84,Fed's Goolsbee: More optimistic about outlook relative to other Fed officials|FJ
+FinancialJuice,140462,1792005293,True,True,61,,,"Indicates inflation concerns, potentially market-moving.",0.95,Fed's Goolsbee: There is evidence that the building inflation hasn't been transitory amid continued shocks.|FJ
+WalterBloomberg,36937,1792005295,True,True,61,,,Indicates Fed's stance on liquidity.,0.77,FED HOLDS OFF ON NEW BOND PURCHASES FOR THIRD STRAIGHT MONTH The New York Fed will not inject additional money into the financial system through new Treasury bill purchases for a third consecutive mon
+FinancialJuice,140463,1792005319,False,False,30,speaker,,Routine commentary on inflation concerns.,1.12,Fed's Goolsbee: Need to keep a close eye on service sector inflation|FJ
+FinancialJuice,140464,1792005323,True,True,61,,,Comments on tariffs could influence market expectations.,0.82,Fed's Goolsbee: Tariff impacts on prices are more lasting than expected.|FJ
+FinancialJuice,140465,1792005362,True,True,61,,,Indicates potential policy shift on inflation.,0.95,Fed's Goolsbee: More bad months of inflation would be unacceptable.|FJ
+FinancialJuice,140466,1792005369,True,True,61,,,Indicates commitment to inflation target.,0.98,Fed's Goolsbee: Fed will get inflation back to 2%|FJ
+WalterBloomberg,36938,1792005397,True,True,61,,,Comments on inflation could impact markets.,0.85,FED'S GOOLSBEE: MORE BAD MONTHS OF INFLATION WOULD UNACCEPTABLE (@WalterBloomberg)
+WalterBloomberg,36939,1792005415,True,True,61,,,Indicates potential policy shift on inflation.,1.28,FED'S GOOLSBEE: IF CURRENT INFLATION LEVELS HOLD POLICY WOULD NEED TO ADDRESS THAT (@WalterBloomberg)
+FinancialJuice,140467,1792005420,False,True,41,rating,,Comments suggest flexibility but lack new information.,0.77,Fed's Goolsbee: Doesn't want to tie hands on monetary policy outlook|FJ
+FinancialJuice,140468,1792005438,True,True,61,,,Indicates potential policy shift on inflation.,0.78,"Fed's Goolsbee: If the current inflation levels hold, policy would need to address that.|FJ"
+FinancialJuice,140469,1792005482,False,True,41,rating,,"Comments on economic strength, somewhat notable.",0.98,"Fed's Goolsbee: Consumers, GDP, and investment levels have been strong|FJ"
+FinancialJuice,140470,1792005526,True,True,61,,,Comments on AI investment risks are notable.,0.87,"Fed's Goolsbee: AI hype could cause even more tech sector investment, which would risk overheating.|FJ"
+FinancialJuice,140471,1792005639,False,True,41,rating,,Mildly notable commentary on AI investment.,1.09,Fed's Goolsbee: A slowdown in AI investment doesn't have to mean a recession.|FJ
+FinancialJuice,140472,1792005668,False,True,41,rating,,Comments on AI investment are mildly notable.,1.01,Fed's Goolsbee: I want to keep an eye on the financial stability implications of AI investment.|FJ
+FinancialJuice,140477,1792006073,False,False,10,speaker,,"Post reports on a conclusion, no new information.",0.99,Fed's Goolsbee concludes remarks on Yahoo Finance.|FJ
+FinancialJuice,140483,1792008665,False,False,30,speaker,,Routine commentary on market conditions.,0.69,Chip Selloff Deepens as Inflation Revives Fed Rate-Hike Fears – US Market Wrap|FJ
+FinancialJuice,140498,1792016007,False,False,10,speaker,,Non-market related personal statement.,0.86,Trump: I hope the Pope recovers|FJ
+WalterBloomberg,36942,1792016369,False,True,1,rating,,"Routine statement, no market impact.",0.81,TRUMP: I HOPE THE POPE GETS WELL (@WalterBloomberg)
+WalterBloomberg,36943,1792025275,False,False,30,speaker,,Routine market commentary on inflation impact.,0.88,"JAPAN’S NIKKEI PLUNGES 3.5% AS FED RATE HIKE FEARS GROW Japanese stocks tumbled after hotter-than-expected U.S. inflation fueled expectations of higher interest rates. The Nikkei fell 3.5%, led by sha"
+FinancialJuice,140616,1792052197,False,False,30,speaker,,"Routine forecast, already priced in.",0.89,UBS expects US Fed to deliver a third rate hike in march 2027 vs prior forecast for hiking cycle to end in December.|FJ
+WalterBloomberg,36945,1792057362,True,True,61,,,Escalation in conflict could impact markets.,1.0,"UKRAINE HIT A RUSSIAN REFINERY OVERNIGHT IN RESPONSE TO RUSSIA'S BALLISTIC MISSILE AND DRONE ATTACKS THAT VIOLATED TRUMP ENERGY TRUCE, UKRAINIAN OFFICIAL SAID (@WalterBloomberg)"
+FinancialJuice,140646,1792059447,False,True,20,rating,,"Routine statement, unlikely to impact markets.",0.84,Trump tells Politico he has complete confidence in Susie Wiles|FJ
+FinancialJuice,140650,1792065154,True,True,61,,,Potential policy shift on diesel tax.,0.86,Trump: May support a federal diesel tax suspension|FJ
+WalterBloomberg,36976,1792070657,False,False,35,speaker,,Routine expectation about Fed's actions.,0.83,"HOT INFLATION DATA POINT TO ANOTHER FED RATE HIKE IN DECEMBER Northlight Asset Management's Chris Zaccarelli expects the Fed to raise interest rates by 25 basis points in December, following another h"
+WalterBloomberg,36983,1792071553,False,False,20,speaker,,"Routine announcement, unlikely to impact markets.",0.95,TRUMP TASK FORCE ON AI TO MEET THURSDAY - FTC SPOKESMAN (@WalterBloomberg)
+WalterBloomberg,36989,1792073278,False,True,10,rating,,"Routine statement, unlikely to impact markets.",0.83,TRUMP: EXECUTION EVENT WILL NOT BE STREAMED (@WalterBloomberg)
+WalterBloomberg,36991,1792073393,False,True,20,rating,,"Routine statement, unlikely to impact markets.",0.76,"TRUMP SAYS FORT HOOD ATTACKER WILL BE EXECUTED BY FIRING SQUAD — NO LIVESTREAM President Donald Trump says Nidal Malik Hasan, the former U.S. Army major convicted of killing 13 people and wounding 32 "
+WalterBloomberg,36993,1792074123,False,False,40,speaker,,"Routine discussion of military options, not new information.",0.85,"U.S. CONSIDERS USING “MOTHER OF ALL BOMBS” AGAINST IRAN The Pentagon has reportedly developed new strike plans targeting Iranian energy infrastructure and nuclear facilities, potentially involving the"
+FinancialJuice,140717,1792077336,False,False,30,speaker,,"Routine auction results, already priced in.",0.76,Fed bids for 4-week bills total $7.4 bln.|FJ
+WalterBloomberg,37006,1792083258,False,False,10,speaker,,Post does not contain any substantive content.,0.75,TRUMP LIVE https://t.co/MUrlXlLMx5 (@WalterBloomberg)
+FinancialJuice,140734,1792083399,False,False,10,speaker,,No market-moving content or statements.,1.55,Trump Participates in a Rose Garden Lunch - WATCH LIVE|FJ
+FinancialJuice,140742,1792087430,False,False,20,speaker,,Post lacks specific principal action or statement.,0.74,US Treasury Debt Buyback|FJ
+WalterBloomberg,37012,1792092865,False,False,30,speaker,,"Routine report, not an official statement.",0.73,"WHITE HOUSE PREPARES PLANS TO USE WEAPON DUBBED ""MOTHER OF ALL BOMBS"" ON IRAN, SOURCES SAY - CBS NEWS (@WalterBloomberg)"
+FinancialJuice,140759,1792097196,False,False,30,speaker,,Routine commentary on inflation impact.,0.82,Fed's Hammack: Hearing more from lower-income Americans struggling with inflation|FJ
+FinancialJuice,140760,1792097311,False,False,30,speaker,,"Routine commentary, not market-moving.",0.76,Fed's Hammack: Anecdotal information provides important economic guidance|FJ
+FinancialJuice,140778,1792106599,False,False,30,speaker,,Routine commentary on inflation expectations.,1.09,Fed's Goolsbee: a disappointing month for inflation|FJ
+FinancialJuice,140779,1792106643,False,True,41,rating,,Routine comment on inflation expectations.,0.91,Fed's Goolsbee: still optimistic if inflation drivers fade soon|FJ
+FinancialJuice,140780,1792106657,True,True,61,,,Concerns about inflation and AI impact are notable.,0.82,"Fed's Goolsbee: If inflation stems from demand overheating due to AI, it's more concerning and must be addressed|FJ"
+FinancialJuice,140787,1792109314,False,False,10,speaker,,"Routine comment, unlikely to impact markets.",1.05,Trump on Ilhan Omar: not involved in that|FJ
+FinancialJuice,140788,1792109596,False,True,41,rating,,"Routine statement, not a major policy shift.",1.01,Trump: wouldn't employ nuclear weapons on Iran|FJ
+FinancialJuice,140789,1792109608,False,False,30,speaker,,"Routine mention of discussions, not actionable.",1.18,"Trump: talking to Russia, China on nuclear disarmament|FJ"
+FinancialJuice,140790,1792109701,False,True,41,rating,,"Routine statement, already expected by markets.",0.76,Trump: no plans to deploy troops on ground in Iran|FJ
+FinancialJuice,140819,1792127470,False,False,30,speaker,,"Routine commentary, not market-moving.",0.8,Fed's Warsh: skeptical about predicting actions in meetings for rest of 2026|FJ
+FinancialJuice,140834,1792135178,False,True,21,rating,,"Routine diplomatic comment, unlikely to move markets.",1.62,"China Foreign Ministry, on White House Press Secretary remarks: She is welcome to visit China more often if there is opportunity.|FJ"
+WalterBloomberg,37023,1792150079,False,False,10,speaker,,"Just a schedule, no market impact.",0.71,"PRESIDENT TRUMP'S SCHEDULE — FRIDAY, OCTOBER 16 🔸 8:00 AM ET — Executive Time 🔸 10:00 AM ET — Intelligence Briefing 🔸 2:45 PM ET — Political Rally in Dalton, Georgia 🔸 7:30 PM ET — RNC Event at Mar-a-"
+FinancialJuice,140879,1792151878,False,True,21,rating,,"Routine comment, unlikely to impact markets.",1.09,BoJ's Governor Ueda: Haven't been in touch with us treasury secretary bessent since we met in asheville.|FJ
+WalterBloomberg,37034,1792153345,False,False,40,speaker,,Routine commentary on Fed hike odds.,0.85,"FED HIKE ODDS CRASH FROM 55% TO 13% Warsh signals an October pause despite inflation hitting 3.7%. Kalshi now puts the odds of a Fed hold at 86%, up from 50%. 📊 Watch the odds move in real time 👇 http"
+WalterBloomberg,37035,1792154226,False,False,70,speaker,,Significant inflation data could impact markets.,0.9,"U.S. IMPORT AND EXPORT PRICES SURGE ABOVE EXPECTATIONS U.S. September trade inflation came in hotter than expected, signaling persistent price pressures. 🔸 Import prices: +1.1% (forecast +0.8%) 🔸 Expo"
+WalterBloomberg,37039,1792156583,False,False,60,speaker,,Notable data but no principal speaking.,0.9,"U.S. INDUSTRIAL PRODUCTION BEATS EXPECTATIONS IN SEPTEMBER U.S. industrial production rose 0.7% in September, beating expectations of 0.4%. 🔸 Manufacturing: +0.3% (in line) 🔸 Utilities: +3.5% 🔸 Mining"
+FinancialJuice,140923,1792165579,False,False,30,speaker,,"Routine legislative action, unlikely to move markets.",1.08,Lawmakers introduce a bill to block trump’s Russia diesel deal.|FJ
+WalterBloomberg,37050,1792166100,False,False,30,speaker,,"Routine legislative action, unlikely to move markets.",1.1,*LAWMAKERS INTRODUCE BILL TO BLOCK TRUMP’S RUSSIA DIESEL DEAL (@WalterBloomberg)
+WalterBloomberg,37054,1792170013,False,True,10,rating,,"Commentary on Tesla, unlikely to impact markets.",0.85,TRUMP: VERY HAPPY FOR ELON ON TESLA'S ROADSTER (@WalterBloomberg)
+FinancialJuice,140926,1792170054,True,True,61,,,Comments on inflation and oil prices.,1.11,Trump on Inflation: Oil prices are going to come down soon.|FJ
+WalterBloomberg,37055,1792170150,True,True,61,,,Comment on oil prices could impact markets.,0.83,TRUMP: OIL PRICES GOING TO COME DOWN VERY SOON (@WalterBloomberg)
+WalterBloomberg,37056,1792170202,False,True,20,rating,,"Unclear statement, unlikely to impact markets.",1.09,TRUMP SAYS HE DOESN’T KNOW WHO GAVE ORDER ON STARSHIELD (@WalterBloomberg)
+WalterBloomberg,37057,1792170232,False,True,41,rating,,"Comments on Ukraine's access, mildly notable.",0.76,TRUMP ON LIMIT TO UKRAINE'S ACCESS TO STARSHIELD SYSTEM: IT WASN'T US (@WalterBloomberg)
+WalterBloomberg,37058,1792170241,False,True,41,rating,,"Routine policy announcement, limited immediate impact.",0.81,TRUMP ADMINISTRATION ISSUES RESTRICTIONS BARRING ANY UNAUTHORIZED DRONES ALONG U.S.-MEXICO BORDER (@WalterBloomberg)
+WalterBloomberg,37059,1792170373,False,True,30,rating,,"Routine comment, unlikely to move markets.",0.93,TRUMP: TOLD HER SHE SHOULD RECONSIDER ROLE (@WalterBloomberg)
+WalterBloomberg,37061,1792170584,False,True,30,rating,,"Routine comment, not market-moving.",0.89,TRUMP ON UKRAINE'S STARLINK ACCESS: I DON’T THINK IT WAS ME AND I DON’T THINK IT WAS ELON (@WalterBloomberg)
+FinancialJuice,140932,1792170586,False,True,41,rating,,"Comments on Saudi-Israel relations, mildly notable.",0.92,Trump: Saudi Arabia are happy to get support from Israel and the US.|FJ
+FinancialJuice,140933,1792170614,False,True,41,rating,,"Comments on a deal, mildly notable.",1.39,"France’s President Macron: Trump diesel deal is not useful, creates doubts and defiance.|FJ"
+WalterBloomberg,37062,1792170692,False,True,40,rating,,Routine commentary on a trade deal.,0.95,"MACRON: TRUMP DIESEL DEAL NOT USEFUL, CREATES DOUBTS AND DEFIANCE (@WalterBloomberg)"
+WalterBloomberg,37063,1792170776,False,True,20,rating,,"Unclear statement, unlikely to impact markets.",0.87,"TRUMP: KATIE ZACHARIA WILL STAY IN SOME FORM, BUT MAYBE ANOTHER FORM (@WalterBloomberg)"
+WalterBloomberg,37064,1792170859,True,True,61,,,Potentially significant geopolitical implications.,0.97,TRUMP: WILL GET A DEAL ON NUCLEAR ARMS WITH RUSSIA AND CHINA (@WalterBloomberg)
+WalterBloomberg,37065,1792170871,False,True,21,rating,,"Routine comment, unlikely to impact markets.",0.77,TRUMP: HAVE A GOOD RELATIONSHIP WITH ZELENSKIY (@WalterBloomberg)
+FinancialJuice,140937,1792170880,False,True,41,rating,,Comments on nuclear arms deal are notable.,0.9,Trump: Will get a deal on nuclear arms with Russia and China.|FJ
+FinancialJuice,140938,1792171084,False,True,21,rating,,"Routine statement, already priced in.",0.78,Trump: The US economy has never been stronger.|FJ
+WalterBloomberg,37067,1792171123,False,True,41,rating,,"Routine statement, not new information.",0.69,TRUMP: US ECONOMY HAS NEVER BEEN STRONGER (@WalterBloomberg)
+FinancialJuice,140939,1792171146,False,False,10,speaker,,No substantive content or market impact.,0.74,Trump ends remarks to reporters.|FJ
+WalterBloomberg,37068,1792173235,False,False,20,speaker,,"Routine personnel change, unlikely to impact markets.",0.9,KATIE ZACHARIA 'TRANSITIONING OUT' AS TRUMP PRESS SECRETARY: FOX (@WalterBloomberg)
+FinancialJuice,140946,1792173695,False,False,30,speaker,,"Routine fiscal data, already expected.",0.7,US fiscal 2026 deficit $1.992 trln vs fiscal 2025 deficit $1.775 trln; net customs receipts $173.22 bln vs $194.87 bln - Treasury|FJ
+FinancialJuice,140972,1792180860,False,False,30,speaker,,"Routine data release, already priced in.",0.87,China's US Treasury securities holdings $591 bln in August vs $618 bln in July.|FJ
+FinancialJuice,140973,1792180891,False,False,30,speaker,,"Routine data release, already priced in.",0.72,Japan's US Treasury holdings $1.068 trln in August vs $1.104 trln in July.|FJ
+FinancialJuice,140974,1792180912,False,False,30,speaker,,"Routine data release, already priced in.",0.81,United Kingdom's US Treasury holdings $1.010 trln in August vs $998 bln in July.|FJ
+FinancialJuice,140975,1792180939,False,False,40,speaker,,"Routine data release, already priced in.",0.82,"US August net foreign holdings of US Treasury bonds, notes +$108.9 bln vs -$3.6 bln in July (prev -$3.6 bln).|FJ"
+FinancialJuice,140981,1792182825,False,False,10,speaker,,"Post only mentions Trump speaking, no content.",0.67,"Trump speaks at a rally in Dalton, Georgia - WATCH LIVE|FJ"
+FinancialJuice,140983,1792183509,True,True,61,,,Potential geopolitical impact on markets.,0.68,Trump: Iran will be over very soon|FJ
+WalterBloomberg,37079,1792365270,False,False,20,speaker,,"Speculation about a meeting, no direct impact.",0.75,*PUTIN ASKS TRUMP AND XI FOR A MEETING: WSJ (@WalterBloomberg)
+FinancialJuice,141078,1792365558,False,False,30,speaker,,Routine mention of a proposed summit.,1.0,Putin proposes summit with Trump and Xi to determine Ukraine's future: WSJ|FJ
+FinancialJuice,141171,1792393863,False,False,10,speaker,,No actionable information provided.,0.83,"China's Mao: No info to share on any Putin, Xi, Trump meeting|FJ"
+WalterBloomberg,37087,1792408732,False,True,41,rating,,Comments on migration may influence markets.,1.35,*TRUMP SAYS MIGRANTS HAVE 'TAKEN OVER' FRANCE *TRUMP URGES FRANCE TO CLOSE BORDERS QUICKLY (@WalterBloomberg)
+WalterBloomberg,37108,1792415642,True,True,75,,,Significant policy shift affecting tech sector.,0.92,"TRUMP ADMINISTRATION REMOVING CHINESE AI DEEPSEEK FROM CIVILIAN GOVERNMENT AGENCY IT SYSTEMS, BARRING PURCHASE OF DEEPSEEK RELATED PRODUCTS BY GOVERNMENT AGENCIES -- NOTICE (@WalterBloomberg)"
+FinancialJuice,141224,1792415714,True,True,61,,,Significant policy move affecting tech sector.,1.02,"Trump administration removing Chinese AI DeepSeek from civilian government agency IT systems, barring purchase of DeepSeek-related products by government agencies - Notice|FJ"
+WalterBloomberg,37120,1792419503,True,True,61,,,New inflation data could impact markets.,1.1,WHITE HOUSE WARNS U.S. INFLATION NEEDS MORE WORK White House economic adviser Kevin Hassett says inflation is showing renewed pressure after several months of improvement. September CPI rose 0.6% mont
+FinancialJuice,141264,1792421462,True,True,61,,,Executive order could impact markets.,0.92,WATCH LIVE: Trump to sign an executive order 11 AM ET|FJ
+FinancialJuice,141268,1792422954,False,False,30,speaker,,"Routine auction results, already priced in.",1.01,Fed bids for 3-Month bills total $6.7 bln|FJ
+FinancialJuice,141269,1792422968,False,False,30,speaker,,"Routine auction results, already priced in.",0.76,Fed bids for 6-Month bills total $5.8 bln|FJ
+FinancialJuice,141306,1792428057,False,False,30,speaker,,"Routine commentary, not new information.",0.68,"Netanyahu on Trump's support ahead of the elections: He said ""question here is the final removal of the Iranian threat, the existential threat to the State of Israel"" - Israel's Channel 14 News|FJ"
+FinancialJuice,141307,1792428191,False,False,30,speaker,,Routine commentary on political support.,0.72,Netanyahu cites Trump's support ahead of elections: Trump views final removal of Iranian threat as key issue - Israel's Channel 14 News|FJ
+FinancialJuice,141310,1792428542,False,False,20,speaker,,No direct statement or action reported.,0.88,Israel's Prime Minister Netanyahu to Trump: We have work to finish - Israel's Hayom News|FJ
+WalterBloomberg,37134,1792431118,False,False,20,speaker,,Post lacks direct principal action or statement.,1.02,$SPCX MUSK'S SPACEX SHARES GIFT TO BE DISTRIBUTED VIA TRUMP ACCOUNTS (@WalterBloomberg)
+FinancialJuice,141338,1792437578,False,True,21,rating,,"Routine comment, unlikely to move markets.",0.85,Trump: Good situation with respect to Iran|FJ
+FinancialJuice,141339,1792437591,False,False,20,speaker,,"Routine mention of negotiations, no new information.",0.9,Trump: Negotiating with Putin on Ukraine|FJ
+FinancialJuice,141340,1792437684,False,False,30,speaker,,"Routine mention of negotiations, no new information.",0.94,Trump: Negotiating on Iran and Diesel with Russia|FJ
+FinancialJuice,141341,1792437691,False,True,41,rating,,Comments on potential trilateral talks.,1.55,"Trump: Would do trilateral with Russia, China|FJ"
+FinancialJuice,141342,1792437695,False,True,21,rating,,"Routine commentary, not market-moving.",0.82,Trump: Russia has been fine on Ukraine|FJ
+FinancialJuice,141343,1792437732,False,True,41,rating,,"Routine statement, not immediate market impact.",2.29,Trump on joint meeting with Xi and Putin: Would schedule meeting based on denuclearization|FJ
+FinancialJuice,141344,1792437735,False,False,10,speaker,,Post does not contain actual statements.,1.09,WATCH LIVE: Trump Speaks|FJ
+FinancialJuice,141347,1792437973,False,True,41,rating,,Comments on Ukraine negotiations are notable.,1.24,Trump: Time for someone else to negotiate on behalf of Ukraine|FJ
+FinancialJuice,141348,1792438119,False,True,21,rating,,"Routine political commentary, unlikely to move markets.",1.1,"Trump: We've given a lot to Ukraine, they give nothing to us|FJ"
+FinancialJuice,141349,1792438145,False,True,21,rating,,"Routine commentary, unlikely to move markets.",1.04,Trump: Russia could've done a lot more to help Iran|FJ
+FinancialJuice,141350,1792438167,False,True,21,rating,,"Routine commentary, unlikely to move markets.",0.71,"Trump: Russia's done very little for Iran, that's positive|FJ"
+WalterBloomberg,37135,1792438452,True,True,61,,,Suggests a shift in negotiation strategy.,0.77,TRUMP ON ZELENSKYY'S COMMENTS: TIME FOR SOMEONE ELSE TO NEGOTIATE ON BEHALF OF UKRAINE (@WalterBloomberg)
+WalterBloomberg,37136,1792438484,False,True,30,rating,,"Routine commentary, unlikely to move markets.",1.0,"Trump: France protests not about school, this is about immigration (@WalterBloomberg)"
+FinancialJuice,141351,1792438497,False,True,21,rating,,"Routine comment, not market-moving.",0.77,Trump on possible meeting with North Korean leader next month: Not sure if anyone is asking for a meeting|FJ
+WalterBloomberg,37137,1792438515,False,True,40,rating,,"Routine statement, not market-moving.",0.74,"*TRUMP: WE'VE GIVEN A LOT TO UKRAINE, THEY GIVE NOTHING TO (@WalterBloomberg)"
+FinancialJuice,141352,1792438568,False,True,41,rating,,"Comments on potential dialogue, not new policy.",0.86,Trump: Would talk to Xi about Ukraine|FJ
+FinancialJuice,141353,1792438598,False,True,21,rating,,"Routine comment, unlikely to move markets.",0.89,Trump: Xi has been very fair on Ukraine|FJ
+WalterBloomberg,37138,1792438647,True,True,61,,,Potentially significant geopolitical implications for markets.,0.88,"Trump: If Europe does not close its borders, then Europe is finished (@WalterBloomberg)"
+WalterBloomberg,37140,1792438812,False,False,15,speaker,,Poll results are routine and expected.,0.9,TRUMP APPROVAL FALLS TO RECORD LOW OF 31% - POLL (@WalterBloomberg)
+FinancialJuice,141365,1792442573,False,True,21,rating,,"Routine acknowledgment, unlikely to move markets.",0.98,Trump: A big thank you to Musk for the SpaceX stock plan - Truth Social $SPCX|FJ
+WalterBloomberg,37141,1792443362,False,True,40,rating,,"Routine praise, unlikely to move markets.",1.97,TRUMP THANKS ELON MUSK FOR SPACEX STOCK GIVEAWAY President Trump praised Elon Musk for pledging SpaceX shares to millions of American children through Trump Accounts. Trump called the initiative a maj
+FinancialJuice,141370,1792449549,False,False,30,speaker,,"Routine information, not market-moving.",0.99,Trump administration has not authorized transfer of interceptor missiles to Ukraine: Washington Post|FJ
+WalterBloomberg,37142,1792449656,False,False,30,speaker,,"Routine update, not market-moving news.",0.92,THE TRUMP ADMINISTRATION HAS NOT APPROVED THE TRANSFER OF INTERCEPTOR MISSILES TO UKRAINE - WASHINGTON POST (@WalterBloomberg)
+FinancialJuice,141377,1792457435,True,True,61,,,Potential trade agreement could impact markets.,0.77,"Trump: Mexico, US near major agreement|FJ"
+FinancialJuice,141388,1792459015,True,True,61,,,New aid program could impact agricultural markets.,0.97,"Trump: Department of Agriculture to introduce new harvest fuel aid program, giving farmers $8 billion in assistance|FJ"
+WalterBloomberg,37150,1792492493,False,True,30,rating,,"Routine comment, not market-moving.",1.08,RUBIO SAYS TRUMP 'FRUSTRATED' AT ACCUSATIONS HE HARMING UKRAINE (@WalterBloomberg)
+WalterBloomberg,37152,1792493507,False,False,40,speaker,,Routine commentary on market sentiment.,0.76,"GOLDMAN SACHS WARNS INVESTOR RISK APPETITE IS COLLAPSING Goldman Sachs says its risk-appetite indicator has turned negative for the first time since April, reaching its lowest level since the early st"
+WalterBloomberg,37159,1792499423,False,False,10,speaker,,"Routine schedule, no market-moving content.",0.79,"🇺🇸PRESIDENT TRUMP'S DAILY SCHEDULE — TUESDAY, OCTOBER 20, 2026 🔸 8:00 AM — Executive Time 🔸 10:00 AM — Policy Meeting 🔸 12:30 PM — Policy Meeting (Oval Office) 🔸 1:30 PM — Announcement with the Vice P"
+FinancialJuice,141481,1792499924,False,False,30,speaker,,"Poll results, not a principal's statement.",0.88,"Fed to hold fed funds rate steady at 3.75%-4.00% at October 27-28 meeting, said 94 of 100 economists; rest saw a hike to 4.00%-4.25% - Poll.|FJ"
+FinancialJuice,141482,1792499943,False,False,30,speaker,,"Poll results, not a principal speaking.",0.91,"Poll: Fed to hike fed funds rate to 4.00%-4.25% by end-2026, said 94 of 100 economists (vs 29 of 76 expecting that rate in September)|FJ"
+FinancialJuice,141483,1792499945,False,False,20,speaker,,"Poll results, not a principal speaking.",0.87,"Fed will hike Fed funds rate in December 2026, said all 100 economists - Poll.|FJ"
+WalterBloomberg,37163,1792501898,False,False,20,speaker,,"Commentary on Congress, not a principal.",0.86,BESSENT: THERE'S VERY LITTLE A DEMOCRATIC CONGRESS COULD DO TO STOP AGENDA -2WAY TV (@WalterBloomberg)
+FinancialJuice,141489,1792501950,False,True,40,rating,,Routine statement about congressional limits.,0.95,US Treasury Secretary Bessent: There's very little a democratic congress could do to stop agenda -2Way TV.|FJ
+FinancialJuice,141490,1792502228,False,True,30,rating,,Routine comment on bond market performance.,0.82,US Treasury Secretary Bessent: The US bond market has performed well|FJ
+FinancialJuice,141491,1792502237,False,True,40,rating,,Routine comment on bond auctions.,1.0,US Treasury Secretary Bessent: Bond auctions have been strong recently.|FJ
+WalterBloomberg,37165,1792502241,False,False,20,speaker,,"General commentary, no actionable statement.",0.73,BESSENT: PEOPLE ARE COMING IN TO BOND MARKET AT A PRICE -2WAY TV (@WalterBloomberg)
+WalterBloomberg,37166,1792502260,False,False,20,speaker,,"Commentary on protests, not market-moving.",0.93,BESSENT: I DON'T SEE A SPILLOVER FROM FRANCE PROTESTS -2WAY TV (@WalterBloomberg)
+FinancialJuice,141492,1792502265,False,True,41,rating,,Comment on bond market activity.,0.87,US Treasury Secretary Bessent: People are coming into the bond market at a price|FJ
+FinancialJuice,141493,1792502272,False,True,21,rating,,"Routine comment, unlikely to impact markets.",0.9,US Treasury Secretary Bessent: I don't see any spillover from France.|FJ
+FinancialJuice,141494,1792502281,False,False,20,speaker,,"Commentary on Macron's team, not market-moving.",1.05,US Treasury Secretary Bessent: Macron's economic team is first rate|FJ
+WalterBloomberg,37168,1792502338,False,False,10,speaker,,No market-moving information provided.,0.66,"BESSENT: NOT SEEKING ANOTHER JOB, HERE FOR DURATION (@WalterBloomberg)"
+FinancialJuice,141495,1792502345,False,True,21,rating,,"Routine statement, unlikely to impact markets.",0.9,"US Treasury Secretary Bessent: I am not seeking another job, here for duration.|FJ"
+FinancialJuice,141496,1792502347,False,True,41,rating,,Comments on energy prices are mildly notable.,1.03,US Treasury Secretary Bessent: Things are going well despite temporary energy price spike|FJ
+FinancialJuice,141497,1792502406,True,True,61,,,Suggests a policy approach to debt.,0.88,US Treasury Secretary Bessent: We need to grow our way out of debt.|FJ
+FinancialJuice,141498,1792502424,True,True,61,,,Indicates potential recovery from energy shock.,1.0,US Treasury Secretary Bessent: We're getting to the other side of an energy shock.|FJ
+FinancialJuice,141499,1792502427,True,True,61,,,Calls for spending control could impact markets.,0.89,US Treasury Secretary Bessent: We need to get spending under control|FJ
+FinancialJuice,141501,1792502646,True,True,61,,,Comments on rates and economic conditions.,0.85,"US Treasury Secretary Bessent: Rates are up due to energy shock, housing has slowed|FJ"
+FinancialJuice,141502,1792502660,True,True,61,,,Mortgage rates impact housing market significantly.,0.77,US Treasury Secretary Bessent: I think mortgage rates will come down.|FJ
+FinancialJuice,141503,1792502750,True,True,61,,,Concerns about chip supply could impact markets.,1.26,US Treasury Secretary Bessent: It would be devastating if we lost chip supply from taiwan|FJ
+FinancialJuice,141504,1792502767,True,True,61,,,Comments on Iran's economy could impact markets.,1.13,US Treasury Secretary Bessent: Iran's economy will go non-linear at a point|FJ
+FinancialJuice,141505,1792502777,False,False,10,speaker,,"Announcement of a live event, no content.",0.94,WATCH LIVE: US Treasury Secretary Bessent Speaks|FJ
+FinancialJuice,141506,1792502808,True,True,75,,,Currency collapse in Iran is significant news.,0.85,"US Treasury Secretary Bessent: Panic starting to set in in Iran, currency collapsed.|FJ"
+FinancialJuice,141507,1792502831,False,False,20,speaker,,"Routine comment, unlikely to impact markets.",1.0,US Treasury Secretary Bessent: Haven't seen RSVP from Putin on G20|FJ
+FinancialJuice,141508,1792503033,False,False,10,speaker,,No substantive content or market impact.,0.85,Treasury Secretary Bessent ends remarks on 2Way|FJ
+WalterBloomberg,37182,1792506701,False,False,30,speaker,,"Routine discussion, not market-moving.",0.96,NETANYAHU: SPOKE WITH TRUMP ON MONDAY ABOUT THE IMPORTANCE OF ELIMINATING THE IRANIAN REGIME (@WalterBloomberg)
+FinancialJuice,141536,1792506828,True,True,61,,,Calls for regime change can impact markets.,1.0,"Israel's Prime Minister Netanyahu: The Iranian regime must be overthrown, I discussed this with Trump the other day as well.|FJ"
+FinancialJuice,141541,1792507355,False,False,30,speaker,,"Routine discussion, not market-moving.",0.77,Israel's Prime Minister Netanyahu: Spoke with Trump on Sunday about the importance of eliminating the Iranian regime|FJ
+FinancialJuice,141545,1792508455,False,False,30,speaker,,"Routine announcement, already expected by markets.",0.97,"US Treasury to sell $110 bln 4-week bills on October 22, to settle on October 27|FJ"
+WalterBloomberg,37184,1792508716,True,True,61,,,Potential escalation in military action.,0.88,"TRUMP REPORTEDLY CAME VERY CLOSE TO ORDERING STRIKES ON IRAN The Trump administration came “very close” to approving military strikes on Iran on at least one recent occasion, sources told The Jerusale"
+FinancialJuice,141579,1792516880,False,True,41,rating,,"Announcement of a new program, mildly notable.",0.77,WATCH LIVE: Trump & Vance announce a $25 million fraud whistleblower program 1:30 PM ET|FJ
+FinancialJuice,141596,1792520294,False,False,20,speaker,,"Speculative post, no direct statements.",1.03,The US to offer Putin in-person talks with Zelenskyy and Trump - Politico|FJ
+FinancialJuice,141597,1792520384,False,False,20,speaker,,"Speculative post, no direct statements.",0.68,The US to offer Putin in-person talks with Zelenskyy and Trump - Politico|FJ
+FinancialJuice,141610,1792521785,True,True,61,,,Potential policy shift regarding Iran.,0.86,Trump on Iran: I have to make final decision which way to win.|FJ
+FinancialJuice,141613,1792522155,False,False,10,speaker,,Post does not report a principal speaking.,0.88,Trump on Trump Accounts for adults: Looking at alternatives|FJ
+FinancialJuice,141614,1792522198,False,True,41,rating,,Comments on Russia-Ukraine talks are notable.,0.9,Trump: Russia would like to get it done after the latest talks on Ukraine|FJ
+FinancialJuice,141615,1792522309,False,True,41,rating,,"Comments on Ukraine conflict, mildly notable.",0.78,Trump: Ukraine has to want to settle this war|FJ
+FinancialJuice,141616,1792522347,False,True,41,rating,,"Comments on Ukraine deal, mildly notable.",0.93,Trump: We want Zelenskyy to make a deal|FJ
+FinancialJuice,141617,1792522564,True,True,61,,,Potential shift in US foreign policy stance.,0.93,Trump: It's time for Ukraine to end this war|FJ
+FinancialJuice,141618,1792522666,False,True,21,rating,,"Routine statement, unlikely to impact markets.",0.94,Trump: Asked Putin to free hubbard|FJ
+FinancialJuice,141620,1792523413,False,True,20,rating,,"Routine comment, unlikely to impact markets.",1.07,Trump on Vance 2028 run: I don't think we ever talked about it|FJ
+FinancialJuice,141621,1792523418,False,False,10,speaker,,"Routine comment, no immediate market impact.",0.88,Trump on endorsing Vance in 2028: Very early right now|FJ
+FinancialJuice,141622,1792523664,False,False,10,speaker,,No substantive content or market impact.,2.76,Trump ends remarks at the White House|FJ
+FinancialJuice,141623,1792523948,False,True,20,rating,,"Routine comment, unlikely to impact markets.",0.75,Trump: I cannot reveal the content of Hegseth's conversation with Netanyahu|FJ
+FinancialJuice,141706,1792543254,True,True,61,,,Significant investment announcement could impact markets.,1.38,Trump: Pentagon to invest $1.5 billion in semiconductor chip production in North Carolina|FJ
+FinancialJuice,141745,1792561125,False,True,41,rating,,"New policy on data centers, mildly notable.",0.85,"Trump: I have been watching data centers very closely and have come to a very strong conclusion. New and large, in some cases gigantic, data centers are mandated by me to generate their own electricit"
+FinancialJuice,141780,1792573174,False,False,20,speaker,,"Routine statement, unlikely to impact markets.",0.93,Russia's Putin thanks Trump for attention to Ukraine settlement - IFX|FJ
+FinancialJuice,141792,1792575051,False,False,20,speaker,,"Speculative meeting, no market impact.",0.83,Putin offers to discuss the possibility of meeting with Trump in China - IFX.|FJ
+FinancialJuice,141805,1792576952,False,False,30,speaker,,"Routine evaluation, unlikely to move markets.",0.86,Trump admin to evaluate whether further loans from the heating oil reserve should follow - US government source|FJ
+FinancialJuice,141809,1792577779,False,False,30,speaker,,"Routine statement, not market-moving.",0.69,"Kremlin: Putin, Trump talks will be serious and long - IFX|FJ"
+FinancialJuice,141811,1792577834,False,False,20,speaker,,"Speculation about a meeting, no actionable content.",0.73,"Putin-Trump-Xi meeting possible, but no agenda yet - Tass.|FJ"
+FinancialJuice,141862,1792589191,False,False,20,speaker,,"Speculation about Trump's satisfaction, no direct statement.",1.0,Kremlin: Witkoff said Trump will be very satisfied with that decision.|FJ
+WalterBloomberg,37210,1792589936,True,True,75,,,Emergency fuel release amid rising prices.,0.88,"U.S. TAPS EMERGENCY DIESEL RESERVE AS PRICES HIT $6.32 The Trump administration will release 315,000 barrels from the Northeast's 1 million-barrel heating oil reserve as diesel prices surge ahead of t"
+FinancialJuice,141900,1792602041,False,False,30,speaker,,"Routine auction information, not market-moving.",0.85,Treasury WI 20y yield 5.460% before $13 billion auction|FJ
+WalterBloomberg,37222,1792602170,False,False,30,speaker,,"Routine market update, not impactful news.",0.7,"YIELD ON 20-YR U.S. TREASURY BOND PARES DECLINE AFTER $13 BLN AUCTION, LAST DOWN 1.25 BASIS POINTS AT 5.467% (@WalterBloomberg)"
+FinancialJuice,141926,1792605777,False,False,40,speaker,,"Routine debt buyback announcement, already expected.",1.0,"Treasury accepts $750M of $4.751B offers in debt buyback, 8 of 27 eligible issues; buyback targets coupons maturing 2028-2036|FJ"
+FinancialJuice,141935,1792607472,False,False,10,speaker,,Just a notice of upcoming speech.,0.74,WATCH LIVE: Trump Speaks 2:30 PM ET|FJ
+FinancialJuice,141941,1792608245,False,False,10,speaker,,"Announcement of a future speech, no content.",1.05,WATCH LIVE: Trump tp Speak Soon|FJ
+FinancialJuice,141943,1792609186,False,False,10,speaker,,No direct statement or action reported.,0.96,Canada's PM Carney: Spoke to Trump on Wednesday for quite some time|FJ
+FinancialJuice,141944,1792609199,False,False,20,speaker,,No direct statement or market-moving content.,1.02,"Canada's PM Carney: We discussed wide range of issues with Trump, including Iran|FJ"
+FinancialJuice,141945,1792609233,False,False,30,speaker,,Routine mention of trade discussions.,1.44,Canada's PM Carney: Trump and I did address some issues around trade|FJ
+FinancialJuice,141954,1792610161,True,True,61,,,Potentially significant geopolitical implications.,1.38,Trump: Getting closer to settling russia War with Ukraine|FJ
+FinancialJuice,141959,1792610459,False,False,10,speaker,,"Post reports on an event, no content.",0.74,Trump ends remarks at the White House|FJ
+FinancialJuice,141974,1792613459,False,True,21,rating,,"Routine comment, unlikely to impact markets.",0.81,Trump: Had good meeting on cyber.|FJ
+FinancialJuice,141975,1792613546,False,True,21,rating,,"Routine comment, unlikely to impact markets.",0.91,Trump: I don't know about embassy personnel move in Mideast|FJ
+FinancialJuice,141976,1792613580,False,True,41,rating,,Uncertainty about embassy staff may impact markets.,1.09,Trump on embassy staff told to depart: I don't know that they are.|FJ
+FinancialJuice,141978,1792613677,True,True,61,,,Potential market impact from sanctions announcement.,1.49,Trump: I have right to do sanctions any day.|FJ
+FinancialJuice,141980,1792613837,False,True,41,rating,,"Routine statement, not market-moving.",1.19,Trump: Can't say denuclearization meeting will happen.|FJ
+FinancialJuice,141981,1792613881,False,False,10,speaker,,No substantive content or market impact.,0.77,Trump ends remarks to reporters|FJ
+WalterBloomberg,37231,1792628184,False,False,30,speaker,,"Speculation about a deal, not a statement.",0.85,*SPACEX-TESLA DEAL INTENDED TO CLOSE BEFORE END OF TRUMP'S TERM (@WalterBloomberg)
+FinancialJuice,142124,1792664104,False,False,30,speaker,,"Routine response, unlikely to impact markets.",1.01,"Kremlin on Trump's invitation to G20: Will review the invitation taking into account all circumstances, no decision yet|FJ"
+WalterBloomberg,37250,1792674932,False,False,40,speaker,,Routine commentary on market conditions.,0.78,"GOLD FALLS 1.3% AS RISING OIL PRICES COMPLICATE FED RATE OUTLOOK Gold slipped 1.3% to $4,083, pressured by concerns that higher oil prices could fuel inflation and delay Federal Reserve rate cuts. Cap"
+WalterBloomberg,37257,1792677912,True,True,61,,,Comments on Iran's oil impact market.,0.8,BESSENT: U.S. ECONOMIC PRESSURE IS CUTTING OFF IRAN'S OIL LIFELINE U.S. Treasury Secretary Scott Bessent says Iran's main oil-loading terminal on Kharg Island has gone from being filled with tankers t
+FinancialJuice,142160,1792681290,False,False,30,speaker,,"Routine economic data, already priced in.",0.98,"KANSAS CITY FED COMPOSITE INDEX ACTUAL 11 (FORECAST 12, PREVIOUS 14) $MACRO|FJ"
+FinancialJuice,142162,1792681588,False,False,30,speaker,,"Routine data release, already priced in.",0.86,"KANSAS CITY FED MANUFACTURING ACTUAL 16 (FORECAST , PREVIOUS 20) $MACRO|FJ"
+FinancialJuice,142164,1792682058,False,False,20,speaker,,"Routine legal news, unlikely to impact markets.",0.85,Trump ordered to sit for deposition in BBC defamation suit - AP|FJ
+FinancialJuice,142166,1792682181,False,False,20,speaker,,"Routine auction results, unlikely to move markets.",1.42,Fed bids for 4-week bills total $7.9 bln.|FJ
+WalterBloomberg,37267,1792683691,False,True,41,rating,,"Comments on oil prices, mildly notable.",2.4,"TRUMP ON IRAN: MAKING UP FAKE HITS, MINES, AND EVERYTHING ELSE TO DRIVE UP PRICE OF OIL (@WalterBloomberg)"
+FinancialJuice,142172,1792683736,False,False,20,speaker,,"Noise about Trump's opinion, no market impact.",1.09,"Trump on Iran: Making up fake hits, mines, and everything else to drive up the price of oil - Truth Social|FJ"
+WalterBloomberg,37269,1792683796,True,True,61,,,Accusation could impact oil prices.,0.86,TRUMP ACCUSES IRAN OF DRIVING UP OIL PRICES AHEAD OF U.S. MIDTERM ELECTIONS President Trump claims Iran is deliberately pushing oil prices higher by creating threats to shipping through the Strait of 
+WalterBloomberg,37273,1792686282,False,True,10,rating,,"Routine commentary, unlikely to impact markets.",0.93,"TRUMP: WHILE LISTENING TO OUR NATIONAL ANTHEM, LEBRON JAMES DISRESPECTS OUR COUNTRY; LEBRON JAMES SHOULD APOLOGIZE (@WalterBloomberg)"
+WalterBloomberg,37274,1792688589,False,True,41,rating,,"Comments on military strategy, mildly notable.",1.34,ISRAELI MILITARY OFFICIALS: NO REASON TO STRIKE IRAN BEFORE U.S. ELECTIONS Senior Israeli military officials say there is no reason to attack Iran before the U.S. midterms unless they detect preparati
+WalterBloomberg,37275,1792688623,False,False,30,speaker,,"Routine market commentary, not a principal speaking.",0.8,TRADERS NO LONGER FULLY PRICE IN FED RATE HIKE BEFORE END-2026 (@WalterBloomberg)
+WalterBloomberg,37277,1792691972,False,True,41,rating,,Request to Musk is mildly notable.,0.85,TRUMP CALLED MUSK AND ASKED HIM TO LIFT UKRAINE STARLINK RESTRICTIONS -- WSJ (@WalterBloomberg)
+FinancialJuice,142195,1792692040,False,True,41,rating,,Request to Musk may influence market sentiment.,0.93,Trump called Musk and asked him to lift Ukraine Starlink restrictions - WSJ|FJ
+FinancialJuice,142196,1792692108,False,True,41,rating,,Notable but not immediate market impact.,0.75,Trump called Musk and asked him to lift Ukraine Starlink restrictions - WSJ|FJ
+WalterBloomberg,37278,1792692585,True,True,61,,,Request to restore military capabilities is notable.,0.87,"TRUMP ASKS MUSK TO RESTORE UKRAINE'S STARLINK CAPABILITIES Trump reportedly called Elon Musk and urged him to lift restrictions on Ukraine's military-grade Starlink service, according to the Wall Stre"
+FinancialJuice,142209,1792697229,True,True,61,,,Executive order could impact housing market.,1.03,White House: Trump signed an executive order addressing housing costs|FJ
+FinancialJuice,142210,1792697247,True,True,61,,,Potentially market-moving housing policy announcement.,1.0,White House: Trump decreases housing costs for Americans|FJ
+FinancialJuice,142217,1792698901,False,False,30,speaker,,"Routine discussion, unlikely to move markets.",0.82,US Treasury Secretary Bessent and Paraguay's Pena discussed critical minerals - US Treasury|FJ
+FinancialJuice,142220,1792700206,False,False,20,speaker,,"Vague statement, no new information.",0.9,Trump on Russia and Ukraine: We'll see how it works out|FJ
+FinancialJuice,142221,1792700426,False,False,20,speaker,,"Post discusses market trends, no principal action.",1.08,Tech Selloff and Middle East Tensions Trigger Treasury Rally as Oil Surges - US Market Wrap|FJ
+FinancialJuice,142226,1792700809,False,False,30,speaker,,"Vague statement, lacks immediate market impact.",0.86,Trump on Iran: May do it a little bit further|FJ
+FinancialJuice,142227,1792700921,False,False,10,speaker,,No substantive content or market impact.,0.99,Trump ends remarks at the White House|FJ
+WalterBloomberg,37282,1792701555,True,True,75,,,Threat of further military action is notable.,0.85,TRUMP WARNS OF FURTHER STRIKES ON IRAN President Trump says the U.S. has “knocked the hell out of Iran” and “may do it a little bit further.” (@WalterBloomberg)
+FinancialJuice,142229,1792701839,True,True,75,,,Significant policy move affecting energy markets.,0.81,Trump invokes the Defense Production Act for Petroleum capacity|FJ
+FinancialJuice,142230,1792701864,True,True,61,,,New information on defense and oil policy.,0.84,Trump sends US Sec. of Defense Hegseth memo about the Defense Production Act and oil|FJ
+FinancialJuice,142300,1792732446,False,False,20,speaker,,No market-moving information provided.,0.86,White House AI task force member Michael Kratsios explains|FJ
+FinancialJuice,142301,1792732448,False,False,10,speaker,,Post does not report a statement or action.,0.88,Donald J. Trump: Chuck Gray has been...|FJ
+FinancialJuice,142310,1792732477,False,True,10,rating,,"Routine statement, unlikely to impact markets.",0.87,Donald J. Trump: I am grateful to my supporters|FJ
+FinancialJuice,142312,1792732481,False,True,10,rating,,"Routine statement, unlikely to impact markets.",0.84,Donald J. Trump says it is my great honor|FJ
+FinancialJuice,142351,1792743960,False,True,41,rating,,Routine statement about fiscal rules.,0.96,UK Treasury Minister Murray: UK fiscal rules underpin the economy's stability|FJ
+FinancialJuice,142352,1792743984,False,False,30,speaker,,Routine statement about the budget context.,0.99,UK Treasury Minister Murray: UK budget takes place in an uncertain world|FJ
+FinancialJuice,142353,1792744108,False,False,30,speaker,,"Routine statement, unlikely to move markets.",1.09,UK Treasury Minister Murray: The UK is focused on entrepreneurs and helping businesses grow|FJ
+FinancialJuice,142354,1792744120,False,False,30,speaker,,Routine comment on economic conditions.,0.7,UK Treasury Minister Murray: Period of unprecedented global economic unstability|FJ
+FinancialJuice,142375,1792761525,False,False,20,speaker,,"Speculative claim, no official statement.",0.89,Melania Trump secures Russia-Ukraine ceasefire localized to Oleshky|FJ
+FinancialJuice,142376,1792761565,True,True,61,,,Ceasefire announcement could impact markets.,0.79,White House on the localised ceasefire between Ukraine and Russia: Ceasefire will begin on October 29th|FJ
+WalterBloomberg,37289,1792762825,False,True,41,rating,,Timing of aid could impact farmers' sentiment.,0.77,"TRUMP ADMINISTRATION'S $8 BILLION IN DIESEL AID FOR FARMERS WILL NOT ARRIVE BEFORE NOVEMBER 3 ELECTION, SAYS ADMINISTRATION OFFICIAL (@WalterBloomberg)"
+FinancialJuice,142381,1792762877,False,True,41,rating,,"Routine announcement, not a surprise.",1.02,Trump Administration's $8 billion in diesel aid for farmers will not arrive before the November 3rd election - Administration Official|FJ
+WalterBloomberg,37292,1792763307,False,False,55,speaker,,Notable economic data but no principal speaking.,0.91,"U.S. ECONOMY BOOMS, BUT INFLATION WARNING FLASHES RED October's flash S&P Global PMI signals strong economic growth alongside accelerating inflation. 🔸 Composite PMI: 57.6 vs. 58.4 prior 🔸 Services PM"
+WalterBloomberg,37299,1792766958,False,False,30,speaker,,"Routine legal action, unlikely to move markets.",0.89,"TRUMP ADMINISTRATION SUES TO BLOCK ALASKA SENATE RACE CERTIFICATION IF REPUBLICAN LOSES, CITING CANDIDATE NAME CONFUSION -AP REPORTER ON X (@WalterBloomberg)"
+FinancialJuice,142401,1792767026,False,False,15,speaker,,Post mentions speakers but no statements made.,0.9,"Trump and UK's PM Burnham to speak today as Ukraine, Iran tensions mount|FJ"
+FinancialJuice,142403,1792767174,False,True,41,rating,,"Comments on ceasefire, mildly notable impact.",2.66,Trump on Melania-brokered ceasefire: Both sides wanted to do it|FJ
+WalterBloomberg,37301,1792767187,False,True,41,rating,,"Comments on Starlink access, mildly notable.",0.73,"TRUMP ON ACCESS TO STARLINK IN UKRAINE: IF THERE IS PROBLEM, I'LL GET IT STRAIGHTENED OUT (@WalterBloomberg)"
+WalterBloomberg,37302,1792767265,False,True,21,rating,,"Routine comment, unlikely to move markets.",1.18,- TRUMP ON ACCESS TO STARLINK IN UKRAINE: HAVE NOT SPOKEN TO MUSK (@WalterBloomberg)
+WalterBloomberg,37303,1792767278,False,True,41,rating,,"Comments on a specific issue, not market-moving.",0.94,"TRUMP ON ACCESS TO STARLINK IN UKRAINE: IF IT'S NOT FIXED, I'LL SPEAK TO MUSK (@WalterBloomberg)"
+WalterBloomberg,37304,1792767380,True,True,61,,,Potential impact on geopolitical tensions and oil markets.,1.93,TRUMP: WE COULD END IRAN WAR VERY QUICKLY (@WalterBloomberg)
+FinancialJuice,142404,1792767402,True,True,61,,,Potential impact on geopolitical tensions and oil markets.,0.95,Trump: We could end the Iran war very quickly|FJ
+WalterBloomberg,37305,1792767421,True,True,61,,,Remarks suggest potential policy shift on Iran.,0.98,TRUMP ON IRAN: DO WE WANT TO FINISH IT OR LET IT WITHER IS THE QUESTION (@WalterBloomberg)
+FinancialJuice,142405,1792767445,False,True,41,rating,,"Vague statement, not a clear policy shift.",0.89,Trump on Iran: Do we want to finish it or let it wither is the question|FJ
+WalterBloomberg,37306,1792767472,True,True,61,,,Potentially significant geopolitical implications.,0.95,TRUMP: WE COULD TAKE ALL OF THE OIL IN IRAN (@WalterBloomberg)
+FinancialJuice,142406,1792767504,True,True,61,,,Comments on oil supply could impact markets.,0.94,Trump on Hormuz: We're taking out all the oil we want|FJ
+WalterBloomberg,37308,1792767667,True,True,61,,,Discussion on oil could impact markets.,2.41,TRUMP: SPOKE WITH BRITISH FOREIGN MINISTER TODAY TRUMP: DISCUSSED OPENING UP NORTH SEA OIL (@WalterBloomberg)
+FinancialJuice,142407,1792767673,False,False,10,speaker,,No market-moving content or details provided.,0.78,Trump: Spoke with British PM today|FJ
+WalterBloomberg,37309,1792767697,True,True,61,,,Potential trade deal could impact markets.,1.06,TRUMP: VERY CLOSE TO DEAL WITH MEXICO (@WalterBloomberg)
+FinancialJuice,142408,1792767701,False,True,40,rating,,"Routine discussion, unlikely to impact markets.",0.78,Trump: Discussed North Sea oil with UK's PM Burnham:|FJ
+WalterBloomberg,37311,1792767717,False,True,41,rating,,"Comments on trade negotiations, mildly notable.",1.03,TRUMP: CANADA IS WORKING HARD TO MAKE DEAL WITH US (@WalterBloomberg)
+FinancialJuice,142409,1792767718,False,True,21,rating,,"Routine statement, unlikely to impact markets.",0.87,Trump: Canada is working hard to make a deal with us|FJ
+WalterBloomberg,37313,1792768199,True,True,61,,,Ceasefire discussions could impact markets.,0.92,KREMLIN SAYS RUSSIAN AND UKRAINIAN MILITARIES ARE WORKING OUT CEASEFIRE DATES KREMLIN SAYS CIVILIANS WHO WANT TO LEAVE OLESHKY WILL BE ABLE TO DO SO KREMLIN SAYS MELANIA TRUMP COORDINATED THE AGREEMEN
+FinancialJuice,142412,1792768255,False,False,20,speaker,,Noise about Melania Trump's involvement.,0.94,"Kremlin hails Melania Trump's input on Oleshky humanitarian agreement; says she coordinated the deal, discussed by Putin and Trump in a recent phone call|FJ"
+WalterBloomberg,37314,1792768321,False,True,40,rating,,"Routine comment, unlikely to move markets.",1.04,TRUMP ON ACCESS TO STARLINK IN UKRAINE: MUSK WON'T DO ANYTHING WRONG (@WalterBloomberg)
+FinancialJuice,142415,1792768323,False,True,21,rating,,"Routine comment, unlikely to move markets.",1.15,Trump: Need to protect geniuses like Musk|FJ
+FinancialJuice,142416,1792768434,False,False,10,speaker,,No substantive content or market impact.,0.94,Trump ends remarks to reporters|FJ
+FinancialJuice,142417,1792769883,False,False,30,speaker,,Routine commentary on Japan's defense spending.,1.2,"Japan weighs rebranding energy, AI as defense spending under Trump pressure - Nikkei|FJ"
+FinancialJuice,142430,1792777812,False,False,30,speaker,,"Routine expectation, not a confirmed action.",0.92,Trump Expected to Remove Some Tariffs on Canada in Bid to Help Susan Collins - WSJ|FJ
+WalterBloomberg,37319,1792779073,True,True,61,,,Potential tariff changes could impact markets.,0.86,"TRUMP REPORTEDLY PLANS TO EASE 50% TARIFFS ON CANADA The Trump administration is reportedly preparing to remove 50% tariffs on certain Canadian agricultural and forestry products, potentially as early"
+FinancialJuice,142438,1792784097,False,True,41,rating,,"Vague statement, potential geopolitical implications.",0.95,Trump: We'll take care of Cuba on our way back from Iran.|FJ
+FinancialJuice,142439,1792784144,False,False,10,speaker,,Post does not report any statements or actions.,1.07,"Trump Holds a Rally in Ft. Myers, FL - WATCH LIVE|FJ"
+FinancialJuice,142440,1792784190,True,True,61,,,New information on diplomatic action.,1.21,Trump on Cuba: We will send US Secretary of State Rubio in to finish up the deal.|FJ
+FinancialJuice,142443,1792784250,False,True,21,rating,,"Routine comment, unlikely to impact markets.",0.9,"Trump: I doubt Iran will say ""let's get down to business"".|FJ"
+FinancialJuice,142444,1792784344,True,True,61,,,Tariff modifications can impact trade and markets.,0.76,Trump further modifies Canadian products subject to tariffs under Section 338 to take effect on October 30th - White House.|FJ
+FinancialJuice,142445,1792784450,False,True,41,rating,,"Comments on a geopolitical issue, mildly notable.",0.9,"Trump: We're close to ending, I hope, the Russia-Ukraine war.|FJ"
+WalterBloomberg,37320,1792785669,False,True,21,rating,,"Routine statement, unlikely to impact markets.",0.82,*TRUMP: WE'LL TAKE CARE OF CUBA ON OUR WAY BACK FROM IRAN (@WalterBloomberg)
+WalterBloomberg,37321,1792785693,True,True,61,,,Potential military action could impact markets.,0.77,TRUMP ON IRAN: WE MAY DO ANOTHER OPERATION AGAINST IRAN (@WalterBloomberg)
+WalterBloomberg,37322,1792785737,False,True,21,rating,,"Routine commentary, unlikely to move markets.",0.99,*TRUMP: I DOUBT IRAN WILL SAY 'LET'S GET DOWN TO BUSINESS' (@WalterBloomberg)
+FinancialJuice,142538,1792972799,False,True,10,rating,,Announcement of a national park is routine.,0.78,Trump announces newest flagship national park in US: Chiricahua National Park in Arizona|FJ
+WalterBloomberg,37336,1793007351,False,False,35,speaker,,"Routine expectation, already priced in.",0.73,OCTOBER HOLD PRICED IN. WALL STREET EYES DECEMBER HIKE. Goldman Sachs expects the Fed to hold rates this week before raising them 25 basis points in December. Kalshi traders price a 93% chance of an O
+WalterBloomberg,37342,1793009941,True,True,61,,,Messaging could impact markets significantly.,0.77,"FED EXPECTED TO HOLD RATES AS DECEMBER HIKE LOOMS The Federal Reserve is expected to hold rates this week, with markets heavily favoring another hike in December. Chair Kevin Warsh faces a key communi"
+WalterBloomberg,37365,1793017885,False,False,45,speaker,,"Mixed signals, mildly notable economic data.",0.86,"U.S. ECONOMIC GROWTH REBOUNDS IN SEPTEMBER The Chicago Fed National Activity Index rose to +0.07 from -0.08, signaling growth slightly above its historical trend. Production strengthened, while employ"
+WalterBloomberg,37367,1793018417,False,False,15,speaker,,"Political commentary, no market-moving content.",0.97,DEMOCRATS LAY GROUNDWORK TO PROBE TRUMP'S DIESEL DEAL: AXIOS (@WalterBloomberg)
+FinancialJuice,142644,1793025042,False,False,50,speaker,,Mildly notable economic data release.,0.77,"DALLAS FED MFG. BUS. INDEX ACTUAL 13.40 (FORECAST 8.8, PREVIOUS 9.80) $MACRO|FJ"
+FinancialJuice,142645,1793025224,False,False,20,speaker,,"Post is a report, not a statement.",0.75,Dallas Fed Manufacturing Business Index October Report|FJ
+FinancialJuice,142650,1793026949,True,True,61,,,Debt buyback is a notable market action.,0.74,US Treasury to buy back up to $6 bln in longer-dated debt Tuesday.|FJ
+FinancialJuice,142652,1793027742,False,False,20,speaker,,"Post discusses prices, no principal action.",1.11,Trump’s Gasoline prices surpass biden average ahead of the midterms|FJ
+FinancialJuice,142653,1793027751,False,False,30,speaker,,"Routine auction results, already priced in.",0.75,Fed bids for 6-month bills total $7.3 bln|FJ
+FinancialJuice,142654,1793027775,False,False,30,speaker,,"Routine auction results, already priced in.",0.76,Fed bids for 3-month bills total $8.5 bln|FJ
+FinancialJuice,142671,1793034036,False,False,20,speaker,,"Routine yield information, no market impact.",2.39,Treasury WI 2 Yr yield 4.705% before $69 billion auction|FJ
+WalterBloomberg,37413,1793044168,False,True,21,rating,,"Routine political statement, unlikely to impact markets.",1.03,TRUMP OFFERS $1 MILLION FOR VOTER FRAUD REPORTS President Trump says anyone reporting voter fraud in past elections or the 2026 midterms will receive $1 million if the report leads to an arrest and co
+WalterBloomberg,37416,1793048176,False,False,20,speaker,,Poll results are routine and expected.,0.71,"US PRESIDENT TRUMP'S PUBLIC APPROVAL RISES TO 32% FROM RECORD LOW A WEEK EARLIER, REUTERS/IPSOS POLL FINDS (@WalterBloomberg)"
+FinancialJuice,142720,1793053338,False,False,20,speaker,,"Routine legal update, unlikely to impact markets.",0.93,US appeals court rejects Trump administration request to halt California counting mail ballots from suspected noncitizens|FJ
+FinancialJuice,142861,1793109650,False,False,30,speaker,,"Routine data release, already priced in.",1.29,"RICHMOND FED COMP. INDEX ACTUAL -2 (FORECAST 0, PREVIOUS -2) $MACRO|FJ"
+FinancialJuice,142882,1793114164,False,False,30,speaker,,"Routine auction results, already priced in.",0.75,Fed bids for 52-Week bills total $4.8 bln|FJ
+WalterBloomberg,37456,1793114854,False,True,41,rating,,"Comments on consumer confidence, mildly notable.",0.77,TRUMP ON TRUTH SOCIAL LAUDS 'EXTREMELY BIG RISE' IN OCTOBER CONSUMER CONFIDENCE (@WalterBloomberg)
+FinancialJuice,142889,1793115422,False,False,10,speaker,,Post only announces a live event.,0.73,WATCH LIVE: Trump Speaks|FJ
+FinancialJuice,142892,1793115559,True,True,61,,,New information on oil imports could impact markets.,0.82,Trump: We're going to accept 1m barrels of Venezuelan oil|FJ
+FinancialJuice,142893,1793115618,False,False,10,speaker,,No substantive content from Trump.,0.81,Trump ends remarks to reporters|FJ
+WalterBloomberg,37458,1793115621,False,True,41,rating,,"Comments on a potential visit, not market-moving.",0.89,TRUMP: BELIEVE I WILL VISIT TANKER IN TEXAS WITH VENEZUELA OIL TRUMP: THINK RUBIO WILL BE WITH ME (@WalterBloomberg)
+WalterBloomberg,37459,1793115672,True,True,61,,,Significant policy announcement on oil supply.,1.02,TRUMP: WE'RE GOING TO ACCEPT 1 MILLION BARRELS OF OIL (@WalterBloomberg)
+WalterBloomberg,37460,1793115700,False,True,21,rating,,"Routine statement, already expected outcome.",0.94,TRUMP SAYS WILL ACCEPT ELECTION RESULTS IF ELECTIONS ARE HONEST (@WalterBloomberg)
+FinancialJuice,142896,1793116636,False,False,20,speaker,,No significant market-moving information provided.,0.75,Melania Trump: Local ceasefire in Ukraine has begun|FJ
+WalterBloomberg,37461,1793116823,False,True,41,rating,,Localized ceasefire may impact market sentiment.,1.04,FIRST LADY MELANIA TRUMP: LOCALIZED CEASEFIRE HAS BEEN EXPANDED BEYOND OLESHKY WITHIN KHERSON REGION (@WalterBloomberg)
+WalterBloomberg,37462,1793117733,True,True,61,,,Potential regulatory impact on tech markets.,2.8,"TRUMP: IN SHORT ORDER, WE WILL BE OFFICIALLY BANNING TERM, ""AI/ARTIFICIAL INTELLIGENCE,"" IN ALL RELEVANT DOCUMENTS (@WalterBloomberg)"
+FinancialJuice,142907,1793120444,False,False,20,speaker,,"Just a yield report, no action.",0.73,Treasury WI 5y yield 4.841% before the $70 billion auction|FJ
+FinancialJuice,142913,1793120798,False,True,41,rating,,Routine statement about oil shipment.,0.81,Trump: 100m barrels of Venezuelan oil is just the 1st shipment|FJ
+FinancialJuice,142914,1793120890,True,True,61,,,New information on oil shipments could impact markets.,0.91,Trump: 1 mln barrels of Venezuelan oil is just the 1st shipment|FJ
+WalterBloomberg,37466,1793121666,True,True,61,,,New information about oil supply could impact markets.,0.79,Trump on Truth Social: 'I Am Traveling to Corpus Christi ... Where the US Will Receive 1M Barrels of Venezuelan Oil As a Result of Our Highly Successful Military Operation' (@WalterBloomberg)
+WalterBloomberg,37467,1793121832,True,True,61,,,Potential impact on inflation and consumer sentiment.,0.74,Trump on Truth Social: 'Gasoline and Diesel Prices Will Soon Come Plummeting Down' (@WalterBloomberg)
+WalterBloomberg,37468,1793121869,True,True,61,,,Comments on energy dominance could impact markets.,0.88,"Trump on Truth Social: 'This is the First Shipment of BILLIONS of Barrels to Come' Trump on Truth Social: 'By Unleashing Energy Dominance From Alaska, All the Way Down to Venezuela, I Have Made the WE"
+FinancialJuice,142918,1793124165,False,False,40,speaker,,"Routine buyback announcement, already expected.",1.03,"Treasury receives $10.746B of offers for buyback, accepts $6B; buyback targets coupons maturing in 2046-2056, accepts 6 of 35 eligible issues.|FJ"
+FinancialJuice,142919,1793124184,False,False,40,speaker,,"Routine announcement, likely already priced in.",0.76,"Treasury accepts $6b of offers for buyback, matching the maximum.|FJ"
+WalterBloomberg,37473,1793127572,False,False,20,speaker,,No direct statement from a principal.,0.99,*BOLSONARO ALLIES SAY TRUMP GOVT SIGNALED ASYLUM: CNN BRASIL (@WalterBloomberg)
+FinancialJuice,142933,1793128017,False,False,10,speaker,,Post does not contain actual statements.,0.71,Trumps Speaks live|FJ
+WalterBloomberg,37475,1793128445,True,True,61,,,Potential policy shift on environmental regulations.,0.77,TRUMP TO ANNOUNCE RELAXED RULES ON OIL FIRMS' METHANE LEAKS -WAPO (@WalterBloomberg)
+WalterBloomberg,37477,1793130138,False,False,10,speaker,,Post does not contain any substantive content.,0.88,TRUMP LIVE https://t.co/UYJCOtsweC (@WalterBloomberg)
+FinancialJuice,142941,1793130430,False,False,30,speaker,,"Speculation about Trump's comments, not a direct statement.",1.13,Trump suggests Venezuela could become a US state|FJ
+WalterBloomberg,37478,1793130541,False,True,41,rating,,"Comment on Venezuela, mildly notable impact.",0.72,TRUMP: VENEZUELA COULD BECOME THE 51ST STATE (@WalterBloomberg)
+FinancialJuice,142942,1793130584,False,False,30,speaker,,"Routine statement, already priced in.",1.01,Trump reiterates that oil is flowing out of the Hormuz Strait|FJ
+FinancialJuice,142952,1793132084,False,False,20,speaker,,"Post discusses market trends, no principal speaking.",0.79,Tech Stocks Rally Ahead of Big Earnings and Fed Decision – US Market Wrap|FJ
+WalterBloomberg,37483,1793186046,False,False,61,speaker,,Potential military action could impact markets.,0.79,"US WARNS GULF ALLIES OF POSSIBLE NEW IRAN STRIKES AFTER MIDTERMS The US has warned several Gulf Arab countries to prepare for a short, intense military campaign against Iran after the November midterm"
+WalterBloomberg,37489,1793192702,False,False,35,speaker,,Routine commentary on Fed expectations.,0.88,"FED PAUSE TODAY. TWO MORE HIKES AHEAD? UBS expects two additional Fed rate hikes by mid-2027, yet sees the S&P 500 reaching 8,400 by June. For today’s decision, Kalshi traders price a 95% chance of un"
+FinancialJuice,143242,1793195104,False,False,30,speaker,,"Routine announcement, likely already priced in.",0.87,Britain plans to extend upcoming carbon border tax to include refined products - Treasury Documents Show.|FJ
+FinancialJuice,143271,1793196883,False,False,30,speaker,,"Routine announcement, likely already priced in.",0.86,Britain to reform electricity standing charges -Treasury Documents.|FJ
+FinancialJuice,143307,1793200911,False,False,30,speaker,,"Routine report, not a direct statement.",1.17,"White House study sees growth, wage gains from Permitting Bill|FJ"
+FinancialJuice,143310,1793203960,False,True,21,rating,,"Routine comment, not market-moving.",1.07,Trump on the possibility that he will work for a unity government in Israel: I will look into it - Israel's Hayom News|FJ
+FinancialJuice,143313,1793204379,False,False,30,speaker,,"Routine statement, already priced in.",0.94,Senior US diplomatic official: Trump remains determined to completely neutralize Iran's military nuclear program and remove military threats to Strait of Hormuz and Iran's neighbors - Israel's Hayom N
+FinancialJuice,143433,1793217660,False,False,30,speaker,,"Routine mention of Trump, no market impact.",1.0,"Vance sent letter at direction of Trump who is aware of continuing outreach, one person said - WSJ|FJ"
+WalterBloomberg,37543,1793217995,True,True,61,,,Potential for renewed talks could impact markets.,1.07,VANCE OPENS DIRECT CHANNEL TO IRAN AS US STRIKES LOOM Vice President JD Vance has reportedly contacted Iranian security chief Mohsen Rezaei in an effort to restart peace negotiations before potential 
+WalterBloomberg,37544,1793218340,False,False,30,speaker,,"Opinion on Fed's stance, not a statement.",1.23,"BESSENT: THINK WE ARE GETTING ENERGY SUPPLY SHOCK, THINK FED SHOULD HAVE AN OPEN MIND (@WalterBloomberg)"
+WalterBloomberg,37545,1793218350,False,False,20,speaker,,"Speculation on GDP, not a principal.",0.9,BESSENT: THINK WE WILL GET STRONG GDP NUMBER FOR THIRD QUARTER (@WalterBloomberg)
+WalterBloomberg,37546,1793218367,False,False,20,speaker,,"Commentary on confidence, not a decision.",0.74,BESSENT: HE AND TRUMP HAVE A LOT OF CONFIDENCE IN WARSH (@WalterBloomberg)
+FinancialJuice,143443,1793218406,False,True,30,rating,,Routine commentary on past market behavior.,0.89,US Treasury Secretary Bessent: 10-Yr yield never looked back after September 2024 Fed cut.|FJ
+FinancialJuice,143444,1793218426,False,True,40,rating,,Routine comment on bond market conditions.,0.69,"US Treasury Secretary Bessent: As Warsh said, bonds done a lot of tightening for us.|FJ"
+WalterBloomberg,37547,1793218442,False,False,30,speaker,,Routine commentary on Fed's inflation target.,1.0,BESSENT: FED IS VERY ATTENTIVE TO BEING ABOVE INFLATION TARGET FOR A LONG TIME (@WalterBloomberg)
+FinancialJuice,143445,1793218479,False,True,40,rating,,"Routine statement, already priced in.",1.03,US Treasury Secretary Bessent repeats there is a big correlation between yields and oil prices.|FJ
+FinancialJuice,143447,1793218572,True,True,61,,,New information on Iran policy impact.,0.76,US Treasury Secretary Bessent: Operation Outcast on Iran is succeeding.|FJ
+WalterBloomberg,37548,1793218684,False,False,30,speaker,,Routine commentary on Iran's financial situation.,0.79,"BESSENT: IRAN IS NOT ABLE TO GET DOLLARS, AND FUNDING FOR THEIR PROXIES IS GOING DOWN - CNBC (@WalterBloomberg)"
+FinancialJuice,143449,1793218689,True,True,61,,,Significant statement on Iran's funding impacting markets.,0.89,"US Treasury Secretary Bessent: Iran is not able to get dollars, and funding for their proxies is going down - CNBC|FJ"
+FinancialJuice,143451,1793218743,False,True,40,rating,,Routine opinion on AI borrowing.,0.8,US Treasury Secretary Bessent: I don't think AI borrowing is problematic at all.|FJ
+FinancialJuice,143452,1793218749,False,True,41,rating,,"Comments on debt spreads, mildly notable.",0.92,US Treasury Secretary Bessent: I don't see widening spreads on al-issuer debt as problematic - CNBC|FJ
+FinancialJuice,143453,1793218778,False,True,41,rating,,"Comments on financing activity, mildly notable.",0.97,US Treasury Secretary Bessent: We're still seeing deals get done; Meta is financing with equity. $META|FJ
+FinancialJuice,143454,1793218800,False,True,30,rating,,"Routine comment, unlikely to move markets.",0.87,US Treasury Secretary Bessent: France has a tough hand.|FJ
+FinancialJuice,143455,1793218869,False,True,30,rating,,Routine commentary on Trump's agenda.,0.79,"US Treasury Secretary Bessent: A lot of Trump economic agenda is baked in, like tax cuts.|FJ"
+FinancialJuice,143456,1793218903,False,True,41,rating,,Comments on consumer and business behavior.,0.94,"US Treasury Secretary Bessent: Consumer behavior is quite strong, business behavior is quite strong.|FJ"
+FinancialJuice,143457,1793218926,False,True,41,rating,,Comments on trade deals are somewhat notable.,0.94,US Treasury Secretary Bessent: In general the trade deals are pretty locked in.|FJ
+FinancialJuice,143458,1793218946,False,False,10,speaker,,Post reports on a concluded appearance.,0.75,US Treasury Secretary Bessent appearance on CNBC concludes.|FJ
+FinancialJuice,143459,1793219081,False,False,30,speaker,,Routine update on Fed's decision.,1.02,Stocks Edge Higher as Fed Holds Rates and Leaves December Outlook Uncertain – US Market Wrap|FJ
+FinancialJuice,143515,1793234430,False,True,41,rating,,Routine statement on bond issuance assessment.,0.84,S. Korea finance minister: to carefully assess treasury bond issuance volume for November|FJ
+FinancialJuice,143516,1793234476,True,True,61,,,Potential market impact from bond repurchase announcement.,2.59,S.Korea finmin: to carry out treasury bond repurchase if needed|FJ
+FinancialJuice,143561,1793260904,False,False,30,speaker,,"Routine announcement, likely already priced in.",0.8,South Korea to issue 12t won of treasury bonds in November.|FJ
+WalterBloomberg,37558,1793275110,False,True,30,rating,,"Routine campaign statement, not market-moving.",0.75,"TRUMP CLAIMS RECORD MIDTERM CROWDS AND 99% GOP APPROVAL President Trump claims his midterm rally crowds are five times larger than historical records, with 99% approval among Republicans. Trump also a"
+WalterBloomberg,37571,1793281050,False,False,30,speaker,,"Routine announcement, already expected.",0.79,TRUMP ADMINISTRATION PROMISED TARIFF RELIEF IN TALKS TO SECURE U.S. AUDI FACTORY (@WalterBloomberg)
+WalterBloomberg,37572,1793281111,True,True,61,,,Tariff relief proposal could impact markets.,0.89,"TRUMP OFFERS TARIFF RELIEF TO AUTOMAKERS INVESTING IN THE US The Trump administration reportedly plans tariff relief for automakers expanding US manufacturing, following talks over Audi's $4 billion G"
+FinancialJuice,143628,1793281117,False,False,30,speaker,,Routine mention of tariff relief talks.,1.08,Trump Administration Promised Tariff Relief in Talks to Secure US Audi Factory - WSJ.|FJ
+FinancialJuice,143655,1793282156,False,True,41,rating,,"Positive GDP comment, mildly notable impact.",0.91,US Treasury Secretary Bessent: Great GDP number|FJ
+WalterBloomberg,37574,1793282415,False,False,30,speaker,,"Routine commentary, not a direct statement.",0.86,HASSETT: TRUMP BELIEVES RATES CAN BE LOWER (@WalterBloomberg)
+FinancialJuice,143691,1793284624,False,False,10,speaker,,Post only announces a live event.,0.79,WATCH LIVE: Trump Speaks|FJ
+FinancialJuice,143692,1793284754,False,False,30,speaker,,"Speculation on Fed action, not a statement.",0.87,"WH Sr. Adviser Hassett: If Oct. inflation is really high, Fed probably to act.|FJ"
+FinancialJuice,143697,1793284996,False,False,10,speaker,,No substantive content from Trump.,0.86,Trump concludes remarks|FJ
+FinancialJuice,143712,1793293236,False,False,30,speaker,,"Routine auction information, not market-moving.",0.89,Treasury WI 7y yield 4.894% before $44 billion auction|FJ
+FinancialJuice,143720,1793294615,False,False,10,speaker,,Post only announces a live event.,0.71,WATCH LIVE: Trump Speaks at Rally|FJ
+WalterBloomberg,37599,1793294827,False,True,40,rating,,Routine comment on Fed policy expectations.,0.79,TRUMP: FED HATES TO CUT INTEREST RATES (@WalterBloomberg)
+WalterBloomberg,37602,1793295638,True,True,61,,,Notable inflation data that may impact markets.,0.88,DALLAS FED'S TRIMMED MEAN PCE PRICE INDEX +2.8% ANNUALIZED IN SEPTEMBER VS AUGUST +2.0% (@WalterBloomberg)
+WalterBloomberg,37604,1793296065,True,True,61,,,Comments on military operations may impact markets.,0.78,TRUMP SAYS US MILITARY OPERATIONS AGAINST IRAN ARE GOING VERY WELL (@WalterBloomberg)
+FinancialJuice,143726,1793296085,False,False,20,speaker,,"Routine statement, no new information.",0.67,Trump reiterates Iran will be over very soon|FJ
+WalterBloomberg,37606,1793296157,False,True,41,rating,,"Reiteration of a statement, not new information.",1.01,TRUMP REITERATES IRAN WILL BE OVER VERY SOON (@WalterBloomberg)
+WalterBloomberg,37608,1793296224,True,True,75,,,Significant geopolitical statement with potential market impact.,2.96,TRUMP SAYS US HAD TO ATTACK IRAN TO PREVENT IT FROM ACQUIRING NUCLEAR WEAPON (@WalterBloomberg)
+FinancialJuice,143730,1793297557,False,True,20,rating,,"Routine comment, unlikely to impact markets.",0.77,Trump: Canada has been treating us nicely lately.|FJ
+WalterBloomberg,37610,1793297686,False,True,20,rating,,"Routine comments, unlikely to impact markets.",3.22,TRUMP REITERATES GULF OF MEXICO RENAMED GULF OF AMERICA TRUMP FLOATS RENAMING STRAIT OF HORMUZ AS TRUMP STRAIT (@WalterBloomberg)
+WalterBloomberg,37611,1793298157,True,True,70,,,New information on oil production collaboration.,1.07,TRUMP SAYS US WORKING WITH VENEZUELA TO PRODUCE MILLIONS OF BARRELS OF OIL FOR US (@WalterBloomberg)
+WalterBloomberg,37612,1793298660,True,True,75,,,Significant proposal could impact markets.,0.76,"TRUMP PROMISES $5,000 PAYMENT TO EVERY ADULT US CITIZEN IF REPUBLICANS WIN HOUSE, SENATE TRUMP ESTIMATES $5,000 DIVIDEND WOULD COST ABOUT $1 TRILLION, SAYS TARIFF REVENUE WOULD HELP FUND IT TRUMP SAYS"
+WalterBloomberg,37613,1793298667,True,True,61,,,Warning about economic consequences is notable.,0.89,TRUMP WARNS DEMOCRATIC MIDTERM VICTORY WOULD TRIGGER 1929-STYLE ECONOMIC DEPRESSION (@WalterBloomberg)
+WalterBloomberg,37614,1793298676,False,True,41,rating,,Prediction lacks new information or policy shift.,2.36,"TRUMP PREDICTS OIL, GASOLINE PRICES WILL FALL SHARPLY (@WalterBloomberg)"
+FinancialJuice,143737,1793300082,False,True,41,rating,,"Routine statement, already priced in.",1.28,Trump: The US economy is booming at 3.4% GDP - Truth Social.|FJ
+FinancialJuice,143739,1793301283,False,False,20,speaker,,"Speculative briefing, no direct market impact.",1.13,Top Admiral Briefs Trump On Iran Attack Options - WSJ|FJ
+WalterBloomberg,37622,1793318364,True,True,61,,,Potentially significant geopolitical development.,0.99,"UKRAINE REPORTEDLY HALTS STRIKES ON RUSSIAN REFINERIES AFTER TRUMP PRESSURE Ukraine has reportedly paused attacks on Russian oil refineries following pressure from President Donald Trump, according to"
+FinancialJuice,143981,1793360314,True,True,61,,,Potential geopolitical impact on markets.,0.89,"Trump: Iran war will end very soon, one way or another.|FJ"
+WalterBloomberg,37626,1793360538,True,True,61,,,Comments on potential resolution of conflict.,0.98,TRUMP ON IRAN WAR: IT'S GOING TO GET WRAPPED UP SOON -KCMO RADIO INTERVIEW (@WalterBloomberg)
+FinancialJuice,143985,1793360552,False,True,41,rating,,"Routine statement, not new information.",1.13,Trump: Iran has to make a deal.|FJ
+WalterBloomberg,37627,1793360556,True,True,61,,,Remarks on Iran's nuclear weapons are notable.,0.77,TRUMP ON IRAN: WE NEED A GUARANTEE THERE WILL NEVER BE A NUCLEAR WEAPON (@WalterBloomberg)
+FinancialJuice,143986,1793360615,True,True,61,,,Potentially significant geopolitical implications.,0.84,Trump on Iran: We need a guarantee there will never be a nuclear weapon.|FJ
+FinancialJuice,143987,1793360634,False,False,30,speaker,,"Routine briefing, not market-moving news.",0.76,Trump briefed Thursday on potential military options in Iran - Fox|FJ
+WalterBloomberg,37629,1793361145,False,False,30,speaker,,"Routine briefing, unlikely to move markets.",0.73,*TRUMP BRIEFED THURS. ON POTENTIAL MILITARY OPTIONS IN IRAN: FOX (@WalterBloomberg)
+WalterBloomberg,37630,1793361203,False,True,41,rating,,"Comments on Iran, mildly notable but routine.",0.91,"*TRUMP: DON'T KNOW WHO TO TALK WITH, A LOT OF IRAN LEADERS GONE *TRUMP: IRAN HAS TO MAKE A DEAL (@WalterBloomberg)"
+FinancialJuice,143991,1793361753,False,False,30,speaker,,Routine commentary on geopolitical tensions.,0.89,Kremlin: Ukraine is ignoring Trump's request to stop attacks on Russian refineries.|FJ
+WalterBloomberg,37634,1793361892,False,False,45,speaker,,"Indications of progress, but not decisive.",0.88,"QATARI MEDIATORS IN IRAN AS US PEACE TALKS SHOW SIGNS OF PROGRESS Qatari mediators arrived in Tehran on Friday to present revised terms of a proposal aimed at ending the US-Iran conflict, according to"
+FinancialJuice,144011,1793367269,False,False,30,speaker,,"Routine statement, already priced in.",0.99,Fed's Barkin: The Fed has signaled a gradual approach.|FJ
+FinancialJuice,144012,1793367293,False,False,20,speaker,,"Vague statement, no immediate market impact.",2.28,Fed's Barkin: We'll see what we learn over the next period.|FJ
+FinancialJuice,144013,1793367312,False,True,40,rating,,Routine commentary on Fed policy pace.,0.91,"Fed's Barkin: The direction of travel is ""straightforward"" for the Fed, the question is pace - SiriusXM Business Briefing.|FJ"
+FinancialJuice,144014,1793367345,False,False,30,speaker,,Routine commentary on cost pressures.,0.75,Fed's Barkin: A lot of cost pressures are hitting US businesses.|FJ
+FinancialJuice,144016,1793367467,False,True,41,rating,,Comments on consumer spending are notable but routine.,1.51,"Fed's Barkin: The resilience of consumer spending has been a surprise, given the relatively flat incomes.|FJ"
+FinancialJuice,144018,1793367585,True,True,61,,,Comments on inflation and Fed's response.,0.86,"Fed's Barkin: AI investment is leading to demand side inflation, which is the kind of thing the fed can lean against.|FJ"
+FinancialJuice,144020,1793367794,False,False,40,speaker,,"Routine commentary, not market-moving.",0.93,"Fed's Barkin: Business owners say demand remains solid, with only weakness among non-profits and in the housing sector|FJ"
+FinancialJuice,144021,1793367805,False,False,30,speaker,,Routine commentary on cost pressures.,1.09,Fed's Barkin: Businesses say that cost pressures are broad based.|FJ
+FinancialJuice,144022,1793367855,False,True,41,rating,,Comments on price rises are mildly notable.,1.15,Fed's Barkin: I hear from businesses on plans to pass along price rises|FJ
+FinancialJuice,144023,1793367908,False,False,10,speaker,,"Routine update, no market-moving content.",2.13,Fed's Barkin appearance on “business briefing’ ends.|FJ
+FinancialJuice,144052,1793376400,True,True,61,,,Comments on AI's impact on policy are notable.,1.05,Fed's Daly: AI really matters for how we think about policy in near and medium term.|FJ
+WalterBloomberg,37676,1793377869,True,True,75,,,Calls for rate hike indicate potential policy shift.,0.97,"FED'S MUSALEM CALLS FOR INTEREST RATE HIKE SOON AS INFLATION RISKS PERSIST Fed official Alberto Musalem says the Federal Reserve will need to raise interest rates again ""soon"" to restore price stabili"
+FinancialJuice,144058,1793377882,True,True,61,,,Comments suggest potential policy shift on rates.,0.83,Fed's Musalem: acting earlier with rate increases reduces risk to wider economy|FJ
+FinancialJuice,144060,1793377886,False,True,40,rating,,Routine statement on rate adjustments.,0.98,Fed's Musalem: gradual rate adjustments preferable to sudden moves|FJ
+FinancialJuice,144061,1793377889,False,False,40,speaker,,Routine commentary on bond yields and rates.,0.72,Fed’s Musalem: elevated long-term bond yields fueled by anticipated higher policy rates|FJ
+FinancialJuice,144063,1793377895,False,False,30,speaker,,"Routine statement, already priced in.",2.27,Fed's Musalem: current monetary policy remains accommodative|FJ
+FinancialJuice,144064,1793377897,False,False,30,speaker,,"Routine statement, already priced in.",0.82,Fed's Musalem: financial conditions continue to be accommodative|FJ
+FinancialJuice,144065,1793377906,False,False,40,speaker,,"Routine statement, already expected by markets.",0.77,Fed’s Musalem: best move now is restoring price stability|FJ
+FinancialJuice,144066,1793377908,False,False,30,speaker,,Routine commentary on financial conditions.,2.11,"Fed's Musalem: financial conditions are tighter, but only slightly|FJ"
+FinancialJuice,144067,1793377911,False,False,30,speaker,,Routine commentary on economic conditions.,0.91,Fed's Musalem: wider economy and labor market robust|FJ
+FinancialJuice,144068,1793377914,False,False,30,speaker,,Routine commentary on inflation risks.,1.03,Fed's Musalem: risks remain tilted toward elevated inflation|FJ
+FinancialJuice,144069,1793377917,False,False,30,speaker,,"Routine statement, unlikely to move markets.",0.94,Fed's Musalem: inflation expectations remain steady|FJ
+FinancialJuice,144070,1793377931,False,False,40,speaker,,"Routine commentary, already priced in.",2.15,Fed's Musalem: Q3 data confirm the underlying strength of the economy|FJ
+FinancialJuice,144081,1793379104,False,False,30,speaker,,Routine commentary on Fed communications.,1.13,Fed's Musalem: Communications is not necessarily the same as forward guidance.|FJ
+FinancialJuice,144082,1793379205,False,False,30,speaker,,Routine commentary on monetary policy rules.,0.86,Fed's Musalem: Policy rules are useful for monetary policy|FJ
+FinancialJuice,144086,1793381497,True,True,61,,,Indicates potential future rate hikes.,0.95,Fed's Logan: Fed needs at least two more quarter-point rate hikes.|FJ
+FinancialJuice,144092,1793381535,True,True,61,,,Comments indicate a potential policy shift.,2.06,Logan: inflation not returning to Fed's 2% target is 'unacceptable'|FJ
+FinancialJuice,144111,1793386391,False,False,30,speaker,,Routine commentary on existing sanctions.,0.87,US blockade & sanctions crippling Iran's economy - Treasury report cited by Axios|FJ
+FinancialJuice,144116,1793390306,False,False,10,speaker,,"Announcement of a live event, no content.",0.72,WATCH LIVE: Trump Speaks at White House|FJ
+apewirenews,1612,1793390461,False,True,41,rating,,"Comments on a hack, mildly notable.",0.94,*TRUMP: LOOKING AT BINANCE HACK: BBG $BNB @apewirenews
+FinancialJuice,144118,1793390486,False,True,40,rating,,"Routine comment, not market-moving.",0.96,Trump: Looking at Binance hack|FJ
+apewirenews,1613,1793390496,True,True,61,,,Comments on Iran could impact markets.,0.84,*TRUMP ON IRAN: THERE ARE TALKS: BBG $CL @apewirenews
+FinancialJuice,144119,1793390515,False,True,21,rating,,"Routine comment, unlikely to move markets.",0.83,Trump on Binance: It was a hack.|FJ
+FinancialJuice,144120,1793390523,False,False,20,speaker,,"Routine comment, no new information.",2.64,Trump: Binance says they have it under control|FJ
+FinancialJuice,144121,1793390529,False,False,30,speaker,,"Routine mention of talks, no new information.",0.87,Trump on Iran: There are talks|FJ
+FinancialJuice,144122,1793390543,False,True,41,rating,,"Routine comment, not significantly market-moving.",0.86,"Trump on Iran: we have time, frankly|FJ"
+FinancialJuice,144123,1793390561,True,True,61,,,Potential geopolitical implications could impact markets.,2.16,Trump: Looking at whether Binance hack is by North Korea|FJ
+FinancialJuice,144126,1793390754,False,False,10,speaker,,"Post reports on an event, no new information.",0.98,Trump ends remarks at the White House|FJ
+WalterBloomberg,37683,1793391119,True,True,61,,,Comments on a significant security issue.,0.94,*TRUMP: LOOKING AT BINANCE HACK (@WalterBloomberg)
+WalterBloomberg,37712,1793618333,False,True,41,rating,,"Routine political statement, not market-moving.",0.81,TRUMP: I WILL VETO EVERYTHING IF DEMOCRATS WIN IN MIDTERMS (@WalterBloomberg)
+WalterBloomberg,37713,1793618374,False,True,40,rating,,"Routine comment, not market-moving.",0.7,TRUMP: DON'T THINK MUSK WRONG ON WARNINGS ON DEMOCRATIC SWEEP (@WalterBloomberg)
+WalterBloomberg,37714,1793618395,False,True,41,rating,,"Comments on potential deal, mildly notable.",1.03,"TRUMP ON IRAN: WE'LL SEE ABOUT A DEAL, THEY WANT TO MAKE ONE (@WalterBloomberg)"
+WalterBloomberg,37715,1793618421,False,True,21,rating,,"Routine comment, not market-moving.",0.79,"TRUMP, ASKED IF HE THINKS ELECTIONS WILL BE SECURE: NO (@WalterBloomberg)"
+WalterBloomberg,37716,1793619012,False,True,41,rating,,Comments on protecting Musk are notable.,1.0,TRUMP: HAVE TO PROTECT MUSK IF SPACEX AT RISK FROM DEMOCRATS (@WalterBloomberg)
+WalterBloomberg,37717,1793619404,True,True,61,,,Predictive statement on gas prices could impact markets.,0.75,*TRUMP SAYS OIL PRICES ROSE LESS THAN HE EXPECTED DURING IRAN WAR *TRUMP PREDICTS US GAS PRICES WILL FALL BELOW $2 A GALLON (@WalterBloomberg)
+WalterBloomberg,37718,1793619418,True,True,61,,,New information about oil supply could impact markets.,1.04,*TRUMP SAYS US RECEIVING MILLIONS OF BARRELS OF OIL FROM VENEZUELA (@WalterBloomberg)
+WalterBloomberg,37719,1793619425,False,True,41,rating,,"Statement on AI competitiveness, mildly notable.",0.74,*TRUMP SAYS US LEADS CHINA IN AI SUPERINTELLIGENCE BY WIDE MARGIN (@WalterBloomberg)
+WalterBloomberg,37720,1793619438,True,True,61,,,Potentially significant for tech markets.,0.72,*TRUMP SAYS US COULD SOON CONTROL 50% OF GLOBAL CHIP BUSINESS (@WalterBloomberg)
+WalterBloomberg,37725,1793620722,False,False,30,speaker,,"Routine political commentary, not actionable.",0.9,NETANYAHU PRESSES DONALD TRUMP FOR RENEWED STRIKES AGAINST IRAN (@WalterBloomberg)
+WalterBloomberg,37726,1793620842,False,False,30,speaker,,Routine announcement about a mining deal.,0.75,"TRUMP FAMILY-LINKED MINER SAYS IT AIMS TO GO PUBLIC IN $2 BILLION DEAL, SOURCE SAYS (@WalterBloomberg)"
+WalterBloomberg,37741,1793627210,True,True,61,,,Comments on AI financing could impact markets.,0.73,"WHITE HOUSE'S HASSETT DISMISSES AI FINANCING FEARS White House economic adviser Kevin Hassett says the AI investment boom remains well-financed, dismissing concerns following last week's technology se"
+WalterBloomberg,37767,1793633793,True,True,61,,,Potential legal implications could impact markets.,0.84,"TRUMP SIGNALS POSSIBLE PARDONS FOR ALLIES, INCLUDING ELON MUSK President Trump suggested he could pardon political allies, including Elon Musk, if they face legal action. ""I would do it if I needed to"
+FinancialJuice,144276,1793635323,False,False,10,speaker,,"Routine event, no market-moving content.",0.76,US VP Vance Speaks at Midterm Rally in NY (Trump Expected to participate via phone) - WATCH LIVE|FJ
+WalterBloomberg,37769,1793635585,False,False,30,speaker,,"Routine geopolitical tension, already priced in.",0.76,IRAN THREATENS US BASES IN EUROPE IF TRUMP ORDERS NEW STRIKES (@WalterBloomberg)
+FinancialJuice,144277,1793636155,False,False,30,speaker,,"Routine auction results, already priced in.",0.76,Fed bids for 6-month bills total $5.1 bln|FJ
+FinancialJuice,144278,1793636185,False,False,30,speaker,,"Routine auction results, already priced in.",0.67,Fed bids for 3-month bills total $5.9 bln|FJ
+WalterBloomberg,37773,1793636583,False,True,41,rating,,Legal action may influence market sentiment.,0.72,TRUMP ADMINISTRATION ASKS US SUPREME COURT TO INTERVENE IN ITS LAWSUIT SEEKING ‌TO BLOCK CALIFORNIA FROM COUNTING CERTAIN MAIL-IN BALLOTS (@WalterBloomberg)
+WalterBloomberg,37776,1793637561,False,False,20,speaker,,"Routine news, unlikely to impact markets.",0.85,"POWER OUTAGE HITS DOWNTOWN WASHINGTON AHEAD OF ELECTION DAY More than 1,100 customers lost power in Washington, D.C., just blocks from the White House, on the eve of the US midterm elections. Utility "
+FinancialJuice,144295,1793645869,False,False,10,speaker,,Post does not contain actual remarks.,0.88,Trump Delivers Remarks - WATCH LIVE|FJ
+FinancialJuice,144296,1793647677,True,True,61,,,Comments on oil prices and Iran are notable.,0.89,Trump: Oil will go down further because we're winning with Iran|FJ
+FinancialJuice,144299,1793647728,False,True,41,rating,,"Comments on potential deal, mildly notable.",0.91,"Trump: Iran wants to make a deal, that could happen.|FJ"
+FinancialJuice,144304,1793648040,False,True,21,rating,,"Routine statement, not market-moving.",0.81,Trump: Iran said even recently they won't have nuclear weapon.|FJ
+FinancialJuice,144305,1793648169,False,True,41,rating,,"Routine statement, not a major policy shift.",0.72,Trump to Axios: No rush to decide on restarting war in Iran|FJ
+FinancialJuice,144306,1793648200,False,True,41,rating,,"Routine statement, not a major policy shift.",0.79,Trump in Axios phone interview: No rush to decide on restarting war in Iran|FJ
+apewirenews,1618,1793649126,False,True,41,rating,,Comments on Iran may influence markets.,0.83,"*TRUMP: IRAN ASKED TO STOP KILLING ITS LEADERS, WE WILL $CL @apewirenews"
+FinancialJuice,144307,1793649146,True,True,61,,,Potential geopolitical tensions could impact markets.,0.78,"Trump: Iran asked to stop killing its leaders, we will.|FJ"
+FinancialJuice,144309,1793649216,True,True,61,,,Comments on Iran could impact oil prices.,0.82,"Trump on Iran: It's coming together nicely, that's why oil down.|FJ"
+FinancialJuice,144310,1793649291,False,False,10,speaker,,Post does not contain any substantive remarks.,0.79,Trump ends remarks at Reflecting Pool|FJ
+FinancialJuice,144311,1793649686,False,False,10,speaker,,Post lacks specific actionable information.,2.18,US Treasury QRA Estimate|FJ
+FinancialJuice,144312,1793649711,False,False,30,speaker,,"Routine borrowing estimate, likely priced in.",0.92,"US Treasury estimates $739 billion in privately held net marketable borrowing for July-September 2026, assuming an end-September cash balance of $950 billion|FJ"
+FinancialJuice,144313,1793649733,True,True,61,,,Higher borrowing estimate may impact markets.,0.67,"US Treasury Raises July-September Borrowing Estimate to $739 Billion US Treasury estimates $739 billion in privately held net marketable borrowing for July-September 2026, assuming an end-September ca"
+FinancialJuice,144314,1793649739,False,False,40,speaker,,"Routine borrowing estimate, likely priced in.",1.29,"US Treasury QRA Estimate: Excluding the higher-than-expected beginning-of-quarter cash balance, borrowing estimate is $87 billion higher than May's projection|FJ"
+FinancialJuice,144315,1793649794,False,False,20,speaker,,Post does not provide specific statements.,0.81,US Treasury Statement on QRA|FJ
+apewirenews,1619,1793649813,True,True,61,,,New information on Iran policy could impact markets.,2.67,*TRUMP SAYS 'NO' TO STRIKING IRAN AFTER ELECTIONS: POOL REPORT: BBG $CL @apewirenews
+FinancialJuice,144321,1793651153,False,False,15,speaker,,No direct statement or action from a principal.,0.97,Vance: I discussed Iran with Trump about an hour ago|FJ
+FinancialJuice,144408,1793678925,False,False,30,speaker,,"Routine legal update, unlikely to move markets.",0.79,US judge stops Trump administration from requiring states to set aside votes of suspected noncitizens|FJ
+FinancialJuice,144469,1793698328,False,False,30,speaker,,"Routine diplomatic update, not market-moving.",0.78,"Kremlin: Hope work on 3-way meeting in china later this month between Putin, Trump and Xi will be finalised in coming days.|FJ"
+FinancialJuice,144497,1793711689,False,True,20,rating,,"Routine comment, unlikely to impact markets.",0.88,"Trump: Israel is a helper, the relationship is tremendous - Fox News|FJ"
+WalterBloomberg,37794,1793711737,False,True,40,rating,,"Routine statement, likely already priced in.",0.82,TRUMP: WON'T BE PAYING MORE TO ISRAEL -FOX NEWS INTERVIEW (@WalterBloomberg)
+FinancialJuice,144498,1793711776,False,True,21,rating,,"Routine statement, unlikely to impact markets.",0.8,Trump: Won't be paying more to Israel - Fox News Interview|FJ
+FinancialJuice,144501,1793711939,True,True,61,,,Significant policy shift on foreign aid.,0.76,"Trump: Made a deal with Israel months ago, we're stopping $4b aid|FJ"
+WalterBloomberg,37795,1793711966,True,True,61,,,Significant policy shift on foreign aid.,0.83,*TRUMP: MADE DEAL W/ ISRAEL MONTHS AGO WE'RE STOPPING $4B AID (@WalterBloomberg)
+WalterBloomberg,37796,1793711998,False,True,21,rating,,Routine comments on US-Israel relations.,0.78,"*TRUMP CALLS ISRAEL A 'HELPER', SAYS RELATIONSHIP TREMENDOUS (@WalterBloomberg)"
+FinancialJuice,144503,1793712030,True,True,61,,,Significant military action could impact markets.,1.88,Trump on Iran facility: We hit it last night very nicely|FJ
+FinancialJuice,144505,1793712056,False,True,21,rating,,"Routine statement, unlikely to move markets.",0.91,Trump on Iran: Not looking to kill tons of people|FJ
+WalterBloomberg,37797,1793712116,True,True,61,,,Potential trade deal could impact markets.,0.9,TRUMP: CLOSE TO FERTILIZER DEAL FROM CANADA -FOX NEWS INTERVIEW (@WalterBloomberg)
+FinancialJuice,144507,1793712123,True,True,61,,,Potential escalation in geopolitical tensions.,2.08,"Trump adds if us has to kill people in Iran, it has to.|FJ"
+FinancialJuice,144508,1793712146,False,True,41,rating,,"Vague statement, not market-moving.",0.73,Trump: We'll make a great deal with Canada soon|FJ
+WalterBloomberg,37798,1793712369,True,True,61,,,Comments on military action could impact markets.,0.74,"*TRUMP, ASKED ON IRAN AFTER ELECTIONS: WE'LL SEE *TRUMP ON IRAN FACILITY: WE HIT IT LAST NIGHT VERY NICELY *TRUMP ON IRAN: NOT LOOKING TO KILL TONS OF PEOPLE *TRUMP REFERS TO ANTI-AIRCRAFT FACILITY IR"
+WalterBloomberg,37799,1793712396,True,True,61,,,Potential escalation in geopolitical tensions.,0.73,"*TRUMP ADDS IF US HAS TO KILL PEOPLE IN IRAN, IT HAS TO (@WalterBloomberg)"
+WalterBloomberg,37801,1793712635,True,True,61,,,New information on Israel aid policy.,0.87,"TRUMP ON ISRAEL AID: WILL HAVE OPTION TO BUY WEAPONS, WHATEVER THEY WANT (@WalterBloomberg)"
+FinancialJuice,144513,1793712789,False,False,20,speaker,,"Routine commentary, no new information.",0.97,Trump on ammo shortage: The US was low on certain things|FJ
+WalterBloomberg,37804,1793713013,True,True,61,,,Suggests a policy shift on interest rates.,0.89,TRUMP SAYS US SHOULD PAY LOWEST INTEREST RATES IN WORLD (@WalterBloomberg)
+WalterBloomberg,37805,1793713055,False,True,40,rating,,"Routine political commentary, not market-moving.",0.84,TRUMP SAYS REPUBLICAN MIDTERM RESULTS MAY BE BETTER THAN EXPECTED (@WalterBloomberg)
+FinancialJuice,144514,1793713088,False,False,10,speaker,,"Post reports on remarks, no new information.",0.72,Trump ends remarks on Fox News|FJ
+WalterBloomberg,37819,1793719698,False,False,30,speaker,,"Routine analysis, not a direct statement.",0.72,"DEMOCRATIC SWEEP? UBS SEES 50% ODDS. UBS assigns a 50% probability to Democrats winning both chambers, while prediction markets put Democratic control of the House at 94% and Senate at 77%. UBS warns "
+WalterBloomberg,37823,1793728582,False,False,45,speaker,,Mixed signals on military action and Iran.,0.94,"Israel has warned US intelligence officials that Iran may be preparing to use chemical weapons, but the claims have triggered significant disagreement within the Trump administration. Some US official"
+WalterBloomberg,37824,1793728673,False,False,45,speaker,,Mildly notable geopolitical tensions discussed.,0.73,"US–IRAN: ISRAELI CHEMICAL WEAPONS WARNING DIVIDES WASHINGTON Israel has warned US intelligence officials that Iran may be preparing to use chemical weapons, but the claims have triggered significant d"
+FinancialJuice,144571,1793729973,True,True,61,,,Negotiations could impact market sentiment.,0.91,Trump is negotiating an agreement with Venezuela on US troops - NYT.|FJ
+WalterBloomberg,37828,1793730170,True,True,61,,,Warnings about financial risks could impact markets.,0.91,"AI BOOM: $10 TRILLION SPENDING WAVE RAISES FINANCIAL RISKS Former New York Fed President Bill Dudley warns that AI infrastructure investment could exceed $10 trillion, potentially creating massive ove"
+FinancialJuice,144613,1793748987,False,True,41,rating,,"Routine statement, not a surprise.",0.78,"US has no immediate plan to attack Iran, Trump tells FT|FJ"
+WalterBloomberg,37834,1793748989,True,True,61,,,Clarification on military action is notable.,0.88,"US HAS NO IMMEDIATE PLAN TO STRIKE IRAN, TRUMP TELLS FT - FT (@WalterBloomberg)"
+FinancialJuice,144614,1793749022,False,True,41,rating,,"Routine statement, not a surprise.",0.73,"US has no immediate plan to attack Iran, Trump tells FT|FJ"
+FinancialJuice,144615,1793749071,False,True,41,rating,,"Routine statement, not significantly new information.",1.06,Trump on Iran: 'we appear to be achieving all our objectives' - FT|FJ
+WalterBloomberg,37835,1793749082,True,True,61,,,Comments suggest positive developments in Iran negotiations.,1.32,TRUMP ON IRAN: “WE SEEM TO BE GETTING EVERYTHING WE WANT” - FT (@WalterBloomberg)
+WalterBloomberg,37836,1793749119,False,True,41,rating,,"Comment on foreign policy, mildly notable.",0.91,TRUMP SAYS POSITION WITH TEHRAN IS ‘BRILLIANT’ - FT (@WalterBloomberg)
+WalterBloomberg,37837,1793750270,False,True,41,rating,,"Routine political statement, not market-moving.",0.71,TRUMP PREPARED TO VETO DEMOCRATIC LEGISLATION IF NECESSARY: CBS (@WalterBloomberg)
+FinancialJuice,144663,1793762286,False,False,10,speaker,,Election results are routine news.,0.68,Democratic challenger Janelle Stelson overcomes Republican incumbent Scott Perry in Pennsylvania’s 10th congressional district race - NBC News|FJ
+FinancialJuice,144671,1793764375,False,True,21,rating,,"Routine statement, unlikely to impact markets.",0.97,Trump: he is absolutely willing to accept election results - NYT|FJ
+WalterBloomberg,37855,1793764438,False,True,41,rating,,"Routine statement, not a policy shift.",0.82,TRUMP SAYS HE IS 'ABSOLUTELY WILLING TO ACCEPT' ELECTION RESULTS (@WalterBloomberg)
+FinancialJuice,144685,1793768481,False,True,21,rating,,"Routine political statement, limited market impact.",0.74,Trump: Democrats will send insane measures and I will veto them|FJ
+FinancialJuice,144686,1793768518,False,False,30,speaker,,"Routine mention of Trump, no new information.",1.65,Trump: part of outcome related to Iran|FJ
+FinancialJuice,144688,1793768749,False,True,40,rating,,Routine commentary on gasoline prices.,0.86,Trump on Iran: people likely unwilling to accept short-term gasoline price impact|FJ
+FinancialJuice,144690,1793768771,False,True,20,rating,,"Routine comment, unlikely to impact markets.",0.89,Trump: Democrats performed well|FJ
+FinancialJuice,144691,1793768877,False,True,40,rating,,"Routine statement, unlikely to move markets.",0.78,Trump: I could collaborate with Democrats on many issues|FJ
+FinancialJuice,144692,1793768950,False,True,41,rating,,"Routine statement, not a major policy shift.",0.94,Trump: I can cooperate with Democrats on immigration|FJ
+FinancialJuice,144693,1793768963,False,True,20,rating,,"Routine statement, unlikely to impact markets.",0.86,Trump: I don't expect to alter cabinet|FJ
+FinancialJuice,144694,1793769454,False,True,40,rating,,"Routine statement, already expected outcome.",0.81,Trump: I will accept election outcome|FJ
+FinancialJuice,144697,1793769651,False,False,20,speaker,,"Commentary on Trump's acknowledgment, not a statement.",0.81,Trump acknowledges Iran war partly responsible for Republican losses: WSJ|FJ
+FinancialJuice,144701,1793771814,False,True,21,rating,,"Routine statement, unlikely to impact markets.",0.97,"Trump: no plans to alter personnel in his administration, backs Pete Hegseth - WSJ|FJ"
+FinancialJuice,144734,1793792576,False,False,20,speaker,,Speculation on Trump's future actions.,0.96,Russia hopes Trump continues peace efforts after vote - Tass|FJ
+WalterBloomberg,37860,1793798734,False,True,40,rating,,"Routine statement, already priced in.",1.0,"TRUMP CANCELS PUBLIC APPEARANCES AFTER GOP MIDTERM DEFEAT President Trump has no public events scheduled Wednesday, following sweeping Republican losses in the midterm elections. His White House sched"
+FinancialJuice,144751,1793799913,False,False,10,speaker,,Post does not report any principal speaking.,0.99,US Treasury QRA Report (4th of November)|FJ
+FinancialJuice,144754,1793800972,False,False,20,speaker,,"Routine statement, unlikely to impact markets.",0.91,"Kremlin on Melania Trump meeting, Peskov: Trilateral talks to focus on security guarantee - TASS.|FJ"
+WalterBloomberg,37873,1793806071,False,False,30,speaker,,"Routine political commentary, not market-moving.",0.85,"TRUMP IMPEACHMENT ODDS SURGE AFTER MIDTERMS Following Democrats’ congressional gains, prediction markets now price a 64% chance the House impeaches Trump before July 2027. Odds stand at 53% before May"
+WalterBloomberg,37879,1793807421,False,True,40,rating,,"Routine political commentary, not market-moving.",1.15,"JD VANCE BLAMES IRAN WAR FOR REPUBLICAN MIDTERM DEFEAT Vice President JD Vance says Republicans lost because Trump’s 2024 voters switched to Democrats, not because GOP turnout collapsed. Citing intern"
+WalterBloomberg,37880,1793807646,False,False,20,speaker,,"Post discusses political readiness, no direct action.",1.14,DEMOCRATS READY TRUMP PROBES AND AFFORDABILITY MEASURES (@WalterBloomberg)
+WalterBloomberg,37881,1793807922,False,False,30,speaker,,"Routine political commentary, not market-moving.",0.9,"Trump's Vice President Blames Israel for Republican Defeat: ""We Lost Because of Four Things - The War in Iran, the Cost of Living, Not Putting America First, and Our Relationship with Israel"" (@Walter"
+WalterBloomberg,37884,1793808636,False,True,40,rating,,"Routine political commentary, not market-moving.",0.77,"TRUMP'S VETO POWER COULD BLOCK DEMOCRATIC AGENDA Despite sweeping midterm victories, Democrats lack the two-thirds majorities needed to override President Trump's vetoes. Trump can reject legislation "
+FinancialJuice,144782,1793809752,False,True,41,rating,,"Routine statement, not a major policy shift.",0.98,"US Senate Democrat Leader Schumer: We will drive costs down, with or without Trump.|FJ"
+FinancialJuice,144784,1793810543,False,False,15,speaker,,"Speculation about Trump's advisers, no action.",1.09,"Trump is asking advisers if US Sec. of Defense Hegseth should go - CBS, citing sources.|FJ"
+WalterBloomberg,37888,1793810582,False,False,10,speaker,,"Speculation about Trump's advisers, no market impact.",0.93,"TRUMP ASKING ADVISERS IF HEGSETH SHOULD GO, SOURCES SAY (@WalterBloomberg)"
+WalterBloomberg,37889,1793810616,False,False,30,speaker,,Routine speculation about potential cabinet changes.,2.18,"TRUMP CONSIDERS REPLACING DEFENSE SECRETARY HEGSETH AFTER GOP DEFEAT President Trump is privately asking advisers whether Defense Secretary Pete Hegseth should remain in office, CBS News reports, citi"
+FinancialJuice,144785,1793810631,False,False,10,speaker,,"Routine news, no market impact.",1.04,Trump has not decided to replace Hegseth - CBS.|FJ
+WalterBloomberg,37890,1793810744,False,False,30,speaker,,Routine speculation about potential personnel changes.,0.79,"HEGSETH'S EXIT ODDS SURGE AS TRUMP WEIGHS REPLACEMENT Trump is privately discussing replacing Defense Secretary Pete Hegseth after Republicans’ midterm defeat, CBS reports. Prediction markets now pric"
+FinancialJuice,144790,1793813340,False,True,30,rating,,"Routine statement, already priced in.",1.04,Trump: Stock market just hit another record high - Truth Social.|FJ
+WalterBloomberg,37892,1793813514,False,False,10,speaker,,No actionable statement from a principal.,1.06,US HOUSE DEMOCRATIC LEADER JEFFRIES: HAVE NOT HEARD FROM TRUMP (@WalterBloomberg)
+FinancialJuice,144791,1793813582,True,True,61,,,Potential policy shift on tariffs and foreign policy.,1.12,House Democrat Leader Jeffries: We will pass a bill to stop Trump tariffs and end the Iran war.|FJ
+FinancialJuice,144792,1793814321,False,False,10,speaker,,Post does not contain actual remarks.,0.8,Trump Delivers Remarks - WATCH LIVE|FJ
+FinancialJuice,144794,1793815313,True,True,61,,,New sanctions could impact markets.,0.89,US Treasury: Imposing sanctions against 4 India-based individuals and 9 companies for supporting Iran's shadow fleet|FJ
+FinancialJuice,144795,1793815330,True,True,61,,,New sanctions could impact markets.,0.77,US Treasury: Also designating Turkey-based fugo ground services for supporting Iran's aviation sector|FJ
+WalterBloomberg,37895,1793815812,False,True,30,rating,,"Routine commentary, not market-moving.",0.84,TRUMP ON ELECTION: IT'S LARGELY TRUE ELECTION LOSS WAS RESULT OF IRAN WAR (@WalterBloomberg)
+FinancialJuice,144796,1793815842,False,False,20,speaker,,"Commentary on Trump's opinion, not a statement.",0.99,Trump on Election: It's largely true that the election loss was a result of the Iran war|FJ
+WalterBloomberg,37896,1793815847,False,True,21,rating,,"Routine statement, unlikely to move markets.",0.91,TRUMP: I'LL GET ALONG PROBABLY WITH THE DEMOCRATS (@WalterBloomberg)
+WalterBloomberg,37897,1793815872,False,True,41,rating,,Comments on Iran nuclear weapons are notable.,0.85,TRUMP: IT WAS WORTH IT TRUMP: YOU CAN'T LET IRAN HAVE A NUCLEAR WEAPON (@WalterBloomberg)
+FinancialJuice,144797,1793815881,False,True,21,rating,,"Routine comment, not market-moving.",0.78,"Trump: The Iran thing we had to do, we continue to do it.|FJ"
+WalterBloomberg,37898,1793815892,False,True,20,rating,,"Routine political statement, low market impact.",0.74,TRUMP: IF I WERE ON THE BALLOT WE WOULD HAVE WON (@WalterBloomberg)
+WalterBloomberg,37899,1793815905,False,True,20,rating,,"Routine statement, unlikely to impact markets.",0.83,TRUMP: WE WEREN'T ABLE TO TRANSFER THE LOVE TO CANDIDATES (@WalterBloomberg)
+FinancialJuice,144798,1793815916,False,True,21,rating,,"Routine commentary, not market-moving news.",0.7,"Trump: Price, not the war, was the reason for the midterm loss|FJ"
+WalterBloomberg,37900,1793815924,False,True,41,rating,,"Comments on cooperation, not a policy shift.",1.03,TRUMP SAYS `I'LL GET ALONG PROBABY WITH THE DEMOCRATS UNLESS THEY WANT TO BE DESTRUCTIVE' (@WalterBloomberg)
+WalterBloomberg,37901,1793815985,False,True,21,rating,,"Routine political statement, limited market impact.",0.86,TRUMP: IT WOULD DESTROY DEMOCRATIC PARTY IF THEY IMPEACHED ME (@WalterBloomberg)
+WalterBloomberg,37902,1793816563,False,True,21,rating,,"Routine comment, unlikely to impact markets.",0.72,"*TRUMP: VANCE POST WAS GOOD, I KNOW HOW VANCE FEELS ABOUT WAR (@WalterBloomberg)"
+FinancialJuice,144801,1793816582,True,True,61,,,Potentially significant geopolitical implications.,0.77,Trump: Iran war will end whenever I want it to|FJ
+FinancialJuice,144802,1793816599,False,True,21,rating,,"Routine statement, unlikely to impact markets.",0.72,Trump: I am not considering replacing US Sec. of Defense Hegseth. He is doing a very good job.|FJ
+WalterBloomberg,37903,1793816613,False,True,10,rating,,"Routine statement, unlikely to impact markets.",0.83,"TRUMP: NOT REPLACING HEGSETH, HE'S DOING A VERY GOOD JOB (@WalterBloomberg)"
+WalterBloomberg,37904,1793816822,False,True,30,rating,,"Routine political commentary, limited market impact.",0.86,"IRAN CLAIMS CREDIT FOR TRUMP'S MIDTERM DEFEAT Iran's security chief Mohsen Rezaei says Tehran delivered both a military and political defeat to President Trump, following Republicans' sweeping midterm"
+FinancialJuice,144803,1793817597,False,False,10,speaker,,Post does not contain actual remarks.,0.88,Trump ends remarks|FJ
+FinancialJuice,144804,1793817937,True,True,75,,,New sanctions could impact markets significantly.,0.88,"US Treasury Secretary Bessent: We will sanction those who continue supporting the Iranian regime, whether by land, sea, or air - Post on X|FJ"
+FinancialJuice,144824,1793824256,False,True,41,rating,,"Routine comment, not a significant policy shift.",0.76,Trump: Can work with Democrats on ‘financial ideas': CNBC|FJ
+FinancialJuice,144825,1793824296,False,True,41,rating,,"Vague statement, not clearly market-moving.",0.83,Trump: ‘Financial ideas' would be 'mutually good' - CNBC|FJ
+FinancialJuice,144826,1793824365,False,False,15,speaker,,No new information or market impact.,0.68,Trump declined to comment about the credit card rate cap - CNBC.|FJ
+FinancialJuice,144827,1793824410,True,True,61,,,Indicates a policy stance that could impact markets.,0.84,Trump precludes the possibility of paring back his tariffs - CNBC|FJ
+FinancialJuice,144828,1793824418,True,True,61,,,Comments on tariffs could impact markets.,0.88,"Trump: If I took tariffs off? We have 3,000 plants under construction right now. Every single plant would stop building, right?”- CNBC|FJ"
+FinancialJuice,144935,1793871345,False,True,21,rating,,"Routine statement, unlikely to impact markets.",1.0,Japan's PM Takaichi: Will continue to work with us president Trump to strengthen Japan-US relations.|FJ
+FinancialJuice,145039,1793886631,True,True,61,,,Comments suggest a policy shift on rate hikes.,0.96,Fed's Hammack: Gradual rate hikes less disruptive to the economy and financial system.|FJ
+FinancialJuice,145040,1793886635,True,True,61,,,Indicates a potential policy shift.,0.79,Fed's Hammack: Monetary policy needs to move to restrictive stance.|FJ
+FinancialJuice,145041,1793886642,False,True,41,rating,,Routine statement on monetary policy direction.,0.81,Fed's Hammack: Gradual rate-hike path is the best way forward for monetary policy.|FJ
+WalterBloomberg,37914,1793886643,True,True,70,,,Calls for gradual rate hikes could impact markets.,0.96,"FED'S HAMMACK CALLS FOR GRADUAL RATE HIKES AS INFLATION MOVES IN WRONG DIRECTION Federal Reserve official Beth Hammack says US monetary policy needs to become more restrictive, warning that inflation "
+FinancialJuice,145043,1793886655,True,True,61,,,Comments indicate a potential policy shift on inflation.,1.04,"Fed's Hammack: Inflation has been too high, moving in wrong direction.|FJ"
+FinancialJuice,145045,1793886669,False,False,30,speaker,,Routine statement about the dollar's status.,0.94,Fed's Hammack: Dollar remains word's top reserve currency.|FJ
+FinancialJuice,145046,1793886670,False,True,41,rating,,Comments on dollar's status are notable.,0.73,"Fed's Hammack: dollar's status owes to us institutions, legal system|FJ"
+FinancialJuice,145048,1793886686,False,True,41,rating,,Routine commentary on dollar's status.,0.79,Fed's Hammack: Hard to see the Dollar losing reserve status|FJ
+WalterBloomberg,37915,1793887233,False,False,30,speaker,,Routine speculation about political moves.,0.83,"MARCO RUBIO REPORTEDLY CONSIDERING TRUMP ADMINISTRATION EXIT AHEAD OF 2028 Secretary of State Marco Rubio could leave the Trump administration to prepare for a 2028 presidential run, according to The "
+FinancialJuice,145050,1793887300,False,False,10,speaker,,Post only mentions a live event.,0.79,Fed's Barkin speaks - WATCH LIVE|FJ
+FinancialJuice,145051,1793887379,False,False,15,speaker,,"Speculation about resignation, no direct statement.",0.73,US Secretary of State Rubio ‘on resignation watch’ from Trump administration after midterms disaster - The Independent.|FJ
+FinancialJuice,145054,1793887718,False,False,40,speaker,,"Routine commentary, already priced in.",0.69,"Fed's Barkin: Demand in the economy is solid, though some sectors don't feel it.|FJ"
+FinancialJuice,145056,1793887746,False,True,41,rating,,Cautious hiring sentiment is mildly notable.,0.81,Fed's Barkin: Businesses are still cautious about hiring but are not yet firing|FJ
+FinancialJuice,145057,1793887757,False,True,41,rating,,"Routine statement, not a major shift.",1.13,"Fed's Barkin: Demand is solid, and the economy is healthy.|FJ"
+FinancialJuice,145059,1793887826,True,True,61,,,Positive earnings could influence investment decisions.,0.99,"Fed's Barkin: Earnings remain strong, and that is encouraging firms to invest and hold onto workers.|FJ"
+FinancialJuice,145060,1793887835,False,False,30,speaker,,"Routine comment, already priced in.",1.08,Fed's Barkin: I hear broadly that costs are high and increasing.|FJ
+FinancialJuice,145061,1793888024,False,False,40,speaker,,Routine commentary on cost pressures.,0.93,"Fed's Barkin: The set of cost pressures of the past 18 months, starting with tariffs, are broad based and firms feel they have to pass them along.|FJ"
+FinancialJuice,145062,1793888136,False,True,41,rating,,"Routine statement, not a major shift.",0.9,"Fed's Barkin: I do not anticipate inflaiton will accelerate, but also don't see it falling at this point|FJ"
+FinancialJuice,145063,1793888175,False,True,40,rating,,Routine commentary on policy pace.,0.87,"Fed's Barkin: The path on policy is straightforward; the issue now is pace and gradual ""makes sense"".|FJ"
+FinancialJuice,145064,1793888242,False,True,40,rating,,"Routine statement, likely already priced in.",0.88,Fed's Barkin: Policy right now is somewhere around neutral.|FJ
+FinancialJuice,145065,1793888293,False,False,30,speaker,,Routine comment on AI and demand.,0.78,Fed's Barkin: AI is a big part of current strong demand.|FJ
+FinancialJuice,145066,1793888328,False,True,41,rating,,Comments on interest rates and AI impact.,0.82,"Fed's Barkin: Interest rates are probably not the top thing that would curb AI, but they will have some impact|FJ"
+FinancialJuice,145067,1793888383,False,False,30,speaker,,Routine statement about inflation risk.,0.97,Fed's Barkin: Inflation is the most important risk for the fed right now.|FJ
+WalterBloomberg,37917,1793888422,True,True,61,,,Comments on inflation and monetary policy impact markets.,0.88,*BARKIN SAYS INFLATION IS FED'S MOST IMPORTANT RISK NOW *BARKIN DOES NOT EXPECT INFLATION TO ACCELERATE OR FALL *BARKIN SAYS MONETARY POLICY CURRENTLY AROUND NEUTRAL *BARKIN SAYS GRADUAL POLICY APPROA
+FinancialJuice,145069,1793888541,False,False,30,speaker,,"Routine comment, not market-moving.",0.89,Fed's Barkin: I do not have a point of view about what will happen to fiscal policy following the election.|FJ
+FinancialJuice,145070,1793888666,False,False,30,speaker,,Routine commentary on productivity factors.,0.83,Fed's Barkin: I do not think AI is what is currently driving productivity as much as adaptation to the labor shortages that began during the pandemic|FJ
+FinancialJuice,145071,1793888761,True,True,61,,,Comments on AI's inflationary impact are notable.,0.81,Fed's Barkin: AI buildout has definitely had an inflationary impact in the near term.|FJ
+FinancialJuice,145075,1793888897,False,False,30,speaker,,"Routine commentary, not market-moving.",0.7,"Fed's Barkin: Data centers, because of a lack of employees, do not have natural constituencies in the communities where they are located.|FJ"
+FinancialJuice,145077,1793889172,False,False,30,speaker,,"Routine comment, unlikely to move markets.",0.82,Fed's Barkin: A change in the number of policy-setting meetings is not a big deal.|FJ
+FinancialJuice,145078,1793889211,False,True,41,rating,,Routine comment on policy meeting schedule.,0.81,Fed's Barkin: Changing the pace of policy meetings has the advantage of a better flow of data for each session.|FJ
+FinancialJuice,145080,1793889487,False,True,41,rating,,Comments are mildly notable but not surprising.,1.48,"Fed's Barkin: Credit dynamics in the banking sector are ""reassuring"" at this point.|FJ"
+FinancialJuice,145081,1793890305,False,False,40,speaker,,Routine commentary on stablecoins and AI.,1.04,Fed's Hammack: Use of stablecoins by AI agents would be a big shift|FJ
+FinancialJuice,145083,1793891013,True,True,61,,,Comments on rate impact on oil prices.,0.89,"Fed's Barkin: Raising rates can affect demand and in time, oil prices|FJ"
+FinancialJuice,145084,1793891069,False,False,10,speaker,,"Post reports on a conclusion, no new information.",1.11,Fed's Barkin concludes Q&A|FJ
+FinancialJuice,145085,1793891316,False,True,41,rating,,Mildly notable comment on FOMC meetings.,1.1,Fed's Hammack: Six FOMC meetings from eight would be a modest shift|FJ
+FinancialJuice,145086,1793891618,False,False,30,speaker,,Routine commentary on inflation pressures.,0.9,Fed's Hammack: See inflationary pressures spilling across the economy|FJ
+WalterBloomberg,37930,1793894358,False,False,30,speaker,,"Routine market commentary, no new information.",0.89,"WALL STREET FEAR GAUGE SURGES 48% IN BIGGEST SPIKE SINCE LIBERATION DAY The CBOE Volatility Index (VIX) jumped as much as 48%, marking its largest percentage surge since April 4, 2025, when Trump's sw"
+FinancialJuice,145103,1793894552,False,False,30,speaker,,"Routine auction announcement, already expected.",0.71,"US Treasury Auction dates US to sell $82B 6-month bills on November 9th, to settle on November 12th US to sell $95B 3-month bills on November 9th, to settle on November 12th|FJ"
+FinancialJuice,145104,1793894552,False,False,10,speaker,,Post provides no actionable information.,0.77,US Treasury Auction dates|FJ
+FinancialJuice,145109,1793895216,False,False,20,speaker,,"Routine comment, unlikely to impact markets.",0.83,Putin Envoy Dmitriev: Putin appreciates trump's peacemaking efforts|FJ
+FinancialJuice,145110,1793895392,False,False,30,speaker,,"Routine auction results, already priced in.",0.88,Fed bids for 4-week bills total $8.3 bln|FJ
+WalterBloomberg,37935,1793895790,False,True,21,rating,,"Routine statement, unlikely to impact markets.",0.78,US FIRST LADY MELANIA TRUMP: LET OLESHKY CEASEFIRE BE SPARK THAT GROWS INTO LASTING FLAME OF PEACE (@WalterBloomberg)
+WalterBloomberg,37940,1793897602,False,False,40,speaker,,Routine commentary on election impact.,0.69,"DEMOCRATS SWEEP CONGRESS. FED HIKE BETS RETREAT. Following the midterm results, December Fed hike odds have fallen from above 80% to 67%. Prediction markets now put the chance of a hold at 33%, its hi"
+WalterBloomberg,37945,1793900182,False,False,30,speaker,,Routine information about past deportations.,2.12,"US AND IRAN SECRETLY COORDINATED DEPORTATIONS DURING WAR The Trump administration maintained secret contacts with Iran over deportations during the war, according to court documents unsealed Thursday."
+WalterBloomberg,37953,1793907080,False,True,30,rating,,Routine speculation about potential resignation.,0.92,MARCO RUBIO WEIGHS EXIT FROM TRUMP ADMINISTRATION AFTER GOP MIDTERM DEFEAT Secretary of State Marco Rubio is reportedly considering leaving the Trump administration following Republicans' sweeping mid
+FinancialJuice,145150,1793912508,False,False,10,speaker,,Post does not report any action or statement.,0.87,"Trump Participates in Signing Time, Nov. 5, 2026|FJ"
+WalterBloomberg,37957,1793913141,False,True,21,rating,,"Routine announcement, unlikely to impact markets.",0.85,TRUMP: SIGNING A DOCUMENT TO MAKE WHITE HOUSE OVAL OFFICE AND CABINET ROOM A NATIONAL MONUMENT (@WalterBloomberg)
+FinancialJuice,145153,1793913453,False,True,21,rating,,"Vague statement, unlikely to impact markets.",0.91,Trump: Will do a lot of things over the next couple of weeks.|FJ
+FinancialJuice,145154,1793913637,False,True,41,rating,,"Routine statement, not new information.",0.69,Trump on Iran: They are not doing anything without us approval|FJ
+FinancialJuice,145155,1793913662,True,True,61,,,Potential market impact from new law.,0.76,Trump on Russian Diesel tanker: We're looking at a law that forbids it.|FJ
+FinancialJuice,145156,1793914097,False,True,41,rating,,"Comments on Iran policy, mildly notable.",0.82,Trump on Iran: We need to decide whether to go further or 'certify it’.|FJ
+WalterBloomberg,37959,1793914331,True,True,61,,,Potential policy shift regarding Iran.,1.12,TRUMP ON IRAN: NEED TO DECIDE WHETHER TO GO FURTHER OR 'CERTIFY IT' (@WalterBloomberg)
+FinancialJuice,145157,1793914468,True,True,81,,,Significant statement on Russia-Ukraine settlement.,1.64,"Trump, asked whether he met Russia’s Dmitriev: Yes I did. Met with Dmitriev today. Very close to settling Russia-Ukraine war|FJ"
+FinancialJuice,145159,1793914508,True,True,61,,,Potentially significant geopolitical development.,0.69,Trump on Russia-Ukraine: It is going to be a big agreement that will involve all of Europe.|FJ
+WalterBloomberg,37960,1793914577,True,True,61,,,Potentially significant geopolitical development.,0.71,TRUMP: VERY CLOSE TO SETTLING RUSSIA UKRAINE WAR (@WalterBloomberg)
+WalterBloomberg,37961,1793914744,True,True,61,,,Potentially significant geopolitical implications.,0.73,"*TRUMP ON RUSSIA, UKRAINE: GOING TO BE A BIG AGREEMENT *TRUMP: AGREEMENT WILL INVOLVE ALL OF EUROPE (@WalterBloomberg)"
+FinancialJuice,145160,1793914818,False,False,10,speaker,,"Post reports an event, no new information.",0.75,Trump ends remarks at the White House.|FJ
+FinancialJuice,145166,1793920786,False,True,30,rating,,Routine commentary on market performance.,0.82,Trump: stock market endured one of worst days in history following election results|FJ
+FinancialJuice,145167,1793920804,False,True,21,rating,,"Vague statement, unlikely to impact markets.",2.23,"Trump: we will shortly, one way or another, be bigger and stronger than ever before|FJ"
+WalterBloomberg,37968,1793922947,False,True,21,rating,,"Routine statement, not market-moving.",0.85,"TRUMP: WE WILL SOON, ONE WAY OR OTHER, BE BIGGER AND STRONGER THAN EVER BEFORE (@WalterBloomberg)"
+WalterBloomberg,37969,1793922960,False,True,30,rating,,Routine commentary on market reaction.,0.97,TRUMP: STOCK MARKET SUFFERED ONE OF WORST DAYS IN HISTORY BASED ON RESULTS OF ELECTION (@WalterBloomberg)
+FinancialJuice,145205,1793935758,False,False,30,speaker,,"Routine news about Trump, not market-moving.",0.82,Trump Washington arch gains crucial endorsement from government panel but judge may still halt construction|FJ
+FinancialJuice,145209,1793940484,False,False,30,speaker,,"Routine legal update, unlikely to move markets.",0.73,US judge temporarily halts Trump administration's start of triumphal arch construction|FJ
+FinancialJuice,145221,1793950767,False,False,30,speaker,,"Routine discussion, unlikely to move markets.",0.88,Qatar Emir and Trump discuss de-escalation efforts in the Middle East|FJ
+FinancialJuice,145234,1793957765,False,False,30,speaker,,"Routine commentary, not market-moving.",0.88,Fed's Williams: US economy remarkably resilient.|FJ
+FinancialJuice,145235,1793957776,False,False,30,speaker,,"Routine statement, already priced in.",0.73,Fed's Williams: Growth has strengthened.|FJ
+FinancialJuice,145236,1793957784,True,True,61,,,Comments indicate potential market-moving implications.,0.88,"Fed's Williams: US facing unusual shocks to demand, supply.|FJ"
+FinancialJuice,145237,1793957795,False,False,30,speaker,,"Routine comment, already priced in.",0.77,Fed's Williams: Remarkably stable and solid labour market.|FJ
+FinancialJuice,145238,1793957876,False,True,41,rating,,Comments on tariffs are somewhat notable.,0.84,"Fed's Williams: We've seen tariffs effect work way through, mostly now behind us.|FJ"
+FinancialJuice,145239,1793957892,False,False,30,speaker,,Routine statement about inflation expectations.,0.81,Fed's Williams: Energy passing through to inflation as expected.|FJ
+FinancialJuice,145240,1793957993,False,False,30,speaker,,"Routine statement, unlikely to move markets.",0.8,Fed's Williams: Inflation expectations well anchored.|FJ
+FinancialJuice,145241,1793958002,False,False,40,speaker,,"Routine statement, likely already priced in.",0.86,Fed's Williams: Wage growth consistent with 2% goal.|FJ
+FinancialJuice,145242,1793958024,False,False,30,speaker,,"Routine statement, not market-moving.",0.91,Fed's Williams: This is appropriate time to gather more info.|FJ
+FinancialJuice,145249,1793962342,False,False,20,speaker,,Merz's call with Trump is not market-moving.,0.87,Germany's Merz held a call with Trump - German government spokesperson|FJ
+WalterBloomberg,37990,1793966563,False,True,40,rating,,Routine statement about AI collaboration.,0.82,TRUMP ON AI: WILL WORK WITH MANY STATES IN U.S. THAT WANT TO BECOME RICH BY HAVING THEM (@WalterBloomberg)
+FinancialJuice,145254,1793966571,False,True,21,rating,,"Routine statement, not market-moving.",0.77,"Trump: As president, I am 100% in favor of Super Intelligence (SI), and will work with the many states in the US|FJ"
+WalterBloomberg,37991,1793966660,True,True,70,,,Support for AI superintelligence could impact markets.,0.91,"TRUMP BACKS AI SUPERINTELLIGENCE 100% Trump declares full support for Super Intelligence (SI), pledging to work with US states embracing the technology. He calls it “GOLD” and says only “foolish leade"
+FinancialJuice,145296,1793974246,False,False,10,speaker,,No comments on economic outlook or policy.,0.79,Fed's Musalem does not comment on economic outlook or monetary policy in prepared remarks.|FJ
+FinancialJuice,145298,1793974377,False,False,20,speaker,,"Routine comment, unlikely to impact markets.",0.91,WH Sr. Adviser Hassett: Trump respects localities that don't want data centers|FJ
+WalterBloomberg,38011,1793974707,False,False,30,speaker,,Routine commentary on inflation expectations.,0.67,HASSETT ON FED: INFLATION SHOULD BE DECELERATING -CNBC (@WalterBloomberg)
+FinancialJuice,145305,1793974750,False,False,30,speaker,,Routine commentary on inflation expectations.,2.16,"WH Sr. Adviser Hassett, on Fed: Inflation should be decelerating - CNBC.|FJ"
+FinancialJuice,145306,1793974829,False,True,41,rating,,Mildly notable comment on Trump's excitement.,0.95,WH Sr. Adviser Hassett: Trump is excited about deal made with Intel.|FJ
+WalterBloomberg,38013,1793975920,False,True,41,rating,,Routine comment on inflation concerns.,0.79,FED'S MUSALEM: PEOPLE REMAIN CONCERNED ABOUT INFLATION AT THE CURRENT LEVEL (@WalterBloomberg)
+FinancialJuice,145312,1793975943,False,False,30,speaker,,Routine comment on inflation concerns.,0.67,Fed's Musalem: People remain concerned about inflation at the current level|FJ
+FinancialJuice,145314,1793975985,False,False,30,speaker,,"Routine statement, unlikely to move markets.",0.77,Fed's Musalem: Inflation expectations remain anchored.|FJ
+FinancialJuice,145319,1793976057,True,True,61,,,Comments on inflation target are notable.,0.84,Fed's Musalem: Must return inflation to 2% on a timely basis|FJ
+FinancialJuice,145321,1793976140,False,False,40,speaker,,Routine commentary on inflation sources.,0.82,Fed's Musalem: Excess inflation today is coming from energy shocks and the AI buildout.|FJ
+FinancialJuice,145322,1793976149,False,False,40,speaker,,"Routine commentary, not new information.",1.01,Fed's Musalem: Consumption and investment are both growing at a fast rate based on an optimistic outlook|FJ
+FinancialJuice,145323,1793976176,False,False,30,speaker,,Routine commentary on AI and productivity.,0.9,Fed's Musalem: AI will bring much higher productivity|FJ
+FinancialJuice,145324,1793976206,False,False,30,speaker,,Routine commentary on data center demand.,0.92,Fed's Musalem: Data center build-out contributing to strong demand|FJ
+FinancialJuice,145325,1793976287,False,True,40,rating,,Routine statement about Trump's decision process.,0.99,WH Sr. Adviser Hassett: Trump will read the report and decide on Fed's Cook|FJ
+FinancialJuice,145327,1793976725,False,False,30,speaker,,Routine commentary on Fed communication.,0.91,Fed's Musalem: Good Fed comms leads to smoother policy transmission|FJ
+FinancialJuice,145380,1793984208,False,False,10,speaker,,Post does not contain market-moving information.,0.87,Trump Heads to Florida After Departure From Washington - WATCH LIVE|FJ
+FinancialJuice,145381,1793985181,False,False,10,speaker,,"Post only mentions Bowman speaking, no content.",0.9,Fed's Bowman Speaks - Rgister Here|FJ
+FinancialJuice,145386,1793986322,False,True,41,rating,,Discussion on US-China economic relationship.,0.77,US Treasury Secretary Bessent: USTR Greer and I spoke with Vice Premier He Lifeng about the US-China economic relationship.|FJ
+FinancialJuice,145387,1793986341,True,True,61,,,Statement could impact trade relations.,1.17,"US Treasury Secretary Bessent: We told China to fully, and immediately honor its commitments.|FJ"
+WalterBloomberg,38020,1793986367,False,False,30,speaker,,Routine discussion on economic relationship.,0.79,BESSENT: GREER AND I SPOKE WITH VICE PREMIER HE LIFENG ABOUT THE U.S.-CHINA ECONOMIC RELATIONSHIP (@WalterBloomberg)
+WalterBloomberg,38021,1793986385,True,True,61,,,Calls for commitment could impact trade relations.,1.16,*US TREASURY SECRETARY URGES CHINA TO HONOUR BUSAN ARRANGEMENT COMMITMENTS (@WalterBloomberg)
+FinancialJuice,145394,1793988207,False,False,30,speaker,,Routine commentary on job report.,1.52,Fed's Daly: Job report good news - CNBC|FJ
+FinancialJuice,145395,1793988216,False,False,30,speaker,,Routine commentary on wage growth.,0.8,Fed's Daly: Wage growth isn't booming|FJ
+FinancialJuice,145396,1793988320,False,True,41,rating,,Mildly notable comment on inflation confidence.,0.89,Fed's Daly: I would like my confidence about inflation to be higher|FJ
+WalterBloomberg,38024,1793988350,True,True,61,,,Comments on jobs and inflation outlook.,0.9,"FED'S DALY WELCOMES STRONG JOBS REPORT BUT WARNS ON INFLATION Fed's Mary Daly calls October's jobs report “good news”, expressing optimism about the US workforce. However, she stresses that wage growt"
+FinancialJuice,145397,1793988381,True,True,61,,,Comments suggest potential policy shifts on inflation.,0.88,Fed's Daly: Solid job market gives latitude to get inflation job done|FJ
+FinancialJuice,145398,1793988405,True,True,61,,,"Indicates potential policy shift, market impact likely.",0.82,Fed's Daly: Will have to tighten policy further|FJ
+FinancialJuice,145399,1793988436,False,True,40,rating,,Routine commentary on previous meeting decision.,1.04,Fed's Daly: Was good to hold at the last meeting due to uncertainty|FJ
+FinancialJuice,145400,1793988502,False,False,30,speaker,,Routine commentary on market conditions.,0.87,Fed's Daly: AI repricing trade has been orderly so far|FJ
+FinancialJuice,145401,1793988534,False,False,40,speaker,,Routine commentary on AI and demand growth.,0.79,Fed's Daly: If AI repricing signals slowing of demand growth might come down a little|FJ
+FinancialJuice,145402,1793988556,False,False,30,speaker,,"Routine commentary, not market-moving.",0.97,Fed's Daly: Businesses are cautiously optimistic about outlook|FJ
+FinancialJuice,145403,1793988582,False,True,40,rating,,Routine commentary on Fed's view.,0.85,Council of Economic Advisers Chair Phelan: Don't think the Fed will see the job report as inflationary|FJ
+FinancialJuice,145405,1793988813,False,True,41,rating,,"Comments on market rebalancing, mildly notable.",1.01,"Fed's Daly: When you step back from 'painful' volatility, this is the kind of rebalancing that you would hope for|FJ"
+WalterBloomberg,38025,1793989131,True,True,61,,,Potential policy shift on nonprofits' tax status.,1.1,"TRUMP WEIGHS TERRORISM DESIGNATIONS FOR US NONPROFITS The White House is considering an executive order that could immediately suspend the tax-exempt status of nonprofits accused of terrorist ties, ac"
+FinancialJuice,145406,1793989314,False,True,41,rating,,Mildly notable comment on interest rates.,2.13,Fed's Daly: Rates could be slightly restrictive to neutral|FJ
+FinancialJuice,145407,1793989369,True,True,61,,,Indicates potential concerns about inflation trends.,0.81,Fed's Daly: Services inflation not coming down in the way we would expect|FJ
+FinancialJuice,145408,1793989569,False,True,30,rating,,Routine comment on future Fed actions.,1.09,Council of Economic Advisers Chair Phelan: we'll need to see the next CPI to see what the Fed will do|FJ
+WalterBloomberg,38031,1793991145,False,True,21,rating,,"Routine announcement, unlikely to move markets.",0.95,*TRUMP ANNOUNCES STEPHEN MILLER AS CHIEF OF STAFF FROM MONDAY (@WalterBloomberg)
+WalterBloomberg,38032,1793991163,False,True,41,rating,,"Routine announcement, not a policy shift.",0.93,"TRUMP NAMES STEPHEN MILLER AS NEW WHITE HOUSE CHIEF OF STAFF President Trump announces that Stephen Miller will become White House Chief of Staff starting Monday, November 9. Miller, currently Deputy "
+WalterBloomberg,38033,1793992321,False,False,30,speaker,,"Routine resignation news, unlikely to move markets.",1.14,*CBS REPORTING SUSIE WILES GAVE TRUMP HER RESIGNATION ON THURSDAY NIGHT (@WalterBloomberg)
+WalterBloomberg,38034,1793994597,False,True,41,rating,,Routine statement about job numbers.,0.72,*TRUMP SAYS WE HAD THE MOST INCREDIBLE JOB NUMBERS (@WalterBloomberg)
+FinancialJuice,145422,1793994635,False,False,30,speaker,,"Routine commentary, not new information.",0.8,Trump blames vote for stock market loss|FJ
+WalterBloomberg,38035,1793994646,False,True,21,rating,,"Routine statement, unlikely to impact markets.",1.01,TRUMP: WANT STEPHEN MILLER TO RUN THINGS WELL AS CHIEF OF STAFF TRUMP: I WANTED TO MAKE A CHANGE (@WalterBloomberg)
+WalterBloomberg,38036,1793994700,True,True,61,,,Potentially significant geopolitical implications.,0.88,TRUMP: WE ARE TALKING TO IRAN (@WalterBloomberg)
+FinancialJuice,145423,1793994710,False,True,41,rating,,"Routine statement, not new information.",0.75,"Trump: We're talking to Iran, we have been.|FJ"
+FinancialJuice,145424,1793994734,False,False,10,speaker,,No substantive content from Trump.,0.99,Trump ends remarks to reporters|FJ
+FinancialJuice,145432,1793999889,False,False,30,speaker,,"Routine market commentary, no new information.",1.07,Chipmakers Rebound as Dip Buyers Lift Stocks Despite Fed Rate-Hike Bets – US Market Wrap|FJ
+FinancialJuice,145581,1794180257,False,False,10,speaker,,"Routine comment, unlikely to impact markets.",0.88,Trump on Dana White as press secretary: he was joking|FJ
+FinancialJuice,145582,1794180307,False,True,20,rating,,"Routine comment, unlikely to impact markets.",0.94,Trump on Dana White as press secretary: we will discuss other issues tomorrow|FJ
+FinancialJuice,145583,1794180315,False,True,21,rating,,"Routine comment, unlikely to impact markets.",3.03,Trump on Nvidia CEO Huang: I have not discussed allegations with him|FJ
+FinancialJuice,145584,1794180332,False,False,10,speaker,,"Commentary on a person, no market impact.",0.69,Trump on Nvidia CEO Huang: he is a good person|FJ
+FinancialJuice,145585,1794180404,False,True,21,rating,,"Routine comment, unlikely to impact markets.",2.93,Trump on Nvidia's Huang: I would take him but don't know if he will join Asia trip|FJ
+FinancialJuice,145586,1794180654,False,True,41,rating,,"Routine expectation, not new information.",2.11,Trump: I expect to hold talks with Xi and Putin|FJ
+FinancialJuice,145587,1794180774,False,True,20,rating,,"Routine comment, unlikely to impact markets.",2.36,Trump: many people disliked Vance's remarks on Iran|FJ
+FinancialJuice,145590,1794182939,False,True,21,rating,,"Routine comment on AI, not market-moving.",0.94,"Trump: AI risk can be managed, but 'I don't mind guardrails' in CBS '60 Minutes' interview|FJ"
+FinancialJuice,145592,1794183995,False,True,21,rating,,"Routine comment, not market-moving.",0.84,"Trump, when asked if Rubio will remain secretary of state: ‘I think so!’ in CBS ‘60 Minutes’ interview|FJ"
+WalterBloomberg,38063,1794218063,False,True,10,rating,,"Lighthearted comment, unlikely to impact markets.",1.18,TRUMP SAYS HE WAS ONLY KIDDING ABOUT OFFERING UFC BOSS DANA WHITE THE ROLE OF WHITE HOUSE PRESS SECRETARY (@WalterBloomberg)
+WalterBloomberg,38071,1794223270,False,False,60,speaker,,Potentially notable deal but lacks confirmation.,1.3,US AND IRAN CONSIDER $8 BILLION DEAL TO REOPEN STRAIT OF HORMUZ President Trump is expected to meet Qatar's prime minister Monday to discuss an Iranian proposal to reopen the Strait of Hormuz in excha
+FinancialJuice,145675,1794234670,False,False,30,speaker,,"Routine analysis, not a principal speaking.",0.88,FEDS Note: The Effect of Oil Prices on Core Inflation: Recent Evidence from the Advanced Economies|FJ
+FinancialJuice,145676,1794235159,False,False,30,speaker,,"Routine announcement, not market-moving.",0.76,Trump administration vows to speed deployments of counter-drone systems to address threats - Memo|FJ
+WalterBloomberg,38086,1794235240,True,True,61,,,New policy on counter-drone systems could impact defense sector.,0.74,TRUMP ADMINISTRATION VOWS TO SPEED DEPLOYMENTS OF COUNTER-DRONE SYSTEMS TO ADDRESS THREATS -- MEMO (@WalterBloomberg)
+FinancialJuice,145680,1794236937,False,False,10,speaker,,Post only mentions a live event.,0.85,Fed's Goolsbee Speaks - WATCH LIVE|FJ
+WalterBloomberg,38090,1794237007,False,True,41,rating,,Questioning election legitimacy may influence markets.,1.95,"TRUMP QUESTIONS US MIDTERM ELECTION RESULTS President Trump is questioning the legitimacy of the midterm elections, alleging irregularities in early voting and voting machines. Trump also questioned w"
+FinancialJuice,145684,1794237820,False,True,41,rating,,Comments on stability are somewhat notable.,0.89,Fed's Goolsbee: Employment and growth are actually pretty stable.|FJ
+FinancialJuice,145685,1794237841,False,True,41,rating,,"Routine comment on inflation, not surprising.",0.86,Fed's Goolsbee: Big problem has all been on the inflation side.|FJ
+FinancialJuice,145686,1794237862,True,True,61,,,Comments indicate a potential policy shift on inflation.,0.98,Fed's Goolsbee: We've got to come to terms with inflation failure|FJ
+FinancialJuice,145688,1794237945,True,True,61,,,Notable comment on inflation trends.,0.93,Fed's Goolsbee: Starting to see inflation kicking up in services.|FJ
+FinancialJuice,145689,1794237992,False,False,30,speaker,,"Routine commentary, not market-moving.",0.76,Fed's Goolsbee: Data centers looking like old-fashioned overheating.|FJ
+FinancialJuice,145690,1794238089,False,False,30,speaker,,Routine commentary on consumer spending.,1.0,Fed's Goolsbee: Consumer spending has been main driver of growth|FJ
+FinancialJuice,145696,1794240029,False,False,40,speaker,,"Routine data release, already priced in.",0.81,"NY FED 1 YR INFLATION EXPECTATIONS ACTUAL 3.91% (FORECAST 3.79%, PREVIOUS 3.9%) $MACRO|FJ"
+FinancialJuice,145699,1794240054,False,False,40,speaker,,"Routine economic commentary, already priced in.",1.35,NY Fed: October expectation of rising unemployment rate is the highest since April 2020.|FJ
+FinancialJuice,145701,1794240071,False,False,30,speaker,,"Routine update, unlikely to impact markets.",0.77,NY Fed: October expectations of current and future credit access unchanged.|FJ
+FinancialJuice,145702,1794240074,False,False,30,speaker,,"Routine sentiment update, likely priced in.",0.88,NY Fed: In October households more upbeat on personal financial situation.|FJ
+FinancialJuice,145703,1794240118,False,False,20,speaker,,Post does not report any principal speaking.,0.74,NY Fed October Survey Of Consumer Expectations|FJ
+FinancialJuice,145712,1794240962,False,False,30,speaker,,"Routine auction results, already priced in.",0.74,Fed bids for 3-Month bills total $6.4 bln|FJ
+FinancialJuice,145713,1794240982,False,False,30,speaker,,"Routine auction results, already priced in.",0.87,Fed bids for 6-Month bills total $5.5 bln|FJ
+FinancialJuice,145728,1794243873,False,True,40,rating,,Routine statement on monetary policy direction.,0.98,Fed's Barkin: Direction of monetary policy is ‘straightforward; but best to move policy 'with care’|FJ
+FinancialJuice,145729,1794243880,False,False,30,speaker,,"Routine statement, already priced in.",0.87,Fed's Barkin: US economy is ‘remarkably stable’|FJ
+WalterBloomberg,38100,1794243885,True,True,61,,,Comments on inflation risks are notable.,0.83,"FED'S BARKIN WARNS INFLATION RISKS REMAIN ELEVATED Richmond Fed President Thomas Barkin says inflation remains the primary risk to the Federal Reserve's dual mandate, calling for monetary policy to mo"
+FinancialJuice,145730,1794243889,True,True,61,,,Comments indicate potential inflation concerns.,0.86,Fed's Barkin: Resilient demand alongside broad-based cost increases putting upward pressure on prices.|FJ
+FinancialJuice,145731,1794243898,False,False,30,speaker,,Routine commentary on cost pressures.,1.02,Fed's Barkin: Firms say they will be trying to pass on higher costs|FJ
+FinancialJuice,145732,1794243906,False,True,41,rating,,"Comments on business performance, mildly notable.",0.86,"Fed's Barkin: Businesses are performing well, with 'remarkable' earnings:|FJ"
+FinancialJuice,145733,1794243914,False,True,41,rating,,Comments on loan pipelines are mildly notable.,0.95,"Fed's Barkin: Bankers say loan pipelines are healthy, demand extending well beyond artificial intelligence|FJ"
+FinancialJuice,145734,1794243924,False,False,30,speaker,,"Routine commentary, not market-moving.",1.08,Fed's Barkin: Layoffs remain muted|FJ
+FinancialJuice,145735,1794243936,False,False,30,speaker,,"Routine comment, not market-moving.",0.83,Fed's Barkin: I'm hearing reports of broad-based cost pressures.|FJ
+FinancialJuice,145736,1794243951,True,True,61,,,Consumer sentiment and spending insights are notable.,0.84,"Fed's Barkin: Consumer sentiment is 'bleak. But consumers continue to spend, supported by resilient job market.|FJ"
+FinancialJuice,145739,1794245091,False,False,30,speaker,,Routine commentary on energy costs.,0.91,Fed's Barkin sees risk of firms passing on higher energy costs|FJ
+FinancialJuice,145748,1794245423,False,False,20,speaker,,"Routine meeting announcement, no market impact.",0.99,US Official: Meeting between President Trump and Qatar's PM and Foreign Minister has begun at the White House - Al Jazeera|FJ
+FinancialJuice,145755,1794247061,False,False,30,speaker,,Routine commentary on government debt levels.,0.81,"Fed's Barkin: Government debt, not consumer debt is at historic level|FJ"
+FinancialJuice,145756,1794247238,False,False,30,speaker,,"Routine auction announcement, already priced in.",0.86,Treasury WI 3y yield 4.622% before $58 billion auction|FJ
+FinancialJuice,145760,1794248311,False,False,30,speaker,,"Routine discussion, not market-moving news.",0.81,"Trump and the PM of Qatar that took place around noon lasted around 45 minutes and focused on the negotiations with Iran, per source familiar - Axios|FJ"
+FinancialJuice,145762,1794248439,False,False,30,speaker,,Routine commentary on elections and economy.,1.15,Fed's Barkin: Hard to know impact of elections on the economy|FJ
+FinancialJuice,145763,1794248447,False,True,41,rating,,Routine statement about policy rate expectations.,0.79,Fed's Barkin: Current policy rate likely around or slightly below neutral|FJ
+FinancialJuice,145764,1794248455,False,True,41,rating,,Routine commentary on policy meeting structure.,0.74,Fed's Barkin: Would an advantage if each fed policy meeting were set to include two full months of economy data|FJ
+FinancialJuice,145765,1794248469,False,False,30,speaker,,Routine commentary on job market conditions.,1.0,"Fed's Barkin: Last job report was healthy, but still see firms in low-hire, low-fire environment.|FJ"
+FinancialJuice,145766,1794248489,False,True,41,rating,,Comments on data center expansion are mildly notable.,0.82,"Fed's Barkin: I do not think ballot measures approved in recent elections will impede data center expansion, firms will find somewhere to build.|FJ"
+WalterBloomberg,38110,1794251435,False,True,40,rating,,Routine press conference on impeachment threat.,0.81,HEGSETH TO HOLD RARE PENTAGON PRESS CONFERENCE AMID IMPEACHMENT THREAT US Defense Secretary Pete Hegseth will hold a press conference Tuesday morning to address a Republican lawmaker's impeachment eff
+WalterBloomberg,38111,1794251491,False,False,40,speaker,,Routine commentary on expected Fed actions.,0.9,EVEN A SMALL CPI BEAT COULD SEAL DECEMBER FED RATE HIKE Russell Investments warns that even a modest upside surprise in Tuesday's US CPI report could cement a December Fed rate hike. Following strong 
+WalterBloomberg,38116,1794253533,False,False,30,speaker,,"Routine legal update, unlikely to move markets.",1.04,*SUPREME COURT ALLOWS TRUMP BORDER WALL CONSTRUCTION IN BIG BEND (@WalterBloomberg)
+FinancialJuice,145786,1794254279,False,False,30,speaker,,"Routine diplomatic commentary, not market-moving.",0.91,Diplomat: Trump and Qatar's PM talks were positive - Axios.|FJ
+WalterBloomberg,38121,1794255531,True,True,75,,,Comments on US readiness for strikes are notable.,1.07,TRUMP TELLS REUTERS AFTER TALKS WITH QATARI LEADER THAT QATAR WOULD RATHER SEE A PEACEFUL SOLUTION WITH IRAN BUT THE US IS- READY FOR STRIKES IF NECESSARY TRUMP SAYS SAUDI ARABIA WOULD ALSO PREFER A P
+FinancialJuice,145789,1794255542,False,True,41,rating,,"Comments on foreign policy, mildly notable.",1.22,Trump: Saudi Arabia would also prefer a peaceful solution to the Iran conflict.|FJ
+FinancialJuice,145790,1794255555,True,True,61,,,Potential military action could impact markets.,0.77,"Trump after talks with the Gatari leader: Qatar would rather see a peaceful solution with Iran, but the US is ready for strikes if necessary|FJ"
+WalterBloomberg,38122,1794255693,False,True,20,rating,,"Routine defense, unlikely to impact markets.",0.94,"TRUMP DEFENDS PENTAGON CHIEF HEGSETH AGAINST IMPEACHMENT EFFORTS, SAYS 'HE WON TWO WARS' (@WalterBloomberg)"
+FinancialJuice,145791,1794255722,False,False,15,speaker,,No market-moving information provided.,1.92,Trump defends Pentagon Chief Hegseth against impeachment efforts: He won two wars.|FJ
+WalterBloomberg,38123,1794255737,True,True,61,,,Potential breakthrough in Ukraine could impact markets.,0.94,TRUMP SAYS ABU DHABI TALKS THIS WEEK ON UKRAINE PRESENT CHANCE OF A POSSIBLE BREAKTHROUGH (@WalterBloomberg)
+FinancialJuice,145792,1794255780,False,True,41,rating,,"Comments on potential breakthrough, mildly notable.",0.76,Trump: The Abu Dhabi talks this week on Ukraine present a chance of a possible breakthrough.|FJ
+WalterBloomberg,38126,1794256677,False,False,30,speaker,,"Routine diplomatic commentary, not market-moving.",0.67,"CHINA INSISTS TRUMP-XI-PUTIN SUMMIT FOLLOW SCRIPTED FORMAT, SOURCES SAY CHINA'S PLANS FOR SUMMIT RAISING DOUBTS ABOUT MEETING, SOURCES SAY U.S. PUSHES BACK ON CHINA'S DEMAND FOR TIGHTLY SCRIPTED TRILA"
+FinancialJuice,145796,1794256689,False,False,20,speaker,,"Speculation about a summit format, no direct impact.",1.02,"China insists Trump-Xi-Putin summit follow scripted format, sources say - WSJ|FJ"
+WalterBloomberg,38127,1794256725,False,False,30,speaker,,Routine commentary on summit disagreements.,0.71,US-CHINA DISAGREEMENT THREATENS TRUMP-XI-PUTIN SUMMIT A potential Trump-Xi-Putin summit next week faces uncertainty as Washington and Beijing clash over its format. China reportedly wants scripted sta
+FinancialJuice,145800,1794256738,False,False,20,speaker,,Post reports on a scripted summit format.,0.85,"China insists Trump-Xi-Putin summit follow scripted format, sources say - WSJ|FJ"
+FinancialJuice,145807,1794259838,False,True,20,rating,,"Routine conversation, unlikely to impact markets.",0.75,Trump: Had an excellent conversation with the Qatar PM - Truth Social|FJ
+FinancialJuice,145809,1794259863,True,True,61,,,Comments suggest potential resolution impacting markets.,0.96,Trump: Seeing positive momentum toward an end to this conflict - Truth Social|FJ
+FinancialJuice,145810,1794259887,False,True,40,rating,,Routine comment on Middle East preferences.,0.89,"Trump: Qatar, Saudi Arabia, UAE, Bahrain, Kuwait, and others would prefer the status quo. - Truth Social|FJ"
+FinancialJuice,145812,1794260664,False,True,41,rating,,"Routine statement, not a major policy shift.",0.79,Trump on Iran: Military action doesn't seem to be necessary|FJ
+FinancialJuice,145813,1794260669,False,True,41,rating,,"Routine statement, not a major policy shift.",0.84,Trump: Iran military action doesn't seem necessary right now|FJ
+FinancialJuice,145814,1794260679,False,False,30,speaker,,"Routine comment, not new information.",0.83,Trump on Iran: We're seeing momentum toward the end of this conflict|FJ
+WalterBloomberg,38128,1794260796,False,True,41,rating,,"Routine statement, not a major policy shift.",0.83,TRUMP ON IRAN: MILITARY ACTION DOESN'T SEEM TO BE NECESSARY (@WalterBloomberg)
+FinancialJuice,145817,1794260805,False,False,30,speaker,,"Routine statement, unlikely to move markets.",0.76,Trump: Keeping Iran at status quo|FJ
+FinancialJuice,145818,1794260812,True,True,61,,,Significant statement on Iran's military status.,3.07,Trump: Iran militarily is effectively over|FJ
+WalterBloomberg,38131,1794260859,True,True,61,,,Comments on conflict may influence markets.,0.9,*TRUMP: SEEING MOMENTUM TOWARD THE END OF THIS CONFLICT (@WalterBloomberg)
+WalterBloomberg,38132,1794260880,True,True,61,,,Discussion on Iran negotiations could impact markets.,0.88,"QATAR PRIME MINISTER: MET WITH TRUMP AND VANCE, DISCUSSED WAYS TO MAKE PROGRESS IN IRAN NEGOTIATIONS (@WalterBloomberg)"
+FinancialJuice,145819,1794260987,False,False,10,speaker,,Post does not contain actual remarks.,1.01,Trump Delivers Remarks - WATCH LIVE|FJ
+FinancialJuice,145820,1794261480,False,True,21,rating,,"Routine comment, unlikely to move markets.",0.93,Trump: I believe Huang is suffering greatly. $NVDA|FJ
+FinancialJuice,145821,1794261540,False,True,41,rating,,"Comments on an investigation, mildly notable.",0.73,Trump on Huang: The FBI is looking into it in terms of something else. $NVDA|FJ

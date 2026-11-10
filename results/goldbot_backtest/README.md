@@ -78,3 +78,18 @@ was added (`scripts/fetch_ff_calendar.py --start 2026-11 --end 2026-11`) and the
 two gold trades right after the Nov 6 jobs report (13:33 and 13:36 UTC, -$3 each) are now blocked, as the bot would.
 Nov 1-9: 73 trades, +$199.37 (was 75, +$193.37); Jan 1 - Nov 9: -$1,302.90 (was -$1,308.90); last 30 days: 124
 trades, +$329.90 (was 126, +$323.90).
+
+## The bot's real AI review on the last 30 days (Oct 11 - Nov 9 2026)
+With the user's OpenAI key (used only for this run, never stored), the bot's own `AIPostChecker` (its prompt,
+gpt-4o-mini, temperature 0, principal + rating >= 60 gates) reviewed the 919 posts of the window that could trade
+(armed, or blocked only by the one-straddle cap): keep 214, not a principal 405, rating below 60 300, errors 0, median
+response 0.88 s (`ai_verdicts_last30.csv`).  Replayed with those verdicts (`scenario ai_real`: a "no" cancels the
+unfilled orders at the first bot tick after the measured response time; ❗/🔴 posts are never reviewed):
+
+| Last 30 days | Straddles armed | Trades | Gold | Nasdaq | Total | Profit factor | Worst drawdown |
+|---|---|---|---|---|---|---|---|
+| Without the AI review (fails open) | 526 | 124 | +$10.07 | +$319.83 | **+$329.90** | 1.42 | -$119.10 |
+| With the real AI review | 748 (568 vetoed) | 46 | -$19.07 | $0.00 | **-$19.07** | 0.94 | -$79.00 |
+
+With the review: posts the AI kept -$75.00 (26 trades); ❗/🔴 posts (not reviewed) +$55.93 (20 trades).  Verdicts
+from today's model can differ slightly from what it answered live.
