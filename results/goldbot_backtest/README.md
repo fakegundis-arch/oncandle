@@ -136,7 +136,8 @@ could not fill.
 | demo, Nov 4 | -3.00 | -3.00 |
 | demo, Nov 5 (if $1,000 was added) | -7.76 | -7.62 |
 | demo, Nov 6 | -4.00 | -4.00 |
-| demo, Nov 6 - 9 | +1.00 | -3.00 (the Nov 9 USTECm trade has no price data yet; +4.00 at its TP fits) |
+| demo, Nov 6 - 9 | +1.00 | +1.00 (gold -3.00, USTECm +4.00 at its TP - from the MT5 export, see below) |
+| demo, Nov 9 14:40 - Nov 10 01:37 | +2.57 | +1.00 (gold +1.00, USTECm +20.00 and -20.00) |
 
 Live account 2 was emptied by a bot failure: the USTECm BUY of Nov 3 23:38 UTC never got its stop loss (114
 "bad stops" rejections - price had already gone through the SL level), stayed open with no stop, and its loss reached
@@ -156,3 +157,33 @@ end of that second and added one spread of slippage.  New scenarios `live` / `li
 
 Last 30 days (Oct 11 - Nov 9) with the real AI review: old -$19.07, calibrated +$5.92.  My recorded AI verdicts agree
 with the live bot's on 280 of 285 posts both reviewed.  USTECm prices for Nov 9-10 are not in the Exness archive yet.
+
+## Nasdaq for Nov 9 - 10 from the user's MT5 export
+
+The Exness tick archive has USTECm only to Nov 8 23:59 UTC (last updated Nov 9 09:41 UTC), so the Nov 9 - 10 Nasdaq
+trades could not be replayed.  The user exported USTECm 1-minute bars from their MT5 terminal (kept locally in
+`data/mt5_exports/`, not in the repo).  Check: same clock as the archive (UTC) and 79 % of Oct 1 - Nov 8 OHLC values
+equal to the cent; the bot's own quote at arming lies inside that minute's range for all 74 Nov 9 - 10 USTECm
+straddles.  `scripts/goldbot_backtest/m1_nasdaq.py`; files `live_log_check/nasdaq_live_trades_nov9_10_m1.csv`,
+`nasdaq_nov9_m1_backtest.csv`.  With minute bars the order of prices inside a minute is unknown; every result below
+comes out the same whichever came first.
+
+The live bot's USTECm trades (each from its real fill, with its real SL / TP):
+
+| filled (UTC) | post | trade | result |
+|---|---|---|---|
+| Nov 9 13:10 | ❗ Qatari Official: reports on US-Iran proposal false | SELL 27193.54, 0.1 lot | take profit 13:20, +$4.00 |
+| Nov 9 16:04 | ❗ US chip inquiry halted after Nvidia intervention | SELL 27867.54, 0.5 lot | take profit 16:09, +$20.00 |
+| Nov 9 19:39 | ❗ Al Arabiya: US allowed uranium enrichment | BUY 27989.90, 0.5 lot | stop loss 19:39-19:44, -$20.00 |
+| Nov 10 09:01 | ❗ Fed's Waller: half-point hike may be needed | SELL 27798.04, 0.5 lot | stop loss 09:01-09:02, -$20.00 |
+| Nov 10 15:50 | Gordon Johnson slams Fed balance sheet | SELL 27661.57, 0.5 lot | take profit 15:50-15:56, +$20.00 |
+| Nov 10 15:57 | ❗ Traders price two BoE hikes by March | BUY 27668.41, 0.5 lot | take profit 16:00, +$20.00 |
+
+Against the bot's balance lines: Nov 6 17:42 - Nov 9 14:36 +$1.00 = gold -3.00 + this +4.00, exact.  Nov 9 14:40 -
+Nov 10 01:37 +$2.57 against +$1.00 here: $1.57, about 3 points at 0.5 lot on one of the two exits.
+
+The backtest (`live_ai_real`) had 12 USTECm straddles on Nov 9 waiting for these prices that its AI review kept; the
+live bot armed all 12 at the same moments, so their stop prices come from the log.  Result: the same three trades
+as live (Qatari +$20, Nvidia +$20, Al Arabiya -$20 at today's 0.5 lot), the other 9 unfilled as live: +$20.00.
+Updated `live_ai_real` totals: Jan 1 - Nov 9 -$704.45; last 30 days +$25.92.  The Nov 10 gold trades still need
+XAUUSDm prices for Nov 10.
