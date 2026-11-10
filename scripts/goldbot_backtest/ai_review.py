@@ -21,7 +21,6 @@ WINDOW = "2026-10-11"
 def main():
     cfg = R.load_config(str(R.BOT / "config.yaml"))
     chk = AIPostChecker(cfg.ai_post_check)
-    assert chk.available, "no key"
     prof = cfg.telegram_feed.profile_for(cfg.x_feed.defaults)
     posts = R.load_posts()
     w = posts[posts.t >= pd.Timestamp(WINDOW, tz="UTC")]
@@ -32,6 +31,14 @@ def main():
         ok, _ = R.post_tradable(p, prof, cfg.keyword_match, 2, keyword_bypass=False)
         if ok:
             todo.append(p)
+    # only posts that can reach the review: armed, or blocked only by the one-straddle cap (an AI cancellation can
+    # free the slot).  Blackout / duplicate / market-shut posts never place orders, so they are never reviewed.
+    d = pd.read_csv(R.OUT / "decisions_base_to_2026-11-10.csv")
+    live = set(map(tuple, d[d.decision.isin(["ARMED", "channel max_open", "global cap"])][["post_ts", "channel"]].values))
+    todo = [p for p in todo if (int(p.ts), p.ch) in live]
+    if len(sys.argv) > 1 and sys.argv[1] == "count":
+        print("posts to review:", len(todo))
+        return
     print("posts to review:", len(todo), flush=True)
 
     def one(p):
@@ -41,6 +48,7 @@ def main():
                     rating=v.rating, failed_gate=v.failed_gate, error=v.error, reason=getattr(v, "reason", ""),
                     latency_s=round(time.time() - t0, 2), text=p.text[:200])
 
+    assert chk.available, "no key"
     rows = []
     with ThreadPoolExecutor(cfg.ai_post_check.max_workers) as ex:
         for k, r in enumerate(ex.map(one, todo), 1):

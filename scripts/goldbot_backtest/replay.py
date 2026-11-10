@@ -63,7 +63,25 @@ SCENARIOS = {
     "ai_strict": dict(lat=2, slip=1.0, exit_slip=0.0, ai="strict"),
     "optimistic": dict(lat=1, slip=0.0, exit_slip=0.0, ai="keep"),
     "stress": dict(lat=5, slip=2.0, exit_slip=1.0, ai="keep"),
+    "ai_real": dict(lat=2, slip=1.0, exit_slip=0.0, ai="real"),
 }
+_VERDICTS: dict = {}
+
+
+def real_veto(ch: str, pid: int, det: int):
+    """The bot's own AI review (ai_verdicts_last30.csv, gpt-4o-mini): cancel the unfilled orders at det + the measured
+    response time when the verdict is a clear no; no verdict / an error -> kept (the bot fails open)."""
+    if not _VERDICTS:
+        f = OUT / "ai_verdicts_last30.csv"
+        if f.exists():
+            v = pd.read_csv(f)
+            for r in v.itertuples():
+                _VERDICTS[(r.channel, int(r.post_id))] = (bool(r.ok), str(r.error) if isinstance(r.error, str) else "",
+                                                          float(r.latency_s))
+    hit = _VERDICTS.get((ch, int(pid)))
+    if hit is None or hit[0] or hit[1]:
+        return None
+    return det + int(np.ceil(hit[2]))
 AI_DELAY = 3                 # seconds from arming to the AI verdict (gpt-4o-mini round trip)
 
 
@@ -369,7 +387,10 @@ def replay(cfg, posts, ticks, windows, sc) -> tuple[pd.DataFrame, pd.DataFrame]:
         sym = sym_info(cfg.symbol, gold, j)
         buy = round_price(sym.ask + prof.entry_offset, sym)
         sell = round_price(sym.bid - prof.entry_offset, sym)
-        veto = det + AI_DELAY if (not flag and ai_vetoes(p.text, sc["ai"])) else None
+        if sc["ai"] == "real":
+            veto = None if flag else real_veto(p.ch, p.id, det)
+        else:
+            veto = det + AI_DELAY if (not flag and ai_vetoes(p.text, sc["ai"])) else None
         pos, close = simulate(cfg.symbol, gold, det, buy, sell, prof.stop_loss, prof.take_profit,
                               prof.cancel_after_seconds, stages, trail, veto, sc["slip"], sc["exit_slip"])
         open_gold.append((close, p.ch))
