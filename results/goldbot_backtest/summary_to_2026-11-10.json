@@ -66,20 +66,20 @@
     "median_hold_min": 1.1
    },
    "nasdaq": {
-    "positions": 838,
-    "usd": -744.44,
-    "win_rate": 0.477,
-    "pf": 0.92,
+    "positions": 855,
+    "usd": -804.44,
+    "win_rate": 0.476,
+    "pf": 0.91,
     "max_drawdown_usd": -1244.92,
-    "median_hold_min": 3.7
+    "median_hold_min": 3.6
    },
    "all": {
-    "positions": 2227,
-    "usd": -494.17,
+    "positions": 2244,
+    "usd": -554.17,
     "win_rate": 0.428,
-    "pf": 0.96,
+    "pf": 0.95,
     "max_drawdown_usd": -1200.5,
-    "median_hold_min": 1.8
+    "median_hold_min": 1.9
    },
    "straddles_armed": 6758
   },
@@ -116,16 +116,16 @@
     "median_hold_min": 1.1
    },
    "nasdaq": {
-    "positions": 776,
-    "usd": -944.33,
+    "positions": 785,
+    "usd": -964.33,
     "win_rate": 0.469,
-    "pf": 0.89,
+    "pf": 0.88,
     "max_drawdown_usd": -1244.92,
     "median_hold_min": 3.8
    },
    "all": {
-    "positions": 2146,
-    "usd": -724.45,
+    "positions": 2155,
+    "usd": -744.45,
     "win_rate": 0.424,
     "pf": 0.93,
     "max_drawdown_usd": -1200.5,

@@ -205,3 +205,22 @@ None reached the +4.5 break-even trigger.  Nov 10 live Telegram trades in all: g
 +$11.00, so from the $1,088.81 start-of-day balance the account should read about $1,099.81 once the last of them
 closed (16:00 UTC), if nothing else traded.  The log stops at 16:03 UTC.  The backtest itself still ends Nov 9:
 minute bars cannot give the gold quote at the arming second, which decides where the stops sit.
+
+## Correction: Nasdaq days missing from the Exness tick archive
+
+The archive's USTECm monthly files lack six whole trading days: Mar 30-31, Sep 30, Oct 19, Oct 29 and Oct 30 2026
+(re-downloaded Nov 10: unchanged; gold is complete, its gaps are market holidays).  On those days the replay saw the
+market as shut and skipped every Nasdaq straddle without a row.  `replay.py` now fills such days from the user's MT5
+1-minute export when it covers them (Sep 30, Oct 19, Oct 29-30; Mar 30-31 are still missing) and marks those trades
+`price_source = "MT5 1-minute bars"` (coarser: arming quote = previous minute's close).  Unfilled USTECm straddles
+leave no row in the trades files (gold ones do).
+
+Rerun, today's config, Jan 1 - Nov 9 (`summary_to_2026-11-10.json`):
+
+| | gold | Nasdaq | total |
+|---|---|---|---|
+| calibrated `live` (no AI) | +250.27 | -804.44 | -554.17 |
+| calibrated `live_ai_real` | +219.88 | -964.33 (+20.00 for Nov 9 from the export) | -724.45 |
+
+Last 30 days (Oct 11 - Nov 9) with the real AI review: gold -$14.02, Nasdaq +$19.94 (39 trades, 20 won, 19 lost,
+at 0.5 lot), total +$5.92.
