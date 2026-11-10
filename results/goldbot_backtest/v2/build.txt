@@ -1,0 +1,35 @@
+{
+ "real": {
+  "settings": 27648,
+  "passing": 2,
+  "best_pnl_passing": 60.35599999999886,
+  "best_pnl_any": 1062.661000000001
+ },
+ "fake1": {
+  "settings": 27648,
+  "passing": 568,
+  "best_pnl_passing": 664.983000000002,
+  "best_pnl_any": 1160.6380000000008
+ },
+ "fake2": {
+  "settings": 27648,
+  "passing": 213,
+  "best_pnl_passing": 784.470999999995,
+  "best_pnl_any": 1355.0400000000036
+ },
+ "fake3": {
+  "settings": 27648,
+  "passing": 32,
+  "best_pnl_passing": 299.35199999999713,
+  "best_pnl_any": 1098.766999999999
+ }
+}
+version 1 in this grid (Jan-May): pnl -950.58, gold -27.91, nasdaq -922.67, h1 -459.72, h2 -490.86, positions 1433.00, pf 0.84, dd -1245.22, stress_pnl -2564.03, stress_pf 0.63
+PICK (all rules): channels=WB, trigger=no_trump, blackout=on, offset=8.0, life=120, sl=3.0, tp=0.0, manage=v1, timer=1800, comp=off
+  Jan-May: pnl 60.36, gold 60.36, nasdaq 0.00, h1 55.36, h2 5.00, positions 81.00, pf 1.46, dd -24.01, stress_pnl 24.33, stress_pf 1.13, passing neighbours 0.08
+  luck: best fake P&L meeting the rules [664.983000000002, 784.470999999995, 299.35199999999713]; pick beats every fake: False
+
+2 passing; top 20 by the pick rule:
+channels  trigger blackout  offset  life  sl  tp manage  timer comp   pnl  gold  nasdaq    h1  h2  positions   pf     dd  stress_pnl  stress_pf   nb
+      WB no_trump       on     8.0   120 3.0 0.0     v1   1800  off 60.36 60.36     0.0 55.36 5.0         81 1.46 -24.01       24.33       1.13 0.08
+      WB no_trump       on     8.0   120 3.0 0.0     v1      0  off 59.94 59.94     0.0 54.94 5.0         81 1.45 -24.01       24.33       1.13 0.08
