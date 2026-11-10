@@ -42,7 +42,8 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
-BOT = Path(sys.argv[1] if len(sys.argv) > 1 else "/home/user/4newgolds").resolve()
+BOT = (Path(sys.argv[1]) if len(sys.argv) > 1 and Path(sys.argv[1]).is_dir()
+       else Path(os.environ.get("GOLDBOT_REPO", "/home/user/4newgolds"))).resolve()
 sys.path.insert(0, str(BOT))
 from newsbot.broker import BUY, SELL, SymbolInfo  # noqa: E402
 from newsbot.config import load_config  # noqa: E402
