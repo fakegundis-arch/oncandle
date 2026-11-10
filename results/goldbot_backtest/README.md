@@ -229,3 +229,14 @@ Note (Nov 10): the log parser had pinned 11 failed order placements ("Market clo
 them, which dropped those 11 gold straddles from the check; fixed - all 11 are unfilled in both, counts above updated.
 The bot's "window over, no fill" line for a straddle means no position was open when its 2-minute window ended - it is
 also printed for straddles that filled and had already closed (e.g. USTECm Nov 5 21:36 and 21:40 UTC, both filled).
+
+## The live Nasdaq trades redone with today's companion settings (Nov 1 - 10)
+
+`scripts/goldbot_backtest/nasdaq_current_config.py` -> `live_log_check/nasdaq_live_current_config.csv`.  Every
+moment the live bot armed a straddle (Telegram, X and Trump feeds, with their logged AI verdicts) gets a USTECm
+straddle with today's config (offset 30, SL 40, TP 40, 0.5 lot, 120 s, one at a time, break-even off, trailing from
++150), priced from the bot's own logged quote where it had one.  Result: 18 trades, 9 won, 9 lost, $0.00 (Telegram
+14 trades $0.00; X feed - now switched off - 4 trades $0.00).  Against the live trades: the five +$0.50 break-even
+exits become full -$20 / +$20 trades; with 30 points instead of 25 four Nov 2-4 trades do not fill (and the
+unprotected Nov 3 23:38 BUY never happens); the WalterBloomberg "big agreement" trade of Nov 5 21:39 is skipped
+because the Dmitriev BUY, without break-even, is still open until 21:40:53.
