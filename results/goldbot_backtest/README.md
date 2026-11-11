@@ -3,7 +3,74 @@
 Bot: github.com/fakegundis-arch/4newgolds, branch `claude/code-review-understanding-swltkb` (commit cb6d625,
 config.yaml as committed).  Replay: `scripts/goldbot_backtest/replay.py` (run with the bot's folder as argument).
 
-## What was replayed
+## Current state after the audit (Nov 11 2026) - read this first
+
+Everything below this section is the history of the work; its numbers are superseded.
+
+**How the backtest is checked.**  `as_live.py` replays the days of the bot's own log (Oct 25 - Nov 10) through the same
+code as the backtest, with only these taken from the log: which posts the bot received and when, its AI verdicts,
+its restarts, and the X / Trump straddles that held the shared slots.  Settings follow the timeline of what was live.
+Result (`as_live/scoreboard.txt`):
+
+* 3,929 posts: same decision as the live bot on 3,915 (99.64 %).  The 14 others: 11 in the Oct 28 FOMC press
+  conference (a 2-second difference in when an X trade freed the slot, then the live account running out of money),
+  1 live network error, 2 around the Nov 10 09:01 Waller trade (below).
+* Fills: USTECm 11 of 13 live fills on the same side, gold 8 of 11; of 571 straddles that did not fill live, 566 do
+  not fill in the replay either (the 5 others are in the hours when the live account was empty).  The misses are
+  $0.5-level differences in the quote at arming, and knife-edge break-evens.
+* Live trades rebuilt from their real fills match the account's balance lines to the cent on Nov 4, Nov 6 and
+  Nov 6-9, within $0.14 on Nov 5.
+
+**Bugs found and fixed in this audit**
+
+| # | bug | effect |
+|---|---|---|
+| 1 | Stop entries were filled exactly at the stop price | Live fills slip in fast moves (gold SELL Nov 10 09:01: stop ~4096.0, filled 4093.23).  Now: worse of the stop and the trigger second's last quote; fits the live fills better (mean abs error 1.07 vs 1.34 pts USTECm, $0.40 vs $0.52 gold).  This alone moves gold from +$174 to -$59 over the period |
+| 2 | Arming quote taken from the end of the arming second, plus a blanket one-spread slippage | The bot prices from the last quote before it; fixed earlier (`qb`) |
+| 3 | The "principal" stand-in for the AI review | Agrees with the real verdicts on 54 % of 977 posts - worthless.  Replaced: live-log verdicts, the recorded run, and a classifier estimate (80 % agreement, labelled) for the rest |
+| 4 | Six Nasdaq trading days missing from the Exness archive were silently treated as market closed | Four filled from the MT5 export and flagged; Mar 30-31 still missing |
+| 5 | Unfilled Nasdaq straddles left no row | Every armed straddle now has a row, with its stop prices |
+| 6 | Broker's minimum stop distance ignored | Exness rejects USTECm stops closer than ~15 points (270 "bad stops" in the log); modelled, with the bot's retry |
+| 7 | Market treated as open for 60 s after the last quote before a session break | Shut from the last quote (Nov 9 21:58 post) |
+| 8 | Log reader: X-feed "global cap" lines and late AI verdicts pinned on the wrong Telegram post; forwarded and queued posts dropped; failed placements pinned on the previous straddle | Made the backtest look wrong where it was right, and hid 11 straddles |
+| 9 | Decision files had no post id; two posts in one second were compared as one | Fixed |
+| 10 | Post files loaded in arbitrary order (an edited post's text could win) | Earliest download wins |
+
+**Result: today's config, Jan 1 - Nov 10 2026** (`summary_to_2026-11-11.json`, trades in `trades_main_to_2026-11-11.csv`;
+gold 0.01 lot, USTECm 0.5 lot; AI review real where a verdict exists (Oct 11 - Nov 10), estimated before)
+
+| run | gold | Nasdaq | total |
+|---|---|---|---|
+| `main` (armed 2 s after the post) | -59.00 (689 trades, PF 0.96) | -1,322.24 (463, PF 0.75) | **-1,381.24** |
+| armed after 1 s / 3 s / 4 s | -86.62 / -143.76 / -87.23 | -1,101.32 / -1,121.07 / -1,122.24 | -1,187.94 / -1,264.83 / -1,209.46 |
+| `main_perfect_fills` (every stop filled at its price) | +174.49 | -1,101.67 | -927.17 |
+| `live` (no AI review at all) | -160.80 (1,413) | -1,305.04 (866) | -1,465.83 |
+
+Months (`main`): gold +117.85, +28.97, -49.28, -7.25, -35.04, -38.53, -25.34, -3.03, -26.35, -15.00, -6.00;
+Nasdaq -0.29, -1.12, -200.34, -280.17, -379.92, -20.41, -159.82, -40.12, -120.00, -100.06, -20.00.
+Oct 11 - Nov 10 (real AI verdicts): 58 trades, -$55.05 (gold -15.00, Nasdaq -40.06).
+
+**What it still cannot do**
+
+* The bot arms 1-4 s after a post and fills land within a second of a spike; with one-second prices and a logged
+  time in whole seconds, single trades can differ.  Example, Nov 10: the live SELL filled at 4093.23 and missed
+  break-even by $0.05, was stopped (-$3), and the bot then traded the 09:02:06 Waller post (FJ 145927).  The as-live
+  replay fills at 4093.77, reaches break-even (+$1), and trades the 09:01:49 post instead.  Totals are what to read.
+* AI review before Oct 11 is an estimate.  Exact needs the bot's own checker run on those posts (about 15,000 calls).
+* USTECm: Mar 30-31 have no prices; Nov 10 waits for the Exness archive (60 straddles marked "no Nasdaq price data
+  yet"); 8 trades on the four filled days come from 1-minute bars.
+* Not replayed: the Truth Social feed (its companions briefly hold the USTECm slot), the X feed (now off), and live
+  incidents - network errors, a full account, a position left without a stop.
+* The V2 rebuild (`v2/`) was selected on the old engine (perfect fills, late quote); its numbers are not valid on
+  this one until rerun.
+
+Found in the bot / its settings along the way: `risk.max_daily_loss: 15.0` is a fraction (1,500 %), so the daily loss
+limit can never trigger; "window over, no fill" is also printed for a straddle that filled and already closed; a
+position whose SL is rejected (price already through it) stays open without a stop.
+
+Refresh with new data: `scripts/goldbot_backtest/refresh.sh <bot repo> [newsbot.log]`.
+
+## What was replayed (history from here on)
 * **Posts:** every post of the three channels in `telegram_feed.channels` - @FinancialJuice, @WalterBloomberg,
   @apewirenews (posts from Apr 11 2026, when the channel started) - from their public Telegram history, to the second:
   51,331 posts in Jan-Oct 2026.

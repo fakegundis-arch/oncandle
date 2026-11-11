@@ -1,0 +1,359 @@
+{
+ "main": {
+  "settings": {
+   "lat": 2,
+   "slip": 0.0,
+   "exit_slip": 0.0,
+   "ai": "est",
+   "qb": true,
+   "fill": "last"
+  },
+  "summary": {
+   "gold": {
+    "positions": 689,
+    "usd": -59.0,
+    "win_rate": 0.358,
+    "pf": 0.96,
+    "max_drawdown_usd": -241.65,
+    "median_hold_min": 0.9
+   },
+   "nasdaq": {
+    "positions": 463,
+    "usd": -1322.24,
+    "win_rate": 0.43,
+    "pf": 0.75,
+    "max_drawdown_usd": -1481.96,
+    "median_hold_min": 3.6
+   },
+   "all": {
+    "positions": 1152,
+    "usd": -1381.24,
+    "win_rate": 0.387,
+    "pf": 0.79,
+    "max_drawdown_usd": -1695.1,
+    "median_hold_min": 1.8
+   },
+   "straddles_armed": 9847
+  },
+  "decisions": {
+   "no keyword match": 46152,
+   "ARMED": 9847,
+   "blacklisted": 4125,
+   "channel max_open": 2264,
+   "market shut": 1815,
+   "USD news blackout": 1651,
+   "global cap": 1597,
+   "blacklisted phrase": 146,
+   "duplicate content": 144,
+   "repost/forward": 33,
+   "too short": 24,
+   "reply": 11
+  }
+ },
+ "live_ai_real": {
+  "settings": {
+   "lat": 2,
+   "slip": 0.0,
+   "exit_slip": 0.0,
+   "ai": "real",
+   "qb": true,
+   "fill": "last"
+  },
+  "summary": {
+   "gold": {
+    "positions": 1394,
+    "usd": -191.33,
+    "win_rate": 0.358,
+    "pf": 0.93,
+    "max_drawdown_usd": -335.53,
+    "median_hold_min": 0.9
+   },
+   "nasdaq": {
+    "positions": 793,
+    "usd": -1485.05,
+    "win_rate": 0.454,
+    "pf": 0.83,
+    "max_drawdown_usd": -1725.05,
+    "median_hold_min": 3.9
+   },
+   "all": {
+    "positions": 2187,
+    "usd": -1676.38,
+    "win_rate": 0.393,
+    "pf": 0.85,
+    "max_drawdown_usd": -1966.92,
+    "median_hold_min": 1.7
+   },
+   "straddles_armed": 7053
+  },
+  "decisions": {
+   "no keyword match": 46152,
+   "ARMED": 7053,
+   "channel max_open": 4162,
+   "blacklisted": 4125,
+   "global cap": 2592,
+   "market shut": 1807,
+   "USD news blackout": 1651,
+   "blacklisted phrase": 146,
+   "duplicate content": 53,
+   "repost/forward": 33,
+   "too short": 24,
+   "reply": 11
+  }
+ },
+ "live": {
+  "settings": {
+   "lat": 2,
+   "slip": 0.0,
+   "exit_slip": 0.0,
+   "ai": "keep",
+   "qb": true,
+   "fill": "last"
+  },
+  "summary": {
+   "gold": {
+    "positions": 1413,
+    "usd": -160.8,
+    "win_rate": 0.36,
+    "pf": 0.94,
+    "max_drawdown_usd": -348.77,
+    "median_hold_min": 0.9
+   },
+   "nasdaq": {
+    "positions": 866,
+    "usd": -1305.04,
+    "win_rate": 0.463,
+    "pf": 0.86,
+    "max_drawdown_usd": -1704.99,
+    "median_hold_min": 3.7
+   },
+   "all": {
+    "positions": 2279,
+    "usd": -1465.83,
+    "win_rate": 0.399,
+    "pf": 0.88,
+    "max_drawdown_usd": -1926.86,
+    "median_hold_min": 1.7
+   },
+   "straddles_armed": 6830
+  },
+  "decisions": {
+   "no keyword match": 46152,
+   "ARMED": 6830,
+   "channel max_open": 4338,
+   "blacklisted": 4125,
+   "global cap": 2645,
+   "market shut": 1807,
+   "USD news blackout": 1651,
+   "blacklisted phrase": 146,
+   "duplicate content": 47,
+   "repost/forward": 33,
+   "too short": 24,
+   "reply": 11
+  }
+ },
+ "main_lat1": {
+  "settings": {
+   "lat": 1,
+   "slip": 0.0,
+   "exit_slip": 0.0,
+   "ai": "est",
+   "qb": true,
+   "fill": "last"
+  },
+  "summary": {
+   "gold": {
+    "positions": 689,
+    "usd": -86.62,
+    "win_rate": 0.361,
+    "pf": 0.93,
+    "max_drawdown_usd": -247.0,
+    "median_hold_min": 0.9
+   },
+   "nasdaq": {
+    "positions": 470,
+    "usd": -1101.32,
+    "win_rate": 0.443,
+    "pf": 0.79,
+    "max_drawdown_usd": -1301.37,
+    "median_hold_min": 3.6
+   },
+   "all": {
+    "positions": 1159,
+    "usd": -1187.94,
+    "win_rate": 0.394,
+    "pf": 0.82,
+    "max_drawdown_usd": -1488.44,
+    "median_hold_min": 1.8
+   },
+   "straddles_armed": 9820
+  },
+  "decisions": {
+   "no keyword match": 46152,
+   "ARMED": 9820,
+   "blacklisted": 4125,
+   "channel max_open": 2282,
+   "market shut": 1811,
+   "USD news blackout": 1651,
+   "global cap": 1610,
+   "blacklisted phrase": 146,
+   "duplicate content": 144,
+   "repost/forward": 33,
+   "too short": 24,
+   "reply": 11
+  }
+ },
+ "main_lat3": {
+  "settings": {
+   "lat": 3,
+   "slip": 0.0,
+   "exit_slip": 0.0,
+   "ai": "est",
+   "qb": true,
+   "fill": "last"
+  },
+  "summary": {
+   "gold": {
+    "positions": 703,
+    "usd": -143.76,
+    "win_rate": 0.346,
+    "pf": 0.9,
+    "max_drawdown_usd": -331.15,
+    "median_hold_min": 0.9
+   },
+   "nasdaq": {
+    "positions": 455,
+    "usd": -1121.07,
+    "win_rate": 0.44,
+    "pf": 0.78,
+    "max_drawdown_usd": -1241.06,
+    "median_hold_min": 4.0
+   },
+   "all": {
+    "positions": 1158,
+    "usd": -1264.83,
+    "win_rate": 0.383,
+    "pf": 0.81,
+    "max_drawdown_usd": -1532.61,
+    "median_hold_min": 1.7
+   },
+   "straddles_armed": 9860
+  },
+  "decisions": {
+   "no keyword match": 46152,
+   "ARMED": 9860,
+   "blacklisted": 4125,
+   "channel max_open": 2257,
+   "market shut": 1811,
+   "USD news blackout": 1651,
+   "global cap": 1594,
+   "blacklisted phrase": 146,
+   "duplicate content": 145,
+   "repost/forward": 33,
+   "too short": 24,
+   "reply": 11
+  }
+ },
+ "main_lat4": {
+  "settings": {
+   "lat": 4,
+   "slip": 0.0,
+   "exit_slip": 0.0,
+   "ai": "est",
+   "qb": true,
+   "fill": "last"
+  },
+  "summary": {
+   "gold": {
+    "positions": 686,
+    "usd": -87.23,
+    "win_rate": 0.343,
+    "pf": 0.94,
+    "max_drawdown_usd": -249.8,
+    "median_hold_min": 0.9
+   },
+   "nasdaq": {
+    "positions": 461,
+    "usd": -1122.24,
+    "win_rate": 0.44,
+    "pf": 0.78,
+    "max_drawdown_usd": -1282.2,
+    "median_hold_min": 4.0
+   },
+   "all": {
+    "positions": 1147,
+    "usd": -1209.46,
+    "win_rate": 0.382,
+    "pf": 0.82,
+    "max_drawdown_usd": -1511.89,
+    "median_hold_min": 1.8
+   },
+   "straddles_armed": 9862
+  },
+  "decisions": {
+   "no keyword match": 46152,
+   "ARMED": 9862,
+   "blacklisted": 4125,
+   "channel max_open": 2267,
+   "market shut": 1814,
+   "USD news blackout": 1650,
+   "global cap": 1583,
+   "blacklisted phrase": 146,
+   "duplicate content": 142,
+   "repost/forward": 33,
+   "too short": 24,
+   "reply": 11
+  }
+ },
+ "main_perfect_fills": {
+  "settings": {
+   "lat": 2,
+   "slip": 0.0,
+   "exit_slip": 0.0,
+   "ai": "est",
+   "qb": true,
+   "fill": "stop"
+  },
+  "summary": {
+   "gold": {
+    "positions": 683,
+    "usd": 174.49,
+    "win_rate": 0.407,
+    "pf": 1.14,
+    "max_drawdown_usd": -145.26,
+    "median_hold_min": 1.1
+   },
+   "nasdaq": {
+    "positions": 462,
+    "usd": -1101.67,
+    "win_rate": 0.442,
+    "pf": 0.79,
+    "max_drawdown_usd": -1341.67,
+    "median_hold_min": 3.9
+   },
+   "all": {
+    "positions": 1145,
+    "usd": -927.17,
+    "win_rate": 0.421,
+    "pf": 0.86,
+    "max_drawdown_usd": -1398.0,
+    "median_hold_min": 1.9
+   },
+   "straddles_armed": 9817
+  },
+  "decisions": {
+   "no keyword match": 46152,
+   "ARMED": 9817,
+   "blacklisted": 4125,
+   "channel max_open": 2292,
+   "market shut": 1811,
+   "USD news blackout": 1651,
+   "global cap": 1604,
+   "blacklisted phrase": 146,
+   "duplicate content": 143,
+   "repost/forward": 33,
+   "too short": 24,
+   "reply": 11
+  }
+ }
+}
