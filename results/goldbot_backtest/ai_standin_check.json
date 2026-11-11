@@ -1,0 +1,17 @@
+{
+ "real_verdicts": 977,
+ "real_keep_rate": 0.237,
+ "cv_agreement": 0.801,
+ "predicted_keep_rate": 0.231,
+ "real_keeps_predicted_keep": 0.569,
+ "real_closes_predicted_close": 0.874,
+ "old_principal_rule_agreement": 0.542,
+ "my_run_vs_live_same_posts": {
+  "n": 288,
+  "same": 283
+ },
+ "live_verdict_delay_s": {
+  "median": 2.0,
+  "p90": 4.0
+ }
+}

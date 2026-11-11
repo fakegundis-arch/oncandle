@@ -116,7 +116,7 @@ if __name__ == "__main__":
     main()
 
 
-def live_exits(log, tk=None):
+def live_exits(log, tk=None, sl_model="stop"):
     """Each LIVE fill, run forward from its real fill price and second with the settings in force -> exit and $."""
     cfg = R.load_config(str(R.BOT / "config.yaml"))
     gstages = R.break_even_stages(cfg.strategy) if cfg.strategy.break_even_enabled else []
@@ -145,7 +145,8 @@ def live_exits(log, tk=None):
         # line comes from the bot's 2-s loop, up to ~5 s after the real fill)
         a = UTC(s.arm_utc)
         buy, sell = (s.fill, -1e9) if s.side == "BUY" else (1e9, s.fill)
-        pos, _ = R.simulate(s.symbol, t, a, buy, sell, sl_d, tp_d, 10**7, stages, trail, None, 0.0, 0.0)
+        pos, _ = R.simulate(s.symbol, t, a, buy, sell, sl_d, tp_d, 10**7, stages, trail, None, 0.0, 0.0,
+                            sl_model=sl_model)
         p = pos[0]
         usd = (p.exit - p.fill) * (1 if p.side == R.BUY else -1) * R.SPEC[s.symbol]["contract"] * s.lots
         rows.append(dict(row, sim_fill_utc=pd.Timestamp(p.fill_ts, unit="s"), sim_fill=p.fill,

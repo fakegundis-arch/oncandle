@@ -1,0 +1,15 @@
+recv_utc,ch,id,decision,replay,text
+2026-10-28 18:39:03,FinancialJuice,143369,global cap,ARMED,Fed's Warsh: Information in coming period will help us determine where we want policy to be.|FJ
+2026-10-28 18:39:08,FinancialJuice,143370,ARMED,channel max_open,Fed's Chair Warsh: Ensuring price stability is not about a fixed date on a calendar.|FJ
+2026-10-28 18:39:38,FinancialJuice,143371,ARMED,channel max_open,"Fed's Chair Warsh: In 2027, one meeting won't have a vote on rates or a statement. In 2028, I expect two meetings won't have a rate vote.|FJ"
+2026-10-28 18:39:42,FinancialJuice,143372,ARMED,channel max_open,Fed's Warsh: Ensuring price stability and quashing inflation is not about an individual date or an isolated data point.|FJ
+2026-10-28 18:39:51,FinancialJuice,143373,ARMED,channel max_open,Fed's Warsh: The Fed has put in place 'new monetary medicine’.|FJ
+2026-10-28 18:40:34,FinancialJuice,143375,ARMED,channel max_open,Fed's Warsh: Inflation compensation as measured by swaps is going the right way.|FJ
+2026-10-28 18:40:57,FinancialJuice,143376,ARMED,channel max_open,Fed's Warsh: I feel good about the signposts.|FJ
+2026-10-28 18:52:18,FinancialJuice,143392,channel max_open,ARMED,"Fed's Warsh: Inflation expectations have gone up in near-term, but longer-term measures show households and businesses have confidence that the Fed will deliver price stability.|FJ"
+2026-10-28 18:53:25,FinancialJuice,143394,ARMED,channel max_open,Fed's Warsh: Interest rates have rolled over to the downside.|FJ
+2026-10-28 18:54:06,FinancialJuice,143395,ARMED,channel max_open,Fed's Warsh: I take note that oil futures prices have moved up.|FJ
+2026-10-28 18:58:44,FinancialJuice,143406,ARMED,channel max_open,Fed's Warsh: I won't share musings on what will happen in December.|FJ
+2026-11-05 16:13:37,FinancialJuice,145109,NO orders: place_stop failed: Request rejected due to absence of network connection (10031),ARMED,Putin Envoy Dmitriev: Putin appreciates trump's peacemaking efforts|FJ
+2026-11-10 09:01:49,FinancialJuice,145926,channel max_open,ARMED,Fed's Waller: Was willing to wait on policy tightening in October; what matters is that promised hikes are delivered in a reasonable period of time.|FJ
+2026-11-10 09:02:06,FinancialJuice,145927,ARMED,channel max_open,Fed's Waller: Particularly concerned about the breadth of price increases.|FJ

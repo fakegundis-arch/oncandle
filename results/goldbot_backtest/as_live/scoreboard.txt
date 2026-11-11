@@ -1,0 +1,36 @@
+posts the live bot received that the replay could price: 3929
+same decision: 3915 (99.64%)
+
+replay             ARMED  USD news blackout  blacklisted  channel max_open  duplicate content  global cap  market shut  no keyword match  repost  stale  too short
+live                                                                                                                                                              
+ARMED                365                  0            0                10                  0           0            0                 0       0      0          0
+USD news blackout      0                 14            0                 0                  0           0            0                 0       0      0          0
+blacklisted            0                  0          291                 0                  0           0            0                 0       0      0          0
+channel max_open       2                  0            0                85                  0           0            0                 0       0      0          0
+duplicate content      0                  0            0                 0                  2           0            0                 0       0      0          0
+global cap             1                  0            0                 0                  0          77            0                 0       0      0          0
+market shut            1                  0            0                 0                  0           0           47                 0       0      0          0
+no keyword match       0                  0            0                 0                  0           0            0              3015       0      0          0
+repost                 0                  0            0                 0                  0           0            0                 0       1      0          0
+stale                  0                  0            0                 0                  0           0            0                 0       0     16          0
+too short              0                  0            0                 0                  0           0            0                 0       0      0          2
+
+straddles (Telegram feed) with price data:
+symbol   check                      
+USTECm   both filled, same side          11
+         live armed, replay did not       1
+         live filled, replay did not      1
+         neither filled                 215
+         replay armed, live did not       3
+XAUUSDm  both filled, same side           8
+         live armed, replay did not      10
+         live filled, replay did not      1
+         neither filled                 351
+         replay armed, live did not       4
+         replay filled, live did not      5
+
+USTECm: 11 fills on the same side; fill price identical to the cent in 2, median difference 1.25, largest 10.25
+XAUUSDm: 8 fills on the same side; fill price identical to the cent in 1, median difference 0.40, largest 0.92
+
+live Telegram trades with price data, rebuilt from their real fills: 24 trades, -28.62 USD (gold -30.12, Nasdaq +1.50)
+replay's own trades over the same days: 26 trades, -40.68 USD (gold -32.18, Nasdaq -8.50)

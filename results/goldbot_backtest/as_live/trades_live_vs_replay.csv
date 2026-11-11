@@ -1,0 +1,611 @@
+ch,id,symbol,arm_utc,live_lots,live_side,live_fill,live_fill_utc,n_fills,live_buy_stop,live_sell_stop,title,side,fill,fill_ts,n,usd,exit_reason,buy_stop,sell_stop,_merge,check
+FinancialJuice,142538,XAUUSDm,2026-10-26 00:00:02,0.01,,,,0.0,,,Trump announces newest flagship national park in US: Chirica,,,0.0,0.0,0.0,no fill (AI veto),4003.099,3990.859,both,neither filled
+FinancialJuice,142644,XAUUSDm,2026-10-26 14:30:44,0.01,,,,0.0,,,"DALLAS FED MFG. BUS. INDEX ACTUAL 13.40 (FORECAST 8.8, PREVI",,,0.0,0.0,0.0,no fill (AI veto),4016.881,4004.641,both,neither filled
+FinancialJuice,142645,XAUUSDm,2026-10-26 14:33:46,0.01,,,,0.0,,,Dallas Fed Manufacturing Business Index October Report|FJ,,,0.0,0.0,0.0,no fill (AI veto),4018.68,4006.44,both,neither filled
+FinancialJuice,142650,XAUUSDm,2026-10-26 15:02:33,0.01,,,,0.0,,,US Treasury to buy back up to $6 bln in longer-dated debt Tu,,,0.0,0.0,0.0,no fill,4028.342,4016.102,both,neither filled
+FinancialJuice,142652,XAUUSDm,2026-10-26 15:15:46,0.01,,,,0.0,,,Trump’s Gasoline prices surpass biden average ahead of the m,,,0.0,0.0,0.0,no fill (AI veto),4027.598,4015.358,both,neither filled
+FinancialJuice,142653,XAUUSDm,2026-10-26 15:15:55,0.01,,,,0.0,,,Fed bids for 6-month bills total $7.3 bln|FJ,,,0.0,0.0,0.0,no fill (AI veto),4027.37,4015.13,both,neither filled
+FinancialJuice,142654,XAUUSDm,2026-10-26 15:16:19,0.01,,,,0.0,,,Fed bids for 3-month bills total $8.5 bln|FJ,,,0.0,0.0,0.0,no fill (AI veto),4027.964,4015.724,both,neither filled
+FinancialJuice,142655,XAUUSDm,2026-10-26 15:30:59,0.01,,,,0.0,,,"❗ Microsoft to offer buyouts to 60,000 workers in latest cos",,,0.0,0.0,0.0,no fill,4022.589,4010.349,both,neither filled
+FinancialJuice,142671,XAUUSDm,2026-10-26 17:00:39,0.01,,,,0.0,,,Treasury WI 2 Yr yield 4.705% before $69 billion auction|FJ,,,0.0,0.0,0.0,no fill (AI veto),4028.232,4015.992,both,neither filled
+FinancialJuice,142701,XAUUSDm,2026-10-26 19:37:01,0.01,,,,0.0,,,❗ Iran is open to a shorter US proposal timeline if conditio,,,0.0,0.0,0.0,no fill,4018.387,4006.147,both,neither filled
+FinancialJuice,142720,XAUUSDm,2026-10-26 22:22:20,0.01,,,,0.0,,,US appeals court rejects Trump administration request to hal,,,0.0,0.0,0.0,no fill (AI veto),4022.233,4009.993,both,neither filled
+FinancialJuice,142861,XAUUSDm,2026-10-27 14:00:53,0.01,,,,0.0,,,"RICHMOND FED COMP. INDEX ACTUAL -2 (FORECAST 0, PREVIOUS -2)",,,0.0,0.0,0.0,no fill (AI veto),4032.147,4019.907,both,neither filled
+FinancialJuice,142882,XAUUSDm,2026-10-27 15:16:06,0.01,,,,0.0,,,Fed bids for 52-Week bills total $4.8 bln|FJ,,,0.0,0.0,0.0,no fill (AI veto),4065.51,4053.27,both,neither filled
+FinancialJuice,142889,XAUUSDm,2026-10-27 15:37:06,0.01,,,,0.0,,,WATCH LIVE: Trump Speaks|FJ,,,0.0,0.0,0.0,no fill (AI veto),4062.323,4050.083,both,neither filled
+FinancialJuice,142892,XAUUSDm,2026-10-27 15:39:23,0.01,,,,0.0,,,Trump: We're going to accept 1m barrels of Venezuelan oil|FJ,,,0.0,0.0,0.0,no fill,4064.202,4051.962,both,neither filled
+FinancialJuice,142896,XAUUSDm,2026-10-27 15:57:20,0.01,,,,0.0,,,Melania Trump: Local ceasefire in Ukraine has begun|FJ,,,0.0,0.0,0.0,no fill (AI veto),4069.607,4057.367,both,neither filled
+FinancialJuice,142907,XAUUSDm,2026-10-27 17:00:47,0.01,,,,0.0,,,Treasury WI 5y yield 4.841% before the $70 billion auction|F,,,0.0,0.0,0.0,no fill (AI veto),4065.838,4053.598,both,neither filled
+FinancialJuice,142913,XAUUSDm,2026-10-27 17:06:40,0.01,,,,0.0,,,Trump: 100m barrels of Venezuelan oil is just the 1st shipme,,,0.0,0.0,0.0,no fill (AI veto),4066.371,4054.131,both,neither filled
+FinancialJuice,142914,XAUUSDm,2026-10-27 17:08:13,0.01,,,,0.0,,,Trump: 1 mln barrels of Venezuelan oil is just the 1st shipm,,,0.0,0.0,0.0,no fill,4067.052,4054.812,both,neither filled
+FinancialJuice,142918,XAUUSDm,2026-10-27 18:02:47,0.01,,,,0.0,,,"Treasury receives $10.746B of offers for buyback, accepts $6",,,0.0,0.0,0.0,no fill (AI veto),4063.989,4051.749,both,neither filled
+FinancialJuice,142919,XAUUSDm,2026-10-27 18:03:08,0.01,,,,0.0,,,"Treasury accepts $6b of offers for buyback, matching the max",,,0.0,0.0,0.0,no fill (AI veto),4064.322,4052.082,both,neither filled
+FinancialJuice,142933,XAUUSDm,2026-10-27 19:07:01,0.01,,,,0.0,,,Trumps Speaks live|FJ,,,0.0,0.0,0.0,no fill (AI veto),4066.167,4053.927,both,neither filled
+FinancialJuice,142941,XAUUSDm,2026-10-27 19:47:14,0.01,,,,0.0,,,Trump suggests Venezuela could become a US state|FJ,,,0.0,0.0,0.0,no fill (AI veto),4069.278,4057.038,both,neither filled
+FinancialJuice,142942,XAUUSDm,2026-10-27 19:49:48,0.01,,,,0.0,,,Trump reiterates that oil is flowing out of the Hormuz Strai,,,0.0,0.0,0.0,no fill (AI veto),4067.838,4055.598,both,neither filled
+FinancialJuice,142944,XAUUSDm,2026-10-27 20:00:48,0.01,,,,0.0,,,❗ Israel's Prime Minister Netanyahu Likud leads in Israel vo,,,0.0,0.0,0.0,no fill,4066.963,4054.723,both,neither filled
+FinancialJuice,142952,XAUUSDm,2026-10-27 20:14:48,0.01,,,,0.0,,,Tech Stocks Rally Ahead of Big Earnings and Fed Decision – U,,,0.0,0.0,0.0,no fill (AI veto),4068.331,4056.091,both,neither filled
+FinancialJuice,143242,XAUUSDm,2026-10-28 13:45:07,0.01,,,,0.0,,,Britain plans to extend upcoming carbon border tax to includ,,,0.0,0.0,0.0,no fill (AI veto),4055.713,4043.473,both,neither filled
+FinancialJuice,143271,XAUUSDm,2026-10-28 14:14:47,0.01,,,,0.0,,,Britain to reform electricity standing charges -Treasury Doc,,,0.0,0.0,0.0,no fill (AI veto),4053.426,4041.186,both,neither filled
+FinancialJuice,143307,XAUUSDm,2026-10-28 15:21:55,0.01,,,,0.0,,,"White House study sees growth, wage gains from Permitting Bi",,,0.0,0.0,0.0,no fill (AI veto),4051.285,4039.045,both,neither filled
+FinancialJuice,143310,XAUUSDm,2026-10-28 16:12:42,0.01,,,,0.0,,,Trump on the possibility that he will work for a unity gover,,,0.0,0.0,0.0,no fill (AI veto),4044.537,4032.297,both,neither filled
+FinancialJuice,143313,XAUUSDm,2026-10-28 16:19:41,0.01,,,,0.0,,,Senior US diplomatic official: Trump remains determined to c,,,0.0,0.0,0.0,no fill (AI veto),4045.955,4033.715,both,neither filled
+FinancialJuice,143330,XAUUSDm,2026-10-28 18:00:36,0.01,,,,0.0,,,Federal Reserve leaves key overnight interest rate unchanged,,,0.0,0.0,0.0,no fill,4048.19,4035.95,both,neither filled
+FinancialJuice,143342,XAUUSDm,2026-10-28 18:07:09,0.01,,,,0.0,,,Traders maintain pricing in a 90% chance of a December Fed h,,,0.0,0.0,0.0,no fill (AI veto),4042.054,4029.814,both,neither filled
+FinancialJuice,143347,XAUUSDm,2026-10-28 18:31:46,0.01,SELL,4030.51,2026-10-28 18:32:33,1.0,,,Fed's Chair Warsh: Economic activity is expanding at a stron,SELL,4030.986,1793212339.0,1.0,1.0,break-even stop,4043.254,4031.014,both,"both filled, same side"
+FinancialJuice,143369,XAUUSDm,,,,,,,,,,BUY,4056.659,1793212819.0,1.0,-6.066000000000258,stop loss,4056.659,4044.419,right_only,"replay armed, live did not"
+FinancialJuice,143370,XAUUSDm,2026-10-28 18:39:10,0.01,,,,0.0,,,Fed's Chair Warsh: Ensuring price stability is not about a f,,,,,,,,,left_only,"live armed, replay did not"
+FinancialJuice,143371,XAUUSDm,2026-10-28 18:39:40,0.01,,,,0.0,,,"Fed's Chair Warsh: In 2027, one meeting won't have a vote on",,,,,,,,,left_only,"live armed, replay did not"
+FinancialJuice,143372,XAUUSDm,2026-10-28 18:39:43,0.01,,,,0.0,,,Fed's Warsh: Ensuring price stability and quashing inflation,,,,,,,,,left_only,"live armed, replay did not"
+FinancialJuice,143373,XAUUSDm,2026-10-28 18:39:52,0.01,BUY,4056.34,2026-10-28 18:40:22,1.0,,,Fed's Warsh: The Fed has put in place 'new monetary medicine,,,,,,,,,left_only,"live armed, replay did not"
+FinancialJuice,143375,XAUUSDm,2026-10-28 18:40:36,0.01,,,,0.0,,,Fed's Warsh: Inflation compensation as measured by swaps is ,,,,,,,,,left_only,"live armed, replay did not"
+FinancialJuice,143376,XAUUSDm,2026-10-28 18:40:58,0.01,,,,0.0,,,Fed's Warsh: I feel good about the signposts.|FJ,,,,,,,,,left_only,"live armed, replay did not"
+FinancialJuice,143377,XAUUSDm,2026-10-28 18:41:16,0.01,,,,0.0,,,Fed's Chair Warsh: The period in front of us is information-,,,0.0,0.0,0.0,no fill (AI veto),4061.149,4048.909,both,neither filled
+FinancialJuice,143378,XAUUSDm,2026-10-28 18:41:30,0.01,,,,0.0,,,Fed's Warsh: I am encouraged by the progress we've made.|FJ,,,0.0,0.0,0.0,no fill (AI veto),4064.14,4051.9,both,neither filled
+FinancialJuice,143382,XAUUSDm,2026-10-28 18:44:52,0.01,,,,0.0,,,Fed's Chair Warsh: We do not anticipate issuing a policy sta,,,0.0,0.0,0.0,no fill (AI veto),4063.142,4050.902,both,neither filled
+FinancialJuice,143383,XAUUSDm,2026-10-28 18:45:14,0.01,,,,0.0,,,Fed's Chair Warsh: There's more news to come on the format o,,,0.0,0.0,0.0,no fill (AI veto),4059.765,4047.525,both,neither filled
+FinancialJuice,143385,XAUUSDm,2026-10-28 18:46:54,0.01,,,,0.0,,,"Fed's Warsh: The five task forces are hard at work, I have d",,,0.0,0.0,0.0,no fill (AI veto),4053.6,4041.36,both,neither filled
+FinancialJuice,143387,XAUUSDm,2026-10-28 18:48:07,0.01,,,,0.0,,,Fed's Warsh: Task force conclusions are unlikely to find the,,,0.0,0.0,0.0,no fill (AI veto),4056.608,4044.368,both,neither filled
+FinancialJuice,143388,XAUUSDm,2026-10-28 18:48:56,0.01,,,,0.0,,,Fed's Chair Warsh: I plan on attending a task force field he,,,0.0,0.0,0.0,no fill (AI veto),4066.76,4054.52,both,neither filled
+FinancialJuice,143389,XAUUSDm,2026-10-28 18:51:03,0.01,,,,0.0,,,Fed's Chair Warsh: We just came out of a heck of a family fi,,,0.0,0.0,0.0,no fill (AI veto),4064.072,4051.832,both,neither filled
+FinancialJuice,143390,XAUUSDm,2026-10-28 18:51:09,0.01,,,,0.0,,,Fed's Warsh: There is no soft inflation target.|FJ,SELL,4050.378,1793213489.0,1.0,1.0,break-even stop,4062.618,4050.378,both,"replay filled, live did not"
+FinancialJuice,143392,XAUUSDm,,,,,,,,,,,,0.0,0.0,0.0,no fill,4050.285,4038.045,right_only,"replay armed, live did not"
+FinancialJuice,143394,XAUUSDm,2026-10-28 18:53:27,0.01,,,,0.0,,,Fed's Warsh: Interest rates have rolled over to the downside,,,,,,,,,left_only,"live armed, replay did not"
+FinancialJuice,143395,XAUUSDm,2026-10-28 18:54:08,0.01,,,,0.0,,,Fed's Warsh: I take note that oil futures prices have moved ,,,,,,,,,left_only,"live armed, replay did not"
+FinancialJuice,143396,XAUUSDm,2026-10-28 18:55:12,0.01,,,,0.0,,,Fed's Warsh: I was skeptical that interest rates would not h,,,0.0,0.0,0.0,no fill (AI veto),4052.26,4040.02,both,neither filled
+FinancialJuice,143397,XAUUSDm,2026-10-28 18:55:33,0.01,,,,0.0,,,"Fed's Warsh: Since early September, we've seen that, inside ",,,0.0,0.0,0.0,no fill (AI veto),4048.805,4036.565,both,neither filled
+FinancialJuice,143398,XAUUSDm,2026-10-28 18:55:51,0.01,,,,0.0,,,Fed's Chair Warsh: We're seeing interest rates have an effec,,,0.0,0.0,0.0,no fill (AI veto),4046.839,4034.599,both,neither filled
+FinancialJuice,143399,XAUUSDm,2026-10-28 18:55:59,0.01,,,,0.0,,,Fed's Chair Warsh: Credit spreads have widened.|FJ,,,0.0,0.0,0.0,no fill (AI veto),4046.438,4034.198,both,neither filled
+FinancialJuice,143400,XAUUSDm,2026-10-28 18:56:08,0.01,,,,0.0,,,Fed's Warsh: You've seen credit spreads widen for some asset,,,0.0,0.0,0.0,no fill (AI veto),4044.755,4032.515,both,neither filled
+FinancialJuice,143401,XAUUSDm,2026-10-28 18:56:21,0.01,,,,0.0,,,Fed's Chair Warsh: Market participants are discriminating on,,,0.0,0.0,0.0,no fill (AI veto),4045.596,4033.356,both,neither filled
+FinancialJuice,143402,XAUUSDm,2026-10-28 18:56:30,0.01,,,,0.0,,,Fed's Chair Warsh: I believe interest rates matter for tech ,BUY,4043.608,1793213885.0,1.0,-6.0,stop loss,4043.238,4030.998,both,"replay filled, live did not"
+FinancialJuice,143406,XAUUSDm,2026-10-28 18:58:46,0.01,,,,0.0,,,Fed's Warsh: I won't share musings on what will happen in De,,,,,,,,,left_only,"live armed, replay did not"
+FinancialJuice,143407,XAUUSDm,2026-10-28 19:00:16,0.01,,,,0.0,,,"Fed's Warsh: I pay a lot of attention to the Korean economy,",,,0.0,0.0,0.0,no fill (AI veto),4038.656,4026.416,both,neither filled
+FinancialJuice,143408,XAUUSDm,2026-10-28 19:00:56,0.01,,,,0.0,,,Fed's Warsh: The balance sheet task force recommendations wi,BUY,4039.646,1793214129.0,1.0,-6.0,stop loss,4039.646,4027.406,both,"replay filled, live did not"
+FinancialJuice,143411,XAUUSDm,2026-10-28 19:03:33,0.01,,,,0.0,,,Fed Chair Warsh: Our measures of the size of the aggregate d,,,0.0,0.0,0.0,no fill (AI veto),4046.487,4034.247,both,neither filled
+FinancialJuice,143413,XAUUSDm,2026-10-28 19:04:02,0.01,,,,0.0,,,Fed's Chair Warsh: Most at the Fed don't think the economy i,,,0.0,0.0,0.0,no fill (AI veto),4051.386,4039.146,both,neither filled
+FinancialJuice,143414,XAUUSDm,2026-10-28 19:04:08,0.01,,,,0.0,,,Fed Chair Warsh: Productivity has been moving higher|FJ,,,0.0,0.0,0.0,no fill (AI veto),4054.768,4042.508,both,neither filled
+FinancialJuice,143415,XAUUSDm,2026-10-28 19:04:29,0.01,,,,0.0,,,"Fed Chair Warsh: Economic growth is higher, but that doesn't",,,0.0,0.0,0.0,no fill (AI veto),4052.244,4040.004,both,neither filled
+FinancialJuice,143416,XAUUSDm,2026-10-28 19:04:35,0.01,,,,0.0,,,Fed's Warsh: I don't think we have to throw people out of wo,,,0.0,0.0,0.0,no fill (AI veto),4049.43,4037.19,both,neither filled
+FinancialJuice,143417,XAUUSDm,2026-10-28 19:05:19,0.01,,,,0.0,,,Fed's Chair Warsh ends press conference.|FJ,,,0.0,0.0,0.0,no fill (AI veto),4051.222,4038.982,both,neither filled
+FinancialJuice,143418,XAUUSDm,2026-10-28 19:05:23,0.01,,,,0.0,,,Fed Chair Warsh O NTtieteing financial conditions: It tells ,SELL,4037.716,1793214329.0,1.0,1.0,break-even stop,4049.956,4037.716,both,"replay filled, live did not"
+FinancialJuice,143432,XAUUSDm,2026-10-28 20:00:56,0.01,,,,0.0,,,❗ US VP Vance sent letter to Secretary of Iran's Top Securit,,,0.0,0.0,0.0,no fill,4083.874,4071.634,both,neither filled
+FinancialJuice,143443,XAUUSDm,2026-10-28 20:13:29,0.01,,,,0.0,,,US Treasury Secretary Bessent: 10-Yr yield never looked back,,,0.0,0.0,0.0,no fill (AI veto),4076.351,4064.111,both,neither filled
+FinancialJuice,143444,XAUUSDm,2026-10-28 20:13:49,0.01,,,,0.0,,,"US Treasury Secretary Bessent: As Warsh said, bonds done a l",,,0.0,0.0,0.0,no fill (AI veto),4075.917,4063.677,both,neither filled
+FinancialJuice,143445,XAUUSDm,2026-10-28 20:14:41,0.01,,,,0.0,,,US Treasury Secretary Bessent repeats there is a big correla,,,0.0,0.0,0.0,no fill (AI veto),4075.564,4063.324,both,neither filled
+FinancialJuice,143447,XAUUSDm,2026-10-28 20:16:15,0.01,,,,0.0,,,US Treasury Secretary Bessent: Operation Outcast on Iran is ,,,0.0,0.0,0.0,no fill,4076.02,4063.78,both,neither filled
+FinancialJuice,143451,XAUUSDm,2026-10-28 20:19:07,0.01,,,,0.0,,,US Treasury Secretary Bessent: I don't think AI borrowing is,,,0.0,0.0,0.0,no fill (AI veto),4072.018,4059.778,both,neither filled
+FinancialJuice,143452,XAUUSDm,2026-10-28 20:19:11,0.01,,,,0.0,,,US Treasury Secretary Bessent: I don't see widening spreads ,,,0.0,0.0,0.0,no fill (AI veto),4072.626,4060.386,both,neither filled
+FinancialJuice,143453,XAUUSDm,2026-10-28 20:19:42,0.01,,,,0.0,,,US Treasury Secretary Bessent: We're still seeing deals get ,,,0.0,0.0,0.0,no fill (AI veto),4073.538,4061.298,both,neither filled
+FinancialJuice,143454,XAUUSDm,2026-10-28 20:20:02,0.01,,,,0.0,,,US Treasury Secretary Bessent: France has a tough hand.|FJ,,,0.0,0.0,0.0,no fill (AI veto),4073.843,4061.603,both,neither filled
+FinancialJuice,143455,XAUUSDm,2026-10-28 20:21:11,0.01,,,,0.0,,,US Treasury Secretary Bessent: A lot of Trump economic agend,,,0.0,0.0,0.0,no fill (AI veto),4073.662,4061.422,both,neither filled
+FinancialJuice,143456,XAUUSDm,2026-10-28 20:21:46,0.01,,,,0.0,,,US Treasury Secretary Bessent: Consumer behavior is quite st,,,0.0,0.0,0.0,no fill (AI veto),4073.133,4060.893,both,neither filled
+FinancialJuice,143457,XAUUSDm,2026-10-28 20:22:09,0.01,,,,0.0,,,US Treasury Secretary Bessent: In general the trade deals ar,,,0.0,0.0,0.0,no fill (AI veto),4073.53,4061.29,both,neither filled
+FinancialJuice,143458,XAUUSDm,2026-10-28 20:22:30,0.01,,,,0.0,,,US Treasury Secretary Bessent appearance on CNBC concludes.|,,,0.0,0.0,0.0,no fill (AI veto),4073.042,4060.802,both,neither filled
+FinancialJuice,143459,XAUUSDm,2026-10-28 20:24:44,0.01,,,,0.0,,,Stocks Edge Higher as Fed Holds Rates and Leaves December Ou,,,0.0,0.0,0.0,no fill (AI veto),4068.476,4056.236,both,neither filled
+FinancialJuice,143515,XAUUSDm,2026-10-29 00:40:33,0.01,,,,0.0,,,S. Korea finance minister: to carefully assess treasury bond,,,0.0,0.0,0.0,no fill (AI veto),4046.039,4033.799,both,neither filled
+FinancialJuice,143516,XAUUSDm,2026-10-29 00:41:19,0.01,,,,0.0,,,S.Korea finmin: to carry out treasury bond repurchase if nee,,,0.0,0.0,0.0,no fill,4046.21,4033.97,both,neither filled
+FinancialJuice,143561,XAUUSDm,2026-10-29 08:01:48,0.01,,,,0.0,,,South Korea to issue 12t won of treasury bonds in November.|,,,0.0,0.0,0.0,no fill (AI veto),4035.121,4022.881,both,neither filled
+FinancialJuice,143566,XAUUSDm,2026-10-29 08:57:09,0.01,,,,0.0,,,❗ Trump Admin in ongoing talks for temporary peace deal - Se,,,0.0,0.0,0.0,no fill,4033.983,4021.743,both,neither filled
+FinancialJuice,143622,XAUUSDm,2026-10-29 13:17:31,0.01,,,,0.0,,,❗ ECB: The increased magnitude and duration of the energy sh,,,0.0,0.0,0.0,no fill,4033.136,4020.896,both,neither filled
+FinancialJuice,143626,XAUUSDm,2026-10-29 13:33:54,0.01,,,,0.0,,,"❗ Alphabet shares fall 13%, set to erase $489 billion in val",BUY,4029.012,1793280860.0,1.0,1.0,break-even stop,4028.743,4016.503,both,"replay filled, live did not"
+FinancialJuice,143630,XAUUSDm,2026-10-29 13:45:04,0.01,,,,0.0,,,❗ Gulf oil majors push to expand crude stockpiles in Asia am,,,0.0,0.0,0.0,no fill,4030.078,4017.838,both,neither filled
+FinancialJuice,143655,XAUUSDm,2026-10-29 13:56:00,0.01,,,,0.0,,,US Treasury Secretary Bessent: Great GDP number|FJ,,,0.0,0.0,0.0,no fill (AI veto),4027.057,4014.817,both,neither filled
+FinancialJuice,143691,XAUUSDm,2026-10-29 14:37:08,0.01,,,,0.0,,,WATCH LIVE: Trump Speaks|FJ,,,0.0,0.0,0.0,no fill (AI veto),4037.694,4025.454,both,neither filled
+FinancialJuice,143692,XAUUSDm,2026-10-29 14:39:17,0.01,,,,0.0,,,"WH Sr. Adviser Hassett: If Oct. inflation is really high, Fe",,,0.0,0.0,0.0,no fill (AI veto),4036.345,4024.105,both,neither filled
+FinancialJuice,143697,XAUUSDm,2026-10-29 14:43:20,0.01,,,,0.0,,,Trump concludes remarks|FJ,,,0.0,0.0,0.0,no fill (AI veto),4039.534,4027.294,both,neither filled
+FinancialJuice,143699,XAUUSDm,2026-10-29 15:34:40,0.01,,,,0.0,,,❗ New ECB staff estimates show bond yield rise cutting growt,,,0.0,0.0,0.0,no fill,4030.636,4018.396,both,neither filled
+FinancialJuice,143707,XAUUSDm,2026-10-29 16:21:32,0.01,,,,0.0,,,❗ Microsoft expects to raise about $25 bln in US bond sale -,,,0.0,0.0,0.0,no fill,4022.384,4010.144,both,neither filled
+FinancialJuice,143712,XAUUSDm,2026-10-29 17:00:40,0.01,,,,0.0,,,Treasury WI 7y yield 4.894% before $44 billion auction|FJ,,,0.0,0.0,0.0,no fill (AI veto),4025.218,4012.978,both,neither filled
+FinancialJuice,143720,XAUUSDm,2026-10-29 17:23:38,0.01,,,,0.0,,,WATCH LIVE: Trump Speaks at Rally|FJ,,,0.0,0.0,0.0,no fill (AI veto),4028.198,4015.958,both,neither filled
+FinancialJuice,143730,XAUUSDm,2026-10-29 18:12:39,0.01,,,,0.0,,,Trump: Canada has been treating us nicely lately.|FJ,,,0.0,0.0,0.0,no fill (AI veto),4016.003,4003.763,both,neither filled
+FinancialJuice,143737,XAUUSDm,2026-10-29 18:54:45,0.01,,,,0.0,,,Trump: The US economy is booming at 3.4% GDP - Truth Social.,,,0.0,0.0,0.0,no fill (AI veto),4017.069,4004.829,both,neither filled
+FinancialJuice,143738,XAUUSDm,2026-10-29 19:14:13,0.01,,,,0.0,,,❗ Top Admiral briefs Trump on Iran attack options - WSJ.|FJ,,,0.0,0.0,0.0,no fill,4016.86,4004.62,both,neither filled
+FinancialJuice,143981,XAUUSDm,2026-10-30 11:38:37,0.01,,,,0.0,,,"Trump: Iran war will end very soon, one way or another.|FJ",,,0.0,0.0,0.0,no fill,3983.914,3971.674,both,neither filled
+FinancialJuice,143991,XAUUSDm,2026-10-30 12:02:37,0.01,,,,0.0,,,Kremlin: Ukraine is ignoring Trump's request to stop attacks,,,0.0,0.0,0.0,no fill (AI veto),3970.632,3958.392,both,neither filled
+FinancialJuice,144011,XAUUSDm,2026-10-30 13:34:31,0.01,,,,0.0,,,Fed's Barkin: The Fed has signaled a gradual approach.|FJ,,,0.0,0.0,0.0,no fill (AI veto),3937.143,3924.903,both,neither filled
+FinancialJuice,144012,XAUUSDm,2026-10-30 13:34:57,0.01,,,,0.0,,,Fed's Barkin: We'll see what we learn over the next period.|,,,0.0,0.0,0.0,no fill (AI veto),3936.494,3924.254,both,neither filled
+FinancialJuice,144013,XAUUSDm,2026-10-30 13:35:15,0.01,,,,0.0,,,"Fed's Barkin: The direction of travel is ""straightforward"" f",,,0.0,0.0,0.0,no fill (AI veto),3937.63,3925.39,both,neither filled
+FinancialJuice,144014,XAUUSDm,2026-10-30 13:35:49,0.01,,,,0.0,,,Fed's Barkin: A lot of cost pressures are hitting US busines,,,0.0,0.0,0.0,no fill (AI veto),3934.639,3922.399,both,neither filled
+FinancialJuice,144016,XAUUSDm,2026-10-30 13:37:51,0.01,,,,0.0,,,Fed's Barkin: The resilience of consumer spending has been a,,,0.0,0.0,0.0,no fill (AI veto),3939.667,3927.427,both,neither filled
+FinancialJuice,144018,XAUUSDm,2026-10-30 13:39:49,0.01,,,,0.0,,,Fed's Barkin: AI investment is leading to demand side inflat,,,0.0,0.0,0.0,no fill,3942.459,3930.219,both,neither filled
+FinancialJuice,144019,XAUUSDm,2026-10-30 13:43:12,0.01,,,,0.0,,,❗ BofA global research cuts intel to neutral from buy; cuts ,,,0.0,0.0,0.0,no fill,3935.799,3923.559,both,neither filled
+FinancialJuice,144052,XAUUSDm,2026-10-30 16:06:42,0.01,,,,0.0,,,Fed's Daly: AI really matters for how we think about policy ,,,0.0,0.0,0.0,no fill,3906.083,3893.843,both,neither filled
+FinancialJuice,144058,XAUUSDm,2026-10-30 16:31:23,0.01,,,,0.0,,,Fed's Musalem: acting earlier with rate increases reduces ri,,,0.0,0.0,0.0,no fill,3903.866,3891.626,both,neither filled
+FinancialJuice,144078,XAUUSDm,2026-10-30 16:47:18,0.01,,,,0.0,,,❗ Anthropic may not secure investment-grade rating after IPO,,,0.0,0.0,0.0,no fill,3902.619,3890.379,both,neither filled
+FinancialJuice,144081,XAUUSDm,2026-10-30 16:51:46,0.01,,,,0.0,,,Fed's Musalem: Communications is not necessarily the same as,,,0.0,0.0,0.0,no fill (AI veto),3900.127,3887.887,both,neither filled
+FinancialJuice,144082,XAUUSDm,2026-10-30 16:53:29,0.01,,,,0.0,,,Fed's Musalem: Policy rules are useful for monetary policy|F,,,0.0,0.0,0.0,no fill (AI veto),3902.446,3890.206,both,neither filled
+FinancialJuice,144086,XAUUSDm,2026-10-30 17:31:40,0.01,,,,0.0,,,Fed's Logan: Fed needs at least two more quarter-point rate ,,,0.0,0.0,0.0,no fill,3894.587,3882.347,both,neither filled
+FinancialJuice,144099,XAUUSDm,2026-10-30 17:45:52,0.01,,,,0.0,,,❗ Pakistan Military Spokesman: Pakistan military is ‘cautiou,,,0.0,0.0,0.0,no fill,3889.619,3877.379,both,neither filled
+FinancialJuice,144111,XAUUSDm,2026-10-30 18:53:13,0.01,,,,0.0,,,US blockade & sanctions crippling Iran's economy - Treasury ,,,0.0,0.0,0.0,no fill (AI veto),3885.749,3873.509,both,neither filled
+FinancialJuice,144116,XAUUSDm,2026-10-30 19:58:30,0.01,,,,0.0,,,WATCH LIVE: Trump Speaks at White House|FJ,,,0.0,0.0,0.0,no fill (AI veto),3888.871,3876.631,both,neither filled
+FinancialJuice,144126,XAUUSDm,2026-10-30 20:05:56,0.01,,,,0.0,,,Trump ends remarks at the White House|FJ,,,0.0,0.0,0.0,no fill (AI veto),3890.248,3878.008,both,neither filled
+FinancialJuice,144127,XAUUSDm,2026-10-30 20:07:20,0.01,,,,0.0,,,❗ Intel shares plunge 29% for worst day in at least four dec,,,0.0,0.0,0.0,no fill,3891.711,3879.471,both,neither filled
+FinancialJuice,144276,USTECm,2026-11-02 16:02:07,0.1,,,,0.0,28644.01,28592.89,US VP Vance Speaks at Midterm Rally in NY (Trump Expected to,,,0.0,0.0,0.0,no fill (AI veto),28644.26,28593.14,both,neither filled
+FinancialJuice,144276,XAUUSDm,2026-11-02 16:02:06,0.01,,,,0.0,,,US VP Vance Speaks at Midterm Rally in NY (Trump Expected to,,,0.0,0.0,0.0,no fill (AI veto),3963.075,3950.835,both,neither filled
+FinancialJuice,144277,USTECm,2026-11-02 16:15:58,0.1,,,,0.0,28605.26,28554.14,Fed bids for 6-month bills total $5.1 bln|FJ,,,0.0,0.0,0.0,no fill (AI veto),28603.52,28552.4,both,neither filled
+FinancialJuice,144277,XAUUSDm,2026-11-02 16:15:56,0.01,,,,0.0,,,Fed bids for 6-month bills total $5.1 bln|FJ,,,0.0,0.0,0.0,no fill (AI veto),3968.829,3956.589,both,neither filled
+FinancialJuice,144278,USTECm,2026-11-02 16:16:31,0.1,,,,0.0,28606.01,28554.89,Fed bids for 3-month bills total $5.9 bln|FJ,,,0.0,0.0,0.0,no fill (AI veto),28606.26,28555.14,both,neither filled
+FinancialJuice,144278,XAUUSDm,2026-11-02 16:16:29,0.01,,,,0.0,,,Fed bids for 3-month bills total $5.9 bln|FJ,,,0.0,0.0,0.0,no fill (AI veto),3968.204,3955.964,both,neither filled
+FinancialJuice,144295,USTECm,2026-11-02 18:57:54,0.1,,,,0.0,28370.26,28319.14,Trump Delivers Remarks - WATCH LIVE|FJ,,,0.0,0.0,0.0,no fill (AI veto),28369.51,28318.39,both,neither filled
+FinancialJuice,144295,USTECm,2026-11-04 17:45:23,0.1,,,,0.0,28674.51,28623.39,Trump Delivers Remarks - WATCH LIVE|FJ,,,0.0,0.0,0.0,no fill (AI veto),28369.51,28318.39,both,neither filled
+FinancialJuice,144295,USTECm,2026-11-09 21:49:49,0.5,,,,0.0,27980.41,27919.29,Trump Delivers Remarks - WATCH LIVE|FJ,,,0.0,0.0,0.0,no fill (AI veto),28369.51,28318.39,both,neither filled
+FinancialJuice,144295,XAUUSDm,2026-11-02 18:57:52,0.01,,,,0.0,,,Trump Delivers Remarks - WATCH LIVE|FJ,,,0.0,0.0,0.0,no fill (AI veto),3960.131,3947.891,both,neither filled
+FinancialJuice,144296,USTECm,2026-11-02 19:28:01,0.1,,,,0.0,28255.0,28203.88,Trump: Oil will go down further because we're winning with I,,,0.0,0.0,0.0,no fill,28251.5,28200.38,both,neither filled
+FinancialJuice,144296,XAUUSDm,2026-11-02 19:27:59,0.01,,,,0.0,,,Trump: Oil will go down further because we're winning with I,,,0.0,0.0,0.0,no fill,3956.6,3944.36,both,neither filled
+FinancialJuice,144304,USTECm,2026-11-02 19:34:04,0.1,,,,0.0,28224.01,28172.89,Trump: Iran said even recently they won't have nuclear weapo,,,0.0,0.0,0.0,no fill (AI veto),28224.51,28173.39,both,neither filled
+FinancialJuice,144304,XAUUSDm,2026-11-02 19:34:02,0.01,,,,0.0,,,Trump: Iran said even recently they won't have nuclear weapo,,,0.0,0.0,0.0,no fill (AI veto),3952.014,3939.774,both,neither filled
+FinancialJuice,144305,USTECm,2026-11-02 19:36:14,0.1,,,,0.0,28219.26,28168.14,Trump to Axios: No rush to decide on restarting war in Iran|,,,0.0,0.0,0.0,no fill (AI veto),28219.51,28168.39,both,neither filled
+FinancialJuice,144305,XAUUSDm,2026-11-02 19:36:12,0.01,,,,0.0,,,Trump to Axios: No rush to decide on restarting war in Iran|,,,0.0,0.0,0.0,no fill (AI veto),3951.927,3939.687,both,neither filled
+FinancialJuice,144306,USTECm,2026-11-02 19:36:45,0.1,,,,0.0,28196.72,28145.6,Trump in Axios phone interview: No rush to decide on restart,,,0.0,0.0,0.0,no fill (AI veto),28196.52,28145.4,both,neither filled
+FinancialJuice,144306,XAUUSDm,2026-11-02 19:36:43,0.01,,,,0.0,,,Trump in Axios phone interview: No rush to decide on restart,,,0.0,0.0,0.0,no fill (AI veto),3950.797,3938.557,both,neither filled
+FinancialJuice,144310,USTECm,2026-11-02 19:54:56,0.1,,,,0.0,28174.76,28123.64,Trump ends remarks at Reflecting Pool|FJ,,,0.0,0.0,0.0,no fill (AI veto),28175.26,28124.14,both,neither filled
+FinancialJuice,144310,XAUUSDm,2026-11-02 19:54:54,0.01,,,,0.0,,,Trump ends remarks at Reflecting Pool|FJ,,,0.0,0.0,0.0,no fill (AI veto),3948.107,3935.867,both,neither filled
+FinancialJuice,144311,USTECm,2026-11-02 20:01:30,0.1,,,,0.0,28228.02,28176.9,US Treasury QRA Estimate|FJ,,,0.0,0.0,0.0,no fill (AI veto),28227.52,28176.4,both,neither filled
+FinancialJuice,144311,XAUUSDm,2026-11-02 20:01:29,0.01,,,,0.0,,,US Treasury QRA Estimate|FJ,,,0.0,0.0,0.0,no fill (AI veto),3951.074,3938.834,both,neither filled
+FinancialJuice,144312,USTECm,2026-11-02 20:01:55,0.1,,,,0.0,28223.51,28172.39,US Treasury estimates $739 billion in privately held net mar,,,0.0,0.0,0.0,no fill (AI veto),28223.01,28171.89,both,neither filled
+FinancialJuice,144312,XAUUSDm,2026-11-02 20:01:54,0.01,,,,0.0,,,US Treasury estimates $739 billion in privately held net mar,,,0.0,0.0,0.0,no fill (AI veto),3950.882,3938.642,both,neither filled
+FinancialJuice,144313,USTECm,2026-11-02 20:02:18,0.1,BUY,28209.51,2026-11-02 20:03:09,1.0,28209.51,28158.39,US Treasury Raises July-September Borrowing Estimate to $739,BUY,28211.01,1793649786.0,1.0,3.0,take profit,28211.01,28159.89,both,"both filled, same side"
+FinancialJuice,144313,XAUUSDm,2026-11-02 20:02:16,0.01,BUY,3950.09,2026-11-02 20:03:38,1.0,,,US Treasury Raises July-September Borrowing Estimate to $739,BUY,3950.709,1793649814.0,1.0,-5.0,stop loss,3950.053,3937.813,both,"both filled, same side"
+FinancialJuice,144321,USTECm,2026-11-02 20:25:58,0.1,,,,0.0,28208.01,28156.89,Vance: I discussed Iran with Trump about an hour ago|FJ,,,0.0,0.0,0.0,no fill (AI veto),28208.26,28157.14,both,neither filled
+FinancialJuice,144321,XAUUSDm,2026-11-02 20:25:56,0.01,,,,0.0,,,Vance: I discussed Iran with Trump about an hour ago|FJ,,,0.0,0.0,0.0,no fill (AI veto),3948.243,3936.003,both,neither filled
+FinancialJuice,144328,USTECm,2026-11-02 21:31:19,0.1,,,,0.0,28121.75,28070.63,"❗ $AAPL Apple Q4 Earnings EPS $2.10, est. $2.00 Revenue $114",,,0.0,0.0,0.0,no fill,28125.0,28073.88,both,neither filled
+FinancialJuice,144328,XAUUSDm,2026-11-02 21:31:17,0.01,,,,0.0,,,"❗ $AAPL Apple Q4 Earnings EPS $2.10, est. $2.00 Revenue $114",,,0.0,0.0,0.0,no fill,3951.573,3939.333,both,neither filled
+FinancialJuice,144408,USTECm,2026-11-03 04:08:50,0.1,,,,0.0,28076.61,28025.49,US judge stops Trump administration from requiring states to,,,0.0,0.0,0.0,no fill (AI veto),28073.86,28022.74,both,neither filled
+FinancialJuice,144408,XAUUSDm,2026-11-03 04:08:48,0.01,,,,0.0,,,US judge stops Trump administration from requiring states to,,,0.0,0.0,0.0,no fill (AI veto),3935.872,3923.632,both,neither filled
+FinancialJuice,144469,USTECm,2026-11-03 09:32:13,0.1,,,,0.0,28100.86,28049.74,Kremlin: Hope work on 3-way meeting in china later this mont,,,0.0,0.0,0.0,no fill (AI veto),28101.36,28050.24,both,neither filled
+FinancialJuice,144469,XAUUSDm,2026-11-03 09:32:11,0.01,,,,0.0,,,Kremlin: Hope work on 3-way meeting in china later this mont,,,0.0,0.0,0.0,no fill (AI veto),3911.995,3899.755,both,neither filled
+FinancialJuice,144497,USTECm,2026-11-03 13:14:54,0.1,,,,0.0,28122.61,28071.49,"Trump: Israel is a helper, the relationship is tremendous - ",,,0.0,0.0,0.0,no fill (AI veto),28122.61,28071.49,both,neither filled
+FinancialJuice,144497,XAUUSDm,2026-11-03 13:14:53,0.01,,,,0.0,,,"Trump: Israel is a helper, the relationship is tremendous - ",,,0.0,0.0,0.0,no fill (AI veto),3943.729,3931.489,both,neither filled
+FinancialJuice,144498,USTECm,2026-11-03 13:16:21,0.1,,,,0.0,28128.36,28077.24,Trump: Won't be paying more to Israel - Fox News Interview|F,,,0.0,0.0,0.0,no fill (AI veto),28128.36,28077.24,both,neither filled
+FinancialJuice,144498,XAUUSDm,2026-11-03 13:16:19,0.01,,,,0.0,,,Trump: Won't be paying more to Israel - Fox News Interview|F,,,0.0,0.0,0.0,no fill (AI veto),3940.927,3928.687,both,neither filled
+FinancialJuice,144501,USTECm,2026-11-03 13:19:05,0.1,,,,0.0,28128.61,28077.49,"Trump: Made a deal with Israel months ago, we're stopping $4",,,0.0,0.0,0.0,no fill,28128.87,28077.75,both,neither filled
+FinancialJuice,144501,XAUUSDm,2026-11-03 13:19:03,0.01,,,,0.0,,,"Trump: Made a deal with Israel months ago, we're stopping $4",,,0.0,0.0,0.0,no fill,3941.368,3929.128,both,neither filled
+FinancialJuice,144507,USTECm,2026-11-03 13:22:08,0.1,,,,0.0,28131.36,28080.24,"Trump adds if us has to kill people in Iran, it has to.|FJ",,,0.0,0.0,0.0,no fill,28131.11,28079.99,both,neither filled
+FinancialJuice,144507,XAUUSDm,2026-11-03 13:22:06,0.01,,,,0.0,,,"Trump adds if us has to kill people in Iran, it has to.|FJ",,,0.0,0.0,0.0,no fill,3937.868,3925.628,both,neither filled
+FinancialJuice,144513,XAUUSDm,2026-11-03 13:33:13,0.01,,,,0.0,,,Trump on ammo shortage: The US was low on certain things|FJ,,,0.0,0.0,0.0,no fill (AI veto),3966.167,3953.927,both,neither filled
+FinancialJuice,144571,USTECm,2026-11-03 18:19:39,0.1,,,,0.0,28291.36,28240.24,Trump is negotiating an agreement with Venezuela on US troop,,,0.0,0.0,0.0,no fill,28291.11,28239.99,both,neither filled
+FinancialJuice,144571,XAUUSDm,2026-11-03 18:19:37,0.01,,,,0.0,,,Trump is negotiating an agreement with Venezuela on US troop,,,0.0,0.0,0.0,no fill,3938.56,3926.32,both,neither filled
+FinancialJuice,144613,USTECm,2026-11-03 23:36:32,0.1,,,,0.0,28341.52,28290.4,"US has no immediate plan to attack Iran, Trump tells FT|FJ",,,0.0,0.0,0.0,no fill (AI veto),28341.77,28290.65,both,neither filled
+FinancialJuice,144613,XAUUSDm,2026-11-03 23:36:31,0.01,,,,0.0,,,"US has no immediate plan to attack Iran, Trump tells FT|FJ",,,0.0,0.0,0.0,no fill (AI veto),3938.418,3926.178,both,neither filled
+FinancialJuice,144663,USTECm,2026-11-04 03:18:10,0.1,,,,0.0,27619.51,27568.39,Democratic challenger Janelle Stelson overcomes Republican i,,,0.0,0.0,0.0,no fill (AI veto),27615.76,27564.64,both,neither filled
+FinancialJuice,144663,XAUUSDm,2026-11-04 03:18:09,0.01,,,,0.0,,,Democratic challenger Janelle Stelson overcomes Republican i,,,0.0,0.0,0.0,no fill (AI veto),3939.874,3927.634,both,neither filled
+FinancialJuice,144671,USTECm,2026-11-04 03:52:59,0.1,,,,0.0,27615.26,27564.14,Trump: he is absolutely willing to accept election results -,,,0.0,0.0,0.0,no fill (AI veto),27614.51,27563.39,both,neither filled
+FinancialJuice,144671,XAUUSDm,2026-11-04 03:52:57,0.01,,,,0.0,,,Trump: he is absolutely willing to accept election results -,,,0.0,0.0,0.0,no fill (AI veto),3945.467,3933.227,both,neither filled
+FinancialJuice,144685,USTECm,2026-11-04 05:01:25,0.1,,,,0.0,27839.27,27788.15,Trump: Democrats will send insane measures and I will veto t,,,0.0,0.0,0.0,no fill (AI veto),27838.52,27787.4,both,neither filled
+FinancialJuice,144685,XAUUSDm,2026-11-04 05:01:23,0.01,,,,0.0,,,Trump: Democrats will send insane measures and I will veto t,,,0.0,0.0,0.0,no fill (AI veto),3958.683,3946.443,both,neither filled
+FinancialJuice,144686,USTECm,2026-11-04 05:02:02,0.1,,,,0.0,27848.76,27797.64,Trump: part of outcome related to Iran|FJ,,,0.0,0.0,0.0,no fill (AI veto),27848.01,27796.89,both,neither filled
+FinancialJuice,144686,XAUUSDm,2026-11-04 05:02:01,0.01,,,,0.0,,,Trump: part of outcome related to Iran|FJ,,,0.0,0.0,0.0,no fill (AI veto),3959.29,3947.05,both,neither filled
+FinancialJuice,144688,USTECm,2026-11-04 05:05:52,0.1,,,,0.0,27913.26,27862.14,Trump on Iran: people likely unwilling to accept short-term ,,,0.0,0.0,0.0,no fill (AI veto),27915.01,27863.89,both,neither filled
+FinancialJuice,144688,XAUUSDm,2026-11-04 05:05:50,0.01,,,,0.0,,,Trump on Iran: people likely unwilling to accept short-term ,,,0.0,0.0,0.0,no fill (AI veto),3953.376,3941.136,both,neither filled
+FinancialJuice,144690,USTECm,2026-11-04 05:06:15,0.1,,,,0.0,27902.77,27851.65,Trump: Democrats performed well|FJ,,,0.0,0.0,0.0,no fill (AI veto),27901.77,27850.65,both,neither filled
+FinancialJuice,144690,XAUUSDm,2026-11-04 05:06:14,0.01,,,,0.0,,,Trump: Democrats performed well|FJ,,,0.0,0.0,0.0,no fill (AI veto),3955.041,3942.801,both,neither filled
+FinancialJuice,144691,USTECm,2026-11-04 05:08:02,0.1,,,,0.0,27921.51,27870.39,Trump: I could collaborate with Democrats on many issues|FJ,,,0.0,0.0,0.0,no fill (AI veto),27921.01,27869.89,both,neither filled
+FinancialJuice,144691,XAUUSDm,2026-11-04 05:08:00,0.01,,,,0.0,,,Trump: I could collaborate with Democrats on many issues|FJ,,,0.0,0.0,0.0,no fill (AI veto),3953.693,3941.453,both,neither filled
+FinancialJuice,144692,USTECm,2026-11-04 05:09:14,0.1,,,,0.0,27930.76,27879.64,Trump: I can cooperate with Democrats on immigration|FJ,,,0.0,0.0,0.0,no fill (AI veto),27929.26,27878.14,both,neither filled
+FinancialJuice,144692,XAUUSDm,2026-11-04 05:09:12,0.01,,,,0.0,,,Trump: I can cooperate with Democrats on immigration|FJ,,,0.0,0.0,0.0,no fill (AI veto),3953.745,3941.505,both,neither filled
+FinancialJuice,144693,USTECm,2026-11-04 05:09:26,0.1,,,,0.0,27935.26,27884.14,Trump: I don't expect to alter cabinet|FJ,,,0.0,0.0,0.0,no fill (AI veto),27934.76,27883.64,both,neither filled
+FinancialJuice,144693,XAUUSDm,2026-11-04 05:09:25,0.01,,,,0.0,,,Trump: I don't expect to alter cabinet|FJ,,,0.0,0.0,0.0,no fill (AI veto),3953.65,3941.41,both,neither filled
+FinancialJuice,144694,USTECm,2026-11-04 05:17:39,0.1,,,,0.0,28017.77,27966.65,Trump: I will accept election outcome|FJ,,,0.0,0.0,0.0,no fill (AI veto),28018.02,27966.9,both,neither filled
+FinancialJuice,144694,XAUUSDm,2026-11-04 05:17:38,0.01,,,,0.0,,,Trump: I will accept election outcome|FJ,,,0.0,0.0,0.0,no fill (AI veto),3956.394,3944.154,both,neither filled
+FinancialJuice,144697,USTECm,2026-11-04 05:20:55,0.1,,,,0.0,28040.51,27989.39,Trump acknowledges Iran war partly responsible for Republica,,,0.0,0.0,0.0,no fill (AI veto),28039.26,27988.14,both,neither filled
+FinancialJuice,144697,XAUUSDm,2026-11-04 05:20:53,0.01,,,,0.0,,,Trump acknowledges Iran war partly responsible for Republica,,,0.0,0.0,0.0,no fill (AI veto),3962.778,3950.538,both,neither filled
+FinancialJuice,144701,USTECm,2026-11-04 05:56:59,0.1,,,,0.0,28084.26,28033.14,"Trump: no plans to alter personnel in his administration, ba",,,0.0,0.0,0.0,no fill (AI veto),28085.26,28034.14,both,neither filled
+FinancialJuice,144701,XAUUSDm,2026-11-04 05:56:57,0.01,,,,0.0,,,"Trump: no plans to alter personnel in his administration, ba",,,0.0,0.0,0.0,no fill (AI veto),4008.761,3996.521,both,neither filled
+FinancialJuice,144734,USTECm,2026-11-04 11:43:01,0.1,,,,0.0,28493.01,28441.89,Russia hopes Trump continues peace efforts after vote - Tass,,,0.0,0.0,0.0,no fill (AI veto),28495.01,28443.89,both,neither filled
+FinancialJuice,144734,XAUUSDm,2026-11-04 11:43:00,0.01,,,,0.0,,,Russia hopes Trump continues peace efforts after vote - Tass,,,0.0,0.0,0.0,no fill (AI veto),4051.56,4039.32,both,neither filled
+FinancialJuice,144751,USTECm,2026-11-04 13:45:18,0.1,,,,0.0,28349.01,28297.89,US Treasury QRA Report (4th of November)|FJ,,,0.0,0.0,0.0,no fill (AI veto),28350.01,28298.89,both,neither filled
+FinancialJuice,144751,XAUUSDm,2026-11-04 13:45:17,0.01,,,,0.0,,,US Treasury QRA Report (4th of November)|FJ,,,0.0,0.0,0.0,no fill (AI veto),4051.806,4039.566,both,neither filled
+FinancialJuice,144754,USTECm,2026-11-04 14:02:58,0.1,,,,0.0,28291.75,28240.63,"Kremlin on Melania Trump meeting, Peskov: Trilateral talks t",,,0.0,0.0,0.0,no fill (AI veto),28290.26,28239.14,both,neither filled
+FinancialJuice,144754,XAUUSDm,2026-11-04 14:02:56,0.01,,,,0.0,,,"Kremlin on Melania Trump meeting, Peskov: Trilateral talks t",,,0.0,0.0,0.0,no fill (AI veto),4052.096,4039.856,both,neither filled
+FinancialJuice,144782,USTECm,2026-11-04 16:29:14,0.1,,,,0.0,28442.01,28390.89,"US Senate Democrat Leader Schumer: We will drive costs down,",,,0.0,0.0,0.0,no fill (AI veto),28443.5,28392.38,both,neither filled
+FinancialJuice,144782,XAUUSDm,2026-11-04 16:29:13,0.01,,,,0.0,,,"US Senate Democrat Leader Schumer: We will drive costs down,",,,0.0,0.0,0.0,no fill (AI veto),4047.444,4035.204,both,neither filled
+FinancialJuice,144784,USTECm,2026-11-04 16:42:24,0.1,,,,0.0,28558.51,28507.39,Trump is asking advisers if US Sec. of Defense Hegseth shoul,,,0.0,0.0,0.0,no fill (AI veto),28561.26,28510.14,both,neither filled
+FinancialJuice,144784,XAUUSDm,2026-11-04 16:42:24,0.01,,,,0.0,,,Trump is asking advisers if US Sec. of Defense Hegseth shoul,,,0.0,0.0,0.0,no fill (AI veto),4065.224,4052.984,both,neither filled
+FinancialJuice,144785,USTECm,2026-11-04 16:43:52,0.1,,,,0.0,28568.51,28517.39,Trump has not decided to replace Hegseth - CBS.|FJ,,,0.0,0.0,0.0,no fill (AI veto),28568.26,28517.14,both,neither filled
+FinancialJuice,144785,XAUUSDm,2026-11-04 16:43:52,0.01,,,,0.0,,,Trump has not decided to replace Hegseth - CBS.|FJ,,,0.0,0.0,0.0,no fill (AI veto),4065.329,4053.089,both,neither filled
+FinancialJuice,144790,USTECm,2026-11-04 17:29:02,0.1,,,,0.0,28676.51,28625.39,Trump: Stock market just hit another record high - Truth Soc,,,0.0,0.0,0.0,no fill (AI veto),28676.01,28624.89,both,neither filled
+FinancialJuice,144790,XAUUSDm,2026-11-04 17:29:02,0.01,,,,0.0,,,Trump: Stock market just hit another record high - Truth Soc,,,0.0,0.0,0.0,no fill (AI veto),4072.52,4060.28,both,neither filled
+FinancialJuice,144791,USTECm,2026-11-04 17:33:04,0.1,,,,0.0,28660.76,28609.64,House Democrat Leader Jeffries: We will pass a bill to stop ,,,0.0,0.0,0.0,no fill,28661.01,28609.89,both,neither filled
+FinancialJuice,144791,XAUUSDm,2026-11-04 17:33:04,0.01,,,,0.0,,,House Democrat Leader Jeffries: We will pass a bill to stop ,,,0.0,0.0,0.0,no fill,4074.708,4062.468,both,neither filled
+FinancialJuice,144792,USTECm,,,,,,,,,,,,0.0,0.0,0.0,no fill (AI veto),28675.26,28624.14,right_only,"replay armed, live did not"
+FinancialJuice,144792,XAUUSDm,2026-11-04 17:45:23,0.01,,,,0.0,,,Trump Delivers Remarks - WATCH LIVE|FJ,,,0.0,0.0,0.0,no fill (AI veto),4075.551,4063.311,both,neither filled
+FinancialJuice,144794,USTECm,2026-11-04 18:01:54,0.1,SELL,28625.64,2026-11-04 18:02:47,1.0,28676.76,28625.64,US Treasury: Imposing sanctions against 4 India-based indivi,,,0.0,0.0,0.0,no fill,28674.01,28622.89,both,"live filled, replay did not"
+FinancialJuice,144794,XAUUSDm,2026-11-04 18:01:53,0.01,,,,0.0,,,US Treasury: Imposing sanctions against 4 India-based indivi,,,0.0,0.0,0.0,no fill,4073.951,4061.711,both,neither filled
+FinancialJuice,144796,USTECm,2026-11-04 18:10:44,0.1,,,,0.0,28631.51,28580.39,Trump on Election: It's largely true that the election loss ,,,0.0,0.0,0.0,no fill (AI veto),28630.26,28579.14,both,neither filled
+FinancialJuice,144796,XAUUSDm,2026-11-04 18:10:43,0.01,,,,0.0,,,Trump on Election: It's largely true that the election loss ,,,0.0,0.0,0.0,no fill (AI veto),4072.416,4060.176,both,neither filled
+FinancialJuice,144797,USTECm,2026-11-04 18:11:23,0.1,,,,0.0,28639.01,28587.89,"Trump: The Iran thing we had to do, we continue to do it.|FJ",,,0.0,0.0,0.0,no fill (AI veto),28639.26,28588.14,both,neither filled
+FinancialJuice,144797,XAUUSDm,2026-11-04 18:11:23,0.01,,,,0.0,,,"Trump: The Iran thing we had to do, we continue to do it.|FJ",,,0.0,0.0,0.0,no fill (AI veto),4073.231,4060.991,both,neither filled
+FinancialJuice,144798,USTECm,2026-11-04 18:11:58,0.1,,,,0.0,28636.51,28585.39,"Trump: Price, not the war, was the reason for the midterm lo",,,0.0,0.0,0.0,no fill (AI veto),28636.51,28585.39,both,neither filled
+FinancialJuice,144798,XAUUSDm,2026-11-04 18:11:58,0.01,,,,0.0,,,"Trump: Price, not the war, was the reason for the midterm lo",,,0.0,0.0,0.0,no fill (AI veto),4072.957,4060.717,both,neither filled
+FinancialJuice,144801,USTECm,2026-11-04 18:23:04,0.1,,,,0.0,28626.01,28574.89,Trump: Iran war will end whenever I want it to|FJ,,,0.0,0.0,0.0,no fill,28625.76,28574.64,both,neither filled
+FinancialJuice,144801,XAUUSDm,2026-11-04 18:23:03,0.01,,,,0.0,,,Trump: Iran war will end whenever I want it to|FJ,,,0.0,0.0,0.0,no fill,4072.844,4060.604,both,neither filled
+FinancialJuice,144803,USTECm,2026-11-04 18:39:59,0.1,,,,0.0,28590.26,28539.14,Trump ends remarks|FJ,,,0.0,0.0,0.0,no fill (AI veto),28590.01,28538.89,both,neither filled
+FinancialJuice,144803,XAUUSDm,2026-11-04 18:39:59,0.01,,,,0.0,,,Trump ends remarks|FJ,,,0.0,0.0,0.0,no fill (AI veto),4067.585,4055.345,both,neither filled
+FinancialJuice,144804,USTECm,2026-11-04 18:45:39,0.1,,,,0.0,28566.51,28505.39,US Treasury Secretary Bessent: We will sanction those who co,,,0.0,0.0,0.0,no fill,28567.01,28505.89,both,neither filled
+FinancialJuice,144804,XAUUSDm,2026-11-04 18:45:38,0.01,,,,0.0,,,US Treasury Secretary Bessent: We will sanction those who co,,,0.0,0.0,0.0,no fill,4068.008,4057.768,both,neither filled
+FinancialJuice,144824,USTECm,2026-11-04 20:30:58,0.1,,,,0.0,28560.76,28499.64,Trump: Can work with Democrats on ‘financial ideas': CNBC|FJ,,,0.0,0.0,0.0,no fill (AI veto),28559.51,28498.39,both,neither filled
+FinancialJuice,144824,XAUUSDm,2026-11-04 20:30:58,0.01,,,,0.0,,,Trump: Can work with Democrats on ‘financial ideas': CNBC|FJ,,,0.0,0.0,0.0,no fill (AI veto),4068.859,4058.619,both,neither filled
+FinancialJuice,144825,USTECm,2026-11-04 20:31:37,0.1,,,,0.0,28573.26,28512.14,Trump: ‘Financial ideas' would be 'mutually good' - CNBC|FJ,,,0.0,0.0,0.0,no fill (AI veto),28573.26,28512.14,both,neither filled
+FinancialJuice,144825,XAUUSDm,2026-11-04 20:31:37,0.01,,,,0.0,,,Trump: ‘Financial ideas' would be 'mutually good' - CNBC|FJ,,,0.0,0.0,0.0,no fill (AI veto),4068.319,4058.079,both,neither filled
+FinancialJuice,144826,USTECm,2026-11-04 20:32:46,0.1,,,,0.0,28561.01,28499.89,Trump declined to comment about the credit card rate cap - C,,,0.0,0.0,0.0,no fill (AI veto),28560.76,28499.64,both,neither filled
+FinancialJuice,144826,XAUUSDm,2026-11-04 20:32:46,0.01,,,,0.0,,,Trump declined to comment about the credit card rate cap - C,,,0.0,0.0,0.0,no fill (AI veto),4069.037,4058.797,both,neither filled
+FinancialJuice,144827,USTECm,2026-11-04 20:33:32,0.1,,,,0.0,28556.27,28495.15,Trump precludes the possibility of paring back his tariffs -,,,0.0,0.0,0.0,no fill,28557.27,28496.15,both,neither filled
+FinancialJuice,144827,XAUUSDm,2026-11-04 20:33:31,0.01,,,,0.0,,,Trump precludes the possibility of paring back his tariffs -,,,0.0,0.0,0.0,no fill,4070.006,4059.766,both,neither filled
+FinancialJuice,144935,USTECm,2026-11-05 09:35:46,0.1,,,,0.0,28258.86,28197.74,Japan's PM Takaichi: Will continue to work with us president,,,0.0,0.0,0.0,no fill (AI veto),28259.11,28197.99,both,neither filled
+FinancialJuice,144935,XAUUSDm,2026-11-05 09:35:46,0.01,,,,0.0,,,Japan's PM Takaichi: Will continue to work with us president,,,0.0,0.0,0.0,no fill (AI veto),4131.694,4121.454,both,neither filled
+FinancialJuice,144963,USTECm,2026-11-05 12:01:51,0.1,,,,0.0,28337.86,28276.74,"❗ BoE's Lombardelli and Pill see case for further ""near term",,,0.0,0.0,0.0,no fill,28337.11,28275.99,both,neither filled
+FinancialJuice,144963,XAUUSDm,2026-11-05 12:01:50,0.01,,,,0.0,,,"❗ BoE's Lombardelli and Pill see case for further ""near term",,,0.0,0.0,0.0,no fill,4132.8,4122.56,both,neither filled
+FinancialJuice,145039,USTECm,2026-11-05 13:50:32,0.1,,,,0.0,28260.61,28199.49,Fed's Hammack: Gradual rate hikes less disruptive to the eco,,,0.0,0.0,0.0,no fill,28259.86,28198.74,both,neither filled
+FinancialJuice,145039,XAUUSDm,2026-11-05 13:50:32,0.01,,,,0.0,,,Fed's Hammack: Gradual rate hikes less disruptive to the eco,,,0.0,0.0,0.0,no fill,4130.817,4120.577,both,neither filled
+FinancialJuice,145050,USTECm,2026-11-05 14:01:43,0.1,,,,0.0,28204.11,28142.99,Fed's Barkin speaks - WATCH LIVE|FJ,,,0.0,0.0,0.0,no fill (AI veto),28204.11,28142.99,both,neither filled
+FinancialJuice,145050,XAUUSDm,2026-11-05 14:01:42,0.01,,,,0.0,,,Fed's Barkin speaks - WATCH LIVE|FJ,,,0.0,0.0,0.0,no fill (AI veto),4131.747,4121.507,both,neither filled
+FinancialJuice,145051,USTECm,2026-11-05 14:03:01,0.1,,,,0.0,28217.86,28156.74,US Secretary of State Rubio ‘on resignation watch’ from Trum,,,0.0,0.0,0.0,no fill (AI veto),28217.36,28156.24,both,neither filled
+FinancialJuice,145051,XAUUSDm,2026-11-05 14:03:00,0.01,,,,0.0,,,US Secretary of State Rubio ‘on resignation watch’ from Trum,,,0.0,0.0,0.0,no fill (AI veto),4133.327,4123.087,both,neither filled
+FinancialJuice,145054,USTECm,2026-11-05 14:08:39,0.1,,,,0.0,28190.36,28129.24,"Fed's Barkin: Demand in the economy is solid, though some se",,,0.0,0.0,0.0,no fill (AI veto),28189.86,28128.74,both,neither filled
+FinancialJuice,145054,XAUUSDm,2026-11-05 14:08:39,0.01,,,,0.0,,,"Fed's Barkin: Demand in the economy is solid, though some se",,,0.0,0.0,0.0,no fill (AI veto),4127.724,4117.484,both,neither filled
+FinancialJuice,145056,USTECm,2026-11-05 14:09:07,0.1,,,,0.0,28196.61,28135.49,Fed's Barkin: Businesses are still cautious about hiring but,,,0.0,0.0,0.0,no fill (AI veto),28195.61,28134.49,both,neither filled
+FinancialJuice,145056,XAUUSDm,2026-11-05 14:09:06,0.01,,,,0.0,,,Fed's Barkin: Businesses are still cautious about hiring but,,,0.0,0.0,0.0,no fill (AI veto),4128.259,4118.019,both,neither filled
+FinancialJuice,145057,USTECm,2026-11-05 14:09:19,0.1,,,,0.0,28199.61,28138.49,"Fed's Barkin: Demand is solid, and the economy is healthy.|F",,,0.0,0.0,0.0,no fill,28199.36,28138.24,both,neither filled
+FinancialJuice,145057,XAUUSDm,2026-11-05 14:09:18,0.01,,,,0.0,,,"Fed's Barkin: Demand is solid, and the economy is healthy.|F",,,0.0,0.0,0.0,no fill,4128.785,4118.545,both,neither filled
+FinancialJuice,145061,USTECm,2026-11-05 14:13:46,0.1,,,,0.0,28162.61,28101.49,Fed's Barkin: The set of cost pressures of the past 18 month,,,0.0,0.0,0.0,no fill (AI veto),28162.36,28101.24,both,neither filled
+FinancialJuice,145061,XAUUSDm,2026-11-05 14:13:46,0.01,,,,0.0,,,Fed's Barkin: The set of cost pressures of the past 18 month,,,0.0,0.0,0.0,no fill (AI veto),4128.863,4118.623,both,neither filled
+FinancialJuice,145062,USTECm,2026-11-05 14:15:37,0.1,,,,0.0,28180.86,28119.74,"Fed's Barkin: I do not anticipate inflaiton will accelerate,",,,0.0,0.0,0.0,no fill (AI veto),28180.86,28119.74,both,neither filled
+FinancialJuice,145062,XAUUSDm,2026-11-05 14:15:37,0.01,,,,0.0,,,"Fed's Barkin: I do not anticipate inflaiton will accelerate,",,,0.0,0.0,0.0,no fill (AI veto),4130.862,4120.622,both,neither filled
+FinancialJuice,145063,USTECm,2026-11-05 14:16:18,0.1,,,,0.0,28173.86,28112.74,Fed's Barkin: The path on policy is straightforward; the iss,,,0.0,0.0,0.0,no fill (AI veto),28175.11,28113.99,both,neither filled
+FinancialJuice,145063,XAUUSDm,2026-11-05 14:16:18,0.01,,,,0.0,,,Fed's Barkin: The path on policy is straightforward; the iss,,,0.0,0.0,0.0,no fill (AI veto),4129.565,4119.325,both,neither filled
+FinancialJuice,145064,USTECm,2026-11-05 14:17:24,0.1,,,,0.0,28176.11,28114.99,Fed's Barkin: Policy right now is somewhere around neutral.|,,,0.0,0.0,0.0,no fill (AI veto),28176.11,28114.99,both,neither filled
+FinancialJuice,145064,XAUUSDm,2026-11-05 14:17:24,0.01,,,,0.0,,,Fed's Barkin: Policy right now is somewhere around neutral.|,,,0.0,0.0,0.0,no fill (AI veto),4129.772,4119.532,both,neither filled
+FinancialJuice,145065,USTECm,2026-11-05 14:18:15,0.1,,,,0.0,28171.61,28110.49,Fed's Barkin: AI is a big part of current strong demand.|FJ,,,0.0,0.0,0.0,no fill (AI veto),28171.36,28110.24,both,neither filled
+FinancialJuice,145065,XAUUSDm,2026-11-05 14:18:14,0.01,,,,0.0,,,Fed's Barkin: AI is a big part of current strong demand.|FJ,,,0.0,0.0,0.0,no fill (AI veto),4129.46,4119.22,both,neither filled
+FinancialJuice,145066,USTECm,2026-11-05 14:18:49,0.1,,,,0.0,28168.61,28107.49,Fed's Barkin: Interest rates are probably not the top thing ,,,0.0,0.0,0.0,no fill (AI veto),28169.11,28107.99,both,neither filled
+FinancialJuice,145066,XAUUSDm,2026-11-05 14:18:49,0.01,,,,0.0,,,Fed's Barkin: Interest rates are probably not the top thing ,,,0.0,0.0,0.0,no fill (AI veto),4131.237,4120.997,both,neither filled
+FinancialJuice,145067,USTECm,2026-11-05 14:19:45,0.1,,,,0.0,28158.61,28097.49,Fed's Barkin: Inflation is the most important risk for the f,,,0.0,0.0,0.0,no fill (AI veto),28158.11,28096.99,both,neither filled
+FinancialJuice,145067,XAUUSDm,2026-11-05 14:19:45,0.01,,,,0.0,,,Fed's Barkin: Inflation is the most important risk for the f,,,0.0,0.0,0.0,no fill (AI veto),4131.406,4121.166,both,neither filled
+FinancialJuice,145069,USTECm,2026-11-05 14:22:22,0.1,,,,0.0,28153.61,28092.49,Fed's Barkin: I do not have a point of view about what will ,,,0.0,0.0,0.0,no fill (AI veto),28153.86,28092.74,both,neither filled
+FinancialJuice,145069,XAUUSDm,2026-11-05 14:22:22,0.01,,,,0.0,,,Fed's Barkin: I do not have a point of view about what will ,,,0.0,0.0,0.0,no fill (AI veto),4132.661,4122.421,both,neither filled
+FinancialJuice,145070,USTECm,2026-11-05 14:24:28,0.1,,,,0.0,28155.11,28093.99,Fed's Barkin: I do not think AI is what is currently driving,,,0.0,0.0,0.0,no fill (AI veto),28155.11,28093.99,both,neither filled
+FinancialJuice,145070,XAUUSDm,2026-11-05 14:24:27,0.01,,,,0.0,,,Fed's Barkin: I do not think AI is what is currently driving,,,0.0,0.0,0.0,no fill (AI veto),4129.631,4119.391,both,neither filled
+FinancialJuice,145071,USTECm,2026-11-05 14:26:03,0.1,,,,0.0,28139.61,28078.49,Fed's Barkin: AI buildout has definitely had an inflationary,,,0.0,0.0,0.0,no fill,28140.61,28079.49,both,neither filled
+FinancialJuice,145071,XAUUSDm,2026-11-05 14:26:02,0.01,,,,0.0,,,Fed's Barkin: AI buildout has definitely had an inflationary,,,0.0,0.0,0.0,no fill,4127.725,4117.485,both,neither filled
+FinancialJuice,145075,USTECm,2026-11-05 14:28:19,0.1,,,,0.0,28147.36,28086.24,"Fed's Barkin: Data centers, because of a lack of employees, ",,,0.0,0.0,0.0,no fill (AI veto),28147.11,28085.99,both,neither filled
+FinancialJuice,145075,XAUUSDm,2026-11-05 14:28:19,0.01,,,,0.0,,,"Fed's Barkin: Data centers, because of a lack of employees, ",,,0.0,0.0,0.0,no fill (AI veto),4127.45,4117.21,both,neither filled
+FinancialJuice,145077,USTECm,2026-11-05 14:32:54,0.1,,,,0.0,28011.36,27950.24,Fed's Barkin: A change in the number of policy-setting meeti,,,0.0,0.0,0.0,no fill (AI veto),28011.36,27950.24,both,neither filled
+FinancialJuice,145077,XAUUSDm,2026-11-05 14:32:53,0.01,,,,0.0,,,Fed's Barkin: A change in the number of policy-setting meeti,,,0.0,0.0,0.0,no fill (AI veto),4137.985,4127.745,both,neither filled
+FinancialJuice,145078,USTECm,2026-11-05 14:33:33,0.1,,,,0.0,27986.11,27924.99,Fed's Barkin: Changing the pace of policy meetings has the a,,,0.0,0.0,0.0,no fill (AI veto),27985.36,27924.24,both,neither filled
+FinancialJuice,145078,XAUUSDm,2026-11-05 14:33:33,0.01,,,,0.0,,,Fed's Barkin: Changing the pace of policy meetings has the a,,,0.0,0.0,0.0,no fill (AI veto),4139.008,4128.768,both,neither filled
+FinancialJuice,145080,USTECm,2026-11-05 14:38:09,0.1,,,,0.0,27828.36,27767.24,"Fed's Barkin: Credit dynamics in the banking sector are ""rea",,,0.0,0.0,0.0,no fill (AI veto),27829.86,27768.74,both,neither filled
+FinancialJuice,145080,XAUUSDm,2026-11-05 14:38:09,0.01,,,,0.0,,,"Fed's Barkin: Credit dynamics in the banking sector are ""rea",,,0.0,0.0,0.0,no fill (AI veto),4125.051,4114.811,both,neither filled
+FinancialJuice,145081,USTECm,2026-11-05 14:51:47,0.1,,,,0.0,27509.71,27448.59,Fed's Hammack: Use of stablecoins by AI agents would be a bi,,,0.0,0.0,0.0,no fill (AI veto),27506.96,27445.84,both,neither filled
+FinancialJuice,145081,XAUUSDm,2026-11-05 14:51:46,0.01,,,,0.0,,,Fed's Hammack: Use of stablecoins by AI agents would be a bi,,,0.0,0.0,0.0,no fill (AI veto),4110.208,4099.968,both,neither filled
+FinancialJuice,145083,USTECm,2026-11-05 15:03:35,0.1,SELL,27369.1,2026-11-05 15:04:00,1.0,27436.46,27375.34,"Fed's Barkin: Raising rates can affect demand and in time, o",SELL,27358.85,1793891038.0,1.0,-4.0,stop loss,27430.71,27369.59,both,"both filled, same side"
+FinancialJuice,145083,XAUUSDm,2026-11-05 15:03:35,0.01,SELL,4107.42,2026-11-05 15:04:46,1.0,,,"Fed's Barkin: Raising rates can affect demand and in time, o",SELL,4107.475,1793891086.0,1.0,-3.0,stop loss,4117.855,4107.615,both,"both filled, same side"
+FinancialJuice,145085,USTECm,2026-11-05 15:08:38,0.1,,,,0.0,27389.46,27328.34,Fed's Hammack: Six FOMC meetings from eight would be a modes,,,0.0,0.0,0.0,no fill (AI veto),27388.21,27327.09,both,neither filled
+FinancialJuice,145085,XAUUSDm,2026-11-05 15:08:37,0.01,,,,0.0,,,Fed's Hammack: Six FOMC meetings from eight would be a modes,,,0.0,0.0,0.0,no fill (AI veto),4119.893,4109.653,both,neither filled
+FinancialJuice,145086,USTECm,2026-11-05 15:13:39,0.1,,,,0.0,27240.96,27179.84,Fed's Hammack: See inflationary pressures spilling across th,,,0.0,0.0,0.0,no fill (AI veto),27240.46,27179.34,both,neither filled
+FinancialJuice,145086,XAUUSDm,2026-11-05 15:13:39,0.01,,,,0.0,,,Fed's Hammack: See inflationary pressures spilling across th,,,0.0,0.0,0.0,no fill (AI veto),4118.655,4108.415,both,neither filled
+FinancialJuice,145103,USTECm,2026-11-05 16:02:34,0.1,,,,0.0,26874.48,26813.36,US Treasury Auction dates US to sell $82B 6-month bills on N,,,0.0,0.0,0.0,no fill (AI veto),26878.72,26817.6,both,neither filled
+FinancialJuice,145103,XAUUSDm,2026-11-05 16:02:33,0.01,,,,0.0,,,US Treasury Auction dates US to sell $82B 6-month bills on N,,,0.0,0.0,0.0,no fill (AI veto),4095.882,4085.642,both,neither filled
+FinancialJuice,145109,USTECm,,,,,,,,,,,,0.0,0.0,0.0,no fill (AI veto),27080.71,27019.59,right_only,"replay armed, live did not"
+FinancialJuice,145109,XAUUSDm,,,,,,,,,,,,0.0,0.0,0.0,no fill (AI veto),4099.799,4089.559,right_only,"replay armed, live did not"
+FinancialJuice,145110,USTECm,2026-11-05 16:16:34,0.1,,,,0.0,27099.21,27038.09,Fed bids for 4-week bills total $8.3 bln|FJ,,,0.0,0.0,0.0,no fill (AI veto),27098.71,27037.59,both,neither filled
+FinancialJuice,145110,XAUUSDm,2026-11-05 16:16:33,0.01,,,,0.0,,,Fed bids for 4-week bills total $8.3 bln|FJ,,,0.0,0.0,0.0,no fill (AI veto),4101.964,4091.724,both,neither filled
+FinancialJuice,145116,USTECm,2026-11-05 16:36:13,0.1,SELL,27177.37,2026-11-05 16:36:47,1.0,27247.96,27186.84,❗ Iran reviewing ‘concrete proposals’ on the nuclear program,SELL,27178.61,1793896605.0,1.0,-4.0,stop loss,27247.96,27186.84,both,"both filled, same side"
+FinancialJuice,145116,XAUUSDm,2026-11-05 16:36:12,0.01,BUY,4119.85,2026-11-05 16:37:50,1.0,,,❗ Iran reviewing ‘concrete proposals’ on the nuclear program,,,0.0,0.0,0.0,no fill,4120.501,4110.261,both,"live filled, replay did not"
+FinancialJuice,145140,USTECm,2026-11-05 19:42:31,0.1,BUY,26957.48,2026-11-05 19:42:51,1.0,26957.48,26896.36,❗ Senior Iranian Official: US is reviewing Iran’s nuclear pr,BUY,26958.7,1793907769.0,1.0,4.0,take profit,26958.48,26897.36,both,"both filled, same side"
+FinancialJuice,145140,XAUUSDm,2026-11-05 19:42:30,0.01,BUY,4112.49,2026-11-05 19:43:32,1.0,,,❗ Senior Iranian Official: US is reviewing Iran’s nuclear pr,BUY,4112.495,1793907810.0,1.0,-3.076000000000022,stop loss,4112.495,4102.255,both,"both filled, same side"
+FinancialJuice,145150,USTECm,2026-11-05 21:01:50,0.1,,,,0.0,26560.46,26499.34,"Trump Participates in Signing Time, Nov. 5, 2026|FJ",,,0.0,0.0,0.0,no fill (AI veto),26561.46,26500.34,both,neither filled
+FinancialJuice,145150,XAUUSDm,2026-11-05 21:01:49,0.01,,,,0.0,,,"Trump Participates in Signing Time, Nov. 5, 2026|FJ",,,0.0,0.0,0.0,no fill (AI veto),4097.221,4086.981,both,neither filled
+FinancialJuice,145153,USTECm,2026-11-05 21:17:35,0.1,,,,0.0,26625.96,26564.84,Trump: Will do a lot of things over the next couple of weeks,,,0.0,0.0,0.0,no fill (AI veto),26625.96,26564.84,both,neither filled
+FinancialJuice,145153,XAUUSDm,2026-11-05 21:17:35,0.01,,,,0.0,,,Trump: Will do a lot of things over the next couple of weeks,,,0.0,0.0,0.0,no fill (AI veto),4094.031,4083.791,both,neither filled
+FinancialJuice,145154,USTECm,2026-11-05 21:20:38,0.1,,,,0.0,26581.48,26520.36,Trump on Iran: They are not doing anything without us approv,,,0.0,0.0,0.0,no fill (AI veto),26581.48,26520.36,both,neither filled
+FinancialJuice,145154,XAUUSDm,2026-11-05 21:20:38,0.01,,,,0.0,,,Trump on Iran: They are not doing anything without us approv,,,0.0,0.0,0.0,no fill (AI veto),4094.322,4084.082,both,neither filled
+FinancialJuice,145155,USTECm,2026-11-05 21:21:03,0.1,SELL,26532.09,2026-11-05 21:22:06,1.0,26593.21,26532.09,Trump on Russian Diesel tanker: We're looking at a law that ,SELL,26529.62,1793913724.0,1.0,0.5,break-even stop,26593.21,26532.09,both,"both filled, same side"
+FinancialJuice,145155,XAUUSDm,2026-11-05 21:21:03,0.01,,,,0.0,,,Trump on Russian Diesel tanker: We're looking at a law that ,,,0.0,0.0,0.0,no fill,4093.672,4083.432,both,neither filled
+FinancialJuice,145156,USTECm,2026-11-05 21:28:19,0.1,SELL,26551.85,2026-11-05 21:28:42,1.0,26612.97,26551.85,Trump on Iran: We need to decide whether to go further or 'c,SELL,26551.85,1793914120.0,1.0,-4.0,stop loss,26612.97,26551.85,both,"both filled, same side"
+FinancialJuice,145156,XAUUSDm,2026-11-05 21:28:19,0.01,,,,0.0,,,Trump on Iran: We need to decide whether to go further or 'c,,,0.0,0.0,0.0,no fill,4095.879,4085.639,both,neither filled
+FinancialJuice,145157,USTECm,2026-11-05 21:34:30,0.1,BUY,26593.46,2026-11-05 21:36:18,1.0,26593.46,26532.34,"Trump, asked whether he met Russia’s Dmitriev: Yes I did. Me",BUY,26594.96,1793914576.0,1.0,-4.0,stop loss,26593.46,26532.34,both,"both filled, same side"
+FinancialJuice,145157,XAUUSDm,2026-11-05 21:34:30,0.01,,,,0.0,,,"Trump, asked whether he met Russia’s Dmitriev: Yes I did. Me",,,0.0,0.0,0.0,no fill,4095.335,4085.095,both,neither filled
+FinancialJuice,145166,USTECm,2026-11-05 23:19:48,0.1,,,,0.0,26313.36,26252.24,Trump: stock market endured one of worst days in history fol,,,0.0,0.0,0.0,no fill (AI veto),26312.61,26251.49,both,neither filled
+FinancialJuice,145166,XAUUSDm,2026-11-05 23:19:48,0.01,,,,0.0,,,Trump: stock market endured one of worst days in history fol,,,0.0,0.0,0.0,no fill (AI veto),4078.257,4068.017,both,neither filled
+FinancialJuice,145167,USTECm,2026-11-05 23:20:06,0.1,,,,0.0,26335.11,26273.99,"Trump: we will shortly, one way or another, be bigger and st",,,0.0,0.0,0.0,no fill (AI veto),26337.6,26276.48,both,neither filled
+FinancialJuice,145167,XAUUSDm,2026-11-05 23:20:05,0.01,,,,0.0,,,"Trump: we will shortly, one way or another, be bigger and st",,,0.0,0.0,0.0,no fill (AI veto),4077.915,4067.675,both,neither filled
+FinancialJuice,145205,USTECm,2026-11-06 03:29:20,0.1,,,,0.0,26930.86,26869.74,Trump Washington arch gains crucial endorsement from governm,,,0.0,0.0,0.0,no fill (AI veto),26933.11,26871.99,both,neither filled
+FinancialJuice,145205,XAUUSDm,2026-11-06 03:29:19,0.01,,,,0.0,,,Trump Washington arch gains crucial endorsement from governm,,,0.0,0.0,0.0,no fill (AI veto),4055.572,4045.332,both,neither filled
+FinancialJuice,145209,USTECm,2026-11-06 04:48:06,0.1,,,,0.0,26942.12,26881.0,US judge temporarily halts Trump administration's start of t,,,0.0,0.0,0.0,no fill (AI veto),26942.37,26881.25,both,neither filled
+FinancialJuice,145209,XAUUSDm,2026-11-06 04:48:05,0.01,,,,0.0,,,US judge temporarily halts Trump administration's start of t,,,0.0,0.0,0.0,no fill (AI veto),4047.044,4036.804,both,neither filled
+FinancialJuice,145221,USTECm,2026-11-06 07:39:29,0.1,,,,0.0,26774.86,26713.74,Qatar Emir and Trump discuss de-escalation efforts in the Mi,,,0.0,0.0,0.0,no fill (AI veto),26774.86,26713.74,both,neither filled
+FinancialJuice,145221,XAUUSDm,2026-11-06 07:39:28,0.01,,,,0.0,,,Qatar Emir and Trump discuss de-escalation efforts in the Mi,,,0.0,0.0,0.0,no fill (AI veto),4047.896,4037.656,both,neither filled
+FinancialJuice,145234,USTECm,2026-11-06 09:36:07,0.1,,,,0.0,27169.61,27108.49,Fed's Williams: US economy remarkably resilient.|FJ,,,0.0,0.0,0.0,no fill (AI veto),27168.86,27107.74,both,neither filled
+FinancialJuice,145234,XAUUSDm,2026-11-06 09:36:06,0.01,,,,0.0,,,Fed's Williams: US economy remarkably resilient.|FJ,,,0.0,0.0,0.0,no fill (AI veto),4080.806,4070.566,both,neither filled
+FinancialJuice,145235,USTECm,2026-11-06 09:36:17,0.1,,,,0.0,27175.86,27114.74,Fed's Williams: Growth has strengthened.|FJ,,,0.0,0.0,0.0,no fill (AI veto),27176.86,27115.74,both,neither filled
+FinancialJuice,145235,XAUUSDm,2026-11-06 09:36:17,0.01,,,,0.0,,,Fed's Williams: Growth has strengthened.|FJ,,,0.0,0.0,0.0,no fill (AI veto),4080.396,4070.156,both,neither filled
+FinancialJuice,145236,USTECm,2026-11-06 09:36:27,0.1,,,,0.0,27173.36,27112.24,"Fed's Williams: US facing unusual shocks to demand, supply.|",,,0.0,0.0,0.0,no fill,27173.36,27112.24,both,neither filled
+FinancialJuice,145236,XAUUSDm,2026-11-06 09:36:26,0.01,,,,0.0,,,"Fed's Williams: US facing unusual shocks to demand, supply.|",,,0.0,0.0,0.0,no fill,4080.259,4070.019,both,neither filled
+FinancialJuice,145240,USTECm,2026-11-06 09:39:55,0.1,,,,0.0,27149.11,27087.99,Fed's Williams: Inflation expectations well anchored.|FJ,,,0.0,0.0,0.0,no fill (AI veto),27149.11,27087.99,both,neither filled
+FinancialJuice,145240,XAUUSDm,2026-11-06 09:39:55,0.01,,,,0.0,,,Fed's Williams: Inflation expectations well anchored.|FJ,,,0.0,0.0,0.0,no fill (AI veto),4079.284,4069.044,both,neither filled
+FinancialJuice,145241,USTECm,2026-11-06 09:40:05,0.1,,,,0.0,27155.11,27093.99,Fed's Williams: Wage growth consistent with 2% goal.|FJ,,,0.0,0.0,0.0,no fill (AI veto),27155.11,27093.99,both,neither filled
+FinancialJuice,145241,XAUUSDm,2026-11-06 09:40:05,0.01,,,,0.0,,,Fed's Williams: Wage growth consistent with 2% goal.|FJ,,,0.0,0.0,0.0,no fill (AI veto),4078.618,4068.378,both,neither filled
+FinancialJuice,145242,USTECm,2026-11-06 09:40:26,0.1,,,,0.0,27151.61,27090.49,Fed's Williams: This is appropriate time to gather more info,,,0.0,0.0,0.0,no fill (AI veto),27152.11,27090.99,both,neither filled
+FinancialJuice,145242,XAUUSDm,2026-11-06 09:40:26,0.01,,,,0.0,,,Fed's Williams: This is appropriate time to gather more info,,,0.0,0.0,0.0,no fill (AI veto),4078.632,4068.392,both,neither filled
+FinancialJuice,145249,USTECm,2026-11-06 10:52:24,0.1,,,,0.0,27021.11,26959.99,Germany's Merz held a call with Trump - German government sp,,,0.0,0.0,0.0,no fill (AI veto),27022.61,26961.49,both,neither filled
+FinancialJuice,145249,XAUUSDm,2026-11-06 10:52:23,0.01,,,,0.0,,,Germany's Merz held a call with Trump - German government sp,,,0.0,0.0,0.0,no fill (AI veto),4069.771,4059.531,both,neither filled
+FinancialJuice,145254,USTECm,2026-11-06 12:02:54,0.1,,,,0.0,27076.37,27015.25,"Trump: As president, I am 100% in favor of Super Intelligenc",,,0.0,0.0,0.0,no fill (AI veto),27077.37,27016.25,both,neither filled
+FinancialJuice,145254,XAUUSDm,2026-11-06 12:02:53,0.01,,,,0.0,,,"Trump: As president, I am 100% in favor of Super Intelligenc",,,0.0,0.0,0.0,no fill (AI veto),4066.4,4056.16,both,neither filled
+FinancialJuice,145296,USTECm,2026-11-06 14:10:48,0.1,,,,0.0,27066.36,27005.24,Fed's Musalem does not comment on economic outlook or moneta,,,0.0,0.0,0.0,no fill (AI veto),27067.61,27006.49,both,neither filled
+FinancialJuice,145296,XAUUSDm,2026-11-06 14:10:47,0.01,,,,0.0,,,Fed's Musalem does not comment on economic outlook or moneta,,,0.0,0.0,0.0,no fill (AI veto),4043.019,4032.779,both,neither filled
+FinancialJuice,145298,USTECm,2026-11-06 14:12:59,0.1,,,,0.0,27038.86,26977.74,WH Sr. Adviser Hassett: Trump respects localities that don't,,,0.0,0.0,0.0,no fill (AI veto),27038.86,26977.74,both,neither filled
+FinancialJuice,145298,XAUUSDm,2026-11-06 14:12:59,0.01,,,,0.0,,,WH Sr. Adviser Hassett: Trump respects localities that don't,,,0.0,0.0,0.0,no fill (AI veto),4042.839,4032.599,both,neither filled
+FinancialJuice,145305,USTECm,2026-11-06 14:19:12,0.1,,,,0.0,27087.86,27026.74,"WH Sr. Adviser Hassett, on Fed: Inflation should be decelera",,,0.0,0.0,0.0,no fill (AI veto),27088.61,27027.49,both,neither filled
+FinancialJuice,145305,XAUUSDm,2026-11-06 14:19:12,0.01,,,,0.0,,,"WH Sr. Adviser Hassett, on Fed: Inflation should be decelera",,,0.0,0.0,0.0,no fill (AI veto),4036.427,4026.187,both,neither filled
+FinancialJuice,145306,USTECm,2026-11-06 14:20:31,0.1,,,,0.0,27090.36,27029.24,WH Sr. Adviser Hassett: Trump is excited about deal made wit,,,0.0,0.0,0.0,no fill (AI veto),27090.36,27029.24,both,neither filled
+FinancialJuice,145306,XAUUSDm,2026-11-06 14:20:31,0.01,,,,0.0,,,WH Sr. Adviser Hassett: Trump is excited about deal made wit,,,0.0,0.0,0.0,no fill (AI veto),4037.789,4027.549,both,neither filled
+FinancialJuice,145321,USTECm,2026-11-06 14:43:05,0.1,,,,0.0,27153.61,27092.49,Fed's Musalem: Excess inflation today is coming from energy ,,,0.0,0.0,0.0,no fill (AI veto),27158.86,27097.74,both,neither filled
+FinancialJuice,145321,XAUUSDm,2026-11-06 14:43:04,0.01,,,,0.0,,,Fed's Musalem: Excess inflation today is coming from energy ,,,0.0,0.0,0.0,no fill (AI veto),4037.537,4027.297,both,neither filled
+FinancialJuice,145324,USTECm,2026-11-06 14:43:27,0.1,,,,0.0,27160.86,27099.74,Fed's Musalem: Data center build-out contributing to strong ,,,0.0,0.0,0.0,no fill (AI veto),27159.86,27098.74,both,neither filled
+FinancialJuice,145324,XAUUSDm,2026-11-06 14:43:27,0.01,,,,0.0,,,Fed's Musalem: Data center build-out contributing to strong ,,,0.0,0.0,0.0,no fill (AI veto),4038.487,4028.247,both,neither filled
+FinancialJuice,145325,USTECm,2026-11-06 14:45:28,0.1,,,,0.0,27257.1,27195.98,WH Sr. Adviser Hassett: Trump will read the report and decid,,,0.0,0.0,0.0,no fill (AI veto),27257.35,27196.23,both,neither filled
+FinancialJuice,145325,XAUUSDm,2026-11-06 14:45:28,0.01,,,,0.0,,,WH Sr. Adviser Hassett: Trump will read the report and decid,,,0.0,0.0,0.0,no fill (AI veto),4046.484,4036.244,both,neither filled
+FinancialJuice,145327,USTECm,2026-11-06 14:52:28,0.1,,,,0.0,27310.61,27249.49,Fed's Musalem: Good Fed comms leads to smoother policy trans,,,0.0,0.0,0.0,no fill (AI veto),27312.86,27251.74,both,neither filled
+FinancialJuice,145327,XAUUSDm,2026-11-06 14:52:28,0.01,,,,0.0,,,Fed's Musalem: Good Fed comms leads to smoother policy trans,,,0.0,0.0,0.0,no fill (AI veto),4049.022,4038.782,both,neither filled
+FinancialJuice,145380,USTECm,2026-11-06 16:56:50,0.1,,,,0.0,27197.36,27136.24,Trump Heads to Florida After Departure From Washington - WAT,,,0.0,0.0,0.0,no fill (AI veto),27195.61,27134.49,both,neither filled
+FinancialJuice,145380,XAUUSDm,2026-11-06 16:56:50,0.01,,,,0.0,,,Trump Heads to Florida After Departure From Washington - WAT,,,0.0,0.0,0.0,no fill (AI veto),4072.2,4061.96,both,neither filled
+FinancialJuice,145381,USTECm,2026-11-06 17:13:02,0.1,,,,0.0,27151.61,27090.49,Fed's Bowman Speaks - Rgister Here|FJ,,,0.0,0.0,0.0,no fill (AI veto),27152.36,27091.24,both,neither filled
+FinancialJuice,145381,XAUUSDm,2026-11-06 17:13:01,0.01,,,,0.0,,,Fed's Bowman Speaks - Rgister Here|FJ,,,0.0,0.0,0.0,no fill (AI veto),4065.913,4055.673,both,neither filled
+FinancialJuice,145388,USTECm,2026-11-06 17:37:36,0.1,SELL,26931.75,2026-11-06 17:37:50,1.0,26992.87,26931.75,❗ Microsoft is winding down its Oracle deal to rent AI cloud,SELL,26931.74,1793986668.0,1.0,-4.0,stop loss,27000.36,26939.24,both,"both filled, same side"
+FinancialJuice,145388,XAUUSDm,2026-11-06 17:37:35,0.01,,,,0.0,,,❗ Microsoft is winding down its Oracle deal to rent AI cloud,,,0.0,0.0,0.0,no fill,4063.52,4053.28,both,neither filled
+FinancialJuice,145394,USTECm,2026-11-06 18:03:29,0.1,,,,0.0,26972.61,26911.49,Fed's Daly: Job report good news - CNBC|FJ,,,0.0,0.0,0.0,no fill (AI veto),26973.11,26911.99,both,neither filled
+FinancialJuice,145394,XAUUSDm,2026-11-06 18:03:28,0.01,,,,0.0,,,Fed's Daly: Job report good news - CNBC|FJ,,,0.0,0.0,0.0,no fill (AI veto),4068.998,4058.758,both,neither filled
+FinancialJuice,145395,USTECm,2026-11-06 18:03:40,0.1,,,,0.0,26968.61,26907.49,Fed's Daly: Wage growth isn't booming|FJ,,,0.0,0.0,0.0,no fill (AI veto),26971.61,26910.49,both,neither filled
+FinancialJuice,145395,XAUUSDm,2026-11-06 18:03:39,0.01,,,,0.0,,,Fed's Daly: Wage growth isn't booming|FJ,,,0.0,0.0,0.0,no fill (AI veto),4069.135,4058.895,both,neither filled
+FinancialJuice,145396,USTECm,2026-11-06 18:05:22,0.1,,,,0.0,26994.61,26933.49,Fed's Daly: I would like my confidence about inflation to be,,,0.0,0.0,0.0,no fill (AI veto),26994.61,26933.49,both,neither filled
+FinancialJuice,145396,XAUUSDm,2026-11-06 18:05:22,0.01,,,,0.0,,,Fed's Daly: I would like my confidence about inflation to be,,,0.0,0.0,0.0,no fill (AI veto),4066.399,4056.159,both,neither filled
+FinancialJuice,145400,USTECm,2026-11-06 18:08:23,0.1,,,,0.0,27025.86,26964.74,Fed's Daly: AI repricing trade has been orderly so far|FJ,,,0.0,0.0,0.0,no fill (AI veto),27023.86,26962.74,both,neither filled
+FinancialJuice,145400,XAUUSDm,2026-11-06 18:08:23,0.01,,,,0.0,,,Fed's Daly: AI repricing trade has been orderly so far|FJ,,,0.0,0.0,0.0,no fill (AI veto),4067.101,4056.861,both,neither filled
+FinancialJuice,145401,USTECm,2026-11-06 18:08:56,0.1,,,,0.0,27016.11,26954.99,Fed's Daly: If AI repricing signals slowing of demand growth,,,0.0,0.0,0.0,no fill (AI veto),27016.36,26955.24,both,neither filled
+FinancialJuice,145401,XAUUSDm,2026-11-06 18:08:56,0.01,,,,0.0,,,Fed's Daly: If AI repricing signals slowing of demand growth,,,0.0,0.0,0.0,no fill (AI veto),4065.896,4055.656,both,neither filled
+FinancialJuice,145402,USTECm,2026-11-06 18:09:19,0.1,,,,0.0,27025.36,26964.24,Fed's Daly: Businesses are cautiously optimistic about outlo,,,0.0,0.0,0.0,no fill (AI veto),27029.11,26967.99,both,neither filled
+FinancialJuice,145402,XAUUSDm,2026-11-06 18:09:18,0.01,,,,0.0,,,Fed's Daly: Businesses are cautiously optimistic about outlo,,,0.0,0.0,0.0,no fill (AI veto),4066.212,4055.972,both,neither filled
+FinancialJuice,145403,USTECm,2026-11-06 18:09:44,0.1,,,,0.0,27011.87,26950.75,Council of Economic Advisers Chair Phelan: Don't think the F,,,0.0,0.0,0.0,no fill (AI veto),27013.61,26952.49,both,neither filled
+FinancialJuice,145403,XAUUSDm,2026-11-06 18:09:43,0.01,,,,0.0,,,Council of Economic Advisers Chair Phelan: Don't think the F,,,0.0,0.0,0.0,no fill (AI veto),4065.122,4054.882,both,neither filled
+FinancialJuice,145405,USTECm,2026-11-06 18:13:35,0.1,,,,0.0,27009.36,26948.24,"Fed's Daly: When you step back from 'painful' volatility, th",,,0.0,0.0,0.0,no fill (AI veto),27010.1,26948.98,both,neither filled
+FinancialJuice,145405,XAUUSDm,2026-11-06 18:13:35,0.01,,,,0.0,,,"Fed's Daly: When you step back from 'painful' volatility, th",,,0.0,0.0,0.0,no fill (AI veto),4065.266,4055.026,both,neither filled
+FinancialJuice,145406,USTECm,2026-11-06 18:21:56,0.1,,,,0.0,26985.36,26924.24,Fed's Daly: Rates could be slightly restrictive to neutral|F,,,0.0,0.0,0.0,no fill (AI veto),26986.36,26925.24,both,neither filled
+FinancialJuice,145406,XAUUSDm,2026-11-06 18:21:56,0.01,,,,0.0,,,Fed's Daly: Rates could be slightly restrictive to neutral|F,,,0.0,0.0,0.0,no fill (AI veto),4068.64,4058.4,both,neither filled
+FinancialJuice,145407,USTECm,2026-11-06 18:22:51,0.1,,,,0.0,26997.1,26935.98,Fed's Daly: Services inflation not coming down in the way we,,,0.0,0.0,0.0,no fill,26996.1,26934.98,both,neither filled
+FinancialJuice,145407,XAUUSDm,2026-11-06 18:22:51,0.01,,,,0.0,,,Fed's Daly: Services inflation not coming down in the way we,,,0.0,0.0,0.0,no fill,4069.157,4058.917,both,neither filled
+FinancialJuice,145408,USTECm,2026-11-06 18:26:11,0.1,,,,0.0,27004.61,26943.49,Council of Economic Advisers Chair Phelan: we'll need to see,,,0.0,0.0,0.0,no fill (AI veto),27003.11,26941.99,both,neither filled
+FinancialJuice,145408,XAUUSDm,2026-11-06 18:26:11,0.01,,,,0.0,,,Council of Economic Advisers Chair Phelan: we'll need to see,,,0.0,0.0,0.0,no fill (AI veto),4068.941,4058.701,both,neither filled
+FinancialJuice,145422,USTECm,2026-11-06 19:50:37,0.1,,,,0.0,27109.11,27047.99,Trump blames vote for stock market loss|FJ,,,0.0,0.0,0.0,no fill (AI veto),27110.11,27048.99,both,neither filled
+FinancialJuice,145422,XAUUSDm,2026-11-06 19:50:36,0.01,,,,0.0,,,Trump blames vote for stock market loss|FJ,,,0.0,0.0,0.0,no fill (AI veto),4068.231,4057.991,both,neither filled
+FinancialJuice,145432,USTECm,2026-11-06 21:18:10,0.1,,,,0.0,27037.36,26976.24,Chipmakers Rebound as Dip Buyers Lift Stocks Despite Fed Rat,,,0.0,0.0,0.0,no fill (AI veto),27037.36,26976.24,both,neither filled
+FinancialJuice,145432,XAUUSDm,2026-11-06 21:18:10,0.01,,,,0.0,,,Chipmakers Rebound as Dip Buyers Lift Stocks Despite Fed Rat,,,0.0,0.0,0.0,no fill (AI veto),4068.983,4058.743,both,neither filled
+FinancialJuice,145581,USTECm,2026-11-08 23:24:20,0.1,,,,0.0,27089.91,27028.79,Trump on Dana White as press secretary: he was joking|FJ,,,0.0,0.0,0.0,no fill (AI veto),27091.16,27030.04,both,neither filled
+FinancialJuice,145581,XAUUSDm,2026-11-08 23:24:20,0.01,,,,0.0,,,Trump on Dana White as press secretary: he was joking|FJ,,,0.0,0.0,0.0,no fill (AI veto),4074.575,4064.335,both,neither filled
+FinancialJuice,145582,USTECm,2026-11-08 23:25:10,0.1,,,,0.0,27087.66,27026.54,Trump on Dana White as press secretary: we will discuss othe,,,0.0,0.0,0.0,no fill (AI veto),27087.66,27026.54,both,neither filled
+FinancialJuice,145582,XAUUSDm,2026-11-08 23:25:10,0.01,,,,0.0,,,Trump on Dana White as press secretary: we will discuss othe,,,0.0,0.0,0.0,no fill (AI veto),4073.832,4063.592,both,neither filled
+FinancialJuice,145583,USTECm,2026-11-08 23:25:16,0.1,,,,0.0,27088.16,27027.04,Trump on Nvidia CEO Huang: I have not discussed allegations ,,,0.0,0.0,0.0,no fill (AI veto),27088.66,27027.54,both,neither filled
+FinancialJuice,145583,XAUUSDm,2026-11-08 23:25:15,0.01,,,,0.0,,,Trump on Nvidia CEO Huang: I have not discussed allegations ,,,0.0,0.0,0.0,no fill (AI veto),4073.897,4063.657,both,neither filled
+FinancialJuice,145584,USTECm,2026-11-08 23:25:34,0.1,,,,0.0,27108.66,27047.54,Trump on Nvidia CEO Huang: he is a good person|FJ,,,0.0,0.0,0.0,no fill (AI veto),27110.15,27049.03,both,neither filled
+FinancialJuice,145584,XAUUSDm,2026-11-08 23:25:33,0.01,,,,0.0,,,Trump on Nvidia CEO Huang: he is a good person|FJ,,,0.0,0.0,0.0,no fill (AI veto),4074.856,4064.616,both,neither filled
+FinancialJuice,145585,USTECm,2026-11-08 23:26:45,0.1,,,,0.0,27064.93,27003.81,Trump on Nvidia's Huang: I would take him but don't know if ,,,0.0,0.0,0.0,no fill (AI veto),27065.43,27004.31,both,neither filled
+FinancialJuice,145585,XAUUSDm,2026-11-08 23:26:45,0.01,,,,0.0,,,Trump on Nvidia's Huang: I would take him but don't know if ,,,0.0,0.0,0.0,no fill (AI veto),4072.775,4062.535,both,neither filled
+FinancialJuice,145586,USTECm,2026-11-08 23:30:55,0.1,,,,0.0,27080.66,27019.54,Trump: I expect to hold talks with Xi and Putin|FJ,,,0.0,0.0,0.0,no fill (AI veto),27080.66,27019.54,both,neither filled
+FinancialJuice,145586,XAUUSDm,2026-11-08 23:30:55,0.01,,,,0.0,,,Trump: I expect to hold talks with Xi and Putin|FJ,,,0.0,0.0,0.0,no fill (AI veto),4074.048,4063.808,both,neither filled
+FinancialJuice,145587,USTECm,2026-11-08 23:32:55,0.1,,,,0.0,27108.4,27047.28,Trump: many people disliked Vance's remarks on Iran|FJ,,,0.0,0.0,0.0,no fill (AI veto),27109.65,27048.53,both,neither filled
+FinancialJuice,145587,XAUUSDm,2026-11-08 23:32:55,0.01,,,,0.0,,,Trump: many people disliked Vance's remarks on Iran|FJ,,,0.0,0.0,0.0,no fill (AI veto),4072.316,4062.076,both,neither filled
+FinancialJuice,145590,USTECm,2026-11-09 00:09:01,0.1,,,,0.0,26911.66,26850.54,"Trump: AI risk can be managed, but 'I don't mind guardrails'",,,0.0,0.0,0.0,no fill (AI veto),26907.91,26846.79,both,neither filled
+FinancialJuice,145590,XAUUSDm,2026-11-09 00:09:01,0.01,,,,0.0,,,"Trump: AI risk can be managed, but 'I don't mind guardrails'",,,0.0,0.0,0.0,no fill (AI veto),4070.125,4059.885,both,neither filled
+FinancialJuice,145592,USTECm,2026-11-09 00:26:37,0.1,,,,0.0,26925.42,26864.3,"Trump, when asked if Rubio will remain secretary of state: ‘",,,0.0,0.0,0.0,no fill (AI veto),26928.17,26867.05,both,neither filled
+FinancialJuice,145592,XAUUSDm,2026-11-09 00:26:36,0.01,,,,0.0,,,"Trump, when asked if Rubio will remain secretary of state: ‘",,,0.0,0.0,0.0,no fill (AI veto),4077.05,4066.81,both,neither filled
+FinancialJuice,145656,USTECm,2026-11-09 13:08:36,0.1,SELL,27193.54,2026-11-09 13:10:12,1.0,27254.66,27193.54,❗ Qatari Official: Reports on US-Iran proposal details are f,SELL,27192.54,1794229814.0,1.0,4.0,take profit,27253.66,27192.54,both,"both filled, same side"
+FinancialJuice,145656,XAUUSDm,2026-11-09 13:08:35,0.01,,,,0.0,,,❗ Qatari Official: Reports on US-Iran proposal details are f,,,0.0,0.0,0.0,no fill,4128.121,4117.881,both,neither filled
+FinancialJuice,145663,USTECm,2026-11-09 13:48:28,0.1,,,,0.0,27270.41,27209.29,❗ Mehr News citing Ankara: Qatar will host Trump's vice pres,,,0.0,0.0,0.0,no fill,27270.66,27209.54,both,neither filled
+FinancialJuice,145663,XAUUSDm,2026-11-09 13:48:28,0.01,BUY,4124.36,2026-11-09 13:50:22,1.0,,,❗ Mehr News citing Ankara: Qatar will host Trump's vice pres,BUY,4124.686,1794232221.0,1.0,-3.0,stop loss,4124.609,4114.369,both,"both filled, same side"
+FinancialJuice,145675,USTECm,2026-11-09 14:31:14,0.1,,,,0.0,27280.91,27219.79,FEDS Note: The Effect of Oil Prices on Core Inflation: Recen,,,0.0,0.0,0.0,no fill (AI veto),27276.41,27215.29,both,neither filled
+FinancialJuice,145675,XAUUSDm,2026-11-09 14:31:13,0.01,,,,0.0,,,FEDS Note: The Effect of Oil Prices on Core Inflation: Recen,,,0.0,0.0,0.0,no fill (AI veto),4134.482,4124.242,both,neither filled
+FinancialJuice,145680,USTECm,2026-11-09 15:08:58,0.5,,,,0.0,27681.41,27620.29,Fed's Goolsbee Speaks - WATCH LIVE|FJ,,,0.0,0.0,0.0,no fill (AI veto),27681.66,27620.54,both,neither filled
+FinancialJuice,145680,XAUUSDm,2026-11-09 15:08:58,0.01,,,,0.0,,,Fed's Goolsbee Speaks - WATCH LIVE|FJ,,,0.0,0.0,0.0,no fill (AI veto),4122.3,4112.06,both,neither filled
+FinancialJuice,145684,USTECm,2026-11-09 15:23:43,0.5,,,,0.0,27779.15,27718.03,Fed's Goolsbee: Employment and growth are actually pretty st,,,0.0,0.0,0.0,no fill (AI veto),27778.65,27717.53,both,neither filled
+FinancialJuice,145684,XAUUSDm,2026-11-09 15:23:43,0.01,,,,0.0,,,Fed's Goolsbee: Employment and growth are actually pretty st,,,0.0,0.0,0.0,no fill (AI veto),4121.437,4111.197,both,neither filled
+FinancialJuice,145685,USTECm,2026-11-09 15:24:04,0.5,,,,0.0,27765.66,27704.54,Fed's Goolsbee: Big problem has all been on the inflation si,,,0.0,0.0,0.0,no fill (AI veto),27764.66,27703.54,both,neither filled
+FinancialJuice,145685,XAUUSDm,2026-11-09 15:24:03,0.01,,,,0.0,,,Fed's Goolsbee: Big problem has all been on the inflation si,,,0.0,0.0,0.0,no fill (AI veto),4121.851,4111.611,both,neither filled
+FinancialJuice,145686,USTECm,2026-11-09 15:24:24,0.5,,,,0.0,27769.66,27708.54,Fed's Goolsbee: We've got to come to terms with inflation fa,,,0.0,0.0,0.0,no fill,27769.16,27708.04,both,neither filled
+FinancialJuice,145686,XAUUSDm,2026-11-09 15:24:24,0.01,,,,0.0,,,Fed's Goolsbee: We've got to come to terms with inflation fa,,,0.0,0.0,0.0,no fill,4122.516,4112.276,both,neither filled
+FinancialJuice,145689,USTECm,2026-11-09 15:26:34,0.5,,,,0.0,27761.41,27700.29,Fed's Goolsbee: Data centers looking like old-fashioned over,,,0.0,0.0,0.0,no fill (AI veto),27760.91,27699.79,both,neither filled
+FinancialJuice,145689,XAUUSDm,2026-11-09 15:26:33,0.01,,,,0.0,,,Fed's Goolsbee: Data centers looking like old-fashioned over,,,0.0,0.0,0.0,no fill (AI veto),4123.266,4113.026,both,neither filled
+FinancialJuice,145690,USTECm,2026-11-09 15:28:12,0.5,,,,0.0,27781.66,27720.54,Fed's Goolsbee: Consumer spending has been main driver of gr,,,0.0,0.0,0.0,no fill (AI veto),27781.91,27720.79,both,neither filled
+FinancialJuice,145690,XAUUSDm,2026-11-09 15:28:12,0.01,,,,0.0,,,Fed's Goolsbee: Consumer spending has been main driver of gr,,,0.0,0.0,0.0,no fill (AI veto),4121.381,4111.141,both,neither filled
+FinancialJuice,145696,USTECm,2026-11-09 16:00:31,0.5,,,,0.0,27920.41,27859.29,NY FED 1 YR INFLATION EXPECTATIONS ACTUAL 3.91% (FORECAST 3.,,,0.0,0.0,0.0,no fill (AI veto),27920.16,27859.04,both,neither filled
+FinancialJuice,145696,XAUUSDm,2026-11-09 16:00:31,0.01,,,,0.0,,,NY FED 1 YR INFLATION EXPECTATIONS ACTUAL 3.91% (FORECAST 3.,,,0.0,0.0,0.0,no fill (AI veto),4125.919,4115.679,both,neither filled
+FinancialJuice,145699,USTECm,2026-11-09 16:00:57,0.5,,,,0.0,27910.16,27849.04,NY Fed: October expectation of rising unemployment rate is t,,,0.0,0.0,0.0,no fill (AI veto),27911.91,27850.79,both,neither filled
+FinancialJuice,145699,XAUUSDm,2026-11-09 16:00:56,0.01,,,,0.0,,,NY Fed: October expectation of rising unemployment rate is t,,,0.0,0.0,0.0,no fill (AI veto),4126.103,4115.863,both,neither filled
+FinancialJuice,145701,USTECm,2026-11-09 16:01:12,0.5,,,,0.0,27919.66,27858.54,NY Fed: October expectations of current and future credit ac,,,0.0,0.0,0.0,no fill (AI veto),27918.66,27857.54,both,neither filled
+FinancialJuice,145701,XAUUSDm,2026-11-09 16:01:12,0.01,,,,0.0,,,NY Fed: October expectations of current and future credit ac,,,0.0,0.0,0.0,no fill (AI veto),4127.206,4116.966,both,neither filled
+FinancialJuice,145702,USTECm,2026-11-09 16:01:16,0.5,,,,0.0,27924.65,27863.53,NY Fed: In October households more upbeat on personal financ,,,0.0,0.0,0.0,no fill (AI veto),27925.15,27864.03,both,neither filled
+FinancialJuice,145702,XAUUSDm,2026-11-09 16:01:16,0.01,,,,0.0,,,NY Fed: In October households more upbeat on personal financ,,,0.0,0.0,0.0,no fill (AI veto),4126.676,4116.436,both,neither filled
+FinancialJuice,145703,USTECm,2026-11-09 16:01:59,0.5,,,,0.0,27924.91,27863.79,NY Fed October Survey Of Consumer Expectations|FJ,,,0.0,0.0,0.0,no fill (AI veto),27925.53,27864.41,both,neither filled
+FinancialJuice,145703,XAUUSDm,2026-11-09 16:01:58,0.01,,,,0.0,,,NY Fed October Survey Of Consumer Expectations|FJ,,,0.0,0.0,0.0,no fill (AI veto),4127.607,4117.367,both,neither filled
+FinancialJuice,145704,USTECm,2026-11-09 16:04:03,0.5,SELL,27867.54,2026-11-09 16:04:42,1.0,27928.66,27867.54,❗ US chip inquiry was halted after Nvidia intervention - NYT,SELL,27870.29,1794240277.0,1.0,20.0,take profit,27931.41,27870.29,both,"both filled, same side"
+FinancialJuice,145704,XAUUSDm,2026-11-09 16:04:02,0.01,,,,0.0,,,❗ US chip inquiry was halted after Nvidia intervention - NYT,,,0.0,0.0,0.0,no fill,4130.478,4120.238,both,neither filled
+FinancialJuice,145712,USTECm,2026-11-09 16:16:05,0.5,,,,0.0,27850.66,27789.54,Fed bids for 3-Month bills total $6.4 bln|FJ,,,0.0,0.0,0.0,no fill (AI veto),27850.41,27789.29,both,neither filled
+FinancialJuice,145712,XAUUSDm,2026-11-09 16:16:05,0.01,,,,0.0,,,Fed bids for 3-Month bills total $6.4 bln|FJ,,,0.0,0.0,0.0,no fill (AI veto),4132.402,4122.162,both,neither filled
+FinancialJuice,145713,USTECm,2026-11-09 16:16:25,0.5,,,,0.0,27857.66,27796.54,Fed bids for 6-Month bills total $5.5 bln|FJ,,,0.0,0.0,0.0,no fill (AI veto),27858.41,27797.29,both,neither filled
+FinancialJuice,145713,XAUUSDm,2026-11-09 16:16:25,0.01,,,,0.0,,,Fed bids for 6-Month bills total $5.5 bln|FJ,,,0.0,0.0,0.0,no fill (AI veto),4131.48,4121.24,both,neither filled
+FinancialJuice,145728,USTECm,2026-11-09 17:04:35,0.5,,,,0.0,27877.91,27816.79,Fed's Barkin: Direction of monetary policy is ‘straightforwa,,,0.0,0.0,0.0,no fill (AI veto),27877.41,27816.29,both,neither filled
+FinancialJuice,145728,XAUUSDm,2026-11-09 17:04:35,0.01,,,,0.0,,,Fed's Barkin: Direction of monetary policy is ‘straightforwa,,,0.0,0.0,0.0,no fill (AI veto),4117.321,4107.081,both,neither filled
+FinancialJuice,145729,USTECm,2026-11-09 17:04:41,0.5,,,,0.0,27878.41,27817.29,Fed's Barkin: US economy is ‘remarkably stable’|FJ,,,0.0,0.0,0.0,no fill (AI veto),27878.16,27817.04,both,neither filled
+FinancialJuice,145729,XAUUSDm,2026-11-09 17:04:41,0.01,,,,0.0,,,Fed's Barkin: US economy is ‘remarkably stable’|FJ,,,0.0,0.0,0.0,no fill (AI veto),4116.728,4106.488,both,neither filled
+FinancialJuice,145739,USTECm,2026-11-09 17:24:53,0.5,,,,0.0,27903.16,27842.04,Fed's Barkin sees risk of firms passing on higher energy cos,,,0.0,0.0,0.0,no fill (AI veto),27903.66,27842.54,both,neither filled
+FinancialJuice,145739,XAUUSDm,2026-11-09 17:24:53,0.01,,,,0.0,,,Fed's Barkin sees risk of firms passing on higher energy cos,,,0.0,0.0,0.0,no fill (AI veto),4110.708,4100.468,both,neither filled
+FinancialJuice,145748,USTECm,2026-11-09 17:30:25,0.5,,,,0.0,27910.41,27849.29,US Official: Meeting between President Trump and Qatar's PM ,,,0.0,0.0,0.0,no fill (AI veto),27910.66,27849.54,both,neither filled
+FinancialJuice,145748,XAUUSDm,2026-11-09 17:30:24,0.01,,,,0.0,,,US Official: Meeting between President Trump and Qatar's PM ,,,0.0,0.0,0.0,no fill (AI veto),4110.851,4100.611,both,neither filled
+FinancialJuice,145755,USTECm,2026-11-09 17:57:42,0.5,,,,0.0,27891.16,27830.04,"Fed's Barkin: Government debt, not consumer debt is at histo",,,0.0,0.0,0.0,no fill (AI veto),27891.16,27830.04,both,neither filled
+FinancialJuice,145755,XAUUSDm,2026-11-09 17:57:42,0.01,,,,0.0,,,"Fed's Barkin: Government debt, not consumer debt is at histo",,,0.0,0.0,0.0,no fill (AI veto),4107.838,4097.598,both,neither filled
+FinancialJuice,145756,USTECm,2026-11-09 18:00:40,0.5,,,,0.0,27884.66,27823.54,Treasury WI 3y yield 4.622% before $58 billion auction|FJ,,,0.0,0.0,0.0,no fill (AI veto),27886.16,27825.04,both,neither filled
+FinancialJuice,145756,XAUUSDm,2026-11-09 18:00:40,0.01,,,,0.0,,,Treasury WI 3y yield 4.622% before $58 billion auction|FJ,,,0.0,0.0,0.0,no fill (AI veto),4108.079,4097.839,both,neither filled
+FinancialJuice,145760,USTECm,2026-11-09 18:18:33,0.5,,,,0.0,27860.66,27799.54,Trump and the PM of Qatar that took place around noon lasted,,,0.0,0.0,0.0,no fill (AI veto),27860.66,27799.54,both,neither filled
+FinancialJuice,145760,XAUUSDm,2026-11-09 18:18:32,0.01,,,,0.0,,,Trump and the PM of Qatar that took place around noon lasted,,,0.0,0.0,0.0,no fill (AI veto),4108.297,4098.057,both,neither filled
+FinancialJuice,145761,USTECm,2026-11-09 18:20:34,0.5,,,,0.0,27842.66,27781.54,❗ Fed's Barkin: No base case for December meeting|FJ,,,0.0,0.0,0.0,no fill,27842.16,27781.04,both,neither filled
+FinancialJuice,145761,XAUUSDm,2026-11-09 18:20:34,0.01,,,,0.0,,,❗ Fed's Barkin: No base case for December meeting|FJ,,,0.0,0.0,0.0,no fill,4106.335,4096.095,both,neither filled
+FinancialJuice,145781,USTECm,2026-11-09 19:39:29,0.5,BUY,27989.9,2026-11-09 19:39:39,1.0,27985.66,27924.54,❗ Al Arabiya sources: Washington has allowed uranium enrichm,BUY,27988.65,1794253177.0,1.0,-20.0,stop loss,27986.65,27925.53,both,"both filled, same side"
+FinancialJuice,145781,XAUUSDm,2026-11-09 19:39:28,0.01,BUY,4130.67,2026-11-09 19:40:40,1.0,,,❗ Al Arabiya sources: Washington has allowed uranium enrichm,BUY,4131.592,1794253238.0,1.0,-3.0369999999993524,stop loss,4131.051,4120.791,both,"both filled, same side"
+FinancialJuice,145786,USTECm,2026-11-09 19:58:02,0.5,,,,0.0,27954.66,27893.54,Diplomat: Trump and Qatar's PM talks were positive - Axios.|,,,0.0,0.0,0.0,no fill (AI veto),27954.91,27893.79,both,neither filled
+FinancialJuice,145786,XAUUSDm,2026-11-09 19:58:02,0.01,,,,0.0,,,Diplomat: Trump and Qatar's PM talks were positive - Axios.|,,,0.0,0.0,0.0,no fill (AI veto),4138.805,4128.565,both,neither filled
+FinancialJuice,145791,USTECm,2026-11-09 20:22:04,0.5,,,,0.0,28041.16,27980.04,Trump defends Pentagon Chief Hegseth against impeachment eff,,,0.0,0.0,0.0,no fill (AI veto),28040.91,27979.79,both,neither filled
+FinancialJuice,145791,XAUUSDm,2026-11-09 20:22:03,0.01,,,,0.0,,,Trump defends Pentagon Chief Hegseth against impeachment eff,,,0.0,0.0,0.0,no fill (AI veto),4151.126,4140.886,both,neither filled
+FinancialJuice,145796,USTECm,2026-11-09 20:38:10,0.5,,,,0.0,28035.66,27974.54,"China insists Trump-Xi-Putin summit follow scripted format, ",,,0.0,0.0,0.0,no fill (AI veto),28034.91,27973.79,both,neither filled
+FinancialJuice,145796,XAUUSDm,2026-11-09 20:38:10,0.01,,,,0.0,,,"China insists Trump-Xi-Putin summit follow scripted format, ",,,0.0,0.0,0.0,no fill (AI veto),4150.249,4140.009,both,neither filled
+FinancialJuice,145807,XAUUSDm,2026-11-09 21:30:41,0.01,,,,0.0,,,Trump: Had an excellent conversation with the Qatar PM - Tru,,,0.0,0.0,0.0,no fill (AI veto),4150.051,4139.791,both,neither filled
+FinancialJuice,145808,XAUUSDm,2026-11-09 21:31:01,0.01,,,,0.0,,,❗ Trump: Should there be any change with respect to developm,,,0.0,0.0,0.0,no fill,4149.239,4138.999,both,neither filled
+FinancialJuice,145812,USTECm,2026-11-09 21:44:26,0.5,,,,0.0,27961.91,27900.79,Trump on Iran: Military action doesn't seem to be necessary|,,,0.0,0.0,0.0,no fill (AI veto),27961.91,27900.79,both,neither filled
+FinancialJuice,145812,XAUUSDm,2026-11-09 21:44:26,0.01,,,,0.0,,,Trump on Iran: Military action doesn't seem to be necessary|,,,0.0,0.0,0.0,no fill (AI veto),4139.957,4129.717,both,neither filled
+FinancialJuice,145813,USTECm,2026-11-09 21:44:32,0.5,,,,0.0,27961.91,27900.79,Trump: Iran military action doesn't seem necessary right now,,,0.0,0.0,0.0,no fill (AI veto),27962.16,27901.04,both,neither filled
+FinancialJuice,145813,XAUUSDm,2026-11-09 21:44:31,0.01,,,,0.0,,,Trump: Iran military action doesn't seem necessary right now,,,0.0,0.0,0.0,no fill (AI veto),4139.807,4129.567,both,neither filled
+FinancialJuice,145814,USTECm,2026-11-09 21:44:42,0.5,,,,0.0,27961.16,27900.04,Trump on Iran: We're seeing momentum toward the end of this ,,,0.0,0.0,0.0,no fill,27961.16,27900.04,both,neither filled
+FinancialJuice,145814,XAUUSDm,2026-11-09 21:44:42,0.01,,,,0.0,,,Trump on Iran: We're seeing momentum toward the end of this ,,,0.0,0.0,0.0,no fill,4139.705,4129.465,both,neither filled
+FinancialJuice,145817,USTECm,2026-11-09 21:46:47,0.5,,,,0.0,27965.91,27904.79,Trump: Keeping Iran at status quo|FJ,,,0.0,0.0,0.0,no fill (AI veto),27965.91,27904.79,both,neither filled
+FinancialJuice,145817,XAUUSDm,2026-11-09 21:46:47,0.01,,,,0.0,,,Trump: Keeping Iran at status quo|FJ,,,0.0,0.0,0.0,no fill (AI veto),4141.598,4131.358,both,neither filled
+FinancialJuice,145818,USTECm,2026-11-09 21:46:55,0.5,,,,0.0,27964.91,27903.79,Trump: Iran militarily is effectively over|FJ,,,0.0,0.0,0.0,no fill,27964.91,27903.79,both,neither filled
+FinancialJuice,145818,XAUUSDm,2026-11-09 21:46:55,0.01,,,,0.0,,,Trump: Iran militarily is effectively over|FJ,,,0.0,0.0,0.0,no fill,4141.506,4131.266,both,neither filled
+FinancialJuice,145819,USTECm,,,,,,,,,,,,0.0,0.0,0.0,no fill (AI veto),27980.41,27919.29,right_only,"replay armed, live did not"
+FinancialJuice,145819,XAUUSDm,2026-11-09 21:49:49,0.01,,,,0.0,,,Trump Delivers Remarks - WATCH LIVE|FJ,,,0.0,0.0,0.0,no fill (AI veto),4144.865,4134.625,both,neither filled
+FinancialJuice,145921,XAUUSDm,2026-11-10 08:21:39,0.01,,,,0.0,,,"Qatari PM makes unscheduled stop at G7 to brief Europeans, S",,,0.0,0.0,0.0,no fill (AI veto),4122.357,4112.117,both,neither filled
+FinancialJuice,145923,XAUUSDm,2026-11-10 09:00:59,0.01,SELL,4093.23,2026-11-10 09:01:06,1.0,,,❗ Fed's Waller: Half-point Fed rate hike may be needed in de,SELL,4093.769,1794301264.0,1.0,1.0,break-even stop,4106.255,4095.995,both,"both filled, same side"
+FinancialJuice,145926,XAUUSDm,,,,,,,,,,BUY,4097.52,1794301328.0,1.0,1.0,break-even stop,4097.52,4087.26,right_only,"replay armed, live did not"
+FinancialJuice,145927,XAUUSDm,2026-11-10 09:02:07,0.01,BUY,4100.33,2026-11-10 09:02:25,1.0,,,Fed's Waller: Particularly concerned about the breadth of pr,,,,,,,,,left_only,"live armed, replay did not"
+FinancialJuice,145941,XAUUSDm,2026-11-10 09:53:30,0.01,,,,0.0,,,Fed's Waller: Real rates have to rise to maintain level of r,,,0.0,0.0,0.0,no fill,4088.074,4077.834,both,neither filled
+FinancialJuice,145948,XAUUSDm,2026-11-10 10:07:57,0.01,,,,0.0,,,Fed's Waller: Minimum we need to take back the 3 insurance c,,,0.0,0.0,0.0,no fill,4087.629,4077.389,both,neither filled
+FinancialJuice,145970,XAUUSDm,2026-11-10 12:45:30,0.01,,,,0.0,,,Us Federal Reserve will hike Fed Funds Rate in December to 4,,,0.0,0.0,0.0,no fill (AI veto),4084.377,4074.137,both,neither filled
+FinancialJuice,145971,XAUUSDm,2026-11-10 12:45:41,0.01,,,,0.0,,,Fed Funds Rate will peak at 4.00%-4.25% in current hiking ca,,,0.0,0.0,0.0,no fill (AI veto),4084.056,4073.816,both,neither filled
+FinancialJuice,145978,XAUUSDm,2026-11-10 13:02:25,0.01,,,,0.0,,,Oracle launches AI treasury analytics for financial firms $O,,,0.0,0.0,0.0,no fill (AI veto),4080.231,4069.991,both,neither filled
+FinancialJuice,146027,XAUUSDm,2026-11-10 14:36:45,0.01,,,,0.0,,,House Panel calls on the Treasury to review financial instit,,,0.0,0.0,0.0,no fill (AI veto),4050.641,4040.401,both,neither filled
+FinancialJuice,146046,XAUUSDm,2026-11-10 15:41:45,0.01,,,,0.0,,,WATCH LIVE: Fed's Logan Speaks 10:50 ET|FJ,,,0.0,0.0,0.0,no fill (AI veto),4054.266,4044.026,both,neither filled
+FinancialJuice,146064,XAUUSDm,2026-11-10 15:53:01,0.01,,,,0.0,,,Fed's Logan's Speech|FJ,,,0.0,0.0,0.0,no fill (AI veto),4047.438,4037.198,both,neither filled
+FinancialJuice,146065,XAUUSDm,2026-11-10 15:55:49,0.01,,,,0.0,,,❗ Traders fully price two quarter-point BoE hikes by March|F,,,0.0,0.0,0.0,no fill,4049.961,4039.721,both,neither filled
+FinancialJuice,146069,XAUUSDm,2026-11-10 16:01:11,0.01,,,,0.0,,,NY Fed: US Household Debt Rises $334 Billion to $19.1 Trilli,,,0.0,0.0,0.0,no fill,4049.393,4039.153,both,neither filled
+WalterBloomberg,37860,USTECm,2026-11-04 13:25:38,0.1,,,,0.0,28295.01,28243.89,TRUMP CANCELS PUBLIC APPEARANCES AFTER GOP MIDTERM DEFEAT Pr,,,0.0,0.0,0.0,no fill (AI veto),28295.01,28243.89,both,neither filled
+WalterBloomberg,37860,XAUUSDm,2026-11-04 13:25:37,0.01,,,,0.0,,,TRUMP CANCELS PUBLIC APPEARANCES AFTER GOP MIDTERM DEFEAT Pr,,,0.0,0.0,0.0,no fill (AI veto),4043.865,4031.625,both,neither filled
+WalterBloomberg,37873,USTECm,2026-11-04 15:27:53,0.1,,,,0.0,28698.76,28647.64,TRUMP IMPEACHMENT ODDS SURGE AFTER MIDTERMS Following Democr,,,0.0,0.0,0.0,no fill (AI veto),28698.27,28647.15,both,neither filled
+WalterBloomberg,37873,XAUUSDm,2026-11-04 15:27:53,0.01,,,,0.0,,,TRUMP IMPEACHMENT ODDS SURGE AFTER MIDTERMS Following Democr,,,0.0,0.0,0.0,no fill (AI veto),4039.868,4027.628,both,neither filled
+WalterBloomberg,37879,USTECm,2026-11-04 15:50:23,0.1,,,,0.0,28538.26,28487.14,JD VANCE BLAMES IRAN WAR FOR REPUBLICAN MIDTERM DEFEAT Vice ,,,0.0,0.0,0.0,no fill (AI veto),28537.26,28486.14,both,neither filled
+WalterBloomberg,37879,XAUUSDm,2026-11-04 15:50:23,0.01,,,,0.0,,,JD VANCE BLAMES IRAN WAR FOR REPUBLICAN MIDTERM DEFEAT Vice ,,,0.0,0.0,0.0,no fill (AI veto),4046.283,4034.043,both,neither filled
+WalterBloomberg,37880,USTECm,2026-11-04 15:54:08,0.1,,,,0.0,28551.01,28499.89,DEMOCRATS READY TRUMP PROBES AND AFFORDABILITY MEASURES (@Wa,,,0.0,0.0,0.0,no fill (AI veto),28551.5,28500.38,both,neither filled
+WalterBloomberg,37880,XAUUSDm,2026-11-04 15:54:08,0.01,,,,0.0,,,DEMOCRATS READY TRUMP PROBES AND AFFORDABILITY MEASURES (@Wa,,,0.0,0.0,0.0,no fill (AI veto),4051.408,4039.168,both,neither filled
+WalterBloomberg,37881,USTECm,2026-11-04 15:58:44,0.1,,,,0.0,28554.51,28503.39,Trump's Vice President Blames Israel for Republican Defeat: ,,,0.0,0.0,0.0,no fill (AI veto),28555.76,28504.64,both,neither filled
+WalterBloomberg,37881,XAUUSDm,2026-11-04 15:58:44,0.01,,,,0.0,,,Trump's Vice President Blames Israel for Republican Defeat: ,,,0.0,0.0,0.0,no fill (AI veto),4054.028,4041.788,both,neither filled
+WalterBloomberg,37884,USTECm,2026-11-04 16:10:37,0.1,,,,0.0,28538.51,28487.39,TRUMP'S VETO POWER COULD BLOCK DEMOCRATIC AGENDA Despite swe,,,0.0,0.0,0.0,no fill (AI veto),28538.51,28487.39,both,neither filled
+WalterBloomberg,37884,XAUUSDm,2026-11-04 16:10:37,0.01,,,,0.0,,,TRUMP'S VETO POWER COULD BLOCK DEMOCRATIC AGENDA Despite swe,,,0.0,0.0,0.0,no fill (AI veto),4050.99,4038.75,both,neither filled
+WalterBloomberg,37888,USTECm,2026-11-04 16:43:04,0.1,,,,0.0,28555.76,28504.64,"TRUMP ASKING ADVISERS IF HEGSETH SHOULD GO, SOURCES SAY (@Wa",,,0.0,0.0,0.0,no fill (AI veto),28556.01,28504.89,both,neither filled
+WalterBloomberg,37888,XAUUSDm,2026-11-04 16:43:04,0.01,,,,0.0,,,"TRUMP ASKING ADVISERS IF HEGSETH SHOULD GO, SOURCES SAY (@Wa",,,0.0,0.0,0.0,no fill (AI veto),4066.551,4054.311,both,neither filled
+WalterBloomberg,37889,USTECm,2026-11-04 16:43:38,0.1,,,,0.0,28562.51,28511.39,TRUMP CONSIDERS REPLACING DEFENSE SECRETARY HEGSETH AFTER GO,,,0.0,0.0,0.0,no fill (AI veto),28559.76,28508.64,both,neither filled
+WalterBloomberg,37889,XAUUSDm,2026-11-04 16:43:37,0.01,,,,0.0,,,TRUMP CONSIDERS REPLACING DEFENSE SECRETARY HEGSETH AFTER GO,,,0.0,0.0,0.0,no fill (AI veto),4063.858,4051.618,both,neither filled
+WalterBloomberg,37890,USTECm,2026-11-04 16:45:46,0.1,,,,0.0,28597.01,28545.89,HEGSETH'S EXIT ODDS SURGE AS TRUMP WEIGHS REPLACEMENT Trump ,,,0.0,0.0,0.0,no fill (AI veto),28598.26,28547.14,both,neither filled
+WalterBloomberg,37890,XAUUSDm,2026-11-04 16:45:45,0.01,,,,0.0,,,HEGSETH'S EXIT ODDS SURGE AS TRUMP WEIGHS REPLACEMENT Trump ,,,0.0,0.0,0.0,no fill (AI veto),4066.906,4054.666,both,neither filled
+WalterBloomberg,37892,USTECm,2026-11-04 17:31:56,0.1,,,,0.0,28656.25,28605.13,US HOUSE DEMOCRATIC LEADER JEFFRIES: HAVE NOT HEARD FROM TRU,,,0.0,0.0,0.0,no fill (AI veto),28658.5,28607.38,both,neither filled
+WalterBloomberg,37892,XAUUSDm,2026-11-04 17:31:55,0.01,,,,0.0,,,US HOUSE DEMOCRATIC LEADER JEFFRIES: HAVE NOT HEARD FROM TRU,,,0.0,0.0,0.0,no fill (AI veto),4072.908,4060.668,both,neither filled
+WalterBloomberg,37895,USTECm,2026-11-04 18:10:14,0.1,,,,0.0,28651.01,28599.89,TRUMP ON ELECTION: IT'S LARGELY TRUE ELECTION LOSS WAS RESUL,,,0.0,0.0,0.0,no fill (AI veto),28651.51,28600.39,both,neither filled
+WalterBloomberg,37895,XAUUSDm,2026-11-04 18:10:13,0.01,,,,0.0,,,TRUMP ON ELECTION: IT'S LARGELY TRUE ELECTION LOSS WAS RESUL,,,0.0,0.0,0.0,no fill (AI veto),4074.24,4062.0,both,neither filled
+WalterBloomberg,37896,USTECm,2026-11-04 18:10:49,0.1,,,,0.0,28634.26,28583.14,TRUMP: I'LL GET ALONG PROBABLY WITH THE DEMOCRATS (@WalterBl,,,0.0,0.0,0.0,no fill (AI veto),28634.51,28583.39,both,neither filled
+WalterBloomberg,37896,XAUUSDm,2026-11-04 18:10:48,0.01,,,,0.0,,,TRUMP: I'LL GET ALONG PROBABLY WITH THE DEMOCRATS (@WalterBl,,,0.0,0.0,0.0,no fill (AI veto),4072.882,4060.642,both,neither filled
+WalterBloomberg,37897,USTECm,2026-11-04 18:11:14,0.1,,,,0.0,28634.51,28583.39,TRUMP: IT WAS WORTH IT TRUMP: YOU CAN'T LET IRAN HAVE A NUCL,,,0.0,0.0,0.0,no fill (AI veto),28632.51,28581.39,both,neither filled
+WalterBloomberg,37897,XAUUSDm,2026-11-04 18:11:13,0.01,,,,0.0,,,TRUMP: IT WAS WORTH IT TRUMP: YOU CAN'T LET IRAN HAVE A NUCL,,,0.0,0.0,0.0,no fill (AI veto),4073.56,4061.32,both,neither filled
+WalterBloomberg,37898,USTECm,2026-11-04 18:11:33,0.1,,,,0.0,28643.26,28592.14,TRUMP: IF I WERE ON THE BALLOT WE WOULD HAVE WON (@WalterBlo,,,0.0,0.0,0.0,no fill (AI veto),28642.76,28591.64,both,neither filled
+WalterBloomberg,37898,XAUUSDm,2026-11-04 18:11:33,0.01,,,,0.0,,,TRUMP: IF I WERE ON THE BALLOT WE WOULD HAVE WON (@WalterBlo,,,0.0,0.0,0.0,no fill (AI veto),4073.405,4061.165,both,neither filled
+WalterBloomberg,37899,USTECm,2026-11-04 18:11:47,0.1,,,,0.0,28626.27,28575.15,TRUMP: WE WEREN'T ABLE TO TRANSFER THE LOVE TO CANDIDATES (@,,,0.0,0.0,0.0,no fill (AI veto),28628.02,28576.9,both,neither filled
+WalterBloomberg,37899,XAUUSDm,2026-11-04 18:11:47,0.01,,,,0.0,,,TRUMP: WE WEREN'T ABLE TO TRANSFER THE LOVE TO CANDIDATES (@,,,0.0,0.0,0.0,no fill (AI veto),4071.735,4059.495,both,neither filled
+WalterBloomberg,37900,USTECm,2026-11-04 18:12:06,0.1,,,,0.0,28649.01,28597.89,TRUMP SAYS `I'LL GET ALONG PROBABY WITH THE DEMOCRATS UNLESS,,,0.0,0.0,0.0,no fill (AI veto),28649.01,28597.89,both,neither filled
+WalterBloomberg,37900,XAUUSDm,2026-11-04 18:12:06,0.01,,,,0.0,,,TRUMP SAYS `I'LL GET ALONG PROBABY WITH THE DEMOCRATS UNLESS,,,0.0,0.0,0.0,no fill (AI veto),4072.978,4060.738,both,neither filled
+WalterBloomberg,37901,USTECm,2026-11-04 18:13:06,0.1,,,,0.0,28646.26,28595.14,TRUMP: IT WOULD DESTROY DEMOCRATIC PARTY IF THEY IMPEACHED M,,,0.0,0.0,0.0,no fill (AI veto),28644.76,28593.64,both,neither filled
+WalterBloomberg,37901,XAUUSDm,2026-11-04 18:13:06,0.01,,,,0.0,,,TRUMP: IT WOULD DESTROY DEMOCRATIC PARTY IF THEY IMPEACHED M,,,0.0,0.0,0.0,no fill (AI veto),4074.352,4062.112,both,neither filled
+WalterBloomberg,37902,USTECm,2026-11-04 18:22:44,0.1,,,,0.0,28623.51,28572.39,"*TRUMP: VANCE POST WAS GOOD, I KNOW HOW VANCE FEELS ABOUT WA",,,0.0,0.0,0.0,no fill (AI veto),28623.01,28571.89,both,neither filled
+WalterBloomberg,37902,XAUUSDm,2026-11-04 18:22:44,0.01,,,,0.0,,,"*TRUMP: VANCE POST WAS GOOD, I KNOW HOW VANCE FEELS ABOUT WA",,,0.0,0.0,0.0,no fill (AI veto),4072.074,4059.834,both,neither filled
+WalterBloomberg,37904,USTECm,2026-11-04 18:27:03,0.1,,,,0.0,28636.51,28585.39,IRAN CLAIMS CREDIT FOR TRUMP'S MIDTERM DEFEAT Iran's securit,,,0.0,0.0,0.0,no fill (AI veto),28636.01,28584.89,both,neither filled
+WalterBloomberg,37904,XAUUSDm,2026-11-04 18:27:02,0.01,,,,0.0,,,IRAN CLAIMS CREDIT FOR TRUMP'S MIDTERM DEFEAT Iran's securit,,,0.0,0.0,0.0,no fill (AI veto),4070.827,4058.587,both,neither filled
+WalterBloomberg,37915,USTECm,2026-11-05 14:00:35,0.1,,,,0.0,28214.36,28153.24,MARCO RUBIO REPORTEDLY CONSIDERING TRUMP ADMINISTRATION EXIT,,,0.0,0.0,0.0,no fill (AI veto),28215.11,28153.99,both,neither filled
+WalterBloomberg,37915,XAUUSDm,2026-11-05 14:00:34,0.01,,,,0.0,,,MARCO RUBIO REPORTEDLY CONSIDERING TRUMP ADMINISTRATION EXIT,,,0.0,0.0,0.0,no fill (AI veto),4129.676,4119.436,both,neither filled
+WalterBloomberg,37917,USTECm,2026-11-05 14:20:24,0.1,,,,0.0,28155.11,28093.99,*BARKIN SAYS INFLATION IS FED'S MOST IMPORTANT RISK NOW *BAR,,,0.0,0.0,0.0,no fill (AI veto),28155.11,28093.99,both,neither filled
+WalterBloomberg,37917,XAUUSDm,2026-11-05 14:20:24,0.01,,,,0.0,,,*BARKIN SAYS INFLATION IS FED'S MOST IMPORTANT RISK NOW *BAR,,,0.0,0.0,0.0,no fill (AI veto),4133.527,4123.287,both,neither filled
+WalterBloomberg,37930,USTECm,2026-11-05 15:59:20,0.1,,,,0.0,26934.96,26873.84,WALL STREET FEAR GAUGE SURGES 48% IN BIGGEST SPIKE SINCE LIB,,,0.0,0.0,0.0,no fill (AI veto),26935.21,26874.09,both,neither filled
+WalterBloomberg,37930,XAUUSDm,2026-11-05 15:59:19,0.01,,,,0.0,,,WALL STREET FEAR GAUGE SURGES 48% IN BIGGEST SPIKE SINCE LIB,,,0.0,0.0,0.0,no fill (AI veto),4086.975,4076.715,both,neither filled
+WalterBloomberg,37935,USTECm,2026-11-05 16:23:12,0.1,,,,0.0,27250.21,27189.09,US FIRST LADY MELANIA TRUMP: LET OLESHKY CEASEFIRE BE SPARK ,,,0.0,0.0,0.0,no fill (AI veto),27251.46,27190.34,both,neither filled
+WalterBloomberg,37935,XAUUSDm,2026-11-05 16:23:12,0.01,,,,0.0,,,US FIRST LADY MELANIA TRUMP: LET OLESHKY CEASEFIRE BE SPARK ,,,0.0,0.0,0.0,no fill (AI veto),4118.619,4108.379,both,neither filled
+WalterBloomberg,37940,USTECm,2026-11-05 16:53:25,0.1,,,,0.0,27076.21,27015.09,DEMOCRATS SWEEP CONGRESS. FED HIKE BETS RETREAT. Following t,,,0.0,0.0,0.0,no fill (AI veto),27075.21,27014.09,both,neither filled
+WalterBloomberg,37940,XAUUSDm,2026-11-05 16:53:24,0.01,,,,0.0,,,DEMOCRATS SWEEP CONGRESS. FED HIKE BETS RETREAT. Following t,,,0.0,0.0,0.0,no fill (AI veto),4129.535,4119.295,both,neither filled
+WalterBloomberg,37945,USTECm,2026-11-05 17:36:24,0.1,,,,0.0,26945.45,26884.33,US AND IRAN SECRETLY COORDINATED DEPORTATIONS DURING WAR The,,,0.0,0.0,0.0,no fill (AI veto),26933.21,26872.09,both,neither filled
+WalterBloomberg,37945,XAUUSDm,2026-11-05 17:36:23,0.01,,,,0.0,,,US AND IRAN SECRETLY COORDINATED DEPORTATIONS DURING WAR The,,,0.0,0.0,0.0,no fill (AI veto),4113.645,4103.405,both,neither filled
+WalterBloomberg,37953,USTECm,2026-11-05 19:31:22,0.1,,,,0.0,26830.71,26769.59,MARCO RUBIO WEIGHS EXIT FROM TRUMP ADMINISTRATION AFTER GOP ,,,0.0,0.0,0.0,no fill (AI veto),26830.71,26769.59,both,neither filled
+WalterBloomberg,37953,XAUUSDm,2026-11-05 19:31:21,0.01,,,,0.0,,,MARCO RUBIO WEIGHS EXIT FROM TRUMP ADMINISTRATION AFTER GOP ,,,0.0,0.0,0.0,no fill (AI veto),4104.619,4094.379,both,neither filled
+WalterBloomberg,37957,USTECm,2026-11-05 21:12:23,0.1,,,,0.0,26649.97,26588.85,TRUMP: SIGNING A DOCUMENT TO MAKE WHITE HOUSE OVAL OFFICE AN,,,0.0,0.0,0.0,no fill (AI veto),26652.21,26591.09,both,neither filled
+WalterBloomberg,37957,XAUUSDm,2026-11-05 21:12:22,0.01,,,,0.0,,,TRUMP: SIGNING A DOCUMENT TO MAKE WHITE HOUSE OVAL OFFICE AN,,,0.0,0.0,0.0,no fill (AI veto),4093.307,4083.067,both,neither filled
+WalterBloomberg,37959,USTECm,2026-11-05 21:32:13,0.1,,,,0.0,26605.21,26544.09,TRUMP ON IRAN: NEED TO DECIDE WHETHER TO GO FURTHER OR 'CERT,,,0.0,0.0,0.0,no fill,26607.96,26546.84,both,neither filled
+WalterBloomberg,37959,XAUUSDm,2026-11-05 21:32:12,0.01,,,,0.0,,,TRUMP ON IRAN: NEED TO DECIDE WHETHER TO GO FURTHER OR 'CERT,,,0.0,0.0,0.0,no fill,4095.323,4085.083,both,neither filled
+WalterBloomberg,37961,USTECm,2026-11-05 21:39:05,0.1,SELL,26553.6,2026-11-05 21:40:56,1.0,26614.72,26553.6,"*TRUMP ON RUSSIA, UKRAINE: GOING TO BE A BIG AGREEMENT *TRUM",,,,,,,,,left_only,"live armed, replay did not"
+WalterBloomberg,37961,XAUUSDm,2026-11-05 21:39:05,0.01,,,,0.0,,,"*TRUMP ON RUSSIA, UKRAINE: GOING TO BE A BIG AGREEMENT *TRUM",,,0.0,0.0,0.0,no fill,4095.632,4085.392,both,neither filled
+WalterBloomberg,37968,USTECm,2026-11-05 23:55:48,0.1,,,,0.0,26507.61,26446.49,"TRUMP: WE WILL SOON, ONE WAY OR OTHER, BE BIGGER AND STRONGE",,,0.0,0.0,0.0,no fill (AI veto),26510.36,26449.24,both,neither filled
+WalterBloomberg,37968,XAUUSDm,2026-11-05 23:55:48,0.01,,,,0.0,,,"TRUMP: WE WILL SOON, ONE WAY OR OTHER, BE BIGGER AND STRONGE",,,0.0,0.0,0.0,no fill (AI veto),4091.593,4081.353,both,neither filled
+WalterBloomberg,37969,USTECm,2026-11-05 23:56:01,0.1,,,,0.0,26524.59,26463.47,TRUMP: STOCK MARKET SUFFERED ONE OF WORST DAYS IN HISTORY BA,,,0.0,0.0,0.0,no fill (AI veto),26527.59,26466.47,both,neither filled
+WalterBloomberg,37969,XAUUSDm,2026-11-05 23:56:00,0.01,,,,0.0,,,TRUMP: STOCK MARKET SUFFERED ONE OF WORST DAYS IN HISTORY BA,,,0.0,0.0,0.0,no fill (AI veto),4090.622,4080.382,both,neither filled
+WalterBloomberg,37990,USTECm,2026-11-06 12:02:45,0.1,,,,0.0,27082.87,27021.75,TRUMP ON AI: WILL WORK WITH MANY STATES IN U.S. THAT WANT TO,,,0.0,0.0,0.0,no fill (AI veto),27079.37,27018.25,both,neither filled
+WalterBloomberg,37990,XAUUSDm,2026-11-06 12:02:44,0.01,,,,0.0,,,TRUMP ON AI: WILL WORK WITH MANY STATES IN U.S. THAT WANT TO,,,0.0,0.0,0.0,no fill (AI veto),4066.531,4056.291,both,neither filled
+WalterBloomberg,37991,USTECm,2026-11-06 12:04:21,0.1,,,,0.0,27107.86,27046.74,TRUMP BACKS AI SUPERINTELLIGENCE 100% Trump declares full su,,,0.0,0.0,0.0,no fill,27107.86,27046.74,both,neither filled
+WalterBloomberg,37991,XAUUSDm,2026-11-06 12:04:21,0.01,,,,0.0,,,TRUMP BACKS AI SUPERINTELLIGENCE 100% Trump declares full su,,,0.0,0.0,0.0,no fill,4068.993,4058.753,both,neither filled
+WalterBloomberg,38011,USTECm,2026-11-06 14:18:29,0.1,,,,0.0,27083.61,27022.49,HASSETT ON FED: INFLATION SHOULD BE DECELERATING -CNBC (@Wal,,,0.0,0.0,0.0,no fill (AI veto),27084.35,27023.23,both,neither filled
+WalterBloomberg,38011,XAUUSDm,2026-11-06 14:18:29,0.01,,,,0.0,,,HASSETT ON FED: INFLATION SHOULD BE DECELERATING -CNBC (@Wal,,,0.0,0.0,0.0,no fill (AI veto),4039.134,4028.894,both,neither filled
+WalterBloomberg,38024,USTECm,2026-11-06 18:05:52,0.1,,,,0.0,27003.11,26941.99,FED'S DALY WELCOMES STRONG JOBS REPORT BUT WARNS ON INFLATIO,,,0.0,0.0,0.0,no fill,27002.61,26941.49,both,neither filled
+WalterBloomberg,38024,XAUUSDm,2026-11-06 18:05:52,0.01,,,,0.0,,,FED'S DALY WELCOMES STRONG JOBS REPORT BUT WARNS ON INFLATIO,,,0.0,0.0,0.0,no fill,4066.442,4056.202,both,neither filled
+WalterBloomberg,38025,USTECm,2026-11-06 18:18:53,0.1,,,,0.0,26991.36,26930.24,TRUMP WEIGHS TERRORISM DESIGNATIONS FOR US NONPROFITS The Wh,,,0.0,0.0,0.0,no fill,26992.86,26931.74,both,neither filled
+WalterBloomberg,38025,XAUUSDm,2026-11-06 18:18:52,0.01,,,,0.0,,,TRUMP WEIGHS TERRORISM DESIGNATIONS FOR US NONPROFITS The Wh,,,0.0,0.0,0.0,no fill,4067.132,4056.892,both,neither filled
+WalterBloomberg,38031,USTECm,2026-11-06 18:52:28,0.1,,,,0.0,27089.85,27028.73,*TRUMP ANNOUNCES STEPHEN MILLER AS CHIEF OF STAFF FROM MONDA,,,0.0,0.0,0.0,no fill (AI veto),27089.85,27028.73,both,neither filled
+WalterBloomberg,38031,XAUUSDm,2026-11-06 18:52:28,0.01,,,,0.0,,,*TRUMP ANNOUNCES STEPHEN MILLER AS CHIEF OF STAFF FROM MONDA,,,0.0,0.0,0.0,no fill (AI veto),4078.202,4067.962,both,neither filled
+WalterBloomberg,38032,USTECm,2026-11-06 18:52:44,0.1,,,,0.0,27094.86,27033.74,TRUMP NAMES STEPHEN MILLER AS NEW WHITE HOUSE CHIEF OF STAFF,,,0.0,0.0,0.0,no fill (AI veto),27095.61,27034.49,both,neither filled
+WalterBloomberg,38032,XAUUSDm,2026-11-06 18:52:44,0.01,,,,0.0,,,TRUMP NAMES STEPHEN MILLER AS NEW WHITE HOUSE CHIEF OF STAFF,,,0.0,0.0,0.0,no fill (AI veto),4077.893,4067.653,both,neither filled
+WalterBloomberg,38033,USTECm,2026-11-06 19:12:04,0.1,,,,0.0,27138.36,27077.24,*CBS REPORTING SUSIE WILES GAVE TRUMP HER RESIGNATION ON THU,,,0.0,0.0,0.0,no fill (AI veto),27141.11,27079.99,both,neither filled
+WalterBloomberg,38033,XAUUSDm,2026-11-06 19:12:03,0.01,,,,0.0,,,*CBS REPORTING SUSIE WILES GAVE TRUMP HER RESIGNATION ON THU,,,0.0,0.0,0.0,no fill (AI veto),4078.032,4067.792,both,neither filled
+WalterBloomberg,38034,USTECm,2026-11-06 19:49:59,0.1,,,,0.0,27108.11,27046.99,*TRUMP SAYS WE HAD THE MOST INCREDIBLE JOB NUMBERS (@WalterB,,,0.0,0.0,0.0,no fill (AI veto),27107.61,27046.49,both,neither filled
+WalterBloomberg,38034,XAUUSDm,2026-11-06 19:49:59,0.01,,,,0.0,,,*TRUMP SAYS WE HAD THE MOST INCREDIBLE JOB NUMBERS (@WalterB,,,0.0,0.0,0.0,no fill (AI veto),4068.672,4058.432,both,neither filled
+WalterBloomberg,38035,USTECm,2026-11-06 19:50:47,0.1,,,,0.0,27104.11,27042.99,TRUMP: WANT STEPHEN MILLER TO RUN THINGS WELL AS CHIEF OF ST,,,0.0,0.0,0.0,no fill (AI veto),27104.86,27043.74,both,neither filled
+WalterBloomberg,38035,XAUUSDm,2026-11-06 19:50:47,0.01,,,,0.0,,,TRUMP: WANT STEPHEN MILLER TO RUN THINGS WELL AS CHIEF OF ST,,,0.0,0.0,0.0,no fill (AI veto),4067.661,4057.421,both,neither filled
+WalterBloomberg,38036,USTECm,2026-11-06 19:51:41,0.1,,,,0.0,27102.11,27040.99,TRUMP: WE ARE TALKING TO IRAN (@WalterBloomberg),,,0.0,0.0,0.0,no fill,27102.11,27040.99,both,neither filled
+WalterBloomberg,38036,XAUUSDm,2026-11-06 19:51:41,0.01,,,,0.0,,,TRUMP: WE ARE TALKING TO IRAN (@WalterBloomberg),,,0.0,0.0,0.0,no fill,4068.257,4058.017,both,neither filled
+WalterBloomberg,38063,USTECm,2026-11-09 09:54:24,0.1,,,,0.0,27080.91,27019.79,TRUMP SAYS HE WAS ONLY KIDDING ABOUT OFFERING UFC BOSS DANA ,,,0.0,0.0,0.0,no fill (AI veto),27077.16,27016.04,both,neither filled
+WalterBloomberg,38063,XAUUSDm,2026-11-09 09:54:23,0.01,,,,0.0,,,TRUMP SAYS HE WAS ONLY KIDDING ABOUT OFFERING UFC BOSS DANA ,,,0.0,0.0,0.0,no fill (AI veto),4102.583,4092.343,both,neither filled
+WalterBloomberg,38071,USTECm,2026-11-09 11:21:12,0.1,,,,0.0,27168.67,27107.55,US AND IRAN CONSIDER $8 BILLION DEAL TO REOPEN STRAIT OF HOR,,,0.0,0.0,0.0,no fill (AI veto),27168.42,27107.3,both,neither filled
+WalterBloomberg,38071,XAUUSDm,2026-11-09 11:21:12,0.01,,,,0.0,,,US AND IRAN CONSIDER $8 BILLION DEAL TO REOPEN STRAIT OF HOR,,,0.0,0.0,0.0,no fill (AI veto),4111.488,4101.248,both,neither filled
+WalterBloomberg,38086,USTECm,2026-11-09 14:40:43,0.5,,,,0.0,27518.66,27457.54,TRUMP ADMINISTRATION VOWS TO SPEED DEPLOYMENTS OF COUNTER-DR,,,0.0,0.0,0.0,no fill,27521.91,27460.79,both,neither filled
+WalterBloomberg,38086,XAUUSDm,2026-11-09 14:40:42,0.01,,,,0.0,,,TRUMP ADMINISTRATION VOWS TO SPEED DEPLOYMENTS OF COUNTER-DR,,,0.0,0.0,0.0,no fill,4124.224,4113.984,both,neither filled
+WalterBloomberg,38090,USTECm,2026-11-09 15:10:10,0.5,,,,0.0,27702.66,27641.54,TRUMP QUESTIONS US MIDTERM ELECTION RESULTS President Trump ,,,0.0,0.0,0.0,no fill (AI veto),27705.41,27644.29,both,neither filled
+WalterBloomberg,38090,XAUUSDm,2026-11-09 15:10:09,0.01,,,,0.0,,,TRUMP QUESTIONS US MIDTERM ELECTION RESULTS President Trump ,,,0.0,0.0,0.0,no fill (AI veto),4121.394,4111.154,both,neither filled
+WalterBloomberg,38100,USTECm,2026-11-09 17:04:47,0.5,,,,0.0,27878.41,27817.29,FED'S BARKIN WARNS INFLATION RISKS REMAIN ELEVATED Richmond ,,,0.0,0.0,0.0,no fill,27878.91,27817.79,both,neither filled
+WalterBloomberg,38100,XAUUSDm,2026-11-09 17:04:46,0.01,,,,0.0,,,FED'S BARKIN WARNS INFLATION RISKS REMAIN ELEVATED Richmond ,,,0.0,0.0,0.0,no fill,4116.517,4106.277,both,neither filled
+WalterBloomberg,38110,USTECm,2026-11-09 19:10:37,0.5,,,,0.0,27902.16,27841.04,HEGSETH TO HOLD RARE PENTAGON PRESS CONFERENCE AMID IMPEACHM,,,0.0,0.0,0.0,no fill (AI veto),27901.91,27840.79,both,neither filled
+WalterBloomberg,38110,XAUUSDm,2026-11-09 19:10:36,0.01,,,,0.0,,,HEGSETH TO HOLD RARE PENTAGON PRESS CONFERENCE AMID IMPEACHM,,,0.0,0.0,0.0,no fill (AI veto),4107.255,4097.015,both,neither filled
+WalterBloomberg,38111,USTECm,2026-11-09 19:11:33,0.5,,,,0.0,27901.16,27840.04,EVEN A SMALL CPI BEAT COULD SEAL DECEMBER FED RATE HIKE Russ,,,0.0,0.0,0.0,no fill (AI veto),27901.41,27840.29,both,neither filled
+WalterBloomberg,38111,XAUUSDm,2026-11-09 19:11:32,0.01,,,,0.0,,,EVEN A SMALL CPI BEAT COULD SEAL DECEMBER FED RATE HIKE Russ,,,0.0,0.0,0.0,no fill (AI veto),4106.876,4096.636,both,neither filled
+WalterBloomberg,38116,USTECm,2026-11-09 19:45:36,0.5,,,,0.0,27973.41,27912.29,*SUPREME COURT ALLOWS TRUMP BORDER WALL CONSTRUCTION IN BIG ,,,0.0,0.0,0.0,no fill (AI veto),27972.91,27911.79,both,neither filled
+WalterBloomberg,38116,XAUUSDm,2026-11-09 19:45:36,0.01,,,,0.0,,,*SUPREME COURT ALLOWS TRUMP BORDER WALL CONSTRUCTION IN BIG ,,,0.0,0.0,0.0,no fill (AI veto),4135.309,4125.069,both,neither filled
+WalterBloomberg,38121,USTECm,2026-11-09 20:18:53,0.5,,,,0.0,28029.66,27968.54,TRUMP TELLS REUTERS AFTER TALKS WITH QATARI LEADER THAT QATA,,,0.0,0.0,0.0,no fill,28031.16,27970.04,both,neither filled
+WalterBloomberg,38121,XAUUSDm,2026-11-09 20:18:52,0.01,,,,0.0,,,TRUMP TELLS REUTERS AFTER TALKS WITH QATARI LEADER THAT QATA,,,0.0,0.0,0.0,no fill,4145.062,4134.822,both,neither filled
+WalterBloomberg,38122,USTECm,2026-11-09 20:21:36,0.5,,,,0.0,28042.41,27981.29,TRUMP DEFENDS PENTAGON CHIEF HEGSETH AGAINST IMPEACHMENT EFF,,,0.0,0.0,0.0,no fill (AI veto),28042.41,27981.29,both,neither filled
+WalterBloomberg,38122,XAUUSDm,2026-11-09 20:21:36,0.01,,,,0.0,,,TRUMP DEFENDS PENTAGON CHIEF HEGSETH AGAINST IMPEACHMENT EFF,,,0.0,0.0,0.0,no fill (AI veto),4150.451,4140.191,both,neither filled
+WalterBloomberg,38123,USTECm,2026-11-09 20:22:19,0.5,,,,0.0,28041.41,27980.29,TRUMP SAYS ABU DHABI TALKS THIS WEEK ON UKRAINE PRESENT CHAN,,,0.0,0.0,0.0,no fill,28039.66,27978.54,both,neither filled
+WalterBloomberg,38123,XAUUSDm,2026-11-09 20:22:19,0.01,,,,0.0,,,TRUMP SAYS ABU DHABI TALKS THIS WEEK ON UKRAINE PRESENT CHAN,,,0.0,0.0,0.0,no fill,4150.654,4140.414,both,neither filled
+WalterBloomberg,38126,USTECm,2026-11-09 20:38:00,0.5,,,,0.0,28031.91,27970.79,"CHINA INSISTS TRUMP-XI-PUTIN SUMMIT FOLLOW SCRIPTED FORMAT, ",,,0.0,0.0,0.0,no fill (AI veto),28031.16,27970.04,both,neither filled
+WalterBloomberg,38126,XAUUSDm,2026-11-09 20:37:59,0.01,,,,0.0,,,"CHINA INSISTS TRUMP-XI-PUTIN SUMMIT FOLLOW SCRIPTED FORMAT, ",,,0.0,0.0,0.0,no fill (AI veto),4152.051,4141.811,both,neither filled
+WalterBloomberg,38127,USTECm,2026-11-09 20:38:48,0.5,,,,0.0,28029.41,27968.29,US-CHINA DISAGREEMENT THREATENS TRUMP-XI-PUTIN SUMMIT A pote,,,0.0,0.0,0.0,no fill (AI veto),28029.91,27968.79,both,neither filled
+WalterBloomberg,38127,XAUUSDm,2026-11-09 20:38:48,0.01,,,,0.0,,,US-CHINA DISAGREEMENT THREATENS TRUMP-XI-PUTIN SUMMIT A pote,,,0.0,0.0,0.0,no fill (AI veto),4148.793,4138.553,both,neither filled
+WalterBloomberg,38140,XAUUSDm,2026-11-10 11:02:45,0.01,,,,0.0,,,"71% OF AMERICANS WANT CONGRESS TO END IRAN WAR, 62% BACK REP",,,0.0,0.0,0.0,no fill (AI veto),4078.456,4068.216,both,neither filled
+WalterBloomberg,38142,XAUUSDm,2026-11-10 11:06:23,0.01,,,,0.0,,,$MSFT - MICROSOFT WARNS CHINESE COMPONENT BAN COULD HALT US ,,,0.0,0.0,0.0,no fill,4076.557,4066.317,both,neither filled
+WalterBloomberg,38157,XAUUSDm,2026-11-10 12:49:03,0.01,,,,0.0,,,FED HIKE EXPECTATIONS NEAR UNANIMOUS All 101 economists surv,,,0.0,0.0,0.0,no fill (AI veto),4081.591,4071.351,both,neither filled
+WalterBloomberg,38159,XAUUSDm,2026-11-10 12:55:47,0.01,,,,0.0,,,GOLD PLUNGES 1.6% AS FED RATE HIKE FEARS SURGE Gold ($XAUUSD,,,0.0,0.0,0.0,no fill,4081.835,4071.595,both,neither filled
+WalterBloomberg,38162,XAUUSDm,2026-11-10 13:09:27,0.01,,,,0.0,,,TRUMP CONSIDERS SWEEPING EUROPEAN SECURITY DEAL WITH RUSSIA ,,,0.0,0.0,0.0,no fill (AI veto),4083.825,4073.585,both,neither filled
+WalterBloomberg,38178,XAUUSDm,2026-11-10 14:03:50,0.01,,,,0.0,,,FED COULD ACCELERATE RATE HIKES AFTER HOT INFLATION REPORT T,,,0.0,0.0,0.0,no fill,4063.321,4053.081,both,neither filled
+WalterBloomberg,38180,XAUUSDm,2026-11-10 14:13:10,0.01,,,,0.0,,,"US INFLATION SURGE HITS TRANSPORTATION, FOOD AND ELECTRONICS",,,0.0,0.0,0.0,no fill (AI veto),4059.244,4049.004,both,neither filled
+WalterBloomberg,38188,XAUUSDm,2026-11-10 15:21:18,0.01,,,,0.0,,,WALL STREET WARNS FED COULD HIKE RATES IN BOTH DECEMBER AND ,,,0.0,0.0,0.0,no fill (AI veto),4056.492,4046.252,both,neither filled
+WalterBloomberg,38190,XAUUSDm,2026-11-10 15:48:57,0.01,SELL,4038.14,2026-11-10 15:50:03,1.0,,,GORDON JOHNSON SLAMS FED FOR EXPANDING BALANCE SHEET AS INFL,SELL,4037.892,1794325802.0,1.0,-3.0,stop loss,4048.426,4038.186,both,"both filled, same side"
+apewirenews,1601,XAUUSDm,2026-10-28 18:00:04,0.01,,,,0.0,,,*FED HOLDS RATES AT 3.75-4% @apewirenews,,,0.0,0.0,0.0,no fill (AI veto),4050.951,4038.691,both,neither filled
+apewirenews,1612,XAUUSDm,2026-10-30 20:01:04,0.01,,,,0.0,,,*TRUMP: LOOKING AT BINANCE HACK: BBG $BNB @apewirenews,,,0.0,0.0,0.0,no fill (AI veto),3887.943,3875.703,both,neither filled
+apewirenews,1618,USTECm,2026-11-02 19:52:10,0.1,,,,0.0,28165.26,28114.14,"*TRUMP: IRAN ASKED TO STOP KILLING ITS LEADERS, WE WILL $CL ",,,0.0,0.0,0.0,no fill,28166.26,28115.14,both,neither filled
+apewirenews,1618,XAUUSDm,2026-11-02 19:52:08,0.01,,,,0.0,,,"*TRUMP: IRAN ASKED TO STOP KILLING ITS LEADERS, WE WILL $CL ",,,0.0,0.0,0.0,no fill,3950.309,3938.069,both,neither filled
+apewirenews,1639,USTECm,2026-11-09 21:05:06,0.5,,,,0.0,27960.41,27899.29,TAKE TWO INTERACTIVE SOFTWARE Q2 EARNINGS ⚪ EPS -$0.29 🔴 Rev,,,0.0,0.0,0.0,no fill,27960.66,27899.54,both,neither filled
+apewirenews,1639,XAUUSDm,2026-11-09 21:05:06,0.01,,,,0.0,,,TAKE TWO INTERACTIVE SOFTWARE Q2 EARNINGS ⚪ EPS -$0.29 🔴 Rev,,,0.0,0.0,0.0,no fill,4144.56,4134.32,both,neither filled

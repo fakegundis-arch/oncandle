@@ -36,6 +36,7 @@ import os
 import re
 import sys
 from dataclasses import dataclass, field
+from types import SimpleNamespace
 from pathlib import Path
 
 import numpy as np
@@ -66,33 +67,47 @@ SCENARIOS = {
     "ai_real": dict(lat=2, slip=1.0, exit_slip=0.0, ai="real"),
     # calibrated on the bot's own log (live_check.py, Oct 25 - Nov 10): armed a median 2 s after the post, priced from
     # the last quote BEFORE that second (qb), stops filled at their price (no extra spread)
-    "live": dict(lat=2, slip=0.0, exit_slip=0.0, ai="keep", qb=True),
-    "live_ai_real": dict(lat=2, slip=0.0, exit_slip=0.0, ai="real", qb=True),
+    "live": dict(lat=2, slip=0.0, exit_slip=0.0, ai="keep", qb=True, fill="last"),
+    "live_ai_real": dict(lat=2, slip=0.0, exit_slip=0.0, ai="real", qb=True, fill="last"),
+    # the bot as configured today, whole period: real AI verdicts where they exist, the classifier's estimate elsewhere
+    "main": dict(lat=2, slip=0.0, exit_slip=0.0, ai="est", qb=True, fill="last"),
+    "main_lat1": dict(lat=1, slip=0.0, exit_slip=0.0, ai="est", qb=True, fill="last"),
+    "main_lat3": dict(lat=3, slip=0.0, exit_slip=0.0, ai="est", qb=True, fill="last"),
+    "main_lat4": dict(lat=4, slip=0.0, exit_slip=0.0, ai="est", qb=True, fill="last"),
+    "main_perfect_fills": dict(lat=2, slip=0.0, exit_slip=0.0, ai="est", qb=True, fill="stop"),
 }
 _VERDICTS: dict = {}
 
 
-def real_veto(ch: str, pid: int, det: int):
-    """The bot's own AI review (ai_verdicts_last30.csv, gpt-4o-mini): cancel the unfilled orders at det + the measured
-    response time when the verdict is a clear no; no verdict / an error -> kept (the bot fails open)."""
+def real_veto(ch: str, pid: int, det: int, estimate: bool = False):
+    """Cancel the unfilled orders when the AI review said no; None = kept (also on an API error: the bot fails open).
+    Verdicts, best first: the one the LIVE bot got (ai_verdicts_live_log.csv, with its real delay), my recorded run of
+    the bot's own checker (ai_verdicts_last30.csv, Oct 11 - Nov 9, measured delay), and - only with estimate=True -
+    the classifier's estimate for posts never reviewed (ai_verdicts_estimated.csv, ~80 % agreement, delay AI_DELAY)."""
     if not _VERDICTS:
-        f = OUT / "ai_verdicts_last30.csv"
-        if f.exists():
-            v = pd.read_csv(f)
-            for r in v.itertuples():
-                _VERDICTS[(r.channel, int(r.post_id))] = (bool(r.ok), str(r.error) if isinstance(r.error, str) else "",
-                                                          float(r.latency_s))
+        _VERDICTS[("", 0)] = None
+        for name, kind in (("ai_verdicts_estimated.csv", "est"), ("ai_verdicts_last30.csv", "mine"),
+                           ("ai_verdicts_live_log.csv", "live")):          # later files overwrite earlier ones
+            f = OUT / name
+            if not f.exists():
+                continue
+            for r in pd.read_csv(f).itertuples():
+                err = str(getattr(r, "error", "")) if isinstance(getattr(r, "error", None), str) else ""
+                lat = float(getattr(r, "latency_s", AI_DELAY)) if kind != "est" else float(AI_DELAY)
+                _VERDICTS[(r.channel, int(r.post_id))] = (bool(r.ok), err, lat if lat == lat else float(AI_DELAY), kind)
     hit = _VERDICTS.get((ch, int(pid)))
-    if hit is None or hit[0] or hit[1]:
+    if hit is None or hit[0] or hit[1] or (hit[3] == "est" and not estimate):
         return None
-    return det + int(np.ceil(hit[2]))
+    return det + max(1, int(np.ceil(hit[2])))
+
+
 AI_DELAY = 3                 # seconds from arming to the AI verdict (gpt-4o-mini round trip)
 
 
 # ------------------------------------------------------------------ data
 def load_posts() -> pd.DataFrame:
     rows = []
-    for f in glob.glob(str(ROOT / "data/telegram/history/*.jsonl")):
+    for f in sorted(glob.glob(str(ROOT / "data/telegram/history/*.jsonl"))):   # earliest download of a post wins
         b = os.path.basename(f)
         ch = next((v for k, v in CHANNEL.items() if b.startswith(k)), None)
         if ch is None:
@@ -263,12 +278,35 @@ def market_shut(tk, ts) -> bool:
     i = np.searchsorted(tk["t"], ts, side="right")            # first bar after ts
     prev_t = tk["t"][i - 1] if i > 0 else -10**12
     next_t = tk["t"][i] if i < len(tk["t"]) else 10**12
-    return next_t - prev_t >= GAP and ts - prev_t > 60
+    return next_t - prev_t >= GAP and ts > prev_t     # nothing quotes for 10+ minutes from here: the session is shut
 
 
-def simulate(name, tk, t_arm, buy_px, sell_px, sl_d, tp_d, cancel_after, stages, trail, veto_ts, slip, exit_slip):
+MIN_DIST = {"XAUUSDm": 0.0, "USTECm": 15.0}
+
+
+def simulate(name, tk, t_arm, buy_px, sell_px, sl_d, tp_d, cancel_after, stages, trail, veto_ts, slip, exit_slip,
+             min_dist=None, fill_model="stop", sl_model="stop"):
     """One straddle from arming to the last exit -> (positions, close_ts).  Bars are processed second by second;
-    the bot's management runs at t_arm, t_arm + 2, ... on the latest quote before that moment."""
+    the bot's management runs at t_arm, t_arm + 2, ... on the latest quote before that moment.
+
+    min_dist: the broker's real minimum distance between the price and an SL / TP being set or moved.  The bot reads
+    stops_level 0 from MT5 and so tries anything on the right side of the price, but the live log shows Exness
+    rejecting USTECm stops closer than about 15 points ("bad stops" 270 times while <15 away, accepted from 15.4);
+    gold was accepted from under 1.5 away, so none is assumed there.  A rejected SL is retried every loop, as live."""
+    if min_dist is None:
+        min_dist = MIN_DIST.get(name, 0.0)
+    # fill_model / sl_model "last": a stop that triggers inside a second is filled at the worse of its price and that
+    # second's last quote (a market order sent into a fast move).  Against the live fills this beats "at the stop
+    # price": the Nov 10 09:01 gold SELL (stop ~4096.0, live fill 4093.23, model 4093.77), USTECm Nov 5 16:36 (live
+    # 9.47 beyond, model 8.23), Nov 9 19:39 (4.24 / 2.99); mean abs error 1.07 vs 1.34 points (USTECm), 0.40 vs 0.52 $.
+
+    def far_enough(side, level, sym, is_tp=False):
+        if not level:
+            return True
+        if (side == BUY) != is_tp:                 # BUY's SL / SELL's TP sit below the price
+            return level <= sym.bid - min_dist
+        return level >= sym.ask + min_dist
+    m1days = M1_FILLED.get(name, ())           # days priced from 1-minute bars: a bar's last quote is a minute away
     T = tk["t"]
     pend = {"BUY": buy_px, "SELL": sell_px}
     pos: list[Pos] = []
@@ -287,8 +325,9 @@ def simulate(name, tk, t_arm, buy_px, sell_px, sl_d, tp_d, cancel_after, stages,
         for p in live:                                         # sl_tp_after_fill
             if not p.attached:
                 sl, tp = sltp_from_fill_dist(p.side, p.fill, sl_d, tp_d, sym)
-                ok_sl = (sl == 0.0) or sl_placeable_now(p.side, sl, sym)
-                ok_tp = (tp == 0.0) or (tp > sym.bid if p.side == BUY else tp < sym.ask)
+                ok_sl = (sl == 0.0) or (sl_placeable_now(p.side, sl, sym) and far_enough(p.side, sl, sym))
+                ok_tp = (tp == 0.0) or ((tp > sym.bid if p.side == BUY else tp < sym.ask)
+                                        and far_enough(p.side, tp, sym, is_tp=True))
                 if ok_sl and ok_tp:
                     p.sl, p.tp, p.attached = sl, tp, True
         if live and not triggered:                            # OCO
@@ -304,13 +343,13 @@ def simulate(name, tk, t_arm, buy_px, sell_px, sl_d, tp_d, cancel_after, stages,
             if stages:                                         # break-even, wicks
                 basis = max(p.best, sym.bid) if p.side == BUY else min(p.best, sym.ask)
                 new_sl = staged_break_even_sl(p.side, p.fill, basis, p.sl, stages, sym)
-                if new_sl is not None and sl_placeable_now(p.side, new_sl, sym):
+                if new_sl is not None and sl_placeable_now(p.side, new_sl, sym) and far_enough(p.side, new_sl, sym):
                     p.sl = new_sl
                     p.be_stage += 1
             if trail is not None:                              # social trailing stop
                 price = sym.bid if p.side == BUY else sym.ask
                 new_sl = trailing_sl(p.side, p.fill, price, p.sl, trail.start, trail.distance, trail.step, sym)
-                if new_sl is not None:
+                if new_sl is not None and far_enough(p.side, new_sl, sym):
                     p.sl, p.trailed = new_sl, True
         if not pend and not [p for p in pos if not p.exit_ts]:
             closed_ts = now
@@ -334,6 +373,8 @@ def simulate(name, tk, t_arm, buy_px, sell_px, sl_d, tp_d, cancel_after, stages,
                 hit_tp = p.tp and (first >= p.tp or hi >= p.tp)
                 if hit_sl:
                     p.exit = (first if first <= p.sl else p.sl) - exit_slip * sp
+                    if sl_model == "last":
+                        p.exit = min(p.exit, tk["bid_last"][i])
                 elif hit_tp:
                     p.exit = first if first >= p.tp else p.tp
             else:
@@ -342,6 +383,8 @@ def simulate(name, tk, t_arm, buy_px, sell_px, sl_d, tp_d, cancel_after, stages,
                 hit_tp = p.tp and (first <= p.tp or lo <= p.tp)
                 if hit_sl:
                     p.exit = (first if first >= p.sl else p.sl) + exit_slip * sp
+                    if sl_model == "last":
+                        p.exit = max(p.exit, tk["ask_last"][i])
                 elif hit_tp:
                     p.exit = first if first <= p.tp else p.tp
             if hit_sl or hit_tp:
@@ -359,10 +402,14 @@ def simulate(name, tk, t_arm, buy_px, sell_px, sl_d, tp_d, cancel_after, stages,
                 p.best = max(p.best, tk["bid_max"][i]) if p.side == BUY else min(p.best, tk["ask_min"][i])
         if "BUY" in pend and tk["ask_max"][i] >= pend["BUY"]:  # pending stop triggers
             fill = max(pend["BUY"], af) + slip * sp
+            if fill_model == "last" and b // 86400 * 86400 not in m1days:
+                fill = max(fill, tk["ask_last"][i])
             pos.append(Pos(BUY, b, fill, "BUY", best=fill))
             del pend["BUY"]
         if "SELL" in pend and tk["bid_min"][i] <= pend["SELL"]:
             fill = min(pend["SELL"], bf) - slip * sp
+            if fill_model == "last" and b // 86400 * 86400 not in m1days:
+                fill = min(fill, tk["bid_last"][i])
             pos.append(Pos(SELL, b, fill, "SELL", best=fill))
             del pend["SELL"]
         i += 1
@@ -377,96 +424,136 @@ def simulate(name, tk, t_arm, buy_px, sell_px, sl_d, tp_d, cancel_after, stages,
 
 
 # ------------------------------------------------------------------ replay
-def replay(cfg, posts, ticks, windows, sc) -> tuple[pd.DataFrame, pd.DataFrame]:
-    mode = cfg.keyword_match
+def derive(cfg) -> SimpleNamespace:
+    """Everything the Telegram path reads from one config."""
     prof = cfg.telegram_feed.profile_for(cfg.x_feed.defaults)
-    et, nb, comp = cfg.x_feed.emoji_trigger, cfg.news_blackout, cfg.companion
-    stages = break_even_stages(cfg.strategy) if cfg.strategy.break_even_enabled else []
-    trail = cfg.social_trailing_stop if (cfg.social_trailing_stop.enabled and "telegram" in cfg.social_trailing_stop.feeds) else None
-    ctrail = comp.trailing if comp.trailing.enabled else None
-    cstages = break_even_stages(comp) if comp.break_even_enabled else []
-    gmo = cfg.global_max_open
-    cap = gmo.max_open if (gmo.enabled and "telegram" in gmo.feeds) else 10**9
-    per_channel = prof.max_open
-    gold, nas = ticks[cfg.symbol], ticks[comp.symbol]
+    comp, gmo, ts = cfg.companion, cfg.global_max_open, cfg.social_trailing_stop
+    return SimpleNamespace(
+        cfg=cfg, mode=cfg.keyword_match, prof=prof, et=cfg.x_feed.emoji_trigger, nb=cfg.news_blackout, comp=comp,
+        stages=break_even_stages(cfg.strategy) if cfg.strategy.break_even_enabled else [],
+        trail=ts if (ts.enabled and ts.distance > 0 and "telegram" in ts.feeds) else None,
+        cstages=break_even_stages(comp) if comp.break_even_enabled else [],
+        ctrail=comp.trailing if (comp.trailing.enabled and comp.trailing.distance > 0) else None,
+        cap=gmo.max_open if (gmo.enabled and "telegram" in gmo.feeds) else 10**9,
+        channels={c.lstrip("@").lower() for c in cfg.telegram_feed.channels})
+
+
+def replay(cfg, posts, ticks, windows, sc, live=None) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Post by post.  `live` (as_live.LiveCtx) switches to the as-live check: the settings in force at each moment,
+    the bot's real arming second and AI verdicts, restarts that wipe its memory, and the X / Trump straddles that
+    held the shared slots - everything else is the same code path as the normal backtest."""
+    today = derive(cfg)
+    gold, nas = ticks[cfg.symbol], ticks[cfg.companion.symbol]
+    gold_end, nas_end = int(gold["t"][-1]), int(nas["t"][-1])
     wstart = np.array([w[0] for w in windows])
-    open_gold: list = []          # (close_ts, channel)
+    side = "left" if sc.get("qb") else "right"
+    open_gold: list = []          # (close_ts, channel) of Telegram gold straddles still open
     open_comp_until = -1
     recent: dict = {}
+    epoch = None
     decisions, trades = [], []
-    gold_end, nas_end = int(gold["t"][-1]), int(nas["t"][-1])
+
+    def note(p, text):
+        decisions.append((int(p.ts), p.ch, int(p.id), text))
+
     for p in posts.itertuples():
-        det = int(p.ts) + sc["lat"]
-        if det > gold_end:
-            decisions.append((p.ts, p.ch, "no price data yet"))
+        if live is not None:
+            det = live.det(p.ch, p.id)
+            if det is None:                       # the live bot never received it (offline, or not watching yet)
+                continue
+            d = live.settings(det)
+            if live.epoch(det) != epoch:          # a restart: the bot's stores and dedupe cache start empty
+                epoch, open_gold, open_comp_until, recent = live.epoch(det), [], -1, {}
+        else:
+            det, d = int(p.ts) + sc["lat"], today
+        if p.ch.lower() not in d.channels:
             continue
-        flag = emoji_flag(p.text, et, mode)
-        ok, why = post_tradable(p, prof, mode, sc["lat"], keyword_bypass=bool(flag))
+        prof, comp = d.prof, d.comp
+        if det > gold_end:
+            note(p, "no price data yet")
+            continue
+        flag = emoji_flag(p.text, d.et, d.mode)
+        age = live.age(p.ch, p.id, det - int(p.ts)) if live is not None else det - int(p.ts)
+        ok, why = post_tradable(p, prof, d.mode, age, keyword_bypass=bool(flag))
         if not ok:
-            decisions.append((p.ts, p.ch, why))
+            note(p, why)
             continue
         # _social_open_blocked, in the bot's order
         k = np.searchsorted(wstart, det, side="right")
-        if any(w[0] <= det < w[1] for w in windows[max(0, k - 40):k]) and "telegram" in nb.feeds and nb.enabled:
-            decisions.append((p.ts, p.ch, "USD news blackout"))
+        if d.nb.enabled and "telegram" in d.nb.feeds and any(w[0] <= det < w[1] for w in windows[max(0, k - 40):k]):
+            note(p, "USD news blackout")
             continue
         open_gold = [g for g in open_gold if g[0] > det]
-        if len([g for g in open_gold if g[1] == p.ch]) >= per_channel:
-            decisions.append((p.ts, p.ch, "channel max_open"))
+        if len([g for g in open_gold if g[1] == p.ch]) >= prof.max_open:
+            note(p, "channel max_open")
             continue
-        if len(open_gold) >= cap:
-            decisions.append((p.ts, p.ch, "global cap"))
+        if len(open_gold) + (live.global_holders(det) if live is not None else 0) >= d.cap:
+            note(p, "global cap")
             continue
         key = content_key(p.text)
         recent = {kk: v for kk, v in recent.items() if det - v <= 600}
         if key and key in recent:
-            decisions.append((p.ts, p.ch, "duplicate content"))
+            note(p, "duplicate content")
             continue
         if key:
             recent[key] = det
         if market_shut(gold, det):
-            decisions.append((p.ts, p.ch, "market shut (orders rejected)"))
+            note(p, "market shut (orders rejected)")
             continue
-        j = int(np.searchsorted(gold["t"], det, side="left" if sc.get("qb") else "right")) - 1
+        j = int(np.searchsorted(gold["t"], det, side=side)) - 1
         sym = sym_info(cfg.symbol, gold, j)
         buy = round_price(sym.ask + prof.entry_offset, sym)
         sell = round_price(sym.bid - prof.entry_offset, sym)
-        if sc["ai"] == "real":
-            veto = None if flag else real_veto(p.ch, p.id, det)
+        if live is not None:
+            veto = None if flag else live.veto(p.ch, p.id)
+        elif sc["ai"] in ("real", "est"):
+            veto = None if flag else real_veto(p.ch, p.id, det, estimate=sc["ai"] == "est")
         else:
             veto = det + AI_DELAY if (not flag and ai_vetoes(p.text, sc["ai"])) else None
         pos, close = simulate(cfg.symbol, gold, det, buy, sell, prof.stop_loss, prof.take_profit,
-                              prof.cancel_after_seconds, stages, trail, veto, sc["slip"], sc["exit_slip"])
+                              prof.cancel_after_seconds, d.stages, d.trail, veto, sc["slip"], sc["exit_slip"],
+                              fill_model=sc.get("fill", "stop"), sl_model=sc.get("sl", "stop"))
         open_gold.append((close, p.ch))
-        decisions.append((p.ts, p.ch, "ARMED" + (f" ({flag} fast track)" if flag else "")))
+        note(p, "ARMED" + (f" ({flag} fast track)" if flag else ""))
         base = dict(post_ts=int(p.ts), channel=p.ch, post_id=int(p.id), flag=flag or "", text=p.text[:200],
                     armed_ts=det, ai_veto=veto is not None)
-        lot = prof.lot
-        for q in pos:
-            trades.append(dict(base, symbol=cfg.symbol, side=q.side, fill_ts=q.fill_ts, fill=q.fill, exit_ts=q.exit_ts,
-                               exit=q.exit, exit_reason=q.why, lot=lot,
-                               usd=(q.exit - q.fill) * (1 if q.side == BUY else -1) * lot * SPEC[cfg.symbol]["contract"]))
-        if not pos:
-            trades.append(dict(base, symbol=cfg.symbol, side="", fill_ts=0, fill=np.nan, exit_ts=close, exit=np.nan,
-                               exit_reason="no fill" + (" (AI veto)" if veto is not None and close < det + prof.cancel_after_seconds else ""),
-                               lot=lot, usd=0.0))
-        # companion (USTECm): only when gold armed, and only if no companion is open
-        if comp.enabled and "telegram" in comp.feeds and det > nas_end:
+
+        def rows(symbol, lot, ps, cl, buy_px, sell_px):
+            c = SPEC[symbol]["contract"]
+            for q in ps:
+                trades.append(dict(base, symbol=symbol, side=q.side, fill_ts=q.fill_ts, fill=q.fill, exit_ts=q.exit_ts,
+                                   exit=q.exit, exit_reason=q.why, lot=lot, buy_stop=buy_px, sell_stop=sell_px,
+                                   usd=(q.exit - q.fill) * (1 if q.side == BUY else -1) * lot * c))
+            if not ps:
+                vetoed = veto is not None and cl < det + 119
+                trades.append(dict(base, symbol=symbol, side="", fill_ts=0, fill=np.nan, exit_ts=cl, exit=np.nan,
+                                   exit_reason="no fill" + (" (AI veto)" if vetoed else ""), lot=lot,
+                                   buy_stop=buy_px, sell_stop=sell_px, usd=0.0))
+
+        rows(cfg.symbol, prof.lot, pos, close, buy, sell)
+        # companion (USTECm): only when gold armed, and only if no companion is open (its max_open)
+        if not (comp.enabled and "telegram" in comp.feeds):
+            continue
+        skip = None
+        if det > nas_end:
+            skip = "no Nasdaq price data yet"
+        elif det < open_comp_until or (live is not None and live.comp_busy(det)):
+            skip = "not armed: a Nasdaq straddle was still open"
+        elif market_shut(nas, det):
+            skip = "not armed: Nasdaq closed"
+        if skip:
             trades.append(dict(base, symbol=comp.symbol, side="", fill_ts=0, fill=np.nan, exit_ts=0, exit=np.nan,
-                               exit_reason="no Nasdaq price data yet", lot=comp.lot, usd=0.0))
-        elif comp.enabled and "telegram" in comp.feeds and det >= open_comp_until and not market_shut(nas, det):
-            jn = int(np.searchsorted(nas["t"], det, side="left" if sc.get("qb") else "right")) - 1
-            nsym = sym_info(comp.symbol, nas, jn)
-            nb_, ns_ = round_price(nsym.ask + comp.entry_offset, nsym), round_price(nsym.bid - comp.entry_offset, nsym)
-            cpos, cclose = simulate(comp.symbol, nas, det, nb_, ns_, comp.stop_loss, comp.take_profit,
-                                    comp.cancel_after_seconds, cstages, ctrail, veto, sc["slip"], sc["exit_slip"])
-            open_comp_until = cclose
-            for q in cpos:
-                trades.append(dict(base, symbol=comp.symbol, side=q.side, fill_ts=q.fill_ts, fill=q.fill,
-                                   exit_ts=q.exit_ts, exit=q.exit, exit_reason=q.why, lot=comp.lot,
-                                   usd=(q.exit - q.fill) * (1 if q.side == BUY else -1) * comp.lot
-                                   * SPEC[comp.symbol]["contract"]))
-    dec = pd.DataFrame(decisions, columns=["post_ts", "channel", "decision"])
+                               exit_reason=skip, lot=comp.lot, usd=0.0))
+            continue
+        jn = int(np.searchsorted(nas["t"], det, side=side)) - 1
+        nsym = sym_info(comp.symbol, nas, jn)
+        nb_, ns_ = round_price(nsym.ask + comp.entry_offset, nsym), round_price(nsym.bid - comp.entry_offset, nsym)
+        cpos, cclose = simulate(comp.symbol, nas, det, nb_, ns_, comp.stop_loss, comp.take_profit,
+                                comp.cancel_after_seconds, d.cstages, d.ctrail, veto, sc["slip"], sc["exit_slip"],
+                                fill_model=sc.get("fill", "stop"), sl_model=sc.get("sl", "stop"))
+        open_comp_until = cclose
+        rows(comp.symbol, comp.lot, cpos, cclose, nb_, ns_)
+    dec = pd.DataFrame(decisions, columns=["post_ts", "channel", "post_id", "decision"])
     return pd.DataFrame(trades), dec
 
 

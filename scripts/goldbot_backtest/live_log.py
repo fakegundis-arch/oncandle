@@ -18,6 +18,7 @@ def parse(path):
     cur = None                      # the post whose NOTIFY line came last (its URL line follows)
     last_recv = {}
     armed_by_title = []             # (title prefix, post key) of straddles in arming order
+    awaiting = []                   # armed, reviewed posts still waiting for their AI verdict
     for raw in open(path, encoding="utf-8", errors="replace"):
         raw = raw.rstrip("\n")
         if raw.startswith("https://t.me/"):
@@ -36,11 +37,31 @@ def parse(path):
         if r:
             last_recv[r.group(1)] = (t, float(r.group(2)), r.group(3))
             continue
-        r = re.match(r"NOTIFY \| 📣 @(\w+) \((\d+)s ago\): (.*)", msg)
+        r = re.match(r"NOTIFY \| 📣 @(\w+)(?: [↩🔁])? \((\d+)s ago(?:, \d+s queued)?\): (.*)", msg)
         if r:
             ch = r.group(1)
             rt, lat, via = last_recv.get(ch, (t, float("nan"), ""))
             cur = dict(recv_utc=rt, latency_s=lat, via=via, text=r.group(3), decision="", key=None)
+            continue
+        if msg.startswith(("NOTIFY | 🐦 @", "NOTIFY | 🇺🇸 TRUMP POST")):
+            cur = None                  # another feed's post: what follows is about it, not the last Telegram post
+            continue
+        if "NewsBot starting" in msg:
+            awaiting.clear()
+            cur = None
+            continue
+        awaiting[:] = [a for a in awaiting if (t - posts[a]["armed_utc"]).total_seconds() <= 40]   # 20-s API timeout
+        if msg.startswith("TELEGRAM post review vetoed but the straddle is already"):
+            if awaiting:
+                awaiting.pop(0)         # the verdict came after the straddle had finished: nothing was cancelled
+            continue
+        if msg.startswith("NOTIFY | 🤖 TELEGRAM review:"):
+            # verdicts come back a few seconds after arming, possibly after later posts: oldest unanswered straddle
+            if awaiting:
+                q = posts[awaiting.pop(0)]
+                q["ai"] = "keep" if "review: keep" in msg else "close"
+                q["ai_text"] = msg.split("review:", 1)[1].strip()[:120]
+                q["ai_utc"] = t
             continue
         if cur is None:
             continue
@@ -52,7 +73,7 @@ def parse(path):
             p["decision"] = re.sub(r"^Telegram post NOT traded \(@\w+, ([^)]*)\).*", r"\1", msg)
         elif msg.startswith("Max TELEGRAM straddles open"):
             p["decision"] = "channel max_open"
-        elif msg.startswith("Global cap reached"):
+        elif msg.startswith("Global cap reached") and "skip telegram" in msg:
             p["decision"] = "global cap"
         elif "USD news blackout" in msg and "not traded" in msg:
             p["decision"] = "USD news blackout"
@@ -64,16 +85,14 @@ def parse(path):
             p["gold_lots"] = float(r.group(2)) if r else None
             p["armed_utc"] = t
             armed_by_title.append((p["text"][:40], k))
+            if "flagged" not in msg:
+                awaiting.append(k)
         elif msg.startswith("NOTIFY | ⚠️ TELEGRAM straddle placed NO orders"):
             p["decision"] = "NO orders: " + msg.split("—")[-1].strip()
         elif msg.startswith("NOTIFY | 📊 Armed USTECm straddle alongside gold (TELEGRAM)"):
             r = re.search(r"([\d.]+) lots, ([\d.]+) / ([\d.]+)", msg)
             if r:
                 p["nas_lots"], p["nas_buy"], p["nas_sell"] = float(r.group(1)), float(r.group(2)), float(r.group(3))
-        elif msg.startswith("NOTIFY | 🤖 TELEGRAM review:"):
-            p["ai"] = "keep" if "review: keep" in msg else "close"
-            p["ai_text"] = msg.split("review:", 1)[1].strip()[:120]
-            p["ai_utc"] = t
         r = re.match(r"NOTIFY \| (.{1,60}): (BUY|SELL) filled @ ([\d.]+) — set SL ([\d.]+) / TP ([\d.]+)", msg)
         if r:
             fills.append(dict(utc=t, title=r.group(1), side=r.group(2), price=float(r.group(3)), sl=float(r.group(4)),
